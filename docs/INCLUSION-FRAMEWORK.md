@@ -82,9 +82,24 @@ Unchanged from v1 (`METHODOLOGY.md` §3), with two additions: the precedence dat
 - **Right of reply.** Developers can contest an entry with evidence through the corrections process; decisions and reasons are public.
 - **Conflict-of-interest statement** from the maintainer and any coder, published in the README.
 
-## 9. What adoption would change
+## 9. Decision log and shadow table
+
+The registry records **why** each call was made and keeps every asset it rules out in view, so its own method can be audited and its count reconciled with anyone else's.
+
+**Decision log — `data/decisions.csv` (append-only).** One row per decision: include, exclude, move between tracks, promote from Watchlist, reclassify. Fields: `decision_id`, `date`, `molecule_id`, `from` (track/status), `to`, `reason_code`, `rationale` (one or two sentences), `evidence` (links), `decided_by` (coder initials; adjudicator where coders disagreed), `criteria_version`. Rows are never edited or deleted; a reversal is a new row that cites the one it reverses. Every current row in Core, a track, the Watchlist or the shadow table must trace to at least one decision.
+
+**Shadow table — `data/shadow.csv`.** Every asset that someone else has described as AI-generated, AI-discovered or AI-enabled, but which this registry does not count in Core. Fields: `molecule`, `developer`, `claimed_by` (eg, BCG/Jayatunga 2024; Greenblatt & Geoui 2026; ASCO 2026; developer press; trade trackers), `their_definition`, `our_track` (Watchlist / sensitivity / repurposing / vaccine / excluded), `reason_code`, `decision_id`, `last_reviewed`. Purposes:
+- **Not blind to our own method.** Exclusions stay visible and re-reviewable; a criteria change can be re-run over the shadow table rather than re-searched from scratch.
+- **Reconciliation with other counts.** A published crosswalk shows, for each external list, how many of its assets are in Core, in a track, on the Watchlist or excluded, and why — turning "why is your number smaller?" into a table.
+- **Promotion path.** When evidence arrives, a shadow asset moves to Core through a logged decision.
+
+The current `excluded.csv` (37 rows) and the 55 borderline rows seed both files at v2.0; the external lists are crosswalked where they are published (Jayatunga 2024 supplement; Greenblatt & Geoui on Zenodo). ASCO 2026's 117 cannot be crosswalked until its list is released.
+
+## 10. What adoption would change
 
 - The headline stays one number, the Core count, now split into AI-originated and AI-optimised.
 - Repurposing, vaccine and physics-based entries move from "borderline" to named tracks with their own counts.
 - Platform-only, secondary-only and retrofit entries become a Watchlist with a stated path to Core.
-- Every row gets a contribution code and, if not Core, a reason code. This requires recoding all 109 current entries: about a day, plus second coding.
+- Every row gets a contribution code and, if not Core, a reason code, and traces to a logged decision.
+- Two new data files: `decisions.csv` and `shadow.csv`, plus a crosswalk against each published external count.
+- Work: recode all 109 current entries and the 37 exclusions, seed the decision log, crosswalk Jayatunga and Greenblatt. About a day, plus second coding.
