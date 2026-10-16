@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Molecules in the Clinic</title>
+<meta name="description" content="An open registry of drug candidates whose target or molecule was materially shaped by AI, and which have been dosed in humans. Counted to a written definition, sourced row by row, open to correction.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%231F4E79%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,650&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F7F6F2;--surface:#FFFFFF;--ink:#16181D;--muted:#5E6470;--faint:#8A909B;--rule:#E2E0D8;--accent:#1F4E79;--accent-soft:#E7EEF6;--good:#2E7D5B;--good-soft:#E6F3EC;--bad:#A3412F;--bad-soft:#F7E9E5;--warn:#8A6A12;--warn-soft:#F6EFD9;--serif:"Source Serif 4",Georgia,serif;--sans:"Inter",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111317;--surface:#191C22;--ink:#E9EAEE;--muted:#A3A9B4;--faint:#7C838F;--rule:#2A2E36;--accent:#8DB6E6;--accent-soft:#1E2A3A;--good:#7CC7A3;--good-soft:#16271F;--bad:#E2917F;--bad-soft:#2E1C18;--warn:#D9B85C;--warn-soft:#2B2614}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 var(--sans)}
+a{color:var(--accent)}
+.wrap{max-width:1120px;margin:0 auto;padding:40px 16px 64px}
+header h1{font:650 clamp(2rem,4.5vw,3rem)/1.1 var(--serif);margin:0 0 10px;letter-spacing:-.01em}
+header p.lede{font:500 1.15rem/1.5 var(--serif);color:var(--muted);max-width:44rem;margin:0 0 16px}
+.meta{font-size:.82rem;color:var(--faint);display:flex;flex-wrap:wrap;gap:6px 18px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+.btn{font:500 .85rem var(--sans);border:1px solid var(--rule);background:var(--surface);color:var(--ink);padding:7px 12px;border-radius:6px;text-decoration:none}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden;margin:32px 0 10px}
+.stat{background:var(--surface);padding:16px}
+.stat .n{font:650 2rem/1 var(--serif)}
+.stat .l{font-size:.8rem;color:var(--muted);margin-top:6px}
+.note{font-size:.82rem;color:var(--faint);margin:0 0 30px}
+h2{font:650 1.35rem var(--serif);margin:36px 0 10px}
+.explain{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.explain div{background:var(--surface);border:1px solid var(--rule);border-radius:8px;padding:14px 16px;font-size:.9rem}
+.explain b{display:block;margin-bottom:4px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:16px 0 12px}
+.controls input,.controls select{font:inherit;font-size:.88rem;padding:7px 10px;border:1px solid var(--rule);border-radius:6px;background:var(--surface);color:var(--ink)}
+.controls input{flex:1 1 220px}.controls select{max-width:220px}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.seg button{font:500 .85rem var(--sans);border:0;background:var(--surface);color:var(--muted);padding:7px 12px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent)}
+.count{font-size:.85rem;color:var(--muted);margin-left:auto}
+.tw{overflow-x:auto;border:1px solid var(--rule);border-radius:8px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font:600 .74rem var(--sans);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--surface);position:sticky;top:0;cursor:pointer;white-space:nowrap}
+tbody tr.row{cursor:pointer}
+tbody tr.row:hover{background:var(--accent-soft)}
+td.mol{font-weight:600}
+.pill{display:inline-block;font-size:.74rem;padding:1px 8px;border-radius:10px;white-space:nowrap}
+.p-ongoing{background:var(--good-soft);color:var(--good)}.p-stopped{background:var(--bad-soft);color:var(--bad)}.p-unknown{background:var(--warn-soft);color:var(--warn)}
+.p-precedented{background:var(--accent-soft);color:var(--muted)}.p-novel{background:var(--accent-soft);color:var(--accent)}.p-first-in-class{background:var(--accent);color:var(--surface)}.p-unclear{background:var(--warn-soft);color:var(--warn)}
+.p-borderline{background:var(--warn-soft);color:var(--warn)}
+tr.detail td{background:var(--bg);font-size:.86rem}
+.dgrid{display:grid;grid-template-columns:9rem minmax(0,1fr);gap:6px 14px}
+.dgrid dt{color:var(--muted)}.dgrid dd{margin:0;overflow-wrap:anywhere}
+.limits{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--warn);border-radius:8px;padding:14px 18px;font-size:.9rem}
+.limits ul{margin:6px 0 0;padding-left:1.1rem}
+footer{margin-top:40px;font-size:.82rem;color:var(--faint);border-top:1px solid var(--rule);padding-top:16px}
+@media (max-width:640px){.hide-sm{display:none}.dgrid{grid-template-columns:1fr}.count{margin-left:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>AI Molecules in the Clinic</h1>
+<p class="lede">An open registry of drug candidates whose target or molecule was materially shaped by AI, and which have been dosed in humans. Counted to a written definition, sourced row by row, open to correction.</p>
+<div class="meta"><span id="asof">Data as of 13 October 2026</span><span>ClinicalTrials.gov records retrieved 15 October 2026</span><span>v1.0.0</span><span>Maintained by John Milad</span></div>
+<div class="links">
+<a class="btn primary" id="lnk-correct" href="#">Propose a correction</a>
+<a class="btn" id="lnk-method" href="#">Methodology</a>
+<a class="btn" href="data/molecules.csv" download>Download molecules (CSV)</a>
+<a class="btn" href="data/trials.csv" download>Download trials (CSV)</a>
+<a class="btn" id="lnk-repo" href="#">GitHub</a>
+</div>
+</header>
+
+<section class="stats" id="stats" aria-label="Headline numbers"></section>
+<p class="note">Strict cohort only. Precedented share is of molecules with a disclosed target. Borderline entries are listed but not counted.</p>
+
+<h2>What counts</h2>
+<div class="explain">
+<div><b>Material AI role</b>Machine learning or generative methods did real work choosing the target or designing the molecule.</div>
+<div><b>Attributed to this molecule</b>The developer or a first-tier source says so for this asset, not just for the company's platform.</div>
+<div><b>Dosed in humans</b>In any registry or per a dated announcement. Borderline cases are published with the reason they miss.</div>
+</div>
+
+<h2>The registry</h2>
+<div class="controls">
+<input id="q" type="search" placeholder="Search molecule, developer, target, indication" aria-label="Search">
+<div class="seg" role="group" aria-label="Inclusion"><button id="b-strict" aria-pressed="true">Strict</button><button id="b-all" aria-pressed="false">Strict + borderline</button></div>
+<select id="f-status" aria-label="Status"><option value="">Any status</option><option>ongoing</option><option>stopped</option><option>unknown</option></select>
+<select id="f-prec" aria-label="Target precedence"><option value="">Any target</option><option>precedented</option><option>novel</option><option>first-in-class</option><option>unclear</option></select>
+<select id="f-mod" aria-label="Modality"><option value="">Any modality</option></select>
+<span class="count" id="count"></span>
+</div>
+<div class="tw"><table>
+<thead><tr>
+<th data-k="molecule">Molecule</th><th data-k="developer">Developer</th><th data-k="target" class="hide-sm">Target</th><th data-k="indication" class="hide-sm">Indication</th><th data-k="highest_phase">Phase</th><th data-k="status">Status</th><th data-k="target_precedence">Target type</th><th data-k="first_in_human_year" class="hide-sm">First dosed</th>
+</tr></thead>
+<tbody id="tb"></tbody>
+</table></div>
+
+<h2>Read before citing</h2>
+<div class="limits">
+<ul>
+<li><b>Attribution is mostly self-reported.</b> 53 of 54 strict entries rest on the developer's own statement that AI was used.</li>
+<li><b>Not yet second-coded.</b> Target-precedence calls follow a written rule but were made by one coder. Independent second coding is planned.</li>
+<li><b>The count is a range.</b> About 54, −7/+8, depending on registry coverage and on whether physics-based design counts.</li>
+<li><b>Inclusion is not an efficacy rating.</b> Being listed says nothing about whether a molecule works.</li>
+<li>Entries were assembled with AI-assisted searches and challenged by an adversarial verification pass. Every row carries its sources.</li>
+</ul>
+</div>
+
+<footer>
+<p>Cite as: Milad, J. <i>AI Molecules in the Clinic</i> (v1.0.0, data as of 13 October 2026). Data CC BY 4.0, code MIT. Independent analysis; not peer-reviewed; not affiliated with any developer listed.</p>
+</footer>
+</div>
+<script>
+const REPO="https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic";
+document.getElementById("lnk-repo").href=REPO;
+document.getElementById("lnk-method").href=REPO+"/blob/main/METHODOLOGY.md";
+document.getElementById("lnk-correct").href=REPO+"/issues/new?template=correction.md";
+let MOLS=[],TRIALS=[],mode="strict",sortK="molecule",sortDir=1,open=new Set();
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pill=(v,cls)=>v?`<span class="pill p-${esc(cls||v).replace(/\s+/g,"-")}">${esc(v)}</span>`:"";
+function regLink(id){
+ if(id.startsWith("NCT"))return `<a href="https://clinicaltrials.gov/study/${id}" target="_blank" rel="noopener">${id}</a>`;
+ if(id.startsWith("ACTRN"))return `<a href="https://www.anzctr.org.au/TrialSearch.aspx?searchTxt=${id}" target="_blank" rel="noopener">${id}</a>`;
+ if(id.startsWith("jRCT"))return `<a href="https://jrct.niph.go.jp/en-latest-detail/${id}" target="_blank" rel="noopener">${id}</a>`;
+ return esc(id);
+}
+function stats(){
+ const s=MOLS.filter(m=>m.inclusion==="strict");
+ const disc=s.filter(m=>m.target_precedence!=="unclear");
+ const prec=s.filter(m=>m.target_precedence==="precedented").length;
+ const ph3=s.filter(m=>/Phase 3/i.test(m.highest_phase)).length;
+ const items=[[s.length,"molecules in the strict cohort"],[(100*prec/disc.length).toFixed(1).replace(/\.0$/,"")+"%","on targets already precedented ("+prec+" of "+disc.length+")"],[s.filter(m=>m.target_precedence==="first-in-class").length,"on first-in-class targets"],[ph3,"now in Phase 3"],[0,"approved"],[s.filter(m=>m.status==="stopped").length,"stopped"]];
+ $("stats").innerHTML=items.map(([n,l])=>`<div class="stat"><div class="n">${n}</div><div class="l">${l}</div></div>`).join("");
+}
+function rows(){
+ const q=$("q").value.trim().toLowerCase(),fs=$("f-status").value,fp=$("f-prec").value,fm=$("f-mod").value;
+ let r=MOLS.filter(m=>(mode==="all"||m.inclusion==="strict")&&(!fs||m.status===fs)&&(!fp||m.target_precedence===fp)&&(!fm||m.modality===fm)&&(!q||[m.molecule,m.developer,m.partner,m.target,m.indication].join(" ").toLowerCase().includes(q)));
+ r.sort((a,b)=>{const x=a[sortK]??"",y=b[sortK]??"";return (typeof x==="number"&&typeof y==="number"?x-y:String(x).localeCompare(String(y)))*sortDir});
+ $("count").textContent=r.length+" shown";
+ $("tb").innerHTML=r.map(m=>{
+  const tr=`<tr class="row" data-id="${esc(m.id)}"><td class="mol">${esc(m.molecule)} ${m.inclusion!=="strict"?pill("borderline"):""}</td><td>${esc(m.developer)}</td><td class="hide-sm">${esc(m.target)}</td><td class="hide-sm">${esc(m.indication)}</td><td>${esc(m.highest_phase)}</td><td>${pill(m.status)}</td><td>${pill(m.target_precedence)}</td><td class="hide-sm">${m.first_in_human_year??""}</td></tr>`;
+  if(!open.has(m.id))return tr;
+  const t=TRIALS.filter(x=>x.molecule_ids.split(";").includes(m.id));
+  const src=(m.sources||"").split(";").filter(Boolean).map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener">[${i+1}]</a>`).join(" ");
+  const regs=(m.registry_ids||"").split(";").filter(Boolean).map(regLink).join(", ");
+  const tl=t.length?t.map(x=>`${regLink(x.nct_id)} · ${esc(x.phase)} · ${esc(x.status.replace(/_/g," ").toLowerCase())}${x.why_stopped?" — "+esc(x.why_stopped):""}`).join("<br>"):"None on ClinicalTrials.gov";
+  const d=[["AI role",m.ai_role],["Attribution","Tier "+m.attribution_tier+(m.attribution_tier==="A"?" (peer-reviewed or regulatory)":m.attribution_tier==="B"?" (developer disclosure)":" (secondary only)")],["Partner",m.partner],["Modality",m.modality],["Status detail",m.status_detail],["Precedence basis",m.precedence_basis],["First in human",m.first_in_human_detail],m.inclusion!=="strict"?["Why borderline",m.inclusion_note]:null,["Notes",m.notes],["Registry IDs",regs],["Trials",tl],["Sources",src],["Confidence",m.confidence]].filter(x=>x&&x[1]);
+  return tr+`<tr class="detail"><td colspan="8"><dl class="dgrid">${d.map(([k,v])=>`<dt>${k}</dt><dd>${["Registry IDs","Trials","Sources"].includes(k)?v:esc(v)}</dd>`).join("")}</dl></td></tr>`;
+ }).join("");
+}
+document.addEventListener("click",e=>{
+ const tr=e.target.closest("tr.row");if(tr&&!e.target.closest("a")){const id=tr.dataset.id;open.has(id)?open.delete(id):open.add(id);rows()}
+ const th=e.target.closest("th[data-k]");if(th){const k=th.dataset.k;sortDir=sortK===k?-sortDir:1;sortK=k;rows()}
+});
+["q","f-status","f-prec","f-mod"].forEach(id=>$(id).addEventListener("input",rows));
+$("b-strict").onclick=()=>{mode="strict";$("b-strict").setAttribute("aria-pressed","true");$("b-all").setAttribute("aria-pressed","false");rows()};
+$("b-all").onclick=()=>{mode="all";$("b-all").setAttribute("aria-pressed","true");$("b-strict").setAttribute("aria-pressed","false");rows()};
+Promise.all([fetch("data/molecules.json").then(r=>r.json()),fetch("data/trials.json").then(r=>r.json())]).then(([m,t])=>{
+ MOLS=m.molecules;TRIALS=t.trials;
+ [...new Set(MOLS.map(x=>x.modality).filter(Boolean))].sort().forEach(v=>$("f-mod").insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`));
+ stats();rows();
+}).catch(()=>{$("tb").innerHTML='<tr><td colspan="8">Could not load the data. Download the CSVs above.</td></tr>'});
+</script>
+</body>
+</html>

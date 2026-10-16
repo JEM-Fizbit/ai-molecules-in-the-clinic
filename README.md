@@ -1,0 +1,46 @@
+# AI Molecules in the Clinic
+
+An open registry of drug candidates whose **target or molecule was materially shaped by AI or machine learning** and which have been **dosed in humans**. Every entry is counted to a written definition, sourced row by row, and open to correction.
+
+**Snapshot:** as of 13 October 2026 · trials retrieved 15 October 2026 · v1.0.0
+
+| | |
+|---|---|
+| Strict cohort | **54** molecules |
+| Targets already precedented (of 51 disclosed) | 37 (72.5%) |
+| First-in-class targets | 5 |
+| Reached Phase 2 or later / now in Phase 3 | 11 / 4 |
+| Approved | 0 |
+| Stopped (discontinued, terminated, deprioritised) | 15 |
+| AI role documented beyond the developer's own word | 1 of 54 |
+| Borderline entries (published, not counted) | 55 |
+
+## Why this exists
+
+Counts of "AI-discovered drugs" in the clinic range from about 50 to more than 100 depending on who is counting and what they ask. Most published counts don't release their list or their rules. This one does both, so anyone can check a row, disagree with a call, or recount under a different definition.
+
+## What's here
+
+| File | Contents |
+|---|---|
+| [`data/molecules.csv`](data/molecules.csv) / `.json` | Strict and borderline entries, one row per molecule, with sources |
+| [`data/trials.csv`](data/trials.csv) / `.json` | ClinicalTrials.gov records for the strict cohort (80 trials, 47 molecules) |
+| [`data/candidates.csv`](data/candidates.csv) | Possible entries still being checked |
+| [`data/excluded.csv`](data/excluded.csv) | Assets considered and excluded, with the reason |
+| [`METHODOLOGY.md`](METHODOLOGY.md) | Definition, inclusion tiers, coding rules, known limits |
+| [`CHANGELOG.md`](CHANGELOG.md) | What changed in each release |
+| [`scripts/`](scripts/) | Build and registry-refresh scripts |
+
+## Corrections
+
+If a row is wrong, missing, or should be reclassified, [open a correction](../../issues/new?template=correction.md) with a source. Corrections are logged in the changelog with the date and the evidence. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+## Citing
+
+Milad, J. *AI Molecules in the Clinic* (v1.0.0, data as of 13 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic
+
+Data: CC BY 4.0 ([`LICENSE-DATA`](LICENSE-DATA)). Code: MIT ([`LICENSE`](LICENSE)).
+
+## Status and limits, up front
+
+This is independent analysis, not peer-reviewed, and not yet second-coded by an independent human reviewer. Entries were assembled with AI-assisted searches and checked by an adversarial verification pass. 53 of the 54 strict entries rest on the developer's own statement that AI was used. Read [`METHODOLOGY.md`](METHODOLOGY.md) § Limits before citing.

@@ -1,0 +1,38 @@
+molecule,reason,as_of
+OPL-0401 / SAR407899 (Valo),"In-licensed from Sanofi; Valo CEO said the platform played no part in its discovery or development. Phase 2 failed, suspended Dec 2024. Removed from the 37.",2026-10-13
+OPL-0301 (Valo),NCT05327855 withdrawn with n=0; never dosed. Removed from the 37.,2026-10-13
+"ISM5939 (Insilico, ENPP1)",NCT06724042 not yet recruiting (start Dec 2026); spot-check found IND and a Nat Commun 2025 paper but no dosing. Removed from the 37; re-add when dosed.,2026-10-13
+"REC-7735 (Recursion, PI3Ka H1047R)",CT.gov shows Sep 2026 start (NCT07819136) but no public first-dosing confirmation by 13 Oct 2026 (spot-checked).,2026-10-13
+ISM3312 (Insilico 3CLpro),China IND Feb 2023; no dosing or registry record found.,2026-10-13
+Inhaled rentosertib,"IND only, and a formulation of an existing molecule.",2026-10-13
+"BDTX-189, silevertinib/BDTX-1535, BDTX-4933 (Black Diamond)",Developer makes no AI/ML claim for the MAP engine.,2026-10-13
+BMF-219 / icovamenib (Biomea),Developer does not call it AI-designed.,2026-10-13
+"aleniglipron, ACCG-2671, ANPA-0073 (Structure Therapeutics)",Structure-based design; no AI/ML attribution.,2026-10-13
+"Septerna, Odyssey OD-07656, Treeline, Kymera, Kinnate, Nested NST-628",No molecule-level AI/ML attribution found.,2026-10-13
+"BGE-117, BGE-175, BGE-102, asapiprant (BioAge)",In-licensed or no AI attribution.,2026-10-13
+MDL-001 (Model Medicines),Repositioning-library compound; no interventional trial found.,2026-10-13
+rilvegostomig (AstraZeneca),AZ-engineered bispecific; AI claim only for Compugen's upstream TIGIT nomination.,2026-10-13
+"BD200 (Biolojic), IAM217 and IAM-C1 (Iambic), REC-102, BEN-28010, DG12P1, GB-5267",Not dosed by 13 Oct 2026.,2026-10-13
+"Isomorphic Labs, Atomwise TYK2, DNDI-6510 (COVID Moonshot), Galixir, Korean (Standigm, Syntekabio, Deargen, Galux) and Japanese (Fujitsu/RIKEN, Elix, Shionogi) programmes",Preclinical; no human dosing.,2026-10-13
+"Pharma collaborations (Lilly, Sanofi, Bayer, AZ/BenevolentAI targets, Genentech Prescient, Astellas unnamed compound)",No named dosed molecule disclosed.,2026-10-13
+nirmatrelvir (Pfizer),Structure-based medicinal chemistry; AI claims come from secondary/marketing sources only (XtalPi did solid-form work).,2026-10-13
+"BMS-986449, BMS-986408",Unrelated BMS programmes checked while searching for EXS-4318.,2026-10-13
+"HXN-1001, HX15001, HXN5003, HXN6005 (Helixon/Earendil)",No molecule-specific AI attribution; disputed by secondary sources.,2026-10-13
+SYH2070 (CSPC siRNA),AI claim and Phase 2 entry come from media only; unverified.,2026-10-13
+"MTS-004, MTS105, MTS109 (METiS)","AI-assisted formulation of existing actives, or no link established.",2026-10-13
+"FP008 (Fapon), JPI-547/nesuparib (Onconic)","No AI attribution, or a legacy asset.",2026-10-13
+PLG0206 / zaloganan (Peptilogics),Legacy WLBU2 peptide lineage; AI claim retrofitted.,2026-10-13
+"AbCellera bamlanivimab, bebtelovimab, ABCL635, ABCL575; Teva/AbCellera mAbs; Adimab PM-1022; Entos and Gritstone COVID vaccines; HFB-30132A",Routine single-cell screening or no asset-level AI claim.,2026-10-13
+Gritstone/Gilead HIV vaccine,Dosing evidence is secondary only; no registry.,2026-10-13
+EpiVax H7N9 vaccine,Rule-based immunoinformatics; trial entry contradicted by BCG's own note.,2026-10-13
+Autogene cevumeran (BioNTech) and intismeran/mRNA-4157 (Moderna),"Developers describe neoantigen selection as bioinformatic, not AI/ML.",2026-10-13
+"Icosavax IVX-A12/121/241/411, GBP510/SKYCovione",Rosetta-designed nanoparticle scaffolds (non-ML) carrying conventional antigens; GBP510 is an approved product.,2026-10-13
+"Nuritas peptides, Gubra GUB-UCN2 and ABBV-295, Harbour BioMed assets, BX004 (BiomX), TamavaqTM (Biogenea)","Nutraceuticals, no AI attribution, phage cocktails, or unverified claims.",2026-10-13
+"Evaxion EVX-B1/B2/B3/04/V1; LabGenius, Xaira, Nabla, Profluent, Arzeda and similar",Preclinical.,2026-10-13
+"BPM31510, BPM31543 (BPGbio); LP-284, LP-300 (Lantern); EVT801 (Kazia); bemcentinib; ruboxistaurin","Legacy molecules with retrofitted AI claims, or no trial entry.",2026-10-13
+"pocenbrodib (Pathos), BLKR201 and ASN008 (Formation Bio), NMRA-140 and NMRA-511 (Neumora)",In-licensed; AI used only for patient selection or development.,2026-10-13
+HST-5040 (HemoShear),AI role not attributed.,2026-10-13
+"HLX-0201/0206, OV101 (Healx); SOM-1311","Trial withdrawn or no dosing evidence, or a legacy Ovid asset.",2026-10-13
+"Owkin NCT06625203; Exscientia ex vivo studies; SP-624, dnaJP1, CURATE.AI, ENBIOSIS","Observational studies, or AI used for analytics or dosing rather than molecule discovery.",2026-10-13
+A2A AO-001,Wellcome list only; identity and dosing unverified.,2026-10-13
+Chai Discovery (no asset to count),"Checked 15 Oct 2026: no disclosed clinical candidate, IND or trial. Six pharma discovery collaborations in 2026 (Lilly, Pfizer, Novartis, argenx, BMS, GSK); any clinical asset would be partner-owned. Chai-2 work is preclinical. Sponsor search in the 13 Oct rebuild also returned nothing. See Addendum A row A44.",2026-10-13
