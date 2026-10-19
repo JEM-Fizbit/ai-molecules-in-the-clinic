@@ -2,7 +2,7 @@
 
 An open registry of drug candidates whose **target or molecule was materially shaped by AI or machine learning** and which have been **dosed in humans**. Every entry is counted to a written definition, sourced row by row, and open to correction.
 
-**Snapshot:** as of 13 October 2026 · trials retrieved 15 October 2026 · v1.0.0
+**Snapshot:** as of 13 October 2026 · trials retrieved 15 October 2026 · v1.0.1
 
 | | |
 |---|---|
@@ -37,7 +37,7 @@ If a row is wrong, missing, or should be reclassified, [open a correction](../..
 
 ## Citing
 
-Milad, J. *AI Molecules in the Clinic* (v1.0.0, data as of 13 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic
+Milad, J. *AI Molecules in the Clinic* (v1.0.1, data as of 13 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic
 
 Data: CC BY 4.0 ([`LICENSE-DATA`](LICENSE-DATA)). Code: MIT ([`LICENSE`](LICENSE)).
 

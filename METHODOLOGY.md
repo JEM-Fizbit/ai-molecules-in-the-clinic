@@ -1,6 +1,6 @@
 # Methodology
 
-Version 1.0.0 · data as of 13 October 2026
+Version 1.0.1 · data as of 13 October 2026
 
 ## 1. Definition
 
@@ -57,7 +57,7 @@ Lower is not more correct. Each count answers a different question; this one ask
 
 ## 7. Limits
 
-- **Attribution is mostly self-reported.** 53 of 54 strict entries rest on the developer's statement. Nobody outside the company can verify how much the AI did.
+- **Attribution is mostly self-reported.** 53 of 54 strict entries rest on the developer's statement. How much the AI did cannot be verified from outside the company.
 - **Not second-coded.** Precedence calls are judgement under a written rule, made by one coder. Independent second coding is planned for v2.
 - **Registry coverage is uneven.** China CTR and jRCT are harder to search than ClinicalTrials.gov; recent first-in-human starts may be missing.
 - **Survivorship.** Developers announce entries more readily than exits. Status is checked against registries where possible, but a quiet discontinuation can look like `unknown`.

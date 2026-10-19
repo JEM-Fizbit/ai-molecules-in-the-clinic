@@ -73,7 +73,7 @@
    "confidence": "medium",
    "registry_ids": "NCT07850102",
    "sources": "https://www.biospace.com/exscientia-announces-sixth-molecule-created-through-generative-ai-platform-to-enter-clinical-stage;https://www.businesswire.com/news/home/20240321480832/en/Exscientia-Business-and-Financial-Update-for-the-Full-Year-2023;https://clinicaltrials.gov/study/NCT07850102",
-   "notes": "NEW vs 37. Spot-checked: Exscientia FY2023 release states DSP-2342 entered Phase I.",
+   "notes": "Spot-checked: Exscientia FY2023 release states DSP-2342 entered Phase I.",
    "as_of": "2026-10-13"
   },
   {
@@ -198,7 +198,7 @@
    "confidence": "high",
    "registry_ids": "",
    "sources": "https://www.businesswire.com/news/home/20230201006024/en/;https://www.fiercebiotech.com/biotech/bms-culls-2-clinical-programs-one-mirati-and-another-exscientia",
-   "notes": "NEW vs 37.",
+   "notes": "",
    "as_of": "2026-10-13"
   },
   {
@@ -498,7 +498,7 @@
    "confidence": "medium",
    "registry_ids": "NCT06638307",
    "sources": "https://clinicaltrials.gov/study/NCT06638307;https://insilico.com/news/g3l291v091-insilico-medicine-receives-usd-5-million",
-   "notes": "NEW vs 37.",
+   "notes": "",
    "as_of": "2026-10-13"
   },
   {
@@ -523,7 +523,7 @@
    "confidence": "high",
    "registry_ids": "NCT07226427",
    "sources": "https://clinicaltrials.gov/study/NCT07226427;https://insilico.com/news/g3l291v091-insilico-medicine-receives-usd-5-million",
-   "notes": "NEW vs 37.",
+   "notes": "",
    "as_of": "2026-10-13"
   },
   {
@@ -548,7 +548,7 @@
    "confidence": "medium",
    "registry_ids": "CTR20260301;NCT07415304",
    "sources": "https://www.hkexnews.hk/listedco/listconews/sehk/2026/0329/2026032900703.pdf;https://clinicaltrials.gov/study/NCT07415304",
-   "notes": "NEW vs 37. Probably the 'ISM012 renal anaemia' asset seen in BiopharmaTrend; counted once.",
+   "notes": "Probably the 'ISM012 renal anaemia' asset seen in BiopharmaTrend; counted once.",
    "as_of": "2026-10-13"
   },
   {
@@ -723,7 +723,7 @@
    "confidence": "medium",
    "registry_ids": "NCT04252339;NCT05954871",
    "sources": "https://clinicaltrials.gov/study/NCT04252339;https://clinicaltrials.gov/study/NCT05954871",
-   "notes": "NEW vs 37.; Relay's current platform page still says the Dynamo platform 'uses advanced machine learning models' and lists ML with long-timescale MD. That means the developer still makes the ML attribution, which supports keeping the Relay assets in the strict set; it is not a reason to move them to borderline. The note should be corrected.",
+   "notes": "Relay's current platform page still says the Dynamo platform 'uses advanced machine learning models' and lists ML with long-timescale MD. That means the developer still makes the ML attribution, which supports keeping the Relay assets in the strict set; it is not a reason to move them to borderline. The note should be corrected.",
    "as_of": "2026-10-13"
   },
   {
@@ -748,7 +748,7 @@
    "confidence": "medium",
    "registry_ids": "NCT05759949",
    "sources": "https://clinicaltrials.gov/study/NCT05759949",
-   "notes": "NEW vs 37.; Relay's current platform page still says the Dynamo platform 'uses advanced machine learning models' and lists ML with long-timescale MD. That means the developer still makes the ML attribution, which supports keeping the Relay assets in the strict set; it is not a reason to move them to borderline. The note should be corrected.",
+   "notes": "Relay's current platform page still says the Dynamo platform 'uses advanced machine learning models' and lists ML with long-timescale MD. That means the developer still makes the ML attribution, which supports keeping the Relay assets in the strict set; it is not a reason to move them to borderline. The note should be corrected.",
    "as_of": "2026-10-13"
   },
   {
@@ -798,7 +798,7 @@
    "confidence": "high",
    "registry_ids": "ACTRN12625000212459",
    "sources": "https://anzctr.org.au/ACTRN12625000212459.aspx;https://investors.absci.com/news-releases/news-release-details/absci-announces-first-participants-dosed-phase-1-clinical-trial",
-   "notes": "NEW vs 37 (ANZCTR-only).",
+   "notes": "Registered on ANZCTR only.",
    "as_of": "2026-10-13"
   },
   {
@@ -898,7 +898,7 @@
    "confidence": "medium",
    "registry_ids": "NCT05080842",
    "sources": "https://clinicaltrials.gov/study/NCT05080842;https://www.businesswire.com/news/home/20220330005709/en",
-   "notes": "NEW vs 37.",
+   "notes": "",
    "as_of": "2026-10-13"
   },
   {
@@ -923,7 +923,7 @@
    "confidence": "medium",
    "registry_ids": "NCT05241613",
    "sources": "https://clinicaltrials.gov/study/NCT05241613;https://www.businesswire.com/news/home/20220330005709/en",
-   "notes": "NEW vs 37.",
+   "notes": "",
    "as_of": "2026-10-13"
   },
   {
@@ -948,7 +948,7 @@
    "confidence": "medium",
    "registry_ids": "NCT05267626",
    "sources": "https://clinicaltrials.gov/study/NCT05267626;https://www.businesswire.com/news/home/20231218885955/en/Aulos-Bioscience-Advances-AU-007-to-Phase-2-Portion-of-Phase-12-Study-Evaluating-Computationally-Designed-IL-2-Antibody-for-Treatment-of-Solid-Tumors",
-   "notes": "NEW vs 37. Precedence is the call most open to dispute in the strict set.",
+   "notes": "Precedence is the call most open to dispute in the strict set.",
    "as_of": "2026-10-13"
   },
   {
@@ -973,7 +973,7 @@
    "confidence": "medium",
    "registry_ids": "NCT05807971;NCT07513181",
    "sources": "https://clinicaltrials.gov/study/NCT05807971;https://clinicaltrials.gov/study/NCT07513181",
-   "notes": "NEW vs 37.",
+   "notes": "",
    "as_of": "2026-10-13"
   },
   {
@@ -998,7 +998,7 @@
    "confidence": "medium",
    "registry_ids": "NCT06136884",
    "sources": "https://clinicaltrials.gov/study/NCT06136884",
-   "notes": "NEW vs 37.",
+   "notes": "",
    "as_of": "2026-10-13"
   },
   {
@@ -1023,7 +1023,7 @@
    "confidence": "low",
    "registry_ids": "NCT05901883",
    "sources": "https://clinicaltrials.gov/study/NCT05901883",
-   "notes": "NEW vs 37.",
+   "notes": "",
    "as_of": "2026-10-13"
   },
   {
@@ -1048,7 +1048,7 @@
    "confidence": "medium",
    "registry_ids": "NCT05669430",
    "sources": "https://clinicaltrials.gov/study/NCT05669430",
-   "notes": "NEW vs 37. A peer-reviewed IGSF8 paper may support tier A; not checked.",
+   "notes": "A peer-reviewed IGSF8 paper may support tier A; not checked.",
    "as_of": "2026-10-13"
   },
   {
@@ -1073,7 +1073,7 @@
    "confidence": "high",
    "registry_ids": "CTR20231855;CTR20254954;NCT06778850;NCT07274137",
    "sources": "https://clinicaltrials.gov/study/NCT06778850;https://clinicaltrials.gov/study/NCT07274137",
-   "notes": "NEW vs 37; one of four strict assets at Phase 3.; On CT.gov, NCT07274137 shows NOT_YET_RECRUITING (planned start Feb 2026, last updated 22 Dec 2025). Phase 3 entry rests on the China CTR record and MindRank press coverage. Keep it at Phase 3, but cite the CTR or press source rather than CT.gov for 'recruiting'.",
+   "notes": "one of four strict assets at Phase 3.; On CT.gov, NCT07274137 shows NOT_YET_RECRUITING (planned start Feb 2026, last updated 22 Dec 2025). Phase 3 entry rests on the China CTR record and MindRank press coverage. Keep it at Phase 3, but cite the CTR or press source rather than CT.gov for 'recruiting'.",
    "as_of": "2026-10-13"
   },
   {
@@ -1098,7 +1098,7 @@
    "confidence": "medium",
    "registry_ids": "NCT05683418",
    "sources": "https://clinicaltrials.gov/study/NCT05683418",
-   "notes": "NEW vs 37.",
+   "notes": "",
    "as_of": "2026-10-13"
   },
   {
@@ -1123,7 +1123,7 @@
    "confidence": "medium",
    "registry_ids": "NCT06343402",
    "sources": "https://clinicaltrials.gov/study/NCT06343402",
-   "notes": "NEW vs 37. Possibly tier A if the paper's ML content is confirmed.",
+   "notes": "Possibly tier A if the paper's ML content is confirmed.",
    "as_of": "2026-10-13"
   },
   {
@@ -1148,7 +1148,7 @@
    "confidence": "medium",
    "registry_ids": "NCT06973863",
    "sources": "https://clinicaltrials.gov/study/NCT06973863;https://en.xtalpi.com/xtalpi-enabled-pharmaengine-pep08-achieves-enrollment-milestone-with-second-synthetic-lethality-program-underway/",
-   "notes": "NEW vs 37.",
+   "notes": "",
    "as_of": "2026-10-13"
   },
   {
@@ -1173,7 +1173,7 @@
    "confidence": "medium",
    "registry_ids": "",
    "sources": "https://en.xtalpi.com/xtalpis-ai-robotics-platform-powers-first-clinical-milestone-for-revirs-rare-neurological-drug-rtx-117",
-   "notes": "NEW vs 37. Dosing rests on developer statement.",
+   "notes": "Dosing rests on developer statement.",
    "as_of": "2026-10-13"
   },
   {
@@ -1198,7 +1198,7 @@
    "confidence": "high",
    "registry_ids": "NCT06739291",
    "sources": "https://clinicaltrials.gov/study/NCT06739291;https://www.businesswire.com/news/home/20250113674680/en",
-   "notes": "NEW vs 37. Target FAK (one searcher had undisclosed).",
+   "notes": "Target FAK (one searcher had undisclosed).",
    "as_of": "2026-10-13"
   },
   {
@@ -1223,7 +1223,7 @@
    "confidence": "high",
    "registry_ids": "NCT07336940;NCT07643766",
    "sources": "https://www.businesswire.com/news/home/20241113334257/en/Enveda-Announces-First-Candidate-Discovered-From-Nature-Using-AI-Advances-to-Clinical-Trials;https://clinicaltrials.gov/study/NCT07643766",
-   "notes": "NEW vs 37.; Probably Phase 2 / Phase 2a. Enveda's Dec 2025 release says it started Phase 2 trials, and Fierce Biotech (Sep 2026) describes 'phase 2a trials in atopic dermatitis and asthma'. Keep Phase 2b only if the NCT07643766 record actually says Phase 2b.",
+   "notes": "Probably Phase 2 / Phase 2a. Enveda's Dec 2025 release says it started Phase 2 trials, and Fierce Biotech (Sep 2026) describes 'phase 2a trials in atopic dermatitis and asthma'. Keep Phase 2b only if the NCT07643766 record actually says Phase 2b.",
    "as_of": "2026-10-13"
   },
   {
@@ -1248,7 +1248,7 @@
    "confidence": "medium",
    "registry_ids": "",
    "sources": "https://www.biospace.com/press-releases/cellarity-initiates-phase-1-clinical-study-of-cly-124-a-first-in-class-globin-switching-oral-medicine-for-the-treatment-of-sickle-cell-disease",
-   "notes": "NEW vs 37.",
+   "notes": "",
    "as_of": "2026-10-13"
   },
   {
@@ -1273,7 +1273,7 @@
    "confidence": "high",
    "registry_ids": "NCT07751991",
    "sources": "https://www.globenewswire.com/news-release/2026/10/07/3376361/0/en/charm-therapeutics-announces-first-patient-dosed-and-first-cohort-fully-enrolled-in-its-phase-i-ii-clinical-trial-of-chm-029-for-acute-myeloid-leukemia.html;https://clinicaltrials.gov/study/NCT07751991",
-   "notes": "NEW vs 37. Spot-check resolved dosing (searcher had it unverified).",
+   "notes": "Spot-check resolved dosing (searcher had it unverified).",
    "as_of": "2026-10-13"
   },
   {
@@ -1298,7 +1298,7 @@
    "confidence": "high",
    "registry_ids": "NCT07190469",
    "sources": "https://clinicaltrials.gov/study/NCT07190469;https://www.businesswire.com/news/home/20250917696518/en/ProteinQure-Announces-First-Patient-Dosed-in-Phase-I-Clinical-Trial-of-PQ203-in-Advanced-Metastatic-Cancer",
-   "notes": "NEW vs 37.",
+   "notes": "",
    "as_of": "2026-10-13"
   },
   {
@@ -1323,7 +1323,7 @@
    "confidence": "high",
    "registry_ids": "NCT07529808",
    "sources": "https://clinicaltrials.gov/study/NCT07529808;https://www.clinicaltrialsarena.com/news/first-patient-receives-bhb810-bighat-study/",
-   "notes": "NEW vs 37.",
+   "notes": "",
    "as_of": "2026-10-13"
   },
   {
@@ -1348,7 +1348,7 @@
    "confidence": "medium",
    "registry_ids": "jRCT2051240123",
    "sources": "https://jrct.mhlw.go.jp/en-latest-detail/jRCT2051240123;https://www.fiercebiotech.com/biotech/chugai-drops-only-ai-assisted-antibody-pipeline-still-has-high-hopes-technology",
-   "notes": "NEW vs 37 (jRCT-only). Only confirmed big-pharma in-house AI molecule dosed.",
+   "notes": "Registered on jRCT only. Only confirmed big-pharma in-house AI molecule dosed.",
    "as_of": "2026-10-13"
   },
   {

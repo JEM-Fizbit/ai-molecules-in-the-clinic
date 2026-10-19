@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology · AI Molecules in the Clinic</title>
+<meta name="description" content="How the AI Molecules in the Clinic registry defines, finds and codes AI-derived molecules dosed in humans, and the limits of the count.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%225%22 cy=%2211%22 r=%223%22 fill=%22%233A4BA8%22/%3E%3Ccircle cx=%2211%22 cy=%225%22 r=%223%22 fill=%22%23C2366F%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,650&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="./">AI Molecules in the Clinic</a>
+  <nav aria-label="Site"><a href="./#registry">Registry</a><a href="methodology.html" aria-current="page">Methodology</a><a href="./#corrections">Corrections</a></nav>
+</header>
+<main class="prose">
+<h1 id="methodology">Methodology</h1>
+<p>Version 1.0.1 · data as of 13 October 2026</p>
+<h2 id="1-definition">1. Definition</h2>
+<p>A molecule is in the <strong>strict cohort</strong> if all three hold:</p>
+<ol>
+<li><strong>Material AI/ML role</strong> in choosing the target or designing the molecule. Machine learning or generative methods did real work in target identification or molecule design, not only in screening logistics or general analytics.</li>
+<li><strong>Attribution.</strong> The developer or a first-tier source states that role for <em>this</em> molecule, not just for the company's platform in general.</li>
+<li><strong>Dosed in humans</strong> by the as-of date, in any registry (ClinicalTrials.gov, ANZCTR, jRCT, China CTR or equivalent) or per a dated developer announcement.</li>
+</ol>
+<h2 id="2-inclusion-tiers">2. Inclusion tiers</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Meaning</th>
+<th>Counted?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>strict</code></td>
+<td>Meets all three tests</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>borderline</code></td>
+<td>Fails one test in a way reasonable people dispute: physics-based design with no ML claim; platform-level attribution only; secondary-source attribution only; AI-selected vaccine antigens; computational repurposing of an existing drug</td>
+<td>No, but published with the reason in <code>inclusion_note</code></td>
+</tr>
+<tr>
+<td><code>candidate</code></td>
+<td>Plausible but not yet verified</td>
+<td>No</td>
+</tr>
+<tr>
+<td>excluded</td>
+<td>Considered and rejected (never dosed, in-licensed with no AI role, AI role disclaimed)</td>
+<td>No; listed in <code>excluded.csv</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="3-coding-rules">3. Coding rules</h2>
+<ul>
+<li><strong>Target precedence</strong> (<code>target_precedence</code>), judged at the molecule's first-in-human date:</li>
+<li><code>precedented</code>: an approved drug or a Phase 2+ agent already existed at the target.</li>
+<li><code>novel</code>: clinical agents existed at the target, but none at Phase 2+.</li>
+<li><code>first-in-class</code>: no prior clinical agent at the target.</li>
+<li><code>unclear</code>: target undisclosed or not determinable.
+  The basis for each call is in <code>precedence_basis</code>.</li>
+<li><strong>Attribution tier</strong> (<code>attribution_tier</code>): <code>A</code> = peer-reviewed or regulatory documentation of the AI role; <code>B</code> = developer disclosure; <code>C</code> = secondary sources only (C-only entries go to borderline).</li>
+<li><strong>Status</strong> (<code>status</code>): <code>ongoing</code>; <code>stopped</code> (discontinued, terminated, completed with no further development, or deprioritised); <code>unknown</code> (no update for over 18 months and no discontinuation notice). Detail in <code>status_detail</code>.</li>
+<li><strong>Confidence</strong> (<code>confidence</code>): the coder's confidence in the row as a whole.</li>
+</ul>
+<h2 id="4-how-the-list-was-built">4. How the list was built</h2>
+<p>Six parallel searches: published seed lists (BCG/Jayatunga 2024 and successors); AI-native small-molecule developers in the US, Europe and Israel; Asia-Pacific developers and registries; biologics; pharma-internal assets; and an asset-agnostic registry and literature sweep. Results were merged and coded, then challenged by two independent passes: one trying to disprove entries (about 50 registry records re-checked) and one looking for missing assets. Searches were AI-assisted; every row carries its sources.</p>
+<p>Trials (<code>trials.csv</code>) are every ClinicalTrials.gov record matched to a strict-cohort molecule by NCT number or verified intervention name (API v2, retrieved 15 October 2026). Seven strict molecules have no ClinicalTrials.gov record.</p>
+<h2 id="5-uncertainty">5. Uncertainty</h2>
+<p>The strict count is about <strong>54, −7/+8</strong>:
+- dosing and attribution errors found by the verification pass: about ±2;
+- assets probably missing, mainly from China CTR and recent US first-in-human starts: +0 to +6;
+- definition sensitivity: excluding physics-dominant platforms gives 47; counting all physics-based platforms about 60; counting platform-level attribution about 62.</p>
+<h2 id="6-other-counts-and-why-they-differ">6. Other counts, and why they differ</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Count</th>
+<th>Number</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jayatunga et al. 2024 (BCG), <em>Drug Discovery Today</em></td>
+<td>75</td>
+<td>Clinical assets of AI-native companies since 2015</td>
+</tr>
+<tr>
+<td>Greenblatt &amp; Geoui 2026 (Zenodo)</td>
+<td>83</td>
+<td>BCG list plus additions</td>
+</tr>
+<tr>
+<td>Haque et al., ASCO 2026</td>
+<td>117</td>
+<td>"AI-enabled"; list not published</td>
+</tr>
+<tr>
+<td>This registry</td>
+<td>54</td>
+<td>Molecule-level attribution, dosed in humans, written rules</td>
+</tr>
+</tbody>
+</table></div>
+<p>Lower is not more correct. Each count answers a different question; this one asks the narrowest.</p>
+<h2 id="7-limits">7. Limits</h2>
+<ul>
+<li><strong>Attribution is mostly self-reported.</strong> 53 of 54 strict entries rest on the developer's statement. How much the AI did cannot be verified from outside the company.</li>
+<li><strong>Not second-coded.</strong> Precedence calls are judgement under a written rule, made by one coder. Independent second coding is planned for v2.</li>
+<li><strong>Registry coverage is uneven.</strong> China CTR and jRCT are harder to search than ClinicalTrials.gov; recent first-in-human starts may be missing.</li>
+<li><strong>Survivorship.</strong> Developers announce entries more readily than exits. Status is checked against registries where possible, but a quiet discontinuation can look like <code>unknown</code>.</li>
+<li><strong>Not an efficacy ranking.</strong> Inclusion says nothing about whether a molecule works.</li>
+</ul>
+<h2 id="8-updates">8. Updates</h2>
+<p>Quarterly refresh of status and new entries, plus corrections as they arrive. Each release is tagged and logged in <code>CHANGELOG.md</code>.</p>
+</main>
+<footer><p>Independent analysis by John Milad. Not peer-reviewed. Data licensed CC BY 4.0, code MIT. Generated from <a href="https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic/blob/main/METHODOLOGY.md">METHODOLOGY.md</a>.</p></footer>
+</div>
+</body>
+</html>
