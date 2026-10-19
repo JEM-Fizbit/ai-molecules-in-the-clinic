@@ -2,6 +2,8 @@
 
 An open registry of drug candidates whose **target or molecule was materially shaped by AI or machine learning** and which have been **dosed in humans**. Every entry is counted to a written definition, sourced row by row, and open to correction.
 
+**Site:** https://aixbio-registry.org (public from launch day)
+
 **Snapshot:** as of 13 October 2026 · trials retrieved 15 October 2026 · v1.0.1
 
 | | |
@@ -44,3 +46,8 @@ Data: CC BY 4.0 ([`LICENSE-DATA`](LICENSE-DATA)). Code: MIT ([`LICENSE`](LICENSE
 ## Status and limits, up front
 
 This is independent analysis, not peer-reviewed, and not yet second-coded by an independent human reviewer. Entries were assembled with AI-assisted searches and checked by an adversarial verification pass. 53 of the 54 strict entries rest on the developer's own statement that AI was used. Read [`METHODOLOGY.md`](METHODOLOGY.md) § Limits before citing.
+
+## Working on the registry
+
+The site is static (`index.html`, `methodology.html`, `assets/site.css`) and reads `data/*.json`. The CSVs are the master: edit them, then run `python3 scripts/csv_to_json.py`. Refresh trials with `scripts/fetch_trials.py`; rebuild the methodology page with `scripts/build_site.py`. Maintainer notes: `CLAUDE.md`, `docs/DECISIONS.md`, `BACKLOG.md`.
+

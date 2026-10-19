@@ -2,3 +2,7 @@ source/
 .DS_Store
 __pycache__/
 .vercel
+.env
+.env.local
+.env*.local
+*.pem
