@@ -3,6 +3,7 @@
 ## v1.0.1 — 2026-10-19
 Site and housekeeping; no change to any count, inclusion or coding call.
 - New public site: the census of all 54 strict molecules by furthest phase, the comparison with other published counts, a searchable registry with per-molecule detail, and the methodology rendered as its own page (`methodology.html`, built by `scripts/build_site.py`).
+- Site, after review: a key explaining the four target types; first-in-class shown in gold (red is kept for stopped programmes); census stacks fill from the bottom so the partial row sits on top; registry table gains a modality class (small molecule, antibody, peptide, vaccine, other biologic) and a "next data due" column, the estimated primary completion of the soonest active ClinicalTrials.gov trial.
 - `notes`: removed an internal build marker ("NEW vs 37", a reference to an unpublished earlier reconstruction) from 27 rows; kept the registry-only facts it carried for two rows (ANZCTR, jRCT).
 
 ## v1.0.0 — 2026-10-16
