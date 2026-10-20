@@ -6,7 +6,8 @@
 ## Launch (with the AI × Bio essay)
 - Flip repo public; set Vercel `ssoProtection` back to `all_except_custom_domains`; check https://aixbio-registry.org returns 200 logged out.
 - Re-pull trials (`fetch_trials.py`), re-check EXS-21546 and the four Phase 3s; release note.
-- Swap essay links to aixbio-registry.org.
+- Revoke the Vercel automation-bypass token `claude-smoke-test` (used for pre-launch testing).
+- Set the Resend key and verify aixbio-registry.org in Resend if not done (form works without it; emails are skipped).
 
 ---
 
