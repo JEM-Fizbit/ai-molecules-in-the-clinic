@@ -13,7 +13,7 @@ API = "https://api.fda.gov/drug/drugsfda.json"
 def search(term):
     q = f'products.active_ingredients.name:"{term}"+products.brand_name:"{term}"'
     try:
-        with urllib.request.urlopen(f"{API}?search={urllib.parse.quote(q, safe='+:')}&limit=10", timeout=30) as r:
+        with urllib.request.urlopen(f"{API}?search={urllib.parse.quote(q, safe='+:')}&limit=100", timeout=30) as r:
             return json.load(r).get("results", [])
     except urllib.error.HTTPError as e:
         if e.code == 404:
@@ -22,6 +22,13 @@ def search(term):
 
 def rank(p):
     return 3 if re.search(r"Phase (2|3)|Approved", p) and not p.startswith("Phase 1") else 1
+
+# A repurposed entry is an existing drug, so other sponsors' approvals of the same active
+# ingredient (the original product, 505(b)(2) reformulations) are expected; for those rows
+# only applications from the entry's own developer or partner are flagged.
+def own_sponsor(m, app):
+    first = re.sub(r"[^a-z]", "", (app.get("sponsor_name") or "").lower().split(" ")[0])
+    return bool(first) and first in re.sub(r"[^a-z ]", "", (m["developer"] + " " + m["partner"]).lower())
 
 missing = []
 rows = [m for m in csv.DictReader(open("data/molecules.csv")) if rank(m["highest_phase"]) >= 3]
@@ -35,7 +42,7 @@ for m in rows:
             num = re.sub(r"\D", "", app["application_number"])
             if app["application_number"].startswith("ANDA"):
                 continue  # generics of an already-approved drug
-            if any(s.get("submission_status") == "AP" for s in app.get("submissions", [])) and num not in recorded:
+            if any(s.get("submission_status") == "AP" for s in app.get("submissions", [])) and num not in recorded and (m["borderline_reason"] != "repurposing" or own_sponsor(m, app)):
                 missing.append(f"{m['id']}: {app['application_number']} ({app.get('sponsor_name')}) matches '{n}' but is not in `approvals`")
         time.sleep(0.3)
 

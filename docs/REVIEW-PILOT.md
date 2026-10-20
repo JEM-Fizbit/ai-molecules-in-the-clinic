@@ -82,3 +82,5 @@ _Pending: John's labels._
 ## After the freeze
 
 The full re-review (158 rows, protocol v1.0, two fresh blind coders) reached tier agreement of 91.8% (κ = 0.87); results are in [`REVIEW-SIGNOFF.md`](REVIEW-SIGNOFF.md) § E. One pilot call changed under v1.0. SGR-1505, passed by both pilot coders, was coded `physics_only` by both full-review coders under the instrument rule. Schrödinger's paper places ML inside "physics-based modeling techniques".
+
+**Protocol v1.1 (20 Oct 2026).** John Milad made the acid test the strict line, and the step test became a flag (`REVIEW-PROTOCOL.md` § 10). The pilot's agreement figures still cover the attribution, dosing and code rules. The 47 platform-level rows were re-coded under v1.1 by two fresh blind coders, who agreed on all 47.

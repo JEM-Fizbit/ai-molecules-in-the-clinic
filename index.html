@@ -59,8 +59,8 @@
   <h2 id="h-counts">What counts</h2>
   <p class="intro">A molecule is in the strict cohort only if all three hold. Entries that miss one test in a way reasonable people dispute are published as borderline, with the reason, but not counted. The full definition is in <a href="methodology.html#1-definition">Methodology § 1</a>.</p>
   <ul class="criteria">
-    <li><h3>AI did material work</h3><p>Machine learning or generative methods helped choose the target or design the molecule, not just run the screening logistics.</p></li>
-    <li><h3>For this molecule</h3><p>The developer or a first-tier source attributes that role to this asset, not just to the company's platform in general.</p></li>
+    <li><h3>AI in discovery</h3><p>Machine learning or generative methods helped find the target or the molecule, not just run screening logistics, formulation or trials. Physics-only design, repurposing and AI-picked vaccine antigens are published as borderline.</p></li>
+    <li><h3>The developer says so</h3><p>The developer or a partner credits AI for this molecule, in its own words. Each entry shows the quote, and whether it also says what the AI did.</p></li>
     <li><h3>Dosed in humans</h3><p>In any trial registry worldwide, or per a dated developer announcement, by the as-of date.</p></li>
   </ul>
   <h2 id="target-types" style="margin-top:44px">How targets are classified</h2>
@@ -77,7 +77,10 @@
   <h2 id="h-others">Why other counts are bigger</h2>
   <p class="intro">Published counts of AI-discovered drugs in the clinic range from about 50 to more than 100. They differ mainly in what they ask.</p>
   <div class="counts" id="counts"></div>
-  <p class="counts-note">A lower number is not more correct. Each count answers a different question, and this one asks the narrowest. The uncertainty band on <span class="n-strict">49</span> is about −2 to +8, depending on registry coverage and on whether physics-based design counts. <a href="methodology.html#5-uncertainty">How the band is built</a>.</p>
+  <h3 class="ladder-h">Where the counts part company</h3>
+  <p class="intro">The same evidence gives different totals depending on which kinds of AI claim are counted. Each step adds one kind; the counts are cumulative and computed from this registry's data. The columns show where each published list's molecules fall here, from <a href="data/crosswalk.csv">the crosswalk</a>.</p>
+  <div class="tw ladder"><table id="ladder"><thead></thead><tbody></tbody></table></div>
+  <p class="counts-note">A lower number is not more correct. Each count answers a different question. The uncertainty band on <span class="n-strict">51</span> is about −2 to +8, depending on registry coverage and on contested calls. <a href="methodology.html#5-uncertainty">How the band is built</a>.</p>
   <ol class="refs" aria-label="Sources for the comparison">
     <li id="cref-1">Jayatunga MKP et al. How successful are AI-discovered drugs in clinical trials? A first analysis and emerging lessons. <i>Drug Discovery Today</i> 29(6):104009, 2024. <a href="https://doi.org/10.1016/j.drudis.2024.104009">doi:10.1016/j.drudis.2024.104009</a>. 75 molecules entered the clinic since 2015.</li>
     <li id="cref-2">Greenblatt E, Geoui T. Dataset and analysis code for "28 Months Later: AI-Discovered, but Not AI-Developed". Zenodo, 2026. <a href="https://doi.org/10.5281/zenodo.22814924">doi:10.5281/zenodo.22814924</a>. 83 assets, each with per-field citations.</li>
@@ -117,7 +120,7 @@
 <section class="block" aria-labelledby="h-lim">
   <h2 id="h-lim">Read this before citing</h2>
   <ul class="limits">
-    <li><b>Re-reviewed, pending sign-off.</b> In October 2026 a check found entries counted on AI claims made for a company's platform rather than for the molecule itself, and a headline that briefly counted one such molecule as an approved AI drug. Those entries have been moved to borderline. Every entry has now been re-reviewed against a stricter, written evidence test: a strict entry needs the developer's own claim that AI chose the target or designed the molecule. See the <a href="https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic/blob/main/CHANGELOG.md">changelog</a> (v1.2.0).</li>
+    <li><b>Re-reviewed, pending sign-off.</b> In October 2026 a check found entries counted on AI claims made for a company's platform rather than for the molecule itself, and a headline that briefly counted one such molecule as an approved AI drug. Those entries have been moved to borderline. Every entry has now been re-reviewed against a written evidence test: a strict entry needs the developer's own claim, in its own words, that AI was used for that molecule. See the <a href="https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic/blob/main/CHANGELOG.md">changelog</a> (v1.2.0).</li>
     <li><b>Attribution is mostly self-reported.</b> <span id="n-self">48</span> of the <span class="n-strict">49</span> strict entries rest on the developer's own statement that AI was used. Only <span id="lim-a">rentosertib has</span> the AI role documented in peer-reviewed or regulatory sources (<a href="methodology.html#3-coding-rules">attribution tier A</a>).</li>
     <li><b>Second coding covers inclusion only.</b> Every entry's tier was coded by two blind coders and checked by a red team (<a href="https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic/blob/main/docs/REVIEW-PROTOCOL.md">protocol</a>). Target-type calls follow a written rule but were made by one coder.</li>
     <li><b>The list was assembled with AI-assisted searches</b> and then challenged by two verification passes, one trying to disprove entries and one looking for missing ones (<a href="methodology.html#4-how-the-list-was-built">Methodology § 4</a>). Every row carries its sources, and every change since is logged in the <a href="https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic/blob/main/CHANGELOG.md">changelog</a>.</li>
@@ -209,11 +212,27 @@ $("lnk-changes").href=REPO+"/blob/main/CHANGELOG.md";
 $("lnk-correct").href=REPO+"/issues/new?template=correction.md";
 
 const OTHER=[
-  {name:"This registry",note:"Molecule-level attribution, dosed in humans",n:49,ours:true,href:"methodology.html#1-definition"},
+  {name:"This registry",note:"Developer credits AI for the molecule; dosed in humans",n:49,ours:true,href:"methodology.html#1-definition"},
   {name:"Jayatunga et al. 2024 (BCG)",note:"Clinical assets of AI-native companies",n:75,href:"https://doi.org/10.1016/j.drudis.2024.104009",ref:1},
   {name:"Greenblatt & Geoui 2026",note:"The BCG list plus additions",n:83,href:"https://doi.org/10.5281/zenodo.22814924",ref:2},
   {name:"Haque et al., ASCO 2026",note:"Any AI-enabled asset; list not published",n:117,href:"https://doi.org/10.1200/JCO.2026.44.16_suppl.11072",ref:3}
 ];
+const RUNGS=[
+  ["Strict, AI step stated","The developer says what the AI did: chose the target or designed the molecule",m=>m.inclusion==="strict"&&m.ai_step_stated==="yes"],
+  ["Strict","The developer credits AI for this molecule (the acid test)",m=>m.inclusion==="strict"],
+  ["+ platform-only","Tied to a platform not called AI in the statement",m=>m.borderline_reason==="platform_only"],
+  ["+ physics-based","Computational design with no ML claim for the molecule",m=>m.borderline_reason==="physics_only"],
+  ["+ repurposing, vaccines, other","AI picked a new use, selected antigens, or other borderline",m=>m.inclusion==="borderline"]];
+const LISTS=[["jayatunga2024","Jayatunga 2024",75],["greenblatt2026","Greenblatt & Geoui 2026",83],["wellcome2023","Wellcome 2023",72],["mckinsey2026","McKinsey 2026",9]];
+function rungOf(m){if(!m)return 99;for(let i=0;i<RUNGS.length;i++)if(RUNGS[i][2](m))return i;return 99}
+function ladder(XW){
+  const byId=Object.fromEntries(MOLS.map(m=>[m.id,m])),cum=i=>MOLS.filter(m=>rungOf(m)<=i).length;
+  const per=LISTS.map(([k])=>XW.filter(r=>r.source===k).map(r=>rungOf(byId[r.registry_id])));
+  $("ladder").querySelector("thead").innerHTML=`<tr><th>Step</th><th class="num">This registry</th>${LISTS.map(([,n,t])=>`<th class="num">${esc(n)}<small>${t} entries</small></th>`).join("")}</tr>`;
+  const body=RUNGS.map(([name,note],i)=>`<tr><td>${esc(name)}<small>${esc(note)}</small></td><td class="num"><b>${cum(i)}</b></td>${per.map(p=>`<td class="num">${p.filter(x=>x<=i).length}</td>`).join("")}</tr>`);
+  body.push(`<tr><td>Excluded here, or not in this registry<small>Never dosed, no AI link, in-licensed, out of scope</small></td><td class="num">–</td>${per.map(p=>`<td class="num">${p.filter(x=>x===99).length}</td>`).join("")}</tr>`);
+  $("ladder").querySelector("tbody").innerHTML=body.join("");
+}
 const PREC_LABEL={precedented:"Known",novel:"Novel","first-in-class":"First-in-class",unclear:"Undisclosed"};
 const PREC_VAR={precedented:"--prec",novel:"--novel","first-in-class":"--fic",unclear:"--unclear"};
 const STATUS_LABEL={ongoing:"Ongoing",stopped:"Stopped",unknown:"Unknown"};
@@ -383,7 +402,7 @@ function rows(){
       ["Target type",`${PREC_LABEL[m.target_precedence]||m.target_precedence}${m.precedence_basis?`: ${m.precedence_basis}`:""}`],
       ["Modality",(()=>{const c=m.modality_class||"",x=m.modality||"";if(!x||x.toLowerCase()===c.toLowerCase())return c||x;if(c&&x.toLowerCase().startsWith(c.toLowerCase()))return x.charAt(0).toUpperCase()+x.slice(1);return c?`${c} (${x})`:x})()],
       ["Next data due",H(due)],
-      ["AI role",m.ai_role],["AI claim",m.ai_claim_quote?H(`“${esc(m.ai_claim_quote)}” (${esc({developer:"developer",partner:"partner",developer_paper:"developer's paper",third_party:"third party"}[m.ai_claim_by]||m.ai_claim_by)}${m.ai_claim_date?`, ${esc(m.ai_claim_date)}`:""}${m.ai_step?`; step: ${esc(m.ai_step)}`:""})${m.ai_claim_url?` <a href="${esc(m.ai_claim_url)}" target="_blank" rel="noopener">source</a>`:""}`):""],["Evidence of AI role",tier],m.inclusion!=="strict"?["Why borderline",m.inclusion_note]:null,["Notes",m.notes],
+      ["AI role",m.ai_role],["AI claim",m.ai_claim_quote?H(`“${esc(m.ai_claim_quote)}” (${esc({developer:"developer",partner:"partner",developer_paper:"developer's paper",third_party:"third party"}[m.ai_claim_by]||m.ai_claim_by)}${m.ai_claim_date?`, ${esc(m.ai_claim_date)}`:""}${m.ai_step?`; step: ${esc(m.ai_step)}`:""}${m.inclusion==="strict"&&m.ai_step_stated==="no"?"; does not say what the AI did":""})${m.ai_claim_url?` <a href="${esc(m.ai_claim_url)}" target="_blank" rel="noopener">source</a>`:""}`):""],["Evidence of AI role",tier],m.inclusion!=="strict"?["Why borderline",m.inclusion_note]:null,["Notes",m.notes],
       ["Registry IDs",H(regs)],["ClinicalTrials.gov",H(tl)],["Sources",H(src)],["Coder confidence",m.confidence],
       ["Last verified",m.last_verified?H(`${esc(fmtDate(m.last_verified))}, field by field against primary sources. Evidence for each field is in the <a href="data/audit-log.csv">audit log</a> (CSV).`):""]].filter(x=>x&&x[1]);
     return tr+`<tr class="detail" id="d-${esc(m.id)}"><td colspan="8"><dl class="dgrid">${d.map(([k,v])=>`<dt>${k}</dt><dd>${typeof v==="object"?v.__html:esc(v)}</dd>`).join("")}</dl><p class="suggest"><a href="#corrections" data-suggest="${esc(m.id)}">Suggest a correction to this entry</a></p></td></tr>`;
@@ -420,6 +439,7 @@ Promise.all([fetch("data/molecules.json",{cache:"no-cache"}).then(r=>r.json()),f
   [...new Set(MOLS.map(x=>x.modality_class).filter(Boolean))].sort().forEach(v=>$("f-mod").insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`));
   if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.2.0.`;
   census();rows();corrForm();
+  fetch("data/crosswalk.json",{cache:"no-cache"}).then(r=>r.json()).then(x=>ladder(x.rows)).catch(()=>{});
 }).catch(()=>{$("tb").innerHTML='<tr><td colspan="8">The registry data did not load. Reload the page, or use the CSV downloads at the foot of the page.</td></tr>'});
 </script>
 </body>

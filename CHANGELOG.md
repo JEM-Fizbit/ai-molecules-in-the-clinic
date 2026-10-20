@@ -1,17 +1,34 @@
 # Changelog
 
 ## v1.2.0 — 2026-10-20 (proposed; pending John Milad's sign-off; not deployed)
-The evidence-first re-review's proposed tier changes. **Strict 49 → 32.** Each move is listed with its evidence in `docs/REVIEW-SIGNOFF.md`. Under the headline gate (`docs/DECISIONS.md`) this waits for sign-off and 24 hours before deploy.
-- **Method:** every row was re-coded under `docs/REVIEW-PROTOCOL.md` v1.0 by two blind coders (tier agreement on 158 rows: 91.8%, κ = 0.87), after a 24-row pilot (κ = 0.93, `docs/REVIEW-PILOT.md`). A red team argued for exclusion on all 38 strict passes and defeated 6. Every quoted claim was re-fetched and found on its page; every strict entry's dosing was checked against its registry or a dated developer statement.
-- **19 entries leave the strict cohort** (to borderline):
-  - `platform_only` (the developer ties the molecule to its AI platform but never says what the AI did): AC0682, AC0176, BEN-2293, BRY10, DSP-0038, ENV-294, ENV-308, IAM1363, ISM4808, PEP08, REC-3964, RTX-117, SIGX1094, TOS-358.
-  - `physics_only` (the design described is computational but not ML): ATH-063, BBO-8520, SGR-1505, SGR-3515.
-  - `other`: VRG50635 (PIKfyve in ALS was found by a non-ML phenotypic screen published in 2018; the AI at most re-prioritised it).
-- **2 entries join it:** ISM3312 (from excluded; Insilico's own paper credits Chemistry42 with its de novo design and reports a completed Phase 1 in China) and SWA1211 (from borderline; StoneWise says it was "designed using the company's proprietary AI models"; attribution tier C → B).
-- **Resulting strict figures:** 26 ongoing, 6 stopped; 6 reached Phase 2 or later, 3 in Phase 3, none approved; known targets 20 of 32 disclosed (62.5%), 4 first-in-class; borderline 85.
-- **Definition sensitivity is now computed from `borderline_reason`:** counting physics-based design gives 50, counting platform-level attribution gives 71 (`scripts/check_counts.py` checks both).
-- Trials re-pulled for the new strict cohort: 50 records for 27 molecules.
-- **Not yet applied, listed in the sign-off for decision:** 9 borderline entries the coders would exclude (AC699, COM902, fasoracetam, LP-184, NDI-219216, NEU-411, NEU-723, PAN-NeoVax, RLY-8161; their notes say so), molecules in 5 excluded rows plus 2 new molecules that the coders would publish as borderline, and the McKinsey and crosswalk follow-ups.
+The evidence-first re-review, under protocol v1.1. **Strict 49 → 51.** Every move is listed with its evidence in `docs/REVIEW-SIGNOFF.md`. Under the headline gate (`docs/DECISIONS.md`) the release waits for sign-off and 24 hours before deploy.
+- **The strict line is now the acid test.** The developer or a partner must credit AI for this molecule in its own words, and the molecule must have been dosed. John Milad decided on 20 Oct to drop the v1.0 requirement that the claim also say what the AI did. That requirement had cut the count to 32 and mostly measured how detailed a press release was. It is now a flag, `ai_step_stated`: 34 strict entries say what the AI did and 17 do not. The change is recorded as a protocol deviation (`docs/REVIEW-PROTOCOL.md` § 10).
+- **Method:**
+  - Every row was coded by two blind coders: 158 rows, tier agreement 91.8%, κ = 0.87, after a 24-row pilot (κ = 0.93).
+  - The 47 platform-level cases were re-coded under v1.1 by two fresh blind coders, who agreed on every acid-test call (κ = 1.0).
+  - Red teams argued for exclusion on every strict pass, 66 in all, and defeated 13.
+  - Every quoted claim was re-fetched and found on its page.
+- **8 entries leave the strict cohort:**
+  - `physics_only`: ATH-063, BBO-8520, SGR-1505, SGR-3515.
+  - `platform_only`: BEN-2293 ("The Benevolent Platform identified…", not called AI there) and TOS-358 (AI only in company boilerplate).
+  - Red-team evidence: SIGX1094 (`platform_only`; its founder's 2019 paper nominated FAK without ML) and VRG50635 (`other`; PIKfyve in ALS came from a 2018 non-ML screen).
+- **10 entries join it:**
+  - Pass the acid test, AI step not stated: AC0676, ADG106 (with ADG116 and ADG126), AU-409, DPTX3186, HFB200301, HMBD-002, JUV-161.
+  - COM701 (AI step stated: Unigen discovered PVRIG).
+  - ISM3312 (from excluded; Insilico's own paper credits Chemistry42 and reports a completed Phase 1).
+  - SWA1211 (from borderline; "designed using the company's proprietary AI models").
+- **The ladder** (METHODOLOGY § 6, and the site's "Why other counts are bigger"): 34 with the AI step stated, 51 strict, 67 with platform-only, 86 with physics-based, 117 with all borderline. Each published list is placed on it from `data/crosswalk.csv`; `scripts/check_counts.py` checks every number.
+- **Resulting strict figures:**
+  - 41 ongoing, 10 stopped.
+  - 9 reached Phase 2 or later, 3 in Phase 3, none approved.
+  - Known targets 31 of 46 disclosed (67.4%), 6 first-in-class.
+  - Borderline 66.
+  - Sensitivity: counting physics-based design gives 70; counting platform-level attribution gives 67.
+- Trials re-pulled for the new strict cohort: 90 records for 42 molecules. New data files: `data/crosswalk.csv` and `.json`.
+- **Not applied yet, listed in the sign-off for decision:**
+  - 2 molecules that pass under v1.1 but are not yet rows, BC-006/ADG125 and bebtelovimab;
+  - HMBD-001 (red team: legacy retrofit) and the 9 borderline entries the coders would exclude;
+  - the borderline additions from excluded groups.
 
 ## v1.1.20 — 2026-10-20
 Evidence fields from the evidence-first re-review. **No change to any count or inclusion tier**; the proposed tier changes are a separate release awaiting sign-off.

@@ -64,7 +64,31 @@ checks = [  # (file, regex with one group per expected value, expected values)
     ("METHODOLOGY.md", r"(\d+) of (\d+) strict entries rest on", [n["not_a"], n["strict"]]),
 ]
 
-bad = []
+# The ladder (METHODOLOGY § 5): cumulative counts by rung, and where each published list's entries fall.
+RUNGS = [
+    ("Strict, AI step stated", lambda m: m["inclusion"] == "strict" and m.get("ai_step_stated") == "yes"),
+    ("Strict", lambda m: m["inclusion"] == "strict"),
+    ("+ platform-only", lambda m: m["borderline_reason"] == "platform_only"),
+    ("+ physics-based", lambda m: m["borderline_reason"] == "physics_only"),
+    ("+ repurposing, vaccines, other", lambda m: m["inclusion"] == "borderline"),
+]
+def rung(m):
+    for i, (_, f) in enumerate(RUNGS):
+        if m and f(m): return i
+    return 99
+BYID = {m["id"]: m for m in M}
+XW = list(csv.DictReader(open("data/crosswalk.csv")))
+LISTS = ["jayatunga2024", "greenblatt2026", "wellcome2023", "mckinsey2026"]
+per = {k: [rung(BYID.get(r["registry_id"])) for r in XW if r["source"] == k] for k in LISTS}
+ladder_checks = []
+for i, (label, _) in enumerate(RUNGS):
+    want = [sum(rung(m) <= i for m in M)] + [sum(x <= i for x in per[k]) for k in LISTS]
+    ladder_checks.append(("METHODOLOGY.md", r"\| " + re.escape(label) + r" \| \*\*(\d+)\*\* \| (\d+) \| (\d+) \| (\d+) \| (\d+) \|", want))
+ladder_checks.append(("METHODOLOGY.md", r"\| Excluded here, or not in this registry \| – \| (\d+) \| (\d+) \| (\d+) \| (\d+) \|", [sum(x == 99 for x in per[k]) for k in LISTS]))
+checks += ladder_checks
+pre = [f"molecules.csv: strict row {m['id']} has no ai_step_stated yes/no" for m in S if m.get("ai_step_stated") not in ("yes", "no")]
+
+bad = list(pre)
 # Every approved row must cite its approval record (agency|date|reference|indication|url).
 for m in M:
     if re.match(r"Approved", m["highest_phase"], re.I) and not m.get("approvals"):
@@ -79,5 +103,5 @@ for f, rx, want in checks:
         bad.append(f"{f}: {rx}\n    text says {got}, data says {want}")
 
 for b in bad: print("MISMATCH", b)
-print(f"{len(checks) - len(bad)}/{len(checks)} counts match the data.")
+print(f"{len(checks) - len(bad) + len(pre)}/{len(checks)} counts match the data." + (f" {len(pre)} strict rows lack ai_step_stated." if pre else ""))
 sys.exit(1 if bad else 0)

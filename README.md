@@ -1,6 +1,6 @@
 # AI Molecules in the Clinic
 
-An open registry of drug candidates whose **target or molecule was materially shaped by AI or machine learning** and which have been **dosed in humans**. Every entry is counted to a written definition, sourced row by row, and open to correction.
+An open registry of drug candidates whose developer credits **AI or machine learning with discovering the target or the molecule**, and which have been **dosed in humans**. Every entry is counted to a written definition, sourced row by row, and open to correction.
 
 **Site:** https://aixbio-registry.org (public from launch day)
 
@@ -8,14 +8,16 @@ An open registry of drug candidates whose **target or molecule was materially sh
 
 | | |
 |---|---|
-| Strict cohort | **32** molecules |
-| Known (precedented) targets, of 32 disclosed | 20 (62.5%) |
-| First-in-class targets | 4 |
-| Reached Phase 2 or later / now in Phase 3 | 6 / 3 |
+| Strict cohort | **51** molecules |
+| Known (precedented) targets, of 46 disclosed | 31 (67.4%) |
+| First-in-class targets | 6 |
+| Reached Phase 2 or later / now in Phase 3 | 9 / 3 |
 | Approved | 0 |
-| Stopped (discontinued, terminated, deprioritised) | 6 |
-| AI role documented beyond the developer's own word | 1 of 32 |
-| Borderline entries (published, not counted) | 85 |
+| Stopped (discontinued, terminated, deprioritised) | 10 |
+| AI role documented beyond the developer's own word | 1 of 51 |
+| Borderline entries (published, not counted) | 66 |
+
+The step-by-step comparison with published counts (Jayatunga 75, Greenblatt & Geoui 83, Haque 117) is in [`METHODOLOGY.md`](METHODOLOGY.md) § 6.
 
 ## Why this exists
 
@@ -26,7 +28,7 @@ Counts of "AI-discovered drugs" in the clinic range from about 50 to more than 1
 | File | Contents |
 |---|---|
 | [`data/molecules.csv`](data/molecules.csv) / `.json` | Strict and borderline entries, one row per molecule, with sources |
-| [`data/trials.csv`](data/trials.csv) / `.json` | ClinicalTrials.gov records for the strict cohort (50 trials, 27 molecules) |
+| [`data/trials.csv`](data/trials.csv) / `.json` | ClinicalTrials.gov records for the strict cohort (90 trials, 42 molecules) |
 | [`data/candidates.csv`](data/candidates.csv) | Possible entries still being checked |
 | [`data/excluded.csv`](data/excluded.csv) | Assets considered and excluded, with the reason |
 | [`data/audit-log.csv`](data/audit-log.csv) | Evidence for every field of every row: verdict, source URL and a short verbatim quote, dated |
@@ -46,7 +48,7 @@ Data: CC BY 4.0 ([`LICENSE-DATA`](LICENSE-DATA)). Code: MIT ([`LICENSE`](LICENSE
 
 ## Status and limits, up front
 
-This is independent analysis, not peer-reviewed. Entries were assembled with AI-assisted searches, then re-reviewed against a written evidence protocol by two blind AI coders and a red team, with the maintainer signing off each strict entry. 31 of the 32 strict entries rest on the developer's own statement that AI was used. Read [`METHODOLOGY.md`](METHODOLOGY.md) § Limits before citing.
+This is independent analysis, not peer-reviewed. Entries were assembled with AI-assisted searches, then re-reviewed against a written evidence protocol by two blind AI coders and a red team, with the maintainer signing off each strict entry. 50 of the 51 strict entries rest on the developer's own statement that AI was used. Read [`METHODOLOGY.md`](METHODOLOGY.md) § Limits before citing.
 
 ## Working on the registry
 
