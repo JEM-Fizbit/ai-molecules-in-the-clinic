@@ -1,5 +1,30 @@
 # Changelog
 
+## v1.1.2 — 2026-10-20
+Status re-check: every stopped, unknown and Phase 2+ entry checked against its registry (ClinicalTrials.gov API, ANZCTR, jRCT, China CTR) and the developer's latest disclosure, as of 20 October 2026. No change to any inclusion call or strict-cohort count.
+- Strict, detail and sources only:
+  - MDR-001: Phase 3 rests on MindRank's first-patient-dosed release (26 February 2026); the ClinicalTrials.gov record has not been updated since December 2025.
+  - ABS-101: Absci's 12 November 2025 decision not to run later-stage trials itself, and the ANZCTR status.
+  - ISM4808: removed registry ID "CTR20260301", which no source supports. Dosing rests on Insilico's 5 March 2026 release.
+- Borderline status changes:
+  - TG4050 `stopped` → `ongoing`: randomized Phase 2 fully enrolled, topline expected Q1 2028 (Transgene, April and September 2026).
+  - GRANITE `ongoing` → `stopped`: sponsor bankrupt; assets sold to Seattle Project Corp on 30 December 2024 (SEC 8-K); no development disclosed since.
+  - LP-184 `unknown` → `ongoing`: Phase 1a completed; Phase 1b/2 cleared by the EMA, July 2026. Its only source was a supplement that does not mention LP-184; replaced.
+  - PHI-101 `unknown` → `ongoing`: Phase 1 completed; INN lasmotinib registered and a licensee sought, November 2025.
+  - SOM3355 `unknown` → `ongoing`: FDA end-of-Phase 2 meeting agreed a Phase 3 design, September 2025.
+  - fasoracetam `unknown` → `ongoing`: Synaptiq acquired NB-001 and plans a Phase 2b, July 2026. Highest phase corrected to Phase 2/3 (NCT02777931).
+  - LAM-002A / LAM-001 `unknown` → `ongoing`: LAM-001 Phase 2 trials under IRulya (formerly Quince); developer chain updated.
+  - ADG106 / ADG116 / ADG126 `stopped` → `ongoing`: ADG126 randomized Phase 2 ongoing, August 2026.
+- Borderline corrections without a status change:
+  - omilancor: highest phase corrected from "Phase 3 per Zenodo, unverified" to Phase 2; no Phase 3 is registered. Registry IDs added; it stays `unknown`.
+  - OC514: detail added; stays `unknown`.
+  - azelaprag: termination source and NCT06515418 added.
+- Candidates, factual fields only; their tier is under review:
+  - ENV-308: dosing confirmed 17 December 2025; Enveda's August 2026 molecule-specific AI statement recorded.
+  - MRT-2359 and MRT-6160: now in Phase 2. MRT-8102: registry ID added.
+  - JUV-161: now in Phase 1/2.
+  - PXT3003: first in human 2010 (NCT01401257); China marketing application filed, April 2025.
+
 ## v1.1.1 — 2026-10-20
 Open checks from the 13 October build, closed against sources. No change to any inclusion call. Strict status moves from 36 ongoing / 15 stopped / 3 unknown to 38 / 15 / 1.
 - DSP-0038 and DSP-2342: `unknown` → `ongoing`. Both are listed at Phase 1 in Sumitomo Pharma's development pipeline as of 31 July 2026 (Q1 FY2026 materials). NCT07850102, a Johns Hopkins imaging study of DSP-2342, is not yet recruiting.
