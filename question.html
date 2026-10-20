@@ -26,20 +26,24 @@
 <p>Developers that use AI say they choose better targets and design better molecules. If that is true, it should show up in the clinic as better odds at each phase, faster progress, or both. Testing the claim needs a denominator: every AI-derived molecule that has been dosed in people, counted to a written definition, with what happened to it, including the programs that quietly stopped. Most published counts do not release their list. This registry does, so the comparison below can be checked and recomputed by anyone.</p>
 
 <h2 id="so-far">What the data can say so far</h2>
-<p>For each step, the bar shows what has happened to the <span data-n="strict">55</span> strict-cohort molecules that reached it. The interval on the right shows the share of molecules with a known outcome that moved on, with its 95% confidence interval, against the industry rate for 2011–2020.</p>
+<p>For each step, the bar on the left shows what has happened to the <span data-n="strict">55</span> strict-cohort molecules that reached it. The chart on the right compares the share that moved on with what published studies report for drug development as a whole.</p>
 
 <figure class="census tr" aria-labelledby="tr-cap">
-  <figcaption id="tr-cap" class="tr-cap">Phase transitions, strict cohort, against industry benchmarks</figcaption>
+  <figcaption id="tr-cap" class="tr-cap">Phase transitions: AI-derived molecules against published industry estimates</figcaption>
   <ul class="legend tr-legend" aria-label="Key">
     <li><i style="--c:var(--hema)"></i>Moved to the next phase</li>
     <li><i style="--c:var(--stop)"></i>Stopped</li>
-    <li><i style="--c:var(--unclear);--r:var(--unclear-ring)"></i>Still running, no outcome yet</li>
-    <li><span class="tr-key-tick" aria-hidden="true"></span>Industry rate, 2011–2020</li>
+    <li><i style="--c:var(--unclear);--r:var(--unclear-ring)"></i>Still running</li>
+    <li class="sep" aria-hidden="true"></li>
+    <li><span class="k-ai" aria-hidden="true"></span>AI-derived: share that moved on, with 95% CI</li>
+    <li><span class="k-med" aria-hidden="true"></span>Industry: median of 5 studies</li>
+    <li><span class="k-band" aria-hidden="true"></span><span class="k-est" aria-hidden="true"></span>Range of the 5 studies, and each study</li>
   </ul>
   <div id="tr-rows" class="tr-rows"><p class="noscript">The chart needs the registry data to load. The table below has the same figures.</p></div>
   <details class="tr-table">
     <summary>Show as a table</summary>
-    <div class="tw"><table><thead><tr><th>Step</th><th>Reached</th><th>Moved on</th><th>Stopped</th><th>Still running</th><th>Moved on, of known outcomes (95% CI)</th><th>Industry</th></tr></thead><tbody id="tr-tb"></tbody></table></div>
+    <div class="tw"><table><thead><tr><th>Step</th><th>Reached</th><th>Moved on</th><th>Stopped</th><th>Still running</th><th>AI-derived: moved on, of known outcomes (95% CI)</th><th>Industry: median (range of 5 studies)</th></tr></thead><tbody id="tr-tb"></tbody></table></div>
+    <div class="tw"><table><thead><tr><th>Study</th><th>Data</th><th>Phase 1 to 2</th><th>Phase 2 to 3</th><th>Phase 3 to filing</th></tr></thead><tbody id="tr-bench"></tbody></table></div>
   </details>
 </figure>
 <p id="tr-read" class="tr-read"></p>
@@ -50,6 +54,7 @@
 <li><strong>Most are recent.</strong> <span id="recent">Most</span> of the strict cohort first entered humans in 2022 or later. Phase 2 and Phase 3 trials take years, so most outcomes are still to come.</li>
 <li><strong>Early outcomes may not be typical.</strong> The first molecules to resolve are the earliest entrants and the fastest decisions. They may not represent the cohort that follows.</li>
 <li><strong>Stopping is not always failure.</strong> A program can stop for money, strategy or a merger. The industry figures count those suspensions the same way,<sup><a href="#src-bio">1</a></sup> so the comparison is like for like on that point. But this cohort is mostly small biotechs, whose stops more often reflect funding.</li>
+<li><strong>Published benchmarks disagree.</strong> Five widely cited studies put Phase 2 success between 29% and 58%. Four of them, which count each drug's phase transitions, cluster around 30%. The fifth tracks every trial path and reports higher rates.<sup><a href="#src-wong">6</a></sup> The chart shows the full range rather than one number.</li>
 <li><strong>Other counts reach other answers.</strong> An analysis of AI-native company pipelines to the end of 2023 found Phase 1 success of 80–90% and Phase 2 success of about 40%.<sup><a href="#src-jay">2</a></sup> It counted a different set of molecules under different rules; see <a href="methodology.html#6-other-counts-and-why-they-differ">Methodology § 6</a>.</li>
 </ul>
 
@@ -62,13 +67,17 @@
 <li>A molecule <em>reached</em> a phase if its furthest phase is that phase or later. It <em>moved on</em> if its furthest phase is later. Combined Phase 1/2 trials count as Phase 1 until the developer reports the Phase 2 part.</li>
 <li>A molecule that reached a phase but went no further is <em>stopped</em> if its status is stopped, and <em>still running</em> otherwise (including status unknown).</li>
 <li>The rate is moved on ÷ (moved on + stopped). The interval is the Wilson score interval. Until at least 10 molecules have an outcome at a step, the rate is shown in grey and not compared.</li>
-<li>Industry rates are phase-transition success rates for 2011–2020: Phase 1 to 2, 52.0%; Phase 2 to 3, 28.9%; Phase 3 to filing, 57.8%.<sup><a href="#src-bio">1</a></sup></li>
+<li>Industry figures are all-indication phase-transition success rates from five studies covering 1995–2020.<sup><a href="#src-bio">1</a>,<a href="#src-hay">3</a>–<a href="#src-wong">6</a></sup> The line is their median; the band is their range. The Phase 3 figures measure progress to filing, except Wong et al., which measures progress to approval.</li>
 </ul>
 
 <h2 id="sources">Sources</h2>
 <ol class="tr-src">
 <li id="src-bio">BIO, Informa Pharma Intelligence and QLS Advisors. <a href="https://go.bio.org/rs/490-EHZ-999/images/ClinicalDevelopmentSuccessRates2011_2020.pdf"><em>Clinical Development Success Rates and Contributing Factors 2011–2020</em></a>. February 2021. 12,728 phase transitions; likelihood of approval from Phase 1, 7.9%.</li>
 <li id="src-jay">Jayatunga MKP et al. <a href="https://pubmed.ncbi.nlm.nih.gov/38692505/">How successful are AI-discovered drugs in clinical trials? A first analysis and emerging lessons</a>. <em>Drug Discovery Today</em>, 2024.</li>
+<li id="src-hay">Hay M et al. <a href="https://pubmed.ncbi.nlm.nih.gov/24406927/">Clinical development success rates for investigational drugs</a>. <em>Nature Biotechnology</em> 32:40–51, 2014. Data 2003–2011.</li>
+<li id="src-dimasi">DiMasi JA, Grabowski HG, Hansen RW. <a href="https://pubmed.ncbi.nlm.nih.gov/26928437/">Innovation in the pharmaceutical industry: new estimates of R&amp;D costs</a>. <em>Journal of Health Economics</em> 47:20–33, 2016. Compounds first tested in humans 1995–2007.</li>
+<li id="src-bio16">Thomas DW et al. <a href="https://go.bio.org/rs/490-EHZ-999/images/Clinical%20Development%20Success%20Rates%202006-2015%20-%20BIO%2C%20Biomedtracker%2C%20Amplion%202016.pdf"><em>Clinical Development Success Rates 2006–2015</em></a>. BIO, Biomedtracker and Amplion, 2016.</li>
+<li id="src-wong">Wong CH, Siah KW, Lo AW. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6409418/">Estimation of clinical trial success rates and related parameters</a>. <em>Biostatistics</em> 20:273–286, 2019. Data 2000–2015.</li>
 </ol>
 </main>
 <footer><p>Independent analysis by John Milad. Not peer-reviewed. Computed in your browser from <a href="data/molecules.csv">molecules.csv</a> (CC BY 4.0).</p></footer>
@@ -92,46 +101,52 @@ function wilson(k,n){
   const z=1.96,p=k/n,d=1+z*z/n,c=p+z*z/(2*n),h=z*Math.sqrt(p*(1-p)/n+z*z/(4*n*n));
   return {p,lo:Math.max(0,(c-h)/d),hi:Math.min(1,(c+h)/d)};
 }
-const STEPS=[
-  {from:1,to:3,label:"Phase 1 to Phase 2",bench:.520},
-  {from:3,to:4,label:"Phase 2 to Phase 3",bench:.289},
-  {from:4,to:5,label:"Phase 3 to filing",bench:.578}
+const BENCH=[
+  {id:"src-dimasi",src:"DiMasi et al. 2016",yrs:"1995–2007",v:[.595,.355,.620]},
+  {id:"src-hay",src:"Hay et al. 2014",yrs:"2003–2011",v:[.645,.324,.601]},
+  {id:"src-bio16",src:"BIO 2016",yrs:"2006–2015",v:[.632,.307,.581]},
+  {id:"src-wong",src:"Wong et al. 2019",yrs:"2000–2015",v:[.664,.583,.590]},
+  {id:"src-bio",src:"BIO 2021",yrs:"2011–2020",v:[.520,.289,.578]}
 ];
+const median=a=>{const b=[...a].sort((x,y)=>x-y),m=b.length>>1;return b.length%2?b[m]:(b[m-1]+b[m])/2};
+const STEPS=[
+  {from:1,to:3,label:"Phase 1 to Phase 2",ph:"Phase 1"},
+  {from:3,to:4,label:"Phase 2 to Phase 3",ph:"Phase 2"},
+  {from:4,to:5,label:"Phase 3 to filing",ph:"Phase 3"}
+].map((st,i)=>{const v=BENCH.map(b=>b.v[i]);return {...st,i,med:median(v),lo:Math.min(...v),hi:Math.max(...v)}});
 const pct=x=>Math.round(x*100)+"%";
 const MIN=10; // a rate is compared only once this many molecules have an outcome at that step
+const at=(x,txt,cls="")=>{const c=x<.1?"l":x>.9?"r":"";return `<span class="${cls} ${c}" style="left:${x*100}%">${txt}</span>`};
 function render(mols){
   const s=mols.filter(m=>m.inclusion==="strict").map(m=>({...m,r:rank(m.highest_phase)}));
   document.querySelectorAll('[data-n="strict"]').forEach(e=>e.textContent=s.length);
   const rows=STEPS.map(st=>{
-    const reached=s.filter(m=>m.r>=st.from);
-    const on=reached.filter(m=>m.r>=st.to);
-    const here=reached.filter(m=>m.r<st.to);
-    const stop=here.filter(m=>m.status==="stopped");
-    const run=here.filter(m=>m.status!=="stopped");
-    return {...st,n:reached.length,on:on.length,stop:stop.length,run:run.length,w:wilson(on.length,on.length+stop.length),k:on.length+stop.length,few:on.length+stop.length>0&&on.length+stop.length<MIN};
+    const reached=s.filter(m=>m.r>=st.from), on=reached.filter(m=>m.r>=st.to), here=reached.filter(m=>m.r<st.to);
+    const stop=here.filter(m=>m.status==="stopped").length, run=here.length-stop, k=on.length+stop;
+    return {...st,n:reached.length,on:on.length,stop,run,k,w:wilson(on.length,k),few:k>0&&k<MIN};
   });
   const max=Math.max(...rows.map(r=>r.n));
   $("tr-rows").innerHTML=rows.map(r=>{
-    const seg=(k,v,cls,lab)=>v?`<span class="tr-seg ${cls}" style="flex:${v}" data-tip="${esc(`${r.label}: ${v} ${lab}`)}">${v}</span>`:"";
-    const rate=r.few
-      ?`<span class="tr-ci few" style="left:${r.w.lo*100}%;width:${(r.w.hi-r.w.lo)*100}%"></span><span class="tr-pt few" style="left:${r.w.p*100}%" data-tip="${esc(`${r.on} of ${r.k} moved on. Too few outcomes to compare; a rate is compared from ${MIN}.`)}"></span>`
-      :r.w
-      ?`<span class="tr-ci" style="left:${r.w.lo*100}%;width:${(r.w.hi-r.w.lo)*100}%"></span><span class="tr-pt" style="left:${r.w.p*100}%" data-tip="${esc(`${pct(r.w.p)} moved on (95% CI ${pct(r.w.lo)}–${pct(r.w.hi)}), n=${r.on+r.stop} with an outcome`)}"></span>`
-      :`<span class="tr-none">No outcomes yet</span>`;
+    const seg=(v,cls,lab)=>v?`<span class="tr-seg ${cls}" style="flex:${v}" data-tip="${esc(`${r.label}: ${v} ${lab}`)}">${v}</span>`:"";
+    const ests=BENCH.map(b=>`<span class="fp-est" style="left:${b.v[r.i]*100}%"></span><span class="fp-hit" style="left:${b.v[r.i]*100}%" data-tip="${esc(`${b.src} (data ${b.yrs}): ${(b.v[r.i]*100).toFixed(1)}%`)}"></span>`).join("");
+    const ai=r.w?`<span class="fp-ci${r.few?" few":""}" style="left:${r.w.lo*100}%;width:${(r.w.hi-r.w.lo)*100}%"></span><span class="fp-pt${r.few?" few":""}" style="left:${r.w.p*100}%" data-tip="${esc(r.few?`${r.on} of ${r.k} moved on. Too few outcomes to compare; a rate is compared from ${MIN}.`:`AI-derived: ${r.on} of ${r.k} moved on, ${pct(r.w.p)} (95% CI ${pct(r.w.lo)}–${pct(r.w.hi)})`)}"></span>`:"";
+    const bot=!r.w?at(0,"No outcomes yet","none"):r.few?at(r.w.p,`Too few to compare (${r.on} of ${r.k})`,"few"):at(r.w.p,`AI ${pct(r.w.p)} (${pct(r.w.lo)}–${pct(r.w.hi)})`);
+    const aria=`${r.label}. AI-derived: ${!r.w?"no outcomes yet":r.few?`${r.on} of ${r.k} moved on, too few to compare`:`${pct(r.w.p)} moved on, 95% CI ${pct(r.w.lo)} to ${pct(r.w.hi)}`}. Industry median ${pct(r.med)}, range ${pct(r.lo)} to ${pct(r.hi)}.`;
     return `<div class="tr-row">
       <div class="tr-name">${esc(r.label)}<small>${r.n} reached</small></div>
-      <div class="tr-stack" style="width:calc(${r.n/max} * 100%)" role="img" aria-label="${esc(`${r.label}: ${r.on} moved on, ${r.stop} stopped, ${r.run} still running`)}">${seg("on",r.on,"on","moved on")}${seg("stop",r.stop,"stop","stopped")}${seg("run",r.run,"run","still running")}</div>
-      <div class="tr-rate${r.few?" few":""}" role="img" aria-label="${esc(r.few?`${r.on} of ${r.k} moved on; too few outcomes to compare; industry ${pct(r.bench)}`:r.w?`${pct(r.w.p)} moved on, 95% CI ${pct(r.w.lo)} to ${pct(r.w.hi)}; industry ${pct(r.bench)}`:`No outcomes yet; industry ${pct(r.bench)}`)}">
-        <div class="tr-track">${rate}<span class="tr-bench" style="left:${r.bench*100}%" data-tip="${esc(`Industry ${r.benchNote||""} 2011–2020: ${(r.bench*100).toFixed(1)}%`.replace("  "," "))}"></span></div>
-        <div class="tr-val">${r.few?`<span class="tr-few">Too few to compare (${r.on} of ${r.k})</span>`:r.w?`<b>${pct(r.w.p)}</b> <span>95% CI ${pct(r.w.lo)}–${pct(r.w.hi)}</span>`:"<span>—</span>"}<span class="tr-bv">Industry ${pct(r.bench)}</span></div>
+      <div class="tr-stack" style="width:calc(${r.n/max} * 100%)" role="img" aria-label="${esc(`${r.label}: ${r.on} moved on, ${r.stop} stopped, ${r.run} still running`)}">${seg(r.on,"on","moved on")}${seg(r.stop,"stop","stopped")}${seg(r.run,"run","still running")}</div>
+      <div class="fp" role="img" aria-label="${esc(aria)}">
+        <div class="fp-lab fp-top">${at(r.med,`Industry ${pct(r.med)}`)}</div>
+        <div class="fp-track"><span class="fp-band" style="left:${r.lo*100}%;width:${(r.hi-r.lo)*100}%" data-tip="${esc(`Published industry estimates: ${pct(r.lo)} to ${pct(r.hi)} (5 studies)`)}"></span>${ests}<span class="fp-med" style="left:${r.med*100}%"></span><span class="fp-hit" style="left:${r.med*100}%" data-tip="${esc(`Industry median of 5 studies: ${(r.med*100).toFixed(1)}%`)}"></span>${ai}</div>
+        <div class="fp-lab fp-bot">${bot}</div>
       </div>
     </div>`;
-  }).join("")+`<div class="tr-axis" aria-hidden="true"><span></span><span></span><div class="tr-ticks"><span style="left:0">0%</span><span style="left:50%">50%</span><span style="left:100%">100%</span></div></div>`;
-  $("tr-tb").innerHTML=rows.map(r=>`<tr><td>${esc(r.label)}</td><td>${r.n}</td><td>${r.on}</td><td>${r.stop}</td><td>${r.run}</td><td>${r.w?`${pct(r.w.p)} (${pct(r.w.lo)}–${pct(r.w.hi)}), n=${r.k}${r.few?"; too few to compare":""}`:"no outcomes yet"}</td><td>${(r.bench*100).toFixed(1)}%${r.benchNote?" ("+r.benchNote+")":""}</td></tr>`).join("");
-  const ph=["Phase 1","Phase 2","Phase 3"];
-  $("tr-read").textContent=rows.map((r,i)=>!r.k?`No molecule in this cohort has an outcome from ${ph[i]} yet.`
-    :r.few?`At ${ph[i]}, only ${r.k} molecules have an outcome (${r.on} moved on), too few to compare.`
-    :`So far, ${r.on} of the ${r.k} molecules with a ${ph[i]} outcome moved on (${pct(r.w.p)}, 95% CI ${pct(r.w.lo)}–${pct(r.w.hi)}), against ${pct(r.bench)} across the industry; ${r.run} are still in ${ph[i]}.`).join(" ");
+  }).join("")+`<div class="tr-axis" aria-hidden="true"><span></span><div class="tr-ticks">${[0,20,40,60,80,100].map(v=>`<span style="left:${v}%">${v}%</span>`).join("")}</div></div><div class="tr-axis" aria-hidden="true"><span></span><div class="tr-axis-t">Share that moved on to the next phase</div></div>`;
+  $("tr-tb").innerHTML=rows.map(r=>`<tr><td>${esc(r.label)}</td><td>${r.n}</td><td>${r.on}</td><td>${r.stop}</td><td>${r.run}</td><td>${r.w?`${pct(r.w.p)} (${pct(r.w.lo)}–${pct(r.w.hi)}), n=${r.k}${r.few?"; too few to compare":""}`:"no outcomes yet"}</td><td>${pct(r.med)} (${pct(r.lo)}–${pct(r.hi)})</td></tr>`).join("");
+  $("tr-bench").innerHTML=BENCH.map(b=>`<tr><td><a href="#${b.id}">${esc(b.src)}</a></td><td>${b.yrs}</td>${b.v.map(x=>`<td>${(x*100).toFixed(1)}%</td>`).join("")}</tr>`).join("");
+  $("tr-read").textContent=rows.map(r=>!r.k?`No molecule in this cohort has an outcome from ${r.ph} yet.`
+    :r.few?`At ${r.ph}, only ${r.k} molecules have an outcome (${r.on} moved on), too few to compare.`
+    :`So far, ${r.on} of the ${r.k} molecules with a ${r.ph} outcome moved on (${pct(r.w.p)}, 95% CI ${pct(r.w.lo)}–${pct(r.w.hi)}). Published industry estimates range from ${pct(r.lo)} to ${pct(r.hi)}, median ${pct(r.med)}. ${r.run} are still in ${r.ph}.`).join(" ");
   const yrs=s.map(m=>m.first_in_human_year).filter(Boolean);
   $("recent").textContent=`${yrs.filter(y=>y>=2022).length} of ${yrs.length}`;
   $("settle-n").textContent=`${s.filter(m=>m.r>=3&&m.status==="ongoing").length}`;
