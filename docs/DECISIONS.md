@@ -4,6 +4,16 @@
 
 ---
 
+## 2026-10-20 — Approvals recorded against the regulator's record; IND clearances not tracked
+
+**Decision:** Add an `approvals` column to `molecules.csv`. Each entry gives the agency, date, reference, indication and a link to the regulator's own record, such as a Drugs@FDA application page. `scripts/check_counts.py` fails if an approved row has no entry. Trials also record protocol and analysis-plan PDFs posted on ClinicalTrials.gov. IND clearances are not tracked as a field.
+
+**Why:** An approval is the strongest claim the registry can make, so it should trace to the regulator, not to a press release. The lirafugratinib approval was missed because checks looked at trial registries, which do not record approvals. US INDs are confidential, so FDA publishes no IND list; clearances are known only from sponsor announcements. A field would therefore be selective and could not be verified for most rows. Dosing, the inclusion test, is what registries record. FDA does not approve protocols; it reviews them under an IND.
+
+**Revisit:** a pre-clinic watchlist of announced IND or CTA clearances, including China CDE's public implied-approval list, could be a separate list after launch.
+
+---
+
 ## 2026-10-20 — Per-row verification date and a field-level audit log
 
 **Decision:** Every row in `molecules.csv`, `candidates.csv` and `excluded.csv` carries a `last_verified` ISO date: the day each of its fields was last checked against primary sources. `data/audit-log.csv` records the evidence, one line per row and field: `id, field, verdict (confirmed/changed/flagged), old_value, new_value, source_url, quote, checked_date`. Quotes are verbatim and 25 words or fewer. The log is append-only; a later check adds lines rather than editing old ones. `excluded.csv` gains a stable `id` column (prefix `x-`) so its rows can be referenced in the log. The site shows "Last verified" in each entry's expanded view and links the log.

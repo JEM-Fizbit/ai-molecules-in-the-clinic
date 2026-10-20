@@ -37,7 +37,7 @@
       <a class="btn primary" href="#registry">Browse the registry</a>
       <a class="btn" href="data/molecules.csv" download>Download the data (CSV)</a>
     </div>
-    <p class="asof" id="asof">Data as of 20 October 2026. Trial records retrieved 20 October 2026. Version 1.1.16.</p>
+    <p class="asof" id="asof">Data as of 20 October 2026. Trial records retrieved 20 October 2026. Version 1.1.17.</p>
   </div>
 
   <figure class="census" id="census" aria-labelledby="census-cap">
@@ -122,7 +122,7 @@
     <li><b>The list was assembled with AI-assisted searches</b> and then challenged by two verification passes, one trying to disprove entries and one looking for missing ones (<a href="methodology.html#4-how-the-list-was-built">Methodology § 4</a>). Every row carries its sources, and every change since is logged in the <a href="https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic/blob/main/CHANGELOG.md">changelog</a>.</li>
     <li><b>Inclusion is not an efficacy rating.</b> Being listed says nothing about whether a molecule works.</li>
   </ul>
-  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.16, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
+  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.17, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
 </section>
 
 <section class="block" id="corrections" aria-labelledby="h-cor">
@@ -367,7 +367,7 @@ function rows(){
     const src=(m.sources||"").split(";").map(s=>s.trim()).filter(Boolean).map(u=>{if(!/^https?:/.test(u))return esc(u);let l=srcLabel(u);seen[l]=(seen[l]||0)+1;if(seen[l]>1)l+=` (${seen[l]})`;return `<a href="${esc(u)}" target="_blank" rel="noopener" title="${esc(u)}">${esc(l)}</a>`}).join(", ");
     const regs=(m.registry_ids||"").split(";").filter(Boolean).map(regLink).join(", ");
     const ph=x=>x.replace(/Phase/g,"Phase ").replace(/\s+/g," ").replace(/\/ ?Phase /g,"/").trim()||"n/a";
-    const tl=t.length?`<div class="ctg"><table><thead><tr><th>Trial</th><th>Phase</th><th>Status</th><th>Start</th><th>Primary completion</th><th class="hide-sm">Sponsor</th></tr></thead><tbody>${[...t].sort((a,b)=>(b.start_date||"").localeCompare(a.start_date||"")).map(x=>`<tr><td>${regLink(x.nct_id)}<small>${esc(x.title)}</small></td><td class="nw">${esc(ph(x.phase))}</td><td>${esc(x.status.replace(/_/g," ").toLowerCase())}${x.why_stopped?`<small>Reason given: ${esc(x.why_stopped)}</small>`:""}</td><td class="nw">${esc(x.start_date?fmtMonth(x.start_date):"")}</td><td class="nw">${esc(x.primary_completion_date?fmtMonth(x.primary_completion_date):"")}${x.primary_completion_date?`<small>${x.primary_completion_type==="ACTUAL"?"actual":"estimated"}</small>`:""}</td><td class="hide-sm">${esc(x.lead_sponsor)}</td></tr>`).join("")}</tbody></table><small class="ctg-note">From ClinicalTrials.gov, retrieved ${esc(fmtDate(x0(t).retrieved))}.</small></div>`:"No ClinicalTrials.gov record";
+    const tl=t.length?`<div class="ctg"><table><thead><tr><th>Trial</th><th>Phase</th><th>Status</th><th>Start</th><th>Primary completion</th><th class="hide-sm">Sponsor</th></tr></thead><tbody>${[...t].sort((a,b)=>(b.start_date||"").localeCompare(a.start_date||"")).map(x=>`<tr><td>${regLink(x.nct_id)}<small>${esc(x.title)}</small>${x.documents?`<small>${x.documents.split(";").filter(Boolean).map(d=>{const [k,u]=d.split("|");return `<a href="${esc(u)}">${esc({Prot:"Protocol",SAP:"Statistical analysis plan",Prot_SAP:"Protocol and analysis plan",ICF:"Consent form",Prot_ICF:"Protocol and consent form",Prot_SAP_ICF:"Protocol, analysis plan and consent form"}[k]||k)} (PDF)</a>`}).join(" · ")}</small>`:""}</td><td class="nw">${esc(ph(x.phase))}</td><td>${esc(x.status.replace(/_/g," ").toLowerCase())}${x.why_stopped?`<small>Reason given: ${esc(x.why_stopped)}</small>`:""}</td><td class="nw">${esc(x.start_date?fmtMonth(x.start_date):"")}</td><td class="nw">${esc(x.primary_completion_date?fmtMonth(x.primary_completion_date):"")}${x.primary_completion_date?`<small>${x.primary_completion_type==="ACTUAL"?"actual":"estimated"}</small>`:""}</td><td class="hide-sm">${esc(x.lead_sponsor)}</td></tr>`).join("")}</tbody></table><small class="ctg-note">From ClinicalTrials.gov, retrieved ${esc(fmtDate(x0(t).retrieved))}.</small></div>`:"No ClinicalTrials.gov record";
     const tier={A:"A: peer-reviewed or regulatory documentation",B:"B: developer's own disclosure",C:"C: secondary sources only"}[m.attribution_tier]||m.attribution_tier;
     const n=m.next, nt=n&&n.trial;
     const due=n?`${esc(fmtMonth(n.d))}: ${n.trial.primary_completion_type==="ACTUAL"?"primary completion":"estimated primary completion"} of ${regLink(nt.nct_id)} (${esc(nt.phase.replace(/PHASE/g,"Phase ").replace(/\s+/g," "))}, ${esc(nt.status.replace(/_/g," ").toLowerCase())}).${n.past?" That date has passed with no update posted on ClinicalTrials.gov.":""}`
@@ -377,6 +377,7 @@ function rows(){
     const H=v=>({__html:v});
     const d=[["Developer",m.developer],["Partner",m.partner],["Target",m.target],["Indication",m.indication],
       ["Furthest phase",`${m.highest_phase}${m.first_in_human_detail?`. First dosed: ${m.first_in_human_detail}`:""}`],
+      ["Regulatory approval",(m.approvals||"")?H(m.approvals.split(";").filter(Boolean).map(e=>{const [ag,dt,ref,ind,url]=e.split("|");return `${esc(ag)}, ${esc(fmtDate(dt))}: <a href="${esc(url)}">${esc(ref)}</a>${ind?` for ${esc(ind)}`:""}`}).join("<br>")):""],
       ["Status",(()=>{const L=STATUS_LABEL[m.status]||m.status,x=(m.status_detail||"").replace(/^(ongoing|stopped|unknown)\b\s*:?\s*/i,"").replace(/^\((.*)\)$/,"$1").trim();return !x||x.toLowerCase()===m.status?L:`${L}: ${x}`})()],
       ["Target type",`${PREC_LABEL[m.target_precedence]||m.target_precedence}${m.precedence_basis?`: ${m.precedence_basis}`:""}`],
       ["Modality",(()=>{const c=m.modality_class||"",x=m.modality||"";if(!x||x.toLowerCase()===c.toLowerCase())return c||x;if(c&&x.toLowerCase().startsWith(c.toLowerCase()))return x.charAt(0).toUpperCase()+x.slice(1);return c?`${c} (${x})`:x})()],
@@ -416,7 +417,7 @@ others();
 Promise.all([fetch("data/molecules.json",{cache:"no-cache"}).then(r=>r.json()),fetch("data/trials.json",{cache:"no-cache"}).then(r=>r.json())]).then(([m,t])=>{
   TRIALS=t.trials;const R=t.retrieved||"2026-10-15";MOLS=m.molecules.map(x=>{const n=nextDue(x.id,R);return {...x,phase_rank:phaseRank(x.highest_phase),modality_class:modalityClass(x.modality),next:n,next_due:n?(n.past?"0"+n.d:n.d):"9999"}});
   [...new Set(MOLS.map(x=>x.modality_class).filter(Boolean))].sort().forEach(v=>$("f-mod").insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`));
-  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.16.`;
+  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.17.`;
   census();rows();corrForm();
 }).catch(()=>{$("tb").innerHTML='<tr><td colspan="8">The registry data did not load. Reload the page, or use the CSV downloads at the foot of the page.</td></tr>'});
 </script>

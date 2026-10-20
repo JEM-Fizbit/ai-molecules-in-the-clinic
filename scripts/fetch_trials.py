@@ -28,6 +28,7 @@ def flat(s):
             "primary_completion_date": st.get("primaryCompletionDateStruct", {}).get("date", ""),
             "primary_completion_type": st.get("primaryCompletionDateStruct", {}).get("type", ""),
             "lead_sponsor": sp.get("name", ""), "sponsor_class": sp.get("class", ""), "why_stopped": st.get("whyStopped", ""),
+            "documents": ";".join(f"{d.get('typeAbbrev','Doc')}|https://cdn.clinicaltrials.gov/large-docs/{p['identificationModule']['nctId'][-2:]}/{p['identificationModule']['nctId']}/{d['filename']}" for d in s.get("documentSection", {}).get("largeDocumentModule", {}).get("largeDocs", []) if d.get("filename")),
             "_names": names}
 
 mols = [m for m in csv.DictReader(open("data/molecules.csv")) if m["inclusion"] == "strict"]
@@ -54,7 +55,7 @@ for f in found.values():
     r = {k: v for k, v in f.items() if not k.startswith("_")}
     r["molecule_ids"] = ";".join(sorted(f["_mols"])); r["retrieved"] = today
     rows.append(r)
-fields = ["nct_id","molecule_ids","title","phase","status","start_date","primary_completion_date","primary_completion_type","lead_sponsor","sponsor_class","why_stopped","retrieved"]
+fields = ["nct_id","molecule_ids","title","phase","status","start_date","primary_completion_date","primary_completion_type","lead_sponsor","sponsor_class","why_stopped","documents","retrieved"]
 rows.sort(key=lambda x: (x["molecule_ids"], x["start_date"]))
 with open("data/trials.csv", "w", newline="") as fh:
     w = csv.DictWriter(fh, fieldnames=fields); w.writeheader(); w.writerows(rows)

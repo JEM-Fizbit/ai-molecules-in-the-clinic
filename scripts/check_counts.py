@@ -63,6 +63,10 @@ checks = [  # (file, regex with one group per expected value, expected values)
 ]
 
 bad = []
+# Every approved row must cite its approval record (agency|date|reference|indication|url).
+for m in M:
+    if re.match(r"Approved", m["highest_phase"], re.I) and not m.get("approvals"):
+        bad.append(f"molecules.csv: {m['id']} is approved but has no `approvals` entry")
 for f, rx, want in checks:
     m = re.search(rx, open(f).read())
     if not m:

@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.1.17 — 2026-10-20
+Approvals traced to the regulator; trials re-pulled. No change to any count, inclusion or coding call.
+- New `approvals` field: agency, date, reference and indication, linked to the regulator's own record. It is shown in the registry's expanded view as "Regulatory approval".
+  - Lirafugratinib: FDA, 23 September 2026, NDA 220425.
+  - BXCL-501: FDA, 5 April 2022, NDA 215390.
+  - Baricitinib (COVID-19): FDA, 10 May 2022, NDA 207924 supplement.
+  - Iscartrelvir: NMPA conditional approval, 29 July 2026.
+- `check_counts.py` now fails if an approved row has no approval record.
+- Trials re-pulled from ClinicalTrials.gov on 20 October 2026: 81 records for 45 strict molecules. The drop from 83 and 47 is because AO-252 and SGR-2921 left the strict cohort in v1.1.15. Protocol and statistical analysis plan PDFs posted on ClinicalTrials.gov are now linked from the trial table (4 trials have them).
+- Decision logged: IND clearances are not tracked as a field (see `docs/DECISIONS.md`).
+
 ## v1.1.16 — 2026-10-20
 Second audit pass, completing the v1.1.13 evidence trail. **No change to any count, inclusion tier, attribution tier or target precedence.** 98 new lines in `data/audit-log.csv`, each with a fetched source and a verbatim quote.
 - **Excluded rows:** 18 of the 23 unverified rows are now checked and dated. Reason texts are updated with current facts, for example:

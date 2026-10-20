@@ -4,7 +4,7 @@ An open registry of drug candidates whose **target or molecule was materially sh
 
 **Site:** https://aixbio-registry.org (public from launch day)
 
-**Snapshot:** as of 20 October 2026 · trials retrieved 20 October 2026 · v1.1.16
+**Snapshot:** as of 20 October 2026 · trials retrieved 20 October 2026 · v1.1.17
 
 | | |
 |---|---|
@@ -26,7 +26,7 @@ Counts of "AI-discovered drugs" in the clinic range from about 50 to more than 1
 | File | Contents |
 |---|---|
 | [`data/molecules.csv`](data/molecules.csv) / `.json` | Strict and borderline entries, one row per molecule, with sources |
-| [`data/trials.csv`](data/trials.csv) / `.json` | ClinicalTrials.gov records for the strict cohort (83 trials, 47 molecules) |
+| [`data/trials.csv`](data/trials.csv) / `.json` | ClinicalTrials.gov records for the strict cohort (81 trials, 45 molecules) |
 | [`data/candidates.csv`](data/candidates.csv) | Possible entries still being checked |
 | [`data/excluded.csv`](data/excluded.csv) | Assets considered and excluded, with the reason |
 | [`data/audit-log.csv`](data/audit-log.csv) | Evidence for every field of every row: verdict, source URL and a short verbatim quote, dated |
@@ -40,7 +40,7 @@ If a row is wrong, missing, or should be reclassified, [open a correction](../..
 
 ## Citing
 
-Milad, J. *AI Molecules in the Clinic* (v1.1.16, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic
+Milad, J. *AI Molecules in the Clinic* (v1.1.17, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic
 
 Data: CC BY 4.0 ([`LICENSE-DATA`](LICENSE-DATA)). Code: MIT ([`LICENSE`](LICENSE)).
 
