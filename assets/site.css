@@ -252,8 +252,8 @@ small.sub{display:block;color:var(--faint);font-size:.8rem}
 .fp-bot span.few,.fp-bot span.none{color:var(--faint);font-weight:400}
 .fp-track{position:relative;border-right:1px solid var(--rule);background:linear-gradient(to right,var(--rule) 1px,transparent 1px) 0 0/20% 100% repeat-x}
 .fp-band{position:absolute;top:6px;height:16px;background:var(--fp-band);border-radius:2px}
-.fp-est{position:absolute;top:6px;height:16px;width:2px;margin-left:-1px;background:var(--c)}
-.fp-est .shp{position:absolute;top:-5px;left:-3.5px}
+.fp-est{position:absolute;top:8px;height:12px;width:1.5px;margin-left:-.75px;background:var(--c);opacity:.5}
+.fp-est .shp{position:absolute;top:-4px;left:-2.75px;width:7px;height:7px}
 .fp-med{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--ink)}
 .fp-ci{position:absolute;top:26px;height:2px;background:var(--hema)}
 .fp-ci::before,.fp-ci::after{content:"";position:absolute;top:-4px;width:2px;height:10px;background:inherit}
@@ -282,3 +282,4 @@ small.sub{display:block;color:var(--faint);font-size:.8rem}
 .tr-yrs{color:var(--faint)}
 .prose .tr-legend .k-studies{font:600 .82rem var(--sans)}
 .legend i.shp,.tag i.shp{border-radius:0;box-shadow:none;width:10px;height:10px}
+.tr-studies .shp{opacity:.6}
