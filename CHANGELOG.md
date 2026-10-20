@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.1.1 — 2026-10-20
+Open checks from the 13 October build, closed against sources. No change to any inclusion call. Strict status moves from 36 ongoing / 15 stopped / 3 unknown to 38 / 15 / 1.
+- DSP-0038 and DSP-2342: `unknown` → `ongoing`. Both are listed at Phase 1 in Sumitomo Pharma's development pipeline as of 31 July 2026 (Q1 FY2026 materials). NCT07850102, a Johns Hopkins imaging study of DSP-2342, is not yet recruiting.
+- MEN2312 is Insilico's ISM5043, per Menarini (10 January 2025) and Insilico's KAT6 program page; the "code mapping provisional" label is removed.
+- ISM3091 / XL309: still in Phase 1 with enrollment ongoing, per the Exelixis 10-Q filed 5 August 2026.
+- RTX-117: first participant dosed in a China healthy-volunteer Phase 1, announced by ReviR on 2 March 2026; first-in-human year corrected from 2025 to 2026. Registry IDs added: CTR20255232, ChiCTR2600118758.
+- SIGX1094: China registry ID CTR20243995 added (first enrollment 26 December 2024).
+- ENV-294: Phase 2b confirmed by the title of NCT07643766. The two Phase 2a trials, NCT07298395 (atopic dermatitis) and NCT07301255 (asthma), are added.
+- iscartrelvir: approval date set to 29 July 2026 (conditional, China NMPA). Sources added: the 2023 paper (ACS Central Science), Westlake Laboratory's account of the discovery (September 2026) and Westlake Pharmaceuticals' product page. Its inclusion stays borderline pending review.
+- Two internal process notes removed from `notes`.
+
 ## v1.1.0 — 2026-10-20
 Corrections without a GitHub account; no change to any count, inclusion or coding call.
 - Correction form on the site (no account needed), with bot traps and a per-connection hourly limit. Submissions go to a private database; the submitter's name and email are never published.
