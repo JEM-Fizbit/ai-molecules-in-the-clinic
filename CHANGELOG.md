@@ -14,6 +14,7 @@ Inclusion calls on the 13 October candidates, decided by the maintainer under th
   - Definition sensitivity: 48 excluding physics-dominant platforms, about 61 counting all physics-based platforms, about 67 counting platform-level attribution (ENV-308 plus the four new platform-only entries).
   - Eight strict molecules have no ClinicalTrials.gov record.
 - Site: the strict count in the comparison chart, the uncertainty note and the limits list is now computed from the data.
+- Site, census chart: dots stack in legend order from the bottom (precedented, novel, first-in-class, undisclosed). Precedented is a stronger blue, so it no longer blurs into undisclosed: normal-vision ΔE 10 → 22 (OKLab). Undisclosed is a pale neutral with a darker outline wherever it appears, which also keeps stopped-and-undisclosed rings visible.
 
 ## v1.1.3 — 2026-10-20
 Source links checked. No change to any count, inclusion or coding call.

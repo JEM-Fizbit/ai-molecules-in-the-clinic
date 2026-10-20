@@ -46,7 +46,7 @@
       <li><i style="--c:var(--prec)"></i>Precedented target</li>
       <li><i style="--c:var(--novel)"></i>Novel target</li>
       <li><i style="--c:var(--fic)"></i>First-in-class</li>
-      <li><i style="--c:var(--unclear)"></i>Undisclosed</li>
+      <li><i style="--c:var(--unclear);--r:var(--unclear-ring)"></i>Undisclosed</li>
       <li><i class="ring"></i>Stopped</li>
       <li><a href="#target-types">What the target types mean</a></li>
     </ul>
@@ -67,7 +67,7 @@
     <li><i style="--c:var(--prec)"></i><div><h3>Precedented</h3><p>An approved drug, or another drug that had reached Phase 2 or later, already acted on this target. The biology was validated in patients before the AI molecule arrived.</p></div></li>
     <li><i style="--c:var(--novel)"></i><div><h3>Novel</h3><p>Other drugs had been dosed in people at this target, but none had got past Phase 1. Known to be druggable, not yet shown to matter in patients.</p></div></li>
     <li><i style="--c:var(--fic)"></i><div><h3>First-in-class</h3><p>No drug had ever been dosed in people at this target. This is the case that would show AI finding new biology, not just new chemistry.</p></div></li>
-    <li><i style="--c:var(--unclear)"></i><div><h3>Undisclosed</h3><p>The developer has not said what the target is, so it cannot be classified.</p></div></li>
+    <li><i style="--c:var(--unclear);--r:var(--unclear-ring)"></i><div><h3>Undisclosed</h3><p>The developer has not said what the target is, so it cannot be classified.</p></div></li>
   </ul>
 </section>
 
@@ -238,7 +238,7 @@ function phaseRank(p){
   return 0;
 }
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const swatch=p=>`style="--c:var(${PREC_VAR[p]||"--unclear"})"`;
+const swatch=p=>PREC_VAR[p]&&p!=="unclear"?`style="--c:var(${PREC_VAR[p]})"`:`style="--c:var(--unclear);--r:var(--unclear-ring)"`;
 function regLink(id){
   if(id.startsWith("NCT"))return `<a href="https://clinicaltrials.gov/study/${id}" target="_blank" rel="noopener">${id}</a>`;
   if(id.startsWith("ACTRN"))return `<a href="https://www.anzctr.org.au/TrialSearch.aspx?searchTxt=${id}" target="_blank" rel="noopener">${id}</a>`;
@@ -293,11 +293,11 @@ let MOLS=[],TRIALS=[],mode="strict",sortK="molecule",sortDir=1,openId=null;
 
 function census(){
   const s=MOLS.filter(m=>m.inclusion==="strict");
-  const order={unclear:0,precedented:1,novel:2,"first-in-class":3};
+  const order={precedented:0,novel:1,"first-in-class":2,unclear:3};
   let i=0;
   $("cols").innerHTML=GROUPS.map(g=>{
     const ms=s.filter(m=>m.phase_rank===g.k).sort((a,b)=>(order[a.target_precedence]-order[b.target_precedence])||((b.status==="stopped")-(a.status==="stopped")));
-    const body=ms.length?`<div class="dots">${ms.map(m=>`<button class="dot${m.status==="stopped"?" stopped":""}" style="--c:var(${PREC_VAR[m.target_precedence]});--i:${i++}" data-id="${esc(m.id)}" aria-label="${esc(m.molecule)}, ${esc(m.developer)}. ${PREC_LABEL[m.target_precedence]} target. ${STATUS_LABEL[m.status]}."></button>`).join("")}</div>`:`<div class="empty-col" aria-hidden="true"></div>`;
+    const body=ms.length?`<div class="dots">${ms.map(m=>`<button class="dot${m.status==="stopped"?" stopped":""}" style="--c:var(${PREC_VAR[m.target_precedence]});${m.target_precedence==="unclear"?"--r:var(--unclear-ring);":""}--i:${i++}" data-id="${esc(m.id)}" aria-label="${esc(m.molecule)}, ${esc(m.developer)}. ${PREC_LABEL[m.target_precedence]} target. ${STATUS_LABEL[m.status]}."></button>`).join("")}</div>`:`<div class="empty-col" aria-hidden="true"></div>`;
     return `<div class="col">${body}<div class="col-n">${ms.length}</div><div class="col-l">${g.l}</div></div>`;
   }).join("");
   $("h-n").textContent=s.length;

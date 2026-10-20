@@ -1,9 +1,9 @@
-/* Palette: target type runs from pale blue (known biology) through deep blue (novel) to gold (first-in-class).
+/* Palette: target type runs from mid blue (known biology) through deep blue (novel) to gold (first-in-class); undisclosed is a pale neutral with a darker outline.
    Red is kept for stopped programmes only. */
 :root{
   --ground:#F5F6F8; --surface:#FFFFFF; --ink:#151A2D; --muted:#555D74; --faint:#7D8499; --rule:#DDE0E8;
   --hema:#3A4BA8; --hema-soft:#E6E9F6; --eosin:#C2366F; --eosin-soft:#F8E4EC;
-  --prec:#A3ACCC; --novel:#3A4BA8; --fic:#C8860B; --unclear:#C9CCD6;
+  --prec:#7F8FD6; --novel:#3A4BA8; --fic:#C8860B; --unclear:#D3D5DA; --unclear-ring:#9EA2AD;
   --ok:#2C6E57; --ok-soft:#E2F0EA; --stop:#A3342A; --stop-soft:#F7E3E0; --unk:#5B6274; --unk-soft:#E9EBF0;
   --serif:"Literata",Georgia,serif; --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   color-scheme:light;
@@ -11,14 +11,14 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --ground:#12141C; --surface:#1A1D28; --ink:#E7E9F1; --muted:#A8AEC2; --faint:#7F869C; --rule:#2B2F3E;
   --hema:#97A5EE; --hema-soft:#22284A; --eosin:#EE8DB2; --eosin-soft:#3A1F2B;
-  --prec:#6F79A8; --novel:#97A5EE; --fic:#E8B547; --unclear:#3F4456;
+  --prec:#6F79A8; --novel:#97A5EE; --fic:#E8B547; --unclear:#3F4456; --unclear-ring:#6A6F80;
   --ok:#7FC8A9; --ok-soft:#173027; --stop:#E8998A; --stop-soft:#3A221D; --unk:#B4BACB; --unk-soft:#2A2F3D;
   color-scheme:dark;
 }}
 :root[data-theme="dark"]{
   --ground:#12141C; --surface:#1A1D28; --ink:#E7E9F1; --muted:#A8AEC2; --faint:#7F869C; --rule:#2B2F3E;
   --hema:#97A5EE; --hema-soft:#22284A; --eosin:#EE8DB2; --eosin-soft:#3A1F2B;
-  --prec:#6F79A8; --novel:#97A5EE; --fic:#E8B547; --unclear:#3F4456;
+  --prec:#6F79A8; --novel:#97A5EE; --fic:#E8B547; --unclear:#3F4456; --unclear-ring:#6A6F80;
   --ok:#7FC8A9; --ok-soft:#173027; --stop:#E8998A; --stop-soft:#3A221D; --unk:#B4BACB; --unk-soft:#2A2F3D;
   color-scheme:dark;
 }
@@ -57,7 +57,7 @@ figure.census{margin:0}
 .cols{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;align-items:end;min-height:230px}
 .col{display:flex;flex-direction:column;justify-content:flex-end;gap:8px;min-width:0}
 .dots{display:flex;flex-wrap:wrap-reverse;gap:5px}
-.dot{appearance:none;width:14px;height:14px;flex:none;border-radius:50%;border:0;padding:0;cursor:pointer;background:var(--c);box-shadow:inset 0 0 0 2px var(--c)}
+.dot{appearance:none;width:14px;height:14px;flex:none;border-radius:50%;border:0;padding:0;cursor:pointer;background:var(--c);box-shadow:inset 0 0 0 2px var(--r,var(--c))}
 .dot.stopped{background:transparent}
 .dot:hover{transform:scale(1.25)}
 .dot:focus-visible{outline-offset:1px;border-radius:50%}
@@ -66,7 +66,7 @@ figure.census{margin:0}
 .col-l{font-size:.8rem;color:var(--muted);line-height:1.3;border-top:1px solid var(--rule);padding-top:8px}
 .legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:20px 0 0;padding:14px 0 0;border-top:1px solid var(--rule);font-size:.82rem;color:var(--muted);list-style:none}
 .legend li{display:flex;align-items:center;gap:7px}
-.legend i{width:11px;height:11px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 2px var(--c);display:inline-block}
+.legend i{width:11px;height:11px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 2px var(--r,var(--c));display:inline-block}
 .legend i.ring{background:transparent;--c:var(--muted)}
 .tip{position:fixed;z-index:10;pointer-events:none;background:var(--ink);color:var(--ground);font-size:.82rem;line-height:1.4;padding:7px 10px;border-radius:4px;max-width:260px;opacity:0;transition:opacity .12s}
 .tip.on{opacity:1}
@@ -123,7 +123,7 @@ td.mol{font-weight:600}
 td.mol button{all:unset;cursor:pointer}
 td.mol button:focus-visible{outline:2px solid var(--hema);outline-offset:2px}
 .tag{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;white-space:nowrap}
-.tag i{width:9px;height:9px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 2px var(--c);flex:none}
+.tag i{width:9px;height:9px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 2px var(--r,var(--c));flex:none}
 .tag i.ring{background:transparent}
 .st{font-size:.8rem;padding:2px 8px;border-radius:3px;white-space:nowrap}
 .st-ongoing{background:var(--ok-soft);color:var(--ok)}.st-stopped{background:var(--stop-soft);color:var(--stop)}.st-unknown{background:var(--unk-soft);color:var(--unk)}
@@ -172,7 +172,7 @@ footer p{margin:0 0 6px;max-width:52rem}
 .types{display:grid;gap:18px 32px;margin:36px 0 0;padding:0;list-style:none}
 @media (min-width:760px){.types{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .types li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:12px;align-items:start}
-.types i{width:14px;height:14px;border-radius:50%;background:var(--c);margin-top:4px}
+.types i{width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 2px var(--r,var(--c));margin-top:4px}
 .types h3{font:600 1rem/1.35 var(--sans);margin:0 0 4px}
 .types p{margin:0;color:var(--muted);font-size:.95rem}
 .legend a{color:inherit}
