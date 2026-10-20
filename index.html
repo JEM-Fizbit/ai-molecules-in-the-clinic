@@ -30,9 +30,9 @@
 <main>
 <section class="hero" aria-labelledby="h1">
   <div>
-    <h1 id="h1"><span id="h-n">55</span> AI-derived molecules have been dosed in people. None is approved.</h1>
+    <h1 id="h1"><span id="h-n">55</span> AI-derived molecules have been dosed in people. <span id="h-appr">None is approved.</span></h1>
     <p>This is an open registry of drug candidates whose target or molecule was materially shaped by AI or machine learning. Each one is counted to a written definition, sourced row by row, and open to correction.</p>
-    <p>Most have gone after biology the industry already knew how to hit. For all but one, the only evidence that AI did the work is the developer's own statement.</p>
+    <p>Most have gone after biology the industry already knew how to hit: <a href="#target-types"><span id="h-known">37</span> of the <span id="h-disc">51</span> with a disclosed target</a>. For all but <span id="h-a-n">one</span> (<a href="#h-lim" id="h-a-names">rentosertib</a>), the only evidence that AI did the work is the developer's own statement.</p>
     <div class="actions">
       <a class="btn primary" href="#registry">Browse the registry</a>
       <a class="btn" href="data/molecules.csv" download>Download the data (CSV)</a>
@@ -57,14 +57,14 @@
 
 <section class="block" aria-labelledby="h-counts">
   <h2 id="h-counts">What counts</h2>
-  <p class="intro">A molecule is in the strict cohort only if all three hold. Entries that miss one test in a way reasonable people dispute are published as borderline, with the reason, but not counted.</p>
+  <p class="intro">A molecule is in the strict cohort only if all three hold. Entries that miss one test in a way reasonable people dispute are published as borderline, with the reason, but not counted. The full definition is in <a href="methodology.html#1-definition">Methodology § 1</a>.</p>
   <ul class="criteria">
     <li><h3>AI did material work</h3><p>Machine learning or generative methods helped choose the target or design the molecule, not just run the screening logistics.</p></li>
     <li><h3>For this molecule</h3><p>The developer or a first-tier source attributes that role to this asset, not just to the company's platform in general.</p></li>
     <li><h3>Dosed in humans</h3><p>In any trial registry worldwide, or per a dated developer announcement, by the as-of date.</p></li>
   </ul>
   <h2 id="target-types" style="margin-top:44px">How targets are classified</h2>
-  <p class="intro">Each molecule's target is judged as it stood on the day the molecule was first dosed in a person. The question is how much the field already knew about hitting that target in people.</p>
+  <p class="intro">Each molecule's target is judged as it stood on the day the molecule was first dosed in a person. The question is how much the field already knew about hitting that target in people. The rule is set out in <a href="methodology.html#3-coding-rules">Methodology § 3</a>; each entry shows the basis for its call.</p>
   <ul class="types">
     <li><i style="--c:var(--prec)"></i><div><h3>Known target</h3><p>An approved drug, or another drug that had reached Phase 2 or later, already acted on this target. The biology was validated in patients before the AI molecule arrived.</p></div></li>
     <li><i style="--c:var(--novel)"></i><div><h3>Novel</h3><p>Other drugs had been dosed in people at this target, but none had got past Phase 1. Known to be druggable, not yet shown to matter in patients.</p></div></li>
@@ -117,9 +117,9 @@
 <section class="block" aria-labelledby="h-lim">
   <h2 id="h-lim">Read this before citing</h2>
   <ul class="limits">
-    <li><b>Attribution is mostly self-reported.</b> <span id="n-self">54</span> of the <span class="n-strict">55</span> strict entries rest on the developer's own statement that AI was used. Only rentosertib has the AI role documented in peer-reviewed or regulatory sources.</li>
+    <li><b>Attribution is mostly self-reported.</b> <span id="n-self">54</span> of the <span class="n-strict">55</span> strict entries rest on the developer's own statement that AI was used. Only <span id="lim-a">rentosertib has</span> the AI role documented in peer-reviewed or regulatory sources (<a href="methodology.html#3-coding-rules">attribution tier A</a>).</li>
     <li><b>Not yet independently second-coded.</b> Target-type calls follow a written rule but were made by one coder. Independent second coding is planned for the next major version.</li>
-    <li><b>The list was assembled with AI-assisted searches</b> and then challenged by two verification passes, one trying to disprove entries and one looking for missing ones. Every row carries its sources.</li>
+    <li><b>The list was assembled with AI-assisted searches</b> and then challenged by two verification passes, one trying to disprove entries and one looking for missing ones (<a href="methodology.html#4-how-the-list-was-built">Methodology § 4</a>). Every row carries its sources, and every change since is logged in the <a href="https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic/blob/main/CHANGELOG.md">changelog</a>.</li>
     <li><b>Inclusion is not an efficacy rating.</b> Being listed says nothing about whether a molecule works.</li>
   </ul>
   <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.12, data as of 13 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
@@ -328,6 +328,12 @@ function census(){
   }).join("");
   $("h-n").textContent=s.length;
   document.querySelectorAll(".n-strict").forEach(e=>e.textContent=s.length);
+  const disc=s.filter(m=>m.target_precedence!=="unclear"),known=disc.filter(m=>m.target_precedence==="precedented");
+  $("h-known").textContent=known.length;$("h-disc").textContent=disc.length;
+  const tierA=s.filter(m=>m.attribution_tier==="A"),words=["none","one","two","three","four","five"];
+  $("h-a-n").textContent=words[tierA.length]||tierA.length;$("h-a-names").textContent=tierA.map(m=>m.molecule.split(" / ")[0]).join(", ");
+  $("lim-a").textContent=tierA.length===1?`${tierA[0].molecule.split(" / ")[0]} has`:`${tierA.length} entries have`;
+  const appr=s.filter(m=>/^Approved/i.test(m.highest_phase)).length;$("h-appr").textContent=appr?`${appr} ${appr===1?"is":"are"} approved.`:"None is approved.";
   $("n-self").textContent=s.filter(m=>m.attribution_tier!=="A").length;
   OTHER[0].n=s.length;others();
   requestAnimationFrame(()=>$("census").classList.add("reveal"));

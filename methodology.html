@@ -73,13 +73,17 @@
 <li><strong>Confidence</strong> (<code>confidence</code>): the coder's confidence in the row as a whole.</li>
 </ul>
 <h2 id="4-how-the-list-was-built">4. How the list was built</h2>
-<p>Six parallel searches: published seed lists (BCG/Jayatunga 2024 and successors); AI-native small-molecule developers in the US, Europe and Israel; Asia-Pacific developers and registries; biologics; pharma-internal assets; and an asset-agnostic registry and literature sweep. Results were merged and coded, then challenged by two independent passes: one trying to disprove entries (about 50 registry records re-checked) and one looking for missing assets. Searches were AI-assisted; every row carries its sources.</p>
+<p>Six parallel searches: published seed lists (BCG/Jayatunga 2024 and successors); AI-native small-molecule developers in the US, Europe and Israel; Asia-Pacific developers and registries; biologics; pharma-internal assets; and an asset-agnostic registry and literature sweep. Results were merged and coded, then challenged by two independent passes: one trying to disprove entries (about 50 registry records re-checked) and one looking for missing assets. Searches were AI-assisted; every row carries its sources. In October 2026 every stopped, unknown and Phase 2+ status was re-checked against its registry and every source link was verified (v1.1.2 and v1.1.3 in <code>CHANGELOG.md</code>).</p>
 <p>Trials (<code>trials.csv</code>) are every ClinicalTrials.gov record matched to a strict-cohort molecule by NCT number or verified intervention name (API v2, retrieved 20 October 2026). Eight strict molecules have no ClinicalTrials.gov record.</p>
 <h2 id="5-uncertainty">5. Uncertainty</h2>
 <p>The strict count is about <strong>55, −7/+8</strong>:
 - dosing and attribution errors found by the verification pass: about ±2;
 - assets probably missing, mainly from China CTR and recent US first-in-human starts: +0 to +6;
-- definition sensitivity: excluding physics-dominant platforms gives 48; counting all physics-based platforms about 61; counting platform-level attribution about 67.</p>
+- definition sensitivity, each computed from <code>molecules.csv</code>:
+  - excluding physics-dominant platforms gives <strong>48</strong>: the strict cohort without the 7 Schrödinger and Relay entries (<code>sgr-1505</code>, <code>sgr-2921</code>, <code>sgr-3515</code>, <code>lirafugratinib</code>, <code>migoprotafib</code>, <code>rly-5836</code>, <code>zovegalisib</code>);
+  - counting all physics-based designs gives about <strong>62</strong>: adding the 7 borderline physics entries (<code>ndi-101150</code>, <code>ndi-219216</code>, <code>zasocitinib</code>, <code>firsocostat</code>, <code>snx-281</code>, <code>nl-201</code>, <code>gt-02287</code>);
+  - counting platform-level attribution gives about <strong>67</strong>: adding the 12 borderline platform-only entries (<code>gb-7624</code>, <code>gb-4362</code>, <code>ac699</code>, <code>ac0676</code>, <code>rly-8161</code>, <code>dptx3186</code>, <code>swa1211</code>, <code>df-003</code>, <code>mrt-2359</code>, <code>mrt-6160</code>, <code>mrt-8102</code>, <code>juv-161</code>).</p>
+<p>The ±2 and +0 to +6 components come from the verification and completeness passes of the 13 October 2026 build; their working log is not yet published.</p>
 <h2 id="6-other-counts-and-why-they-differ">6. Other counts, and why they differ</h2>
 <div class="tw"><table>
 <thead>

@@ -33,7 +33,7 @@ A molecule is in the **strict cohort** if all three hold:
 
 ## 4. How the list was built
 
-Six parallel searches: published seed lists (BCG/Jayatunga 2024 and successors); AI-native small-molecule developers in the US, Europe and Israel; Asia-Pacific developers and registries; biologics; pharma-internal assets; and an asset-agnostic registry and literature sweep. Results were merged and coded, then challenged by two independent passes: one trying to disprove entries (about 50 registry records re-checked) and one looking for missing assets. Searches were AI-assisted; every row carries its sources.
+Six parallel searches: published seed lists (BCG/Jayatunga 2024 and successors); AI-native small-molecule developers in the US, Europe and Israel; Asia-Pacific developers and registries; biologics; pharma-internal assets; and an asset-agnostic registry and literature sweep. Results were merged and coded, then challenged by two independent passes: one trying to disprove entries (about 50 registry records re-checked) and one looking for missing assets. Searches were AI-assisted; every row carries its sources. In October 2026 every stopped, unknown and Phase 2+ status was re-checked against its registry and every source link was verified (v1.1.2 and v1.1.3 in `CHANGELOG.md`).
 
 Trials (`trials.csv`) are every ClinicalTrials.gov record matched to a strict-cohort molecule by NCT number or verified intervention name (API v2, retrieved 20 October 2026). Eight strict molecules have no ClinicalTrials.gov record.
 
@@ -42,7 +42,12 @@ Trials (`trials.csv`) are every ClinicalTrials.gov record matched to a strict-co
 The strict count is about **55, −7/+8**:
 - dosing and attribution errors found by the verification pass: about ±2;
 - assets probably missing, mainly from China CTR and recent US first-in-human starts: +0 to +6;
-- definition sensitivity: excluding physics-dominant platforms gives 48; counting all physics-based platforms about 61; counting platform-level attribution about 67.
+- definition sensitivity, each computed from `molecules.csv`:
+  - excluding physics-dominant platforms gives **48**: the strict cohort without the 7 Schrödinger and Relay entries (`sgr-1505`, `sgr-2921`, `sgr-3515`, `lirafugratinib`, `migoprotafib`, `rly-5836`, `zovegalisib`);
+  - counting all physics-based designs gives about **62**: adding the 7 borderline physics entries (`ndi-101150`, `ndi-219216`, `zasocitinib`, `firsocostat`, `snx-281`, `nl-201`, `gt-02287`);
+  - counting platform-level attribution gives about **67**: adding the 12 borderline platform-only entries (`gb-7624`, `gb-4362`, `ac699`, `ac0676`, `rly-8161`, `dptx3186`, `swa1211`, `df-003`, `mrt-2359`, `mrt-6160`, `mrt-8102`, `juv-161`).
+
+The ±2 and +0 to +6 components come from the verification and completeness passes of the 13 October 2026 build; their working log is not yet published.
 
 ## 6. Other counts, and why they differ
 
