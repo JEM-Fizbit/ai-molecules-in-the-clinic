@@ -22,7 +22,7 @@ A molecule is in the **strict cohort** if all three hold:
 ## 3. Coding rules
 
 - **Target precedence** (`target_precedence`), judged at the molecule's first-in-human date:
-  - `precedented`: an approved drug or a Phase 2+ agent already existed at the target.
+  - `precedented` (shown on the site as "Known target"): an approved drug or a Phase 2+ agent already existed at the target.
   - `novel`: clinical agents existed at the target, but none at Phase 2+.
   - `first-in-class`: no prior clinical agent at the target.
   - `unclear`: target undisclosed or not determinable.

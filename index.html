@@ -43,7 +43,7 @@
     <p class="census-sub">Colour shows what was known about its target before it was first dosed. Select a dot to open its entry.</p>
     <div class="cols" id="cols"></div>
     <ul class="legend" aria-label="Key">
-      <li><i style="--c:var(--prec)"></i>Precedented target</li>
+      <li><i style="--c:var(--prec)"></i>Known target</li>
       <li><i style="--c:var(--novel)"></i>Novel target</li>
       <li><i style="--c:var(--fic)"></i>First-in-class</li>
       <li><i style="--c:var(--unclear);--r:var(--unclear-ring)"></i>Undisclosed</li>
@@ -64,7 +64,7 @@
   <h2 id="target-types" style="margin-top:44px">How targets are classified</h2>
   <p class="intro">Each molecule's target is judged as it stood on the day the molecule was first dosed in a person. The question is how much the field already knew about hitting that target in people.</p>
   <ul class="types">
-    <li><i style="--c:var(--prec)"></i><div><h3>Precedented</h3><p>An approved drug, or another drug that had reached Phase 2 or later, already acted on this target. The biology was validated in patients before the AI molecule arrived.</p></div></li>
+    <li><i style="--c:var(--prec)"></i><div><h3>Known target</h3><p>An approved drug, or another drug that had reached Phase 2 or later, already acted on this target. The biology was validated in patients before the AI molecule arrived.</p></div></li>
     <li><i style="--c:var(--novel)"></i><div><h3>Novel</h3><p>Other drugs had been dosed in people at this target, but none had got past Phase 1. Known to be druggable, not yet shown to matter in patients.</p></div></li>
     <li><i style="--c:var(--fic)"></i><div><h3>First-in-class</h3><p>No drug had ever been dosed in people at this target. This is the case that would show AI finding new biology, not just new chemistry.</p></div></li>
     <li><i style="--c:var(--unclear);--r:var(--unclear-ring)"></i><div><h3>Undisclosed</h3><p>The developer has not said what the target is, so it cannot be classified.</p></div></li>
@@ -87,7 +87,7 @@
       <button id="b-strict" aria-pressed="true">Strict cohort</button><button id="b-all" aria-pressed="false">Include borderline</button>
     </div>
     <select id="f-status" aria-label="Filter by status"><option value="">Any status</option><option value="ongoing">Ongoing</option><option value="stopped">Stopped</option><option value="unknown">Unknown</option></select>
-    <select id="f-prec" aria-label="Filter by target"><option value="">Any target</option><option value="precedented">Precedented</option><option value="novel">Novel</option><option value="first-in-class">First-in-class</option><option value="unclear">Undisclosed</option></select>
+    <select id="f-prec" aria-label="Filter by target"><option value="">Any target</option><option value="precedented">Known</option><option value="novel">Novel</option><option value="first-in-class">First-in-class</option><option value="unclear">Undisclosed</option></select>
     <select id="f-mod" aria-label="Filter by modality"><option value="">Any modality</option></select>
   </div>
   <p class="shown" id="shown" aria-live="polite"></p>
@@ -206,7 +206,7 @@ const OTHER=[
   {name:"Greenblatt & Geoui 2026",note:"The BCG list plus additions",n:83},
   {name:"Haque et al., ASCO 2026",note:"Any AI-enabled asset; list not published",n:117}
 ];
-const PREC_LABEL={precedented:"Precedented",novel:"Novel","first-in-class":"First-in-class",unclear:"Undisclosed"};
+const PREC_LABEL={precedented:"Known",novel:"Novel","first-in-class":"First-in-class",unclear:"Undisclosed"};
 const PREC_VAR={precedented:"--prec",novel:"--novel","first-in-class":"--fic",unclear:"--unclear"};
 const STATUS_LABEL={ongoing:"Ongoing",stopped:"Stopped",unknown:"Unknown"};
 const GROUPS=[{k:1,l:"Phase 1"},{k:2,l:"Phase 1/2"},{k:3,l:"Phase 2"},{k:4,l:"Phase 3"},{k:5,l:"Approved"}];

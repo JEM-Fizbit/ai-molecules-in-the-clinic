@@ -9,7 +9,7 @@ An open registry of drug candidates whose **target or molecule was materially sh
 | | |
 |---|---|
 | Strict cohort | **55** molecules |
-| Targets already precedented (of 51 disclosed) | 37 (72.5%) |
+| Known (precedented) targets, of 51 disclosed | 37 (72.5%) |
 | First-in-class targets | 5 |
 | Reached Phase 2 or later / now in Phase 3 | 12 / 4 |
 | Approved | 0 |
