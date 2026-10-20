@@ -130,3 +130,4 @@ The pilot (24 rows, two blind coders) met its pre-set criteria: tier agreement 2
 | Exclusion order added. | OPL-0401: `ai_disclaimed` vs `in_licensed`, both true. |
 | Rule 3: dosing by any sponsor counts; a registry check is required when dosing rests on a paper. | OPL-0301 was dosed by Sanofi (as SAR247799) before Valo in-licensed it, so "never dosed" was wrong; ISM3312's paper says both "completed" and "being evaluated". |
 
+v1.0 was used unchanged for the full re-review (158 rows, 20 Oct 2026).

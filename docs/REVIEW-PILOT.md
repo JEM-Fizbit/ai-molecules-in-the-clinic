@@ -78,3 +78,7 @@ Two coders, each run as two blind agents (cases P01–P12 and P13–P24), with n
 A 10-row evidence pack, with no labels or verdicts, is in [`REVIEW-PILOT-PACK.md`](REVIEW-PILOT-PACK.md). John's labels will be compared with the coders' here. If they differ in a pattern the protocol does not explain, the protocol goes to v1.1 and the affected rows are re-coded.
 
 _Pending: John's labels._
+
+## After the freeze
+
+The full re-review (158 rows, protocol v1.0, two fresh blind coders) reached tier agreement of 91.8% (κ = 0.87); results are in [`REVIEW-SIGNOFF.md`](REVIEW-SIGNOFF.md) § E. One pilot call changed under v1.0. SGR-1505, passed by both pilot coders, was coded `physics_only` by both full-review coders under the instrument rule. Schrödinger's paper places ML inside "physics-based modeling techniques".

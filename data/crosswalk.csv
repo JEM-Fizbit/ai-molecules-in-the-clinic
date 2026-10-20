@@ -1,0 +1,258 @@
+source,source_row,source_name,source_company,source_ai_mode,registry_id,tier_v1_1_19,tier_proposed,note
+jayatunga2024,1,A2A-252,A2A Pharmaceuticals,Small molecule design and opt.,ao-252,borderline,borderline:platform_only,
+jayatunga2024,2,BMF-219,A2A Pharmaceuticals / Biomea Fusion,Small molecule design and opt.,x-bmf-219,excluded,excluded:no_ai_link,
+jayatunga2024,3,"Monoclonal antibodies, Teva",AbCellera Biologics,Antibody design and opt.,x-abcellera-bamlanivimab,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset excluded:no_ai_link / excluded:not_dosed. The row's re-review proposes a borderline sub-item (see sign-off).
+jayatunga2024,4,AC-682,Accutar Biotechnology,Small molecule design and opt.,ac0682,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+jayatunga2024,5,AC-0176,Accutar Biotechnology,Small molecule design and opt.,ac0176,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+jayatunga2024,6,AC-0676,Accutar Biotechnology,Small molecule design and opt.,ac0676,borderline,borderline:platform_only,
+jayatunga2024,7,AC-699,Accutar Biotechnology,Small molecule design and opt.,ac699,borderline,borderline:other,
+jayatunga2024,8,ATH-63,Athos Therapeutics,Target discovery** and small molecule design and opt.,ath-063,strict,borderline:physics_only,Proposed move out of strict: physics_only.
+jayatunga2024,9,AU-409,Auransa,Target discovery,au-409,borderline,borderline:platform_only,
+jayatunga2024,10,BEN-2293,BenevolentAI,Target discovery,ben-2293,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+jayatunga2024,11,BEN-8744,BenevolentAI,Target discovery,ben-8744,strict,strict,
+jayatunga2024,12,Bavisant,BenevolentAI,Repurposing,ben-2001,borderline,borderline:repurposing,
+jayatunga2024,13,BGE-105,BioAge Labs,Repurposing,azelaprag,borderline,borderline:repurposing,
+jayatunga2024,14,AU-007,Biolojic Design / Aulos Bioscience,Antibody design and opt.,imneskibart,strict,strict,
+jayatunga2024,15,Talabostat (BXCL-701),BioXcel Therapeutics,Repurposing,missing,missing,borderline:repurposing,Not in the registry. Re-review: borderline repurposing (BioXcel's EvolverAI chose new indications for a legacy compound). Proposed as a new borderline row.
+jayatunga2024,16,Dexmedetomidine (BXCL-501),BioXcel Therapeutics,Repurposing,bxcl-501,borderline,borderline:repurposing,
+jayatunga2024,17,BDTX-1535,Black Diamond Therapeutics,Target discovery,x-bdtx-189,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset borderline:platform_only. The row's re-review proposes a borderline sub-item (see sign-off).
+jayatunga2024,18,BDTX-189,Black Diamond Therapeutics,Target discovery,x-bdtx-189,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset borderline:platform_only. The row's re-review proposes a borderline sub-item (see sign-off).
+jayatunga2024,19,BDTX-4933,Black Diamond Therapeutics,Target discovery,x-bdtx-189,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset borderline:platform_only. The row's re-review proposes a borderline sub-item (see sign-off).
+jayatunga2024,20,C4X_3256/INDV-2000,C4X Discovery / Indivior,Small molecule design and opt.,indv-2000,borderline,borderline:third_party_only,
+jayatunga2024,21,CEL-383,Celsius Therapeutics,Target discovery,cel383,strict,strict,
+jayatunga2024,22,Bapotulimab,Compugen,Target discovery,bapotulimab,borderline,borderline:platform_only,
+jayatunga2024,23,COM-701,Compugen,Target discovery,com701,borderline,borderline:platform_only,
+jayatunga2024,24,"Influenza vaccine, H7N9",EpiVax,Vaccine design and opt.,x-epivax-h7n9-vaccine,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset excluded:not_dosed.
+jayatunga2024,25,EVX-02,Evaxion Biotech,Vaccine design and opt.,evx-02,borderline,borderline:vaccine_antigen,
+jayatunga2024,26,EVX-01,Evaxion Biotech,Vaccine design and opt.,evx-01,borderline,borderline:vaccine_antigen,
+jayatunga2024,27,EVOEXS-21546,Exscientia,Small molecule design and opt.,exs-21546,strict,strict,
+jayatunga2024,28,DSP-1181,Exscientia,Small molecule design and opt.,dsp-1181,strict,strict,
+jayatunga2024,29,DSP-0038,Exscientia,Small molecule design and opt.,dsp-0038,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+jayatunga2024,30,EXS-617,Exscientia,Small molecule design and opt.,gtaexs-617,strict,strict,
+jayatunga2024,31,EXS-4318,Exscientia*,Small molecule design and opt.,exs-4318,strict,strict,
+jayatunga2024,32,GB-0895,Generate:Biomedicines,Antibody design and opt.,golukibart,strict,strict,
+jayatunga2024,33,HIV vaccine,Gritstone Bio,Vaccine design and opt.,x-gritstone,excluded,excluded:no_ai_link,
+jayatunga2024,34,GRANITE-001,Gritstone Bio,Vaccine design and opt.,granite-grt-c901,borderline,borderline:vaccine_antigen,
+jayatunga2024,35,SLATE-001,Gritstone Bio*,Vaccine design and opt.,slate-grt-c903,borderline,borderline:vaccine_antigen,
+jayatunga2024,36,GV20-0251,GV20 Therapeutics,Antibody design and opt.,gv20-0251,strict,strict,
+jayatunga2024,37,Sulindac (HLX-0201),Healx,Repurposing,x-hlx-0201,excluded,excluded:not_dosed,Group row in excluded.csv; re-review codes this asset excluded:not_dosed.
+jayatunga2024,38,HST-5040,HemoShear Therapeutics,Target discovery,x-hst-5040,excluded,excluded:no_ai_link,
+jayatunga2024,39,HFB-301001,HiFiBiO Therapeutics,Target discovery,hfb301001,borderline,borderline:platform_only,
+jayatunga2024,40,HFB-200301,HiFiBiO Therapeutics,Target discovery,hfb200301,borderline,borderline:platform_only,
+jayatunga2024,41,HFB-200603,HiFiBiO Therapeutics,Target discovery,hfb200603,borderline,borderline:platform_only,
+jayatunga2024,42,HST-1011,HotSpot Therapeutics,Target discovery,hst-1011,borderline,borderline:platform_only,
+jayatunga2024,43,HMBD-001,Hummingbird Bioscience,Target discovery,hmbd-001,borderline,borderline:platform_only,
+jayatunga2024,44,HMBD-002,Hummingbird Bioscience,Target discovery,hmbd-002,borderline,borderline:platform_only,
+jayatunga2024,45,INS018-055,InSilico Medicine,Target discovery and small molecule design and opt.**,rentosertib,strict,strict,
+jayatunga2024,46,ISM012-042,InSilico Medicine,Small molecule design and opt.,garutadustat,strict,strict,
+jayatunga2024,47,ISM-0003091,InSilico Medicine / Exelixis,Small molecule design and opt.,ism3091,strict,strict,
+jayatunga2024,48,Omilancor,Landos Biopharma / Nlmmune,Target discovery,omilancor,borderline,borderline:physics_only,
+jayatunga2024,49,NX-13,Landos Biopharma / Nlmmune,Target discovery,nx-13,borderline,borderline:physics_only,
+jayatunga2024,50,NIM-1324,Landos Biopharma / Nlmmune,Target discovery,nim-1324,borderline,borderline:platform_only,
+jayatunga2024,51,"Central nervous system disease therapy,",METis Pharmaceuticals,Other,x-mts-004,excluded,excluded:out_of_scope,
+jayatunga2024,52,MRANK-001,MindRank,Small molecule design and opt.,mdr-001,strict,strict,
+jayatunga2024,53,NEU-723,Neuron23,Target discovery,neu-723,borderline,borderline:other,
+jayatunga2024,54,NEU-411,Neuron23,Target discovery,neu-411,borderline,borderline:other,
+jayatunga2024,55,Firsocostat,Nimbus Therapeutic*,Small molecule design and opt.,firsocostat,borderline,borderline:physics_only,
+jayatunga2024,56,NDI-034858,Nimbus Therapeutic*,Small molecule design and opt.,zasocitinib,borderline,borderline:physics_only,
+jayatunga2024,57,NDI-101150,Nimbus Therapeutics,Small molecule design and opt.,ndi-101150,borderline,borderline:physics_only,
+jayatunga2024,58,Fasoracetam (NB-001),Nobias Therapeutics,Repurposing,fasoracetam,borderline,borderline:other,
+jayatunga2024,59,PHI-101,Pharos iBio,Small molecule design and opt.,phi-101,borderline,borderline:platform_only,
+jayatunga2024,60,REC-2282,Recursion Pharmaceuticals,Repurposing,rec-2282,borderline,borderline:repurposing,
+jayatunga2024,61,REC-4881,Recursion Pharmaceuticals,Repurposing,rec-4881,borderline,borderline:repurposing,
+jayatunga2024,62,REC-994,Recursion Pharmaceuticals,Target discovery,rec-994,borderline,borderline:repurposing,
+jayatunga2024,63,REC-3964,Recursion Pharmaceuticals,Target discovery,rec-3964,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+jayatunga2024,64,RLY-1971,Relay Therapeutics,Small molecule design and opt.,migoprotafib,borderline,borderline:physics_only,
+jayatunga2024,65,RLY-2608,Relay Therapeutics,Small molecule design and opt.,zovegalisib,borderline,borderline:physics_only,
+jayatunga2024,66,RLY-4008,Relay Therapeutics,Small molecule design and opt.,lirafugratinib,borderline,borderline:physics_only,
+jayatunga2024,67,RLY-5836,Relay Therapeutics,Small molecule design and opt.,rly-5836,borderline,borderline:physics_only,
+jayatunga2024,68,SNX-281,Roivant Sciences,Small molecule design and opt.,snx-281,borderline,borderline:physics_only,
+jayatunga2024,69,SGR-2921,Schrödinger,Small molecule design and opt.,sgr-2921,borderline,borderline:physics_only,
+jayatunga2024,70,SGR-1505,Schrödinger,Small molecule design and opt.,sgr-1505,strict,borderline:physics_only,Proposed move out of strict: physics_only.
+jayatunga2024,71,Tolcapone (SOM0226/CRX-1008),SOM Biotech,Repurposing,missing,missing,excluded:legacy_retrofit,"Not in the registry (an approved drug, mentioned only in the SOM3355 note). Re-review: excluded; SOM's AI wording never names it and its own papers describe non-ML repositioning."
+jayatunga2024,72,Bevantolol (SOM-3355),SOM Biotech,Repurposing,som3355,borderline,borderline:repurposing,
+jayatunga2024,73,TOS-358,Totus Medicines,Small molecule design and opt.,tos-358,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+jayatunga2024,74,SAR-407899,Valo Health,Repurposing,x-opl-0401,excluded,excluded:ai_disclaimed,
+jayatunga2024,75,VRG-50635,Verge Genomics,Target discovery,vrg50635,strict,borderline:other,Proposed move out of strict: other.
+greenblatt2026,1,A2A-252,A2A Pharmaceuticals (in partnership with Roquefort Therapeutics and Coiled Therapeutics),Small molecule design and opt.,ao-252,borderline,borderline:platform_only,
+greenblatt2026,2,BMF-219,Biomea Fusion,Small molecule design and opt.,x-bmf-219,excluded,excluded:no_ai_link,
+greenblatt2026,3,"Monoclonal antibodies, Teva",Teva Pharmaceutical Industries Ltd. / AbCellera Biologics,Antibody discovery and screening,x-abcellera-bamlanivimab,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset excluded:no_ai_link / excluded:not_dosed. The row's re-review proposes a borderline sub-item (see sign-off).
+greenblatt2026,4,AC-682,Accutar Biotechnology,Small molecule design and opt.,ac0682,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+greenblatt2026,5,AC-0176,Accutar Biotechnology,Small molecule design and opt.,ac0176,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+greenblatt2026,6,AC-0676,Accutar Biotechnology,Small molecule design and opt.,ac0676,borderline,borderline:platform_only,
+greenblatt2026,7,AC-699,Accutar Biotechnology,Small molecule design and opt.,ac699,borderline,borderline:other,
+greenblatt2026,8,ATH-63,Athos Therapeutics,Target discovery (G9A identified via multi-omic disease network analysis) and small molecule design and optimization (3D,ath-063,strict,borderline:physics_only,Proposed move out of strict: physics_only.
+greenblatt2026,9,AU-409,Auransa,Target discovery and compound identification via AI platform (SMarTR Engine),au-409,borderline,borderline:platform_only,
+greenblatt2026,10,BEN-2293,BenevolentAI,Target discovery,ben-2293,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+greenblatt2026,11,BEN-8744,BenevolentAI,Target discovery,ben-8744,strict,strict,
+greenblatt2026,12,Bavisant,BenevolentAI,Repurposing,ben-2001,borderline,borderline:repurposing,
+greenblatt2026,13,BGE-105,BioAge Labs,AI-driven target identification (human aging cohort analysis),azelaprag,borderline,borderline:repurposing,
+greenblatt2026,14,AU-007,Aulos Bioscience / Biolojic Design,Antibody design and opt.,imneskibart,strict,strict,
+greenblatt2026,15,Talabostat (BXCL-701),BioXcel Therapeutics,AI-enabled repurposing / drug re-innovation,missing,missing,borderline:repurposing,Not in the registry. Re-review: borderline repurposing (BioXcel's EvolverAI chose new indications for a legacy compound). Proposed as a new borderline row.
+greenblatt2026,16,Dexmedetomidine (BXCL-501),BioXcel Therapeutics,Repurposing,bxcl-501,borderline,borderline:repurposing,
+greenblatt2026,17,BDTX-1535,Black Diamond Therapeutics,Computational mutation family identification and small molecule design via MAP (Mutation-Allostery-Pharmacology) platfor,x-bdtx-189,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset borderline:platform_only. The row's re-review proposes a borderline sub-item (see sign-off).
+greenblatt2026,18,BDTX-189,Black Diamond Therapeutics,ML-assisted mutation family identification and structure-based drug design,x-bdtx-189,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset borderline:platform_only. The row's re-review proposes a borderline sub-item (see sign-off).
+greenblatt2026,19,BDTX-4933,Servier (Global Licensee); Black Diamond Therapeutics (Originator),ML-based oncogenicity prediction and mutation family identification (MAP engine),x-bdtx-189,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset borderline:platform_only. The row's re-review proposes a borderline sub-item (see sign-off).
+greenblatt2026,20,C4X_3256/INDV-2000,Indivior,Small molecule design and optimization using Conformetrix 3D-shape technology and MolPlex computational chemistry platfo,indv-2000,borderline,borderline:third_party_only,
+greenblatt2026,21,CEL-383,AbbVie,Target discovery via single-cell genomics + machine learning (SCOPE platform identified TREM1 as a key myeloid target th,cel383,strict,strict,
+greenblatt2026,22,Bapotulimab,Compugen,Target discovery,bapotulimab,borderline,borderline:platform_only,
+greenblatt2026,23,COM-701,Compugen,Target discovery,com701,borderline,borderline:platform_only,
+greenblatt2026,24,"Influenza vaccine, H7N9",EpiVax,Vaccine design and opt.,x-epivax-h7n9-vaccine,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset excluded:not_dosed.
+greenblatt2026,25,EVX-02,Evaxion Biotech,Neoantigen identification and personalized vaccine design,evx-02,borderline,borderline:vaccine_antigen,
+greenblatt2026,26,EVX-01,Evaxion Biotech [4],Neoantigen identification and vaccine design,evx-01,borderline,borderline:vaccine_antigen,
+greenblatt2026,27,EVOEXS-21546,Exscientia,Small molecule design and opt.,exs-21546,strict,strict,
+greenblatt2026,28,DSP-1181,Sumitomo Pharma (formerly Sumitomo Dainippon Pharma) / Exscientia (now a subsidiary of Recursion Pharmaceuticals),Small molecule design and opt.,dsp-1181,strict,strict,
+greenblatt2026,29,DSP-0038,Sumitomo Pharma (formerly Sumitomo Dainippon Pharma),Small molecule design and opt.,dsp-0038,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+greenblatt2026,30,EXS-617,"Exscientia (a wholly owned subsidiary of Recursion Pharmaceuticals, Inc.)",Small molecule design and opt.,gtaexs-617,strict,strict,
+greenblatt2026,31,EXS-4318,Exscientia / Bristol Myers Squibb,Small molecule design and opt.,exs-4318,strict,strict,
+greenblatt2026,32,GB-0895,Generate:Biomedicines,Antibody design and opt.,golukibart,strict,strict,
+greenblatt2026,33,HIV vaccine,Gilead Sciences / Gritstone Bio,Vaccine antigen design and optimization via AI-driven epitope prediction (EDGE platform),x-gritstone,excluded,excluded:no_ai_link,
+greenblatt2026,34,GRANITE-001,Gritstone Bio,Neoantigen identification and vaccine design via AI/ML platform (EDGE),granite-grt-c901,borderline,borderline:vaccine_antigen,
+greenblatt2026,35,SLATE-001,Gritstone Bio,Neoantigen identification and vaccine cassette design optimization (EDGE™ AI platform),slate-grt-c903,borderline,borderline:vaccine_antigen,
+greenblatt2026,36,GV20-0251,GV20 Therapeutics,AI-driven target discovery and antibody design/optimization,gv20-0251,strict,strict,
+greenblatt2026,37,Sulindac (HLX-0201),Healx,"Repurposing via AI-driven drug-disease matching (gene expression profiling, knowledge graph completion, compound/disease",x-hlx-0201,excluded,excluded:not_dosed,Group row in excluded.csv; re-review codes this asset excluded:not_dosed.
+greenblatt2026,38,HST-5040,HemoShear Therapeutics,Target discovery and computational modeling (REVEAL-Tx platform),x-hst-5040,excluded,excluded:no_ai_link,
+greenblatt2026,39,HFB-301001,HiFiBiO Therapeutics,"Target discovery, antibody selection, and predictive biomarker identification",hfb301001,borderline,borderline:platform_only,
+greenblatt2026,40,HFB-200301,HiFiBiO Therapeutics,Target discovery and antibody discovery,hfb200301,borderline,borderline:platform_only,
+greenblatt2026,41,HFB-200603,HiFiBiO Therapeutics,Target discovery and antibody discovery,hfb200603,borderline,borderline:platform_only,
+greenblatt2026,42,HST-1011,HotSpot Therapeutics,Target discovery and small molecule design (allosteric site identification via AI-driven data mining and computational a,hst-1011,borderline,borderline:platform_only,
+greenblatt2026,43,HMBD-001,Hummingbird Bioscience,Rational antibody design / AI-driven epitope prediction (mAbPredictAI),hmbd-001,borderline,borderline:platform_only,
+greenblatt2026,44,HMBD-002,Percheron Therapeutics (formerly Hummingbird Bioscience),Computationally predicted epitope / Rational antibody design (AI-aided),hmbd-002,borderline,borderline:platform_only,
+greenblatt2026,45,INS018-055,Insilico Medicine,Target discovery and small molecule design and optimization,rentosertib,strict,strict,
+greenblatt2026,46,ISM012-042,InSilico Medicine,Small molecule design and opt.,garutadustat,strict,strict,
+greenblatt2026,47,ISM-0003091,Exelixis / Insilico Medicine,Small molecule design and opt.,ism3091,strict,strict,
+greenblatt2026,48,Omilancor,NImmune Biopharma,Target discovery and biomarker-driven development,omilancor,borderline,borderline:physics_only,
+greenblatt2026,49,NX-13,AbbVie,Target discovery,nx-13,borderline,borderline:physics_only,
+greenblatt2026,50,NIM-1324,NImmune Biopharma,Target discovery and compound identification via TITAN-X AI platform,nim-1324,borderline,borderline:platform_only,
+greenblatt2026,51,Central nervous system disease therapy,METiS Pharmaceuticals,"AI-driven formulation design and optimization (AiTEM platform using quantum chemistry, molecular dynamics simulations, a",x-mts-004,excluded,excluded:out_of_scope,
+greenblatt2026,52,MRANK-001,MindRank,Small molecule design and opt.,mdr-001,strict,strict,
+greenblatt2026,53,NEU-723,Neuron23,Target discovery and patient stratification,neu-723,borderline,borderline:other,
+greenblatt2026,54,NEU-411,Neuron23,Patient stratification / biomarker discovery (ML-driven genetic signature identification),neu-411,borderline,borderline:other,
+greenblatt2026,55,Firsocostat,Gilead Sciences,Small molecule design and opt.,firsocostat,borderline,borderline:physics_only,
+greenblatt2026,56,NDI-034858,Takeda Pharmaceutical Company Limited,Small molecule design and opt.,zasocitinib,borderline,borderline:physics_only,
+greenblatt2026,57,NDI-101150,Nimbus Therapeutics,Structure-guided drug design and AI/ML-driven small molecule design and optimization,ndi-101150,borderline,borderline:physics_only,
+greenblatt2026,58,Fasoracetam (NB-001),Nobias Therapeutics,AI-based deep phenotyping / patient stratification (genetic biomarker-driven repurposing),fasoracetam,borderline,borderline:other,
+greenblatt2026,59,PHI-101,Pharos iBio,Small molecule design and opt.,phi-101,borderline,borderline:platform_only,
+greenblatt2026,60,REC-2282,Recursion Pharmaceuticals,Repurposing (phenomics-based AI platform identified existing compound OSU-HDAC42 as candidate for NF2),rec-2282,borderline,borderline:repurposing,
+greenblatt2026,61,REC-4881,Recursion Pharmaceuticals,AI-driven phenotypic screening / repurposing (phenomics-based),rec-4881,borderline,borderline:repurposing,
+greenblatt2026,62,REC-994,Recursion Pharmaceuticals,Small molecule discovery via early machine learning platform (phenotypic screening / cell morphology AI),rec-994,borderline,borderline:repurposing,
+greenblatt2026,63,REC-3964,Recursion Pharmaceuticals,Phenotypic screening / hit discovery,rec-3964,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+greenblatt2026,64,RLY-1971,Relay Therapeutics,Small molecule design and opt.,migoprotafib,borderline,borderline:physics_only,
+greenblatt2026,65,RLY-2608,Relay Therapeutics,Small molecule design and opt.,zovegalisib,borderline,borderline:physics_only,
+greenblatt2026,66,RLY-4008,Elevar Therapeutics (Relay Therapeutics),Small molecule design and opt.,lirafugratinib,borderline,borderline:physics_only,
+greenblatt2026,67,RLY-5836,Relay Therapeutics,Small molecule design and opt.,rly-5836,borderline,borderline:physics_only,
+greenblatt2026,68,SNX-281,Roivant Sciences (via Silicon Therapeutics),Small molecule design and opt.,snx-281,borderline,borderline:physics_only,
+greenblatt2026,69,SGR-2921,Schrödinger,Small molecule design and opt.,sgr-2921,borderline,borderline:physics_only,
+greenblatt2026,70,SGR-1505,Schrödinger,Small molecule design and opt.,sgr-1505,strict,borderline:physics_only,Proposed move out of strict: physics_only.
+greenblatt2026,71,Tolcapone (SOM0226/CRX-1008),Corino Therapeutics,AI-driven repurposing (SOMaiPRO® platform identified tolcapone as a new TTR stabilizer via molecular field matching to d,missing,missing,excluded:legacy_retrofit,"Not in the registry (an approved drug, mentioned only in the SOM3355 note). Re-review: excluded; SOM's AI wording never names it and its own papers describe non-ML repositioning."
+greenblatt2026,72,Bevantolol (SOM-3355),SOM Biotech,AI-based drug repurposing (SOMaiPRO platform identified bevantolol as VMAT2 inhibitor for HD),som3355,borderline,borderline:repurposing,
+greenblatt2026,73,TOS-358,Totus Medicines,Small molecule design and opt.,tos-358,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+greenblatt2026,74,SAR-407899,Valo Health,Repurposing / in-licensing,x-opl-0401,excluded,excluded:ai_disclaimed,
+greenblatt2026,75,VRG-50635,Verge Genomics (Lead) and Ferrer (Partner),Target discovery,vrg50635,strict,borderline:other,Proposed move out of strict: other.
+greenblatt2026,76,ABS-101,Absci,De novo generative AI antibody design (epitope-specific engineering + AI lead optimization),abs-101,strict,strict,
+greenblatt2026,77,ADG106,Adagene,Antibody design (NEObody platform),adg106,borderline,borderline:platform_only,
+greenblatt2026,78,BBO-8520,BridgeBio Oncology Therapeutics (BBOT),AI + physics-based computational design (LLNL LCADD platform),bbo-8520,strict,borderline:physics_only,Proposed move out of strict: physics_only.
+greenblatt2026,79,EVT801,Kazia Therapeutics,Small molecule design,x-bpm31510,excluded,excluded:in_licensed,Group row in excluded.csv; re-review codes this asset excluded:no_ai_link.
+greenblatt2026,80,LP-184,Lantern Pharma,"AI-guided development (RADR® platform used for biomarker identification, patient selection, indication prioritization, c",lp-184,borderline,borderline:other,
+greenblatt2026,81,SGR-3515,Schrödinger,Small molecule design using physics+AI computational platform,sgr-3515,strict,borderline:physics_only,Proposed move out of strict: physics_only.
+greenblatt2026,82,ABS-201,Absci,Generative AI de novo antibody design,abs-201,strict,strict,
+greenblatt2026,83,LP-284,Lantern Pharma,"AI-guided development (mechanism of action elucidation, indication prioritization, and ML biomarker signature generation",x-bpm31510,excluded,excluded:in_licensed,Group row in excluded.csv; re-review codes this asset excluded:in_licensed.
+wellcome2023,1,AO-001,A2A Pharmaceuticals,,x-a2a-ao-001,excluded,excluded:not_dosed,
+wellcome2023,2,bamlanivimab,AbCellera Biologics,,x-abcellera-bamlanivimab,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset borderline:platform_only / excluded:no_ai_link. The row's re-review proposes a borderline sub-item (see sign-off).
+wellcome2023,3,bebtelovimab,AbCellera Biologics,,x-abcellera-bamlanivimab,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset borderline:platform_only / excluded:no_ai_link. The row's re-review proposes a borderline sub-item (see sign-off).
+wellcome2023,4,AC-682,Accutar Biotechnology,,ac0682,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+wellcome2023,5,AC-0176,Accutar Biotechnology,,ac0176,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+wellcome2023,6,AC-699,Accutar Biotechnology,,ac699,borderline,borderline:other,
+wellcome2023,7,ADG-106,Adagene,,adg106,borderline,borderline:platform_only,
+wellcome2023,8,ADG-104,Adagene,,missing,missing,excluded:no_ai_link,Not in the registry. Coders split (borderline platform_only vs excluded no_ai_link); proposed excluded.
+wellcome2023,9,ADG-116,Adagene,,adg106,borderline,borderline:platform_only,
+wellcome2023,10,ADG-126,Adagene,,adg106,borderline,borderline:platform_only,
+wellcome2023,11,BC-006,Adagene,,missing,missing,borderline:platform_only,Not in the registry. Re-review: borderline platform_only (ADG125/BC006 'derived from' Adagene's AI-powered platform). Proposed as a new borderline row.
+wellcome2023,12,PM-1022,Adimab,,x-abcellera-bamlanivimab,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset excluded:not_dosed. The row's re-review proposes a borderline sub-item (see sign-off).
+wellcome2023,13,"sirolimus, LAM Therapeutics",Al Therapeutics,,lam-002a,borderline,borderline:repurposing,
+wellcome2023,14,apilimod dimesylate,Al Therapeutics,,lam-002a,borderline,borderline:repurposing,
+wellcome2023,15,AIT-101,Al Therapeutics,,lam-002a,borderline,borderline:repurposing,
+wellcome2023,16,BEN-2293,BenevolentAl,,ben-2293,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+wellcome2023,17,"ubidecarenone, BERG Pharma",Berg,,x-bpm31510,excluded,excluded:in_licensed,
+wellcome2023,18,asapiprant,BioAge Labs,,x-bge-117,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset borderline:repurposing / excluded:in_licensed.
+wellcome2023,19,BGE-105,BioAge Labs,,azelaprag,borderline,borderline:repurposing,
+wellcome2023,20,"dexmedetomidine, BioXcel",BioXcel Therapeutics,,bxcl-501,borderline,borderline:repurposing,
+wellcome2023,21,BDTX-1535,Black Diamond Therapeutics,,x-bdtx-189,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset borderline:platform_only. The row's re-review proposes a borderline sub-item (see sign-off).
+wellcome2023,22,INDV-2000,C4X Discovery,,indv-2000,borderline,borderline:third_party_only,
+wellcome2023,23,bapotulimab,Compugen,,bapotulimab,borderline,borderline:platform_only,
+wellcome2023,24,COM-701,Compugen,,com701,borderline,borderline:platform_only,
+wellcome2023,25,COM-902,Compugen,,com902,borderline,borderline:other,
+wellcome2023,26,"COVID-19 vaccine, Entos Pharmaceuticals",Entos Pharmaceuticals,,x-abcellera-bamlanivimab,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset excluded:no_ai_link / excluded:out_of_scope. The row's re-review proposes a borderline sub-item (see sign-off).
+wellcome2023,27,"influenza vaccine, H7N9, Epivax",EpiVax,,x-epivax-h7n9-vaccine,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset excluded:no_ai_link / excluded:not_dosed.
+wellcome2023,28,"influenza vaccine, H7N9, Protein Sciences",EpiVax,,x-epivax-h7n9-vaccine,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset excluded:not_dosed.
+wellcome2023,29,EVAX-01,Evaxion Biotech,,evx-01,borderline,borderline:vaccine_antigen,
+wellcome2023,30,EVX-02,Evaxion Biotech,,evx-02,borderline,borderline:vaccine_antigen,
+wellcome2023,31,EVOX-21546,Exscientia,,exs-21546,strict,strict,
+wellcome2023,32,DSP-0038,Exscientia,,dsp-0038,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+wellcome2023,33,GRANITE-001,Gritstone Bio,,granite-grt-c901,borderline,borderline:vaccine_antigen,
+wellcome2023,34,SLATE-001,Gritstone Bio,,slate-grt-c903,borderline,borderline:vaccine_antigen,
+wellcome2023,35,"COVID-19 vaccine, Gritstone Oncology",Gritstone Bio,,x-abcellera-bamlanivimab,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset borderline:vaccine_antigen / excluded:no_ai_link / excluded:out_of_scope. The row's re-review proposes a borderline sub-item (see sign-off).
+wellcome2023,36,"HIV vaccine, Gilead Sciences",Gritstone Bio,,x-gritstone,excluded,excluded:no_ai_link,
+wellcome2023,37,SLATE v2,Gritstone Bio,,slate-grt-c903,borderline,borderline:vaccine_antigen,
+wellcome2023,38,"COVID-19 vaccine, Gritstone Bio",Gritstone Bio,,x-abcellera-bamlanivimab,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset borderline:vaccine_antigen / excluded:no_ai_link / excluded:out_of_scope. The row's re-review proposes a borderline sub-item (see sign-off).
+wellcome2023,39,"COVID-19 vaccine, Gritstone Bio-1",Gritstone Bio,,x-abcellera-bamlanivimab,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset borderline:vaccine_antigen / excluded:no_ai_link / excluded:out_of_scope. The row's re-review proposes a borderline sub-item (see sign-off).
+wellcome2023,40,"COVID-19 vaccine, Gritstone Bio-2",Gritstone Bio,,x-abcellera-bamlanivimab,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset borderline:vaccine_antigen / excluded:no_ai_link / excluded:out_of_scope. The row's re-review proposes a borderline sub-item (see sign-off).
+wellcome2023,41,"sulindac, Healx",Healx,,x-hlx-0201,excluded,excluded:not_dosed,Group row in excluded.csv; re-review codes this asset excluded:in_licensed / excluded:not_dosed.
+wellcome2023,42,HST-5040,HemoShear Therapeutics,,x-hst-5040,excluded,excluded:no_ai_link,
+wellcome2023,43,HFB-301001,HiFiBiO Therapeutics,,hfb301001,borderline,borderline:platform_only,
+wellcome2023,44,HFB-200301,HiFiBiO Therapeutics,,hfb200301,borderline,borderline:platform_only,
+wellcome2023,45,HFB-30132A,HiFiBiO Therapeutics,,x-abcellera-bamlanivimab,excluded,excluded:no_ai_link,Group row in excluded.csv; re-review codes this asset excluded:no_ai_link. The row's re-review proposes a borderline sub-item (see sign-off).
+wellcome2023,46,INS018-055,InSilico Medicine,,rentosertib,strict,strict,
+wellcome2023,47,omilancor,Landos Biopharma,,omilancor,borderline,borderline:physics_only,
+wellcome2023,48,NX-13,Landos Biopharma,,nx-13,borderline,borderline:physics_only,
+wellcome2023,49,LABP-104,Landos Biopharma,,nim-1324,borderline,borderline:platform_only,
+wellcome2023,50,"central nervous system disease therapy, METiS Pharmaceuticals",METiS Pharmaceuticals,,x-mts-004,excluded,excluded:out_of_scope,
+wellcome2023,51,NMRA-140,Neumora Therapeutics,,x-pocenbrodib,excluded,excluded:in_licensed,Group row in excluded.csv; re-review codes this asset excluded:in_licensed.
+wellcome2023,52,NMRA-511,Neumora Therapeutics,,x-pocenbrodib,excluded,excluded:in_licensed,Group row in excluded.csv; re-review codes this asset excluded:in_licensed.
+wellcome2023,53,firsocostat,Nimbus Therapeutics,,firsocostat,borderline,borderline:physics_only,
+wellcome2023,54,NDI-034858,Nimbus Therapeutics,,zasocitinib,borderline,borderline:physics_only,
+wellcome2023,55,NDI-101150,Nimbus Therapeutics,,ndi-101150,borderline,borderline:physics_only,
+wellcome2023,56,"fasoracetam, Nobias Therapeutics",Nobias Therapeutics,,fasoracetam,borderline,borderline:other,
+wellcome2023,57,PHI-101,Pharos iBio,,phi-101,borderline,borderline:platform_only,
+wellcome2023,58,ruboxistaurin mesylate,Recursion Pharmaceuticals,,x-bpm31510,excluded,excluded:in_licensed,Group row in excluded.csv; re-review codes this asset excluded:no_ai_link.
+wellcome2023,59,REC-2282,Recursion Pharmaceuticals,,rec-2282,borderline,borderline:repurposing,
+wellcome2023,60,REC-4881,Recursion Pharmaceuticals,,rec-4881,borderline,borderline:repurposing,
+wellcome2023,61,REC-994,Recursion Pharmaceuticals,,rec-994,borderline,borderline:repurposing,
+wellcome2023,62,REC-3964,Recursion Pharmaceuticals,,rec-3964,strict,borderline:platform_only,Proposed move out of strict: platform_only.
+wellcome2023,63,RLY-2608,Relay Therapeutics,,zovegalisib,borderline,borderline:physics_only,
+wellcome2023,64,RLY-4008,Relay Therapeutics,,lirafugratinib,borderline,borderline:physics_only,
+wellcome2023,65,SGR-1505,Schrödinger,,sgr-1505,strict,borderline:physics_only,Proposed move out of strict: physics_only.
+wellcome2023,66,"tolcapone, SOM Biotech",SOM Biotech,,missing,missing,excluded:legacy_retrofit,"Not in the registry (an approved drug, mentioned only in the SOM3355 note). Re-review: excluded; SOM's AI wording never names it and its own papers describe non-ML repositioning."
+wellcome2023,67,"bevantolol, SOM Biotech",SOM Biotech,,som3355,borderline,borderline:repurposing,
+wellcome2023,68,SOM-1311,SOM Biotech,,x-hlx-0201,excluded,excluded:not_dosed,Group row in excluded.csv; re-review codes this asset excluded:not_dosed.
+wellcome2023,69,"prexasertib, SOM Biotech",SOM Biotech,,missing,missing,excluded:not_dosed,Not in the registry (mentioned only in the SOM3355 note). Re-review: excluded not_dosed; the AI-selected COVID-19 use was tested in vitro only.
+wellcome2023,70,SAR-407899,Valo Health,,x-opl-0401,excluded,excluded:ai_disclaimed,
+wellcome2023,71,OPL-0301,Valo Health,,x-opl-0301,excluded,excluded:in_licensed,
+wellcome2023,72,VRG-50635,Verge Genomics,,vrg50635,strict,borderline:other,Proposed move out of strict: other.
+mckinsey2026,1,GV20-0251,GV20,"target ID to IND, 36 months",gv20-0251,strict,strict,Consultancy exhibit of AI-enabled assets with disclosed cycle times; transcribed from the PDF by the maintainer session.
+mckinsey2026,2,IAM1363,Iambic,"hit ID to FIH, 24 months",iam1363,strict,borderline:platform_only,Proposed move out of strict: platform_only. Consultancy exhibit of AI-enabled assets with disclosed cycle times; transcribed from the PDF by the maintainer session.
+mckinsey2026,3,ABS-101,Absci,"hit to FIH, 24 months",abs-101,strict,strict,Consultancy exhibit of AI-enabled assets with disclosed cycle times; transcribed from the PDF by the maintainer session.
+mckinsey2026,4,GB-0669,Generate,"hit to FIH, 17 months",gb-0669,strict,strict,Consultancy exhibit of AI-enabled assets with disclosed cycle times; transcribed from the PDF by the maintainer session.
+mckinsey2026,5,ISM3312,Insilico,"hit to PCC, 28 months",ism3312,missing,strict,Proposed move into strict. Consultancy exhibit of AI-enabled assets with disclosed cycle times; transcribed from the PDF by the maintainer session.
+mckinsey2026,6,REC-1245,Recursion,"target to PCC, 18 months",rec-1245,strict,strict,Consultancy exhibit of AI-enabled assets with disclosed cycle times; transcribed from the PDF by the maintainer session.
+mckinsey2026,7,rentosertib,Insilico,"target to PCC, 18 months",rentosertib,strict,strict,Consultancy exhibit of AI-enabled assets with disclosed cycle times; transcribed from the PDF by the maintainer session.
+mckinsey2026,8,SGR-1505,Schrodinger,"hit to PCC, 10 months",sgr-1505,strict,borderline:physics_only,Proposed move out of strict: physics_only. Consultancy exhibit of AI-enabled assets with disclosed cycle times; transcribed from the PDF by the maintainer session.
+mckinsey2026,9,EXS21546,Recursion/Exscientia,"hit to PCC, 9 months",exs-21546,strict,strict,Consultancy exhibit of AI-enabled assets with disclosed cycle times; transcribed from the PDF by the maintainer session.
+mckinsey2022,1,DSP-1181,Exscientia / Sumitomo Dainippon,"under 12 months versus four and a half years (Exscientia release, 30 Jan 2020)",dsp-1181,strict,strict,Only molecule named in the 2022 article.
+registry_only,,BHB810,BigHat Biosciences,,bhb810,strict,strict,"First dosed in 2026, after Jayatunga's December 2023 cut-off; Greenblatt & Geoui's update added only 8 assets."
+registry_only,,CHM-029 / CHM-0033029,CHARM Therapeutics,,chm-029,strict,strict,"First dosed in 2026, after Jayatunga's December 2023 cut-off; Greenblatt & Geoui's update added only 8 assets."
+registry_only,,CLY-124,Cellarity,,cly-124,strict,strict,"First dosed in 2025, after Jayatunga's December 2023 cut-off; Greenblatt & Geoui's update added only 8 assets."
+registry_only,,DSP-2342,Exscientia (now Recursion) / Sumitomo Pharma,,dsp-2342,strict,strict,First dosed in 2023 under Sumitomo; the lists' company-based cohorts keyed on Exscientia's own pipeline and did not pick it up.
+registry_only,,EXS-73565 / REC-3565,Recursion (ex-Exscientia),,exs-73565,strict,strict,"First dosed in 2025, after Jayatunga's December 2023 cut-off; Greenblatt & Geoui's update added only 8 assets."
+registry_only,,EXS-74539 / REC-4539,Recursion (ex-Exscientia),,exs-74539,strict,strict,"First dosed in 2026, after Jayatunga's December 2023 cut-off; Greenblatt & Geoui's update added only 8 assets."
+registry_only,,GB-0669,Generate:Biomedicines,,gb-0669,strict,strict,"Generate's anti-COVID antibody, first dosed in 2023; not in the BCG-derived lists (McKinsey 2026 lists it)."
+registry_only,,ISM3312,Insilico Medicine,,ism3312,missing,strict,"Dosed in China only (CTR20230768), with no ClinicalTrials.gov record; previously excluded here for that reason (McKinsey 2026 lists it)."
+registry_only,,ISM3412,Insilico Medicine,,ism3412,strict,strict,"First dosed in 2025, after Jayatunga's December 2023 cut-off; Greenblatt & Geoui's update added only 8 assets."
+registry_only,,ISM6331,Insilico Medicine,,ism6331,strict,strict,"First dosed in 2024, after Jayatunga's December 2023 cut-off; Greenblatt & Geoui's update added only 8 assets."
+registry_only,,ISM8207,Insilico Medicine,,ism8207,strict,strict,"First dosed in 2024, after Jayatunga's December 2023 cut-off; Greenblatt & Geoui's update added only 8 assets."
+registry_only,,ISM8969 / HT-001,Insilico Medicine,,ism8969,strict,strict,"First dosed in 2026, after Jayatunga's December 2023 cut-off; Greenblatt & Geoui's update added only 8 assets."
+registry_only,,MEN2312 / ISM5043,Insilico Medicine (originator),,men2312,strict,strict,"First dosed in 2024, after Jayatunga's December 2023 cut-off; Greenblatt & Geoui's update added only 8 assets."
+registry_only,,MEN2501 / ISM9682,Insilico Medicine (originator),,men2501,strict,strict,"First dosed in 2026, after Jayatunga's December 2023 cut-off; Greenblatt & Geoui's update added only 8 assets."
+registry_only,,PQ203,ProteinQure,,pq203,strict,strict,"First dosed in 2025, after Jayatunga's December 2023 cut-off; Greenblatt & Geoui's update added only 8 assets."
+registry_only,,REC-1245,Recursion,,rec-1245,strict,strict,"First dosed in 2024, after Jayatunga's December 2023 cut-off; Greenblatt & Geoui's update added only 8 assets."
+registry_only,,SWA1211,Beijing StoneWise,,swa1211,borderline,strict,"First dosed in 2025, after Jayatunga's December 2023 cut-off; Greenblatt & Geoui's update added only 8 assets."
