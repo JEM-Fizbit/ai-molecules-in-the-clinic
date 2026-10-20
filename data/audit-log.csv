@@ -1671,3 +1671,16 @@ zovegalisib,sources,changed,https://clinicaltrials.gov/study/NCT05216432;https:/
 zovegalisib,status,confirmed,ongoing | ongoing: Phase 3 ReDiscover-2 NCT06982521 recruiting,,https://clinicaltrials.gov/study/NCT06982521,overallStatus: RECRUITING; lastUpdatePostDate: 2026-10-05,2026-10-20
 zovegalisib,target,confirmed,PI3Kalpha (mutant-selective),,https://www.sec.gov/Archives/edgar/data/1812364/000119312526076739/rlay-20251231.htm,"first known allosteric, pan-mutant and isoform-selective phosphoinostide 3 kinase alpha, or PI3Kα, inhibitor",2026-10-20
 zovegalisib,target_precedence,confirmed,precedented | alpelisib approved 2019,,https://clinicaltrials.gov/study/NCT02437318,phases: PHASE3; startDate: 2015-07-23; interventions: Alpelisib,2026-10-20
+sgr-2921,inclusion,changed,strict,borderline,"maintainer decision (John Milad), 20 Oct 2026, on the v1.1.13 audit defaults",,2026-10-20
+sgr-2921,ai_role,changed,molecule design (physics + ML platform),physics-based design (FEP+); no molecule-specific ML claim found,"maintainer decision (John Milad), 20 Oct 2026, on the v1.1.13 audit defaults",,2026-10-20
+sgr-2921,inclusion_note,changed,,Moved out of strict (v1.1.15): physics-based design with no ML claim for this molecule; Schrödinger's CDC7 case study describes '24K compounds scored with rigorous physics-based modeling'.,"maintainer decision (John Milad), 20 Oct 2026, on the v1.1.13 audit defaults",,2026-10-20
+ao-252,inclusion,changed,strict,borderline,"maintainer decision (John Milad), 20 Oct 2026, on the v1.1.13 audit defaults",,2026-10-20
+ao-252,attribution_tier,changed,B,C,"maintainer decision (John Milad), 20 Oct 2026, on the v1.1.13 audit defaults",,2026-10-20
+ao-252,inclusion_note,changed,,"Moved out of strict (v1.1.15): the developer makes only a platform-level AI claim ('Fragment-based computational approach, enhanced with multiple Artificial Intelligence tools'); the only molecule-level attribution is a broker research note, a secondary source.","maintainer decision (John Milad), 20 Oct 2026, on the v1.1.13 audit defaults",,2026-10-20
+env-294,target,changed,undisclosed,RAC2 (molecular glue modulator),"maintainer decision (John Milad), 20 Oct 2026, on the v1.1.13 audit defaults",,2026-10-20
+env-294,target_precedence,changed,unclear,first-in-class,"maintainer decision (John Milad), 20 Oct 2026, on the v1.1.13 audit defaults",,2026-10-20
+env-294,precedence_basis,changed,target undisclosed,no prior clinical RAC2 agent; Enveda calls RAC2 'a previously undrugged target' (2026),"maintainer decision (John Milad), 20 Oct 2026, on the v1.1.13 audit defaults",,2026-10-20
+cly-124,target,changed,undisclosed (globin-switching complex),DCN1 (defective in cullin neddylation 1),"maintainer decision (John Milad), 20 Oct 2026, on the v1.1.13 audit defaults",,2026-10-20
+cly-124,target_precedence,changed,unclear,first-in-class,"maintainer decision (John Milad), 20 Oct 2026, on the v1.1.13 audit defaults",,2026-10-20
+cly-124,precedence_basis,changed,target undisclosed,no prior clinical DCN1 agent; Cellarity calls DCN1 'a previously unexplored target' (ASH 2025),"maintainer decision (John Milad), 20 Oct 2026, on the v1.1.13 audit defaults",,2026-10-20
+env-6946,inclusion,changed,candidate,borderline,"maintainer decision (John Milad), 20 Oct 2026, on the v1.1.13 audit defaults",,2026-10-20

@@ -1,5 +1,20 @@
 # Changelog
 
+## v1.1.15 — 2026-10-20
+Maintainer decisions on the v1.1.13 audit. **Strict 55 → 53**; borderline 60 → 63; candidates 1 → 0. Decided by John Milad; evidence is in `data/audit-log.csv`.
+- **AO-252 → borderline.** A2A's own pages make only a platform-level claim ("Fragment-based computational approach, enhanced with multiple Artificial Intelligence tools"). The only molecule-level attribution is a broker research note, a secondary source, so it is now tier C.
+- **SGR-2921 → borderline.** It is physics-based design with no ML claim for this molecule. Schrödinger's CDC7 case study describes "24K compounds scored with rigorous physics-based modeling".
+- **ENV-6946 → borderline (from candidate).** Dosing is confirmed: Enveda says it is "now in Phase 1" (23 September 2026). Attribution is platform-level only.
+- **ENV-294: target RAC2, first-in-class.** Enveda calls RAC2 "a previously undrugged target".
+- **CLY-124: target DCN1, first-in-class.** Cellarity calls DCN1 "a previously unexplored target" (ASH 2025).
+- **Tier A unchanged.** Developer-authored papers do not count as independent documentation, so "AI role documented beyond the developer's own word" stays at 1.
+- **Resulting strict figures:**
+  - Status: 39 ongoing, 14 stopped.
+  - Target types: 36 known, 9 novel, 6 first-in-class and 2 undisclosed. Known targets are 36 of 51 disclosed (70.6%).
+  - Phase: 12 reached Phase 2 or later, 4 in Phase 3 and 1 approved.
+  - Uncertainty band: about 53, −6/+8. Definition sensitivity is 47 / about 61 / about 67, with the rows listed in METHODOLOGY § 5.
+- GB-5267 (a CAR-T dosed on 1 October 2026) is held pending a decision on cell therapies.
+
 ## v1.1.14 — 2026-10-20
 Traceability pass on the site. No change to any count, inclusion or coding call. One derived figure is corrected.
 - Every number on the site now comes from the data or from a cited source:

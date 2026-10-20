@@ -1,6 +1,6 @@
 # Methodology
 
-Version 1.1.14 · data as of 20 October 2026
+Version 1.1.15 · data as of 20 October 2026
 
 ## 1. Definition
 
@@ -39,13 +39,13 @@ Trials (`trials.csv`) are every ClinicalTrials.gov record matched to a strict-co
 
 ## 5. Uncertainty
 
-The strict count is about **55, −7/+8**:
+The strict count is about **53, −6/+8**:
 - dosing and attribution errors found by the verification pass: about ±2;
 - assets probably missing, mainly from China CTR and recent US first-in-human starts: +0 to +6;
 - definition sensitivity, each computed from `molecules.csv`:
-  - excluding physics-dominant platforms gives **48**: the strict cohort without the 7 Schrödinger and Relay entries (`sgr-1505`, `sgr-2921`, `sgr-3515`, `lirafugratinib`, `migoprotafib`, `rly-5836`, `zovegalisib`);
-  - counting all physics-based designs gives about **62**: adding the 7 borderline physics entries (`ndi-101150`, `ndi-219216`, `zasocitinib`, `firsocostat`, `snx-281`, `nl-201`, `gt-02287`);
-  - counting platform-level attribution gives about **67**: adding the 12 borderline platform-only entries (`gb-7624`, `gb-4362`, `ac699`, `ac0676`, `rly-8161`, `dptx3186`, `swa1211`, `df-003`, `mrt-2359`, `mrt-6160`, `mrt-8102`, `juv-161`).
+  - excluding physics-dominant platforms gives **47**: the strict cohort without the 6 Schrödinger and Relay entries (`sgr-1505`, `sgr-3515`, `lirafugratinib`, `migoprotafib`, `rly-5836`, `zovegalisib`);
+  - counting all physics-based designs gives about **61**: adding the 8 borderline physics entries (`ndi-101150`, `ndi-219216`, `zasocitinib`, `firsocostat`, `snx-281`, `nl-201`, `gt-02287`, `sgr-2921`);
+  - counting platform-level attribution gives about **67**: adding the 14 borderline platform-only entries (`gb-7624`, `gb-4362`, `ac699`, `ac0676`, `rly-8161`, `dptx3186`, `swa1211`, `df-003`, `mrt-2359`, `mrt-6160`, `mrt-8102`, `juv-161`, `env-6946`, `ao-252`).
 
 The ±2 and +0 to +6 components come from the verification and completeness passes of the 13 October 2026 build; their working log is not yet published.
 
@@ -56,13 +56,13 @@ The ±2 and +0 to +6 components come from the verification and completeness pass
 | [Jayatunga et al. 2024 (BCG)](https://doi.org/10.1016/j.drudis.2024.104009), *Drug Discovery Today* | 75 | Clinical assets of AI-native companies since 2015 |
 | [Greenblatt & Geoui 2026](https://doi.org/10.5281/zenodo.22814924) (Zenodo) | 83 | BCG list plus additions |
 | [Haque et al., ASCO 2026](https://doi.org/10.1200/JCO.2026.44.16_suppl.11072) | 117 | "AI-enabled"; list not published |
-| This registry | 55 | Molecule-level attribution, dosed in humans, written rules |
+| This registry | 53 | Molecule-level attribution, dosed in humans, written rules |
 
 Lower is not more correct. Each count answers a different question; this one asks the narrowest.
 
 ## 7. Limits
 
-- **Attribution is mostly self-reported.** 54 of 55 strict entries rest on the developer's statement. How much the AI did cannot be verified from outside the company.
+- **Attribution is mostly self-reported.** 52 of 53 strict entries rest on the developer's statement. How much the AI did cannot be verified from outside the company.
 - **Not second-coded.** Precedence calls are judgement under a written rule, made by one coder. Independent second coding is planned for v2.
 - **Registry coverage is uneven.** China CTR and jRCT are harder to search than ClinicalTrials.gov; recent first-in-human starts may be missing.
 - **Survivorship.** Developers announce entries more readily than exits. Status is checked against registries where possible, but a quiet discontinuation can look like `unknown`.
