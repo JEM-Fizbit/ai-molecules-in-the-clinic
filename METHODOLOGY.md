@@ -1,6 +1,6 @@
 # Methodology
 
-Version 1.1.11 · data as of 13 October 2026
+Version 1.1.12 · data as of 13 October 2026
 
 ## 1. Definition
 

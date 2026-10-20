@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.12 — 2026-10-20
+Site only. No change to any count, inclusion or coding call.
+- Source links in the registry's expanded view are named instead of numbered. Registries show their ID, for example "ClinicalTrials.gov NCT06548542". Other sources show the publisher, for example "Sumitomo Pharma", "SEC filing" or "Business Wire press release". Hovering a link shows the full URL.
+
 ## v1.1.11 — 2026-10-20
 Trials re-pulled from ClinicalTrials.gov (API v2) on 20 October 2026; registry expanded view reworked. No change to any count, inclusion or coding call.
 - `trials.csv`: 83 records for 47 strict molecules, up from 80. The three new records are the ABBV-8736 trials linked to CEL383 in v1.1.4: NCT06548542 (Phase 2, recruiting), NCT07141199 and NCT07413133 (Phase 1, completed). CEL383's next data due is now January 2030, where it previously read "no active trial". No existing trial changed status.
