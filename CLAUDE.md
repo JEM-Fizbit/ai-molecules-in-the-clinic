@@ -1,15 +1,16 @@
 # AI Molecules in the Clinic — project instructions
 
-Open registry of AI-derived drug candidates dosed in humans: CC BY 4.0 data, a static public site, and (coming) a corrections form. Personal project (JEM-Fizbit). Launches with John's *Backed By Reality* AI × Bio essay.
+Open registry of AI-derived drug candidates dosed in humans: CC BY 4.0 data, a static public site, and a corrections form with a private review queue. Personal project (JEM-Fizbit). Launches with John's *Backed By Reality* AI × Bio essay.
 
-**Status:** v1.0.1, data as of 13 Oct 2026. Repo **private** and site **behind Vercel login** until launch day (see BACKLOG.md § Launch). Read `docs/DECISIONS.md` before changing hosting, data model or the corrections route.
+**Status:** v1.1.0, data as of 13 Oct 2026. Repo **private** and site **behind Vercel login** until launch day (see BACKLOG.md § Launch). Read `docs/DECISIONS.md` before changing hosting, data model or the corrections route.
 
 ## Stack
 - Static site: `index.html` + `methodology.html` + `assets/site.css`; reads `data/*.json` in the browser. No build step, no framework.
 - Data master: `data/*.csv` (molecules, trials, candidates, excluded). JSON is generated.
 - Python 3 scripts (stdlib, plus `markdown` for the methodology page).
+- Corrections API: Vercel Node functions in `api/` (`corrections` POST, `corrections-log` GET, `admin` GET/PATCH), region lhr1 (`vercel.json`). One dependency, `@neondatabase/serverless`; pnpm 10 (`packageManager`), Node 22. Review page `admin.html` (Bearer `ADMIN_PASSWORD`).
 - Hosting: Vercel project `ai-molecules-in-the-clinic` (team John M's projects), domain **aixbio-registry.org** (+ www). Deploys by CLI from the Mac clone, not on git push (no Git connection yet).
-- Corrections queue: Neon Postgres, project `aixbio-registry` (`royal-tree-08432805`, aws-eu-west-2). Table `corrections`; public view `corrections_public`. Reached by Claude via the Neon MCP connector.
+- Corrections queue: Neon Postgres, project `aixbio-registry` (`royal-tree-08432805`, aws-eu-west-2). Table `corrections`; public view `corrections_public`. App login `registry_web` (SELECT/INSERT/UPDATE on `corrections`, SELECT on the view; created in SQL because Neon API-created roles get superuser rights). Reached by Claude via the Neon MCP connector.
 
 ## Commands
 | Task | Command |

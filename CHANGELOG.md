@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.0 — 2026-10-20
+Corrections without a GitHub account; no change to any count, inclusion or coding call.
+- Correction form on the site (no account needed), with bot traps and a per-connection hourly limit. Submissions go to a private database; the submitter's name and email are never published.
+- Public corrections log on the site, listing decided corrections with outcome and reason.
+- Each entry's detail view links to the form, prefilled with that molecule.
+- Maintainer review page (`admin.html`, password-protected) and a small API (`api/`), running in London.
+
 ## v1.0.1 — 2026-10-19
 Site and housekeeping; no change to any count, inclusion or coding call.
 - New public site: the census of all 54 strict molecules by furthest phase, the comparison with other published counts, a searchable registry with per-molecule detail, and the methodology rendered as its own page (`methodology.html`, built by `scripts/build_site.py`).

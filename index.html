@@ -35,7 +35,7 @@
       <a class="btn primary" href="#registry">Browse the registry</a>
       <a class="btn" href="data/molecules.csv" download>Download the data (CSV)</a>
     </div>
-    <p class="asof" id="asof">Data as of 13 October 2026. Trial records retrieved 15 October 2026. Version 1.0.1.</p>
+    <p class="asof" id="asof">Data as of 13 October 2026. Trial records retrieved 15 October 2026. Version 1.1.0.</p>
   </div>
 
   <figure class="census" id="census" aria-labelledby="census-cap">
@@ -115,17 +115,74 @@
     <li><b>The list was assembled with AI-assisted searches</b> and then challenged by two verification passes, one trying to disprove entries and one looking for missing ones. Every row carries its sources.</li>
     <li><b>Inclusion is not an efficacy rating.</b> Being listed says nothing about whether a molecule works.</li>
   </ul>
-  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.0.1, data as of 13 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
+  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.0, data as of 13 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
 </section>
 
 <section class="block" id="corrections" aria-labelledby="h-cor">
   <h2 id="h-cor">Corrections</h2>
-  <p class="intro">If a row is wrong, a molecule is missing, or an entry belongs in a different category, send a correction with a source: a registry record, a paper, a regulatory document or a dated company statement. Accepted changes go into the next release and are logged with the date and the evidence. Developers of listed molecules are welcome to write in.</p>
-  <div class="actions">
-    <a class="btn primary" id="lnk-correct" href="#">Propose a correction</a>
-    <a class="btn" id="lnk-changes" href="#">See what has changed</a>
-    <a class="btn" id="lnk-repo" href="#">View the source on GitHub</a>
-  </div>
+  <p class="intro">If a row is wrong, a molecule is missing, or an entry belongs in a different category, tell us here. A source is required: a registry record, a paper, a regulatory document or a dated company statement. Each correction is checked against its source and the written rules. Decided corrections are listed below, without the name or email of whoever sent them. Developers of listed molecules are welcome to write in.</p>
+
+  <form class="cform" id="cform" novalidate>
+    <div class="frow">
+      <label for="c-mol">Molecule</label>
+      <select id="c-mol" name="molecule" required><option value="">Choose a molecule</option><option value="__new">A molecule that isn't listed</option></select>
+      <input id="c-newmol" name="new_molecule" type="text" maxlength="200" placeholder="Name of the missing molecule and its developer" hidden>
+      <p class="ferr" id="e-molecule_label"></p>
+    </div>
+    <div class="frow">
+      <label for="c-field">What should change</label>
+      <select id="c-field" name="field" required>
+        <option value="">Choose one</option>
+        <option value="inclusion">Whether it should be counted</option>
+        <option value="status">Status (ongoing, stopped, unknown)</option>
+        <option value="phase">Furthest phase</option>
+        <option value="target_type">Target type</option>
+        <option value="target_indication">Target or indication</option>
+        <option value="ai_role">AI role or evidence for it</option>
+        <option value="modality">Modality</option>
+        <option value="trials">Trials or first dosing</option>
+        <option value="sources">Sources</option>
+        <option value="other">Something else</option>
+      </select>
+      <p class="ferr" id="e-field"></p>
+    </div>
+    <div class="frow">
+      <label for="c-current">What the registry says now <span class="opt">optional</span></label>
+      <input id="c-current" name="current_value" type="text" maxlength="1000">
+    </div>
+    <div class="frow">
+      <label for="c-proposed">What it should say</label>
+      <textarea id="c-proposed" name="proposed_value" rows="3" maxlength="2000" required></textarea>
+      <p class="ferr" id="e-proposed_value"></p>
+    </div>
+    <div class="frow">
+      <label for="c-source">Source</label>
+      <input id="c-source" name="source_url" type="url" maxlength="500" placeholder="https://" required>
+      <p class="fhint">A link to the registry record, paper, regulatory document or dated company statement.</p>
+      <p class="ferr" id="e-source_url"></p>
+    </div>
+    <div class="frow">
+      <label for="c-notes">Anything else <span class="opt">optional</span></label>
+      <textarea id="c-notes" name="notes" rows="2" maxlength="2000"></textarea>
+    </div>
+    <fieldset class="frow fgrid">
+      <legend>About you <span class="opt">optional, kept private</span></legend>
+      <div><label for="c-name">Name</label><input id="c-name" name="name" type="text" maxlength="120" autocomplete="name"></div>
+      <div><label for="c-email">Email</label><input id="c-email" name="email" type="email" maxlength="200" autocomplete="email"><p class="ferr" id="e-email"></p></div>
+      <div><label for="c-aff">Organization</label><input id="c-aff" name="affiliation" type="text" maxlength="200" autocomplete="organization"></div>
+      <label class="fcheck"><input id="c-dev" name="is_developer" type="checkbox"> I work for the developer of this molecule</label>
+      <p class="fhint">Give an email and we'll confirm receipt and may follow up. Your details are used only for this correction and never published.</p>
+    </fieldset>
+    <div class="hp" aria-hidden="true"><label for="c-website">Website</label><input id="c-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+    <div class="factions">
+      <button class="btn primary" type="submit" id="c-submit">Send correction</button>
+      <p class="fstatus" id="c-status" role="status" aria-live="polite"></p>
+    </div>
+  </form>
+
+  <h3 class="logh" id="log">Corrections log</h3>
+  <div id="clog"><p class="shown">Loading the log…</p></div>
+  <p class="table-note">Prefer GitHub? <a id="lnk-correct" href="#">Open a correction issue</a>. Every release is listed in the <a id="lnk-changes" href="#">changelog</a>, and the data and code are on <a id="lnk-repo" href="#">GitHub</a>.</p>
 </section>
 </main>
 
@@ -190,6 +247,47 @@ function regLink(id){
 }
 function fmtDate(iso){const d=new Date(iso+"T12:00:00");return isNaN(d)?iso:d.toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"})}
 
+
+const FIELD_LABEL={inclusion:"Whether it should be counted",status:"Status",phase:"Furthest phase",target_type:"Target type",target_indication:"Target or indication",ai_role:"AI role or evidence",modality:"Modality",trials:"Trials or first dosing",sources:"Sources",new_entry:"Missing molecule",other:"Other"};
+const OUTCOME={accepted:"Accepted",declined:"Declined",released:"Accepted and released"};
+let formStart=Date.now();
+function corrForm(){
+  const sel=$("c-mol");
+  const strict=MOLS.filter(m=>m.inclusion==="strict").sort((a,b)=>a.molecule.localeCompare(b.molecule));
+  const bl=MOLS.filter(m=>m.inclusion!=="strict").sort((a,b)=>a.molecule.localeCompare(b.molecule));
+  sel.insertAdjacentHTML("beforeend",`<optgroup label="Strict cohort">${strict.map(m=>`<option value="${esc(m.id)}">${esc(m.molecule)} (${esc(m.developer)})</option>`).join("")}</optgroup><optgroup label="Borderline">${bl.map(m=>`<option value="${esc(m.id)}">${esc(m.molecule)} (${esc(m.developer)})</option>`).join("")}</optgroup>`);
+  sel.addEventListener("change",()=>{const n=sel.value==="__new";$("c-newmol").hidden=!n;if(n){$("c-field").value="other";$("c-newmol").focus()}});
+  $("cform").addEventListener("focusin",()=>{formStart=formStart||Date.now()},{once:true});
+  $("cform").addEventListener("submit",submitCorrection);
+  loadLog();
+}
+async function submitCorrection(e){
+  e.preventDefault();
+  const f=e.target,btn=$("c-submit"),st=$("c-status");
+  f.querySelectorAll(".ferr").forEach(p=>p.textContent="");
+  const molId=$("c-mol").value,isNew=molId==="__new";
+  const m=MOLS.find(x=>x.id===molId);
+  const body={molecule_id:isNew?null:molId||null,molecule_label:isNew?$("c-newmol").value.trim():(m?m.molecule:""),field:isNew?"new_entry":$("c-field").value,current_value:$("c-current").value,proposed_value:$("c-proposed").value,source_url:$("c-source").value.trim(),notes:$("c-notes").value,name:$("c-name").value,email:$("c-email").value.trim(),affiliation:$("c-aff").value,is_developer:$("c-dev").checked,website:$("c-website").value,elapsed_ms:Date.now()-formStart};
+  btn.disabled=true;st.className="fstatus";st.textContent="Sending…";
+  try{
+    const r=await fetch("api/corrections",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+    const j=await r.json().catch(()=>({}));
+    if(r.ok){f.reset();$("c-newmol").hidden=true;formStart=Date.now();st.className="fstatus ok";st.textContent=`Received. Your reference is ${j.reference}.${body.email?" We've emailed you a copy.":""}`;}
+    else if(r.status===422&&j.fields){Object.entries(j.fields).forEach(([k,v])=>{const p=$("e-"+k);if(p)p.textContent=v});st.className="fstatus bad";st.textContent="Check the highlighted fields.";}
+    else{st.className="fstatus bad";st.textContent=j.error||"The correction didn't send. Try again in a minute.";}
+  }catch{st.className="fstatus bad";st.textContent="The correction didn't send. Check your connection and try again.";}
+  btn.disabled=false;
+}
+async function loadLog(){
+  const box=$("clog");
+  try{
+    const r=await fetch("api/corrections-log");if(!r.ok)throw 0;
+    const {corrections:c}=await r.json();
+    if(!c.length){box.innerHTML='<p class="shown">No corrections have been decided yet.</p>';return}
+    box.innerHTML=`<div class="tw"><table><thead><tr><th>Decided</th><th>Molecule</th><th>Change proposed</th><th>Outcome</th><th class="hide-sm">Reason</th></tr></thead><tbody>${c.map(x=>`<tr><td class="nw">${x.decided_at?fmtDate(x.decided_at.slice(0,10)):""}</td><td>${esc(x.molecule_label)}<small class="sub">${esc(FIELD_LABEL[x.field]||x.field)}</small></td><td>${esc(x.proposed_value)} <a href="${esc(x.source_url)}" target="_blank" rel="noopener">source</a></td><td class="nw"><span class="st st-${x.status==="declined"?"stopped":"ongoing"}">${OUTCOME[x.status]||esc(x.status)}</span>${x.released_in?`<small class="sub">in ${esc(x.released_in)}</small>`:""}</td><td class="hide-sm">${esc(x.decision_reason||"")}</td></tr>`).join("")}</tbody></table></div>`;
+  }catch{box.innerHTML='<p class="shown">The log is unavailable right now.</p>'}
+}
+document.addEventListener("click",e=>{const a=e.target.closest("[data-suggest]");if(!a)return;e.preventDefault();$("c-mol").value=a.dataset.suggest;$("c-newmol").hidden=true;document.getElementById("corrections").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});setTimeout(()=>$("c-field").focus({preventScroll:true}),400)});
 const tip=$("tip");
 let MOLS=[],TRIALS=[],mode="strict",sortK="molecule",sortDir=1,openId=null;
 
@@ -232,7 +330,7 @@ function rows(){
     const tl=t.length?t.map(x=>`${regLink(x.nct_id)}: ${esc(x.phase.replace(/Phase/g,"Phase ").replace(/\s+/g," ").replace(/\/ ?Phase /g,"/"))}, ${esc(x.status.replace(/_/g," ").toLowerCase())}${x.why_stopped?". Reason given: "+esc(x.why_stopped):""}`).join("<br>"):"No ClinicalTrials.gov record";
     const tier={A:"A: peer-reviewed or regulatory documentation",B:"B: developer's own disclosure",C:"C: secondary sources only"}[m.attribution_tier]||m.attribution_tier;
     const d=[["Target",m.target],["Indication",m.indication],["AI role",m.ai_role],["Evidence of AI role",tier],["Partner",m.partner],["Modality",m.modality],["Status",m.status_detail],["Why this target type",m.precedence_basis],["First in human",m.first_in_human_detail],m.inclusion!=="strict"?["Why borderline",m.inclusion_note]:null,["Notes",m.notes],["Registry IDs",regs],["Trials",tl],["Sources",src],["Coder confidence",m.confidence]].filter(x=>x&&x[1]);
-    return tr+`<tr class="detail" id="d-${esc(m.id)}"><td colspan="8"><dl class="dgrid">${d.map(([k,v])=>`<dt>${k}</dt><dd>${["Registry IDs","Trials","Sources"].includes(k)?v:esc(v)}</dd>`).join("")}</dl></td></tr>`;
+    return tr+`<tr class="detail" id="d-${esc(m.id)}"><td colspan="8"><dl class="dgrid">${d.map(([k,v])=>`<dt>${k}</dt><dd>${["Registry IDs","Trials","Sources"].includes(k)?v:esc(v)}</dd>`).join("")}</dl><p class="suggest"><a href="#corrections" data-suggest="${esc(m.id)}">Suggest a correction to this entry</a></p></td></tr>`;
   }).join("");
 }
 function setSort(k){
@@ -264,8 +362,8 @@ others();
 Promise.all([fetch("data/molecules.json").then(r=>r.json()),fetch("data/trials.json").then(r=>r.json())]).then(([m,t])=>{
   TRIALS=t.trials;const R=t.retrieved||"2026-10-15";MOLS=m.molecules.map(x=>{const n=nextDue(x.id,R);return {...x,phase_rank:phaseRank(x.highest_phase),modality_class:modalityClass(x.modality),next:n,next_due:n?(n.past?"0"+n.d:n.d):"9999"}});
   [...new Set(MOLS.map(x=>x.modality_class).filter(Boolean))].sort().forEach(v=>$("f-mod").insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`));
-  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.0.1.`;
-  census();rows();
+  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.0.`;
+  census();rows();corrForm();
 }).catch(()=>{$("tb").innerHTML='<tr><td colspan="8">The registry data did not load. Reload the page, or use the CSV downloads at the foot of the page.</td></tr>'});
 </script>
 </body>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Review corrections · AI Molecules in the Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,650&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.queue{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.item{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px 18px;display:grid;gap:10px}
+.item h3{margin:0;font:600 1.02rem/1.35 var(--sans)}
+.item .meta{font-size:.84rem;color:var(--faint)}
+.item dl{display:grid;grid-template-columns:9rem minmax(0,1fr);gap:4px 14px;margin:0;font-size:.9rem}
+.item dt{color:var(--muted)}.item dd{margin:0;overflow-wrap:anywhere}
+.item textarea,.item select,.item input,.login input{font:inherit;font-size:.92rem;padding:8px 10px;border:1px solid var(--rule);border-radius:4px;background:var(--ground);color:var(--ink);width:100%}
+.edit{display:grid;gap:8px;grid-template-columns:12rem minmax(0,1fr)}
+.edit label{font-size:.84rem;color:var(--muted);align-self:center}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 18px}
+.bar button[aria-pressed="true"]{background:var(--hema-soft);color:var(--hema);border-color:transparent}
+.login{max-width:24rem;display:grid;gap:10px}
+.saved{font-size:.84rem;color:var(--ok)}
+@media (max-width:640px){.item dl,.edit{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="brand" href="./">AI Molecules in the Clinic</a><nav aria-label="Site"><a href="./#registry">Registry</a><a href="./#corrections">Public log</a></nav></header>
+<main class="prose" style="max-width:60rem">
+<h1>Review corrections</h1>
+<form class="login" id="login">
+  <label for="pw">Review password</label>
+  <input id="pw" type="password" autocomplete="current-password" required>
+  <button class="btn primary" type="submit">Open the queue</button>
+  <p class="ferr" id="login-err"></p>
+</form>
+<section id="q" hidden>
+  <div class="bar" id="filters"></div>
+  <ul class="queue" id="list"></ul>
+</section>
+</main>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const STATUSES=["received","checking","accepted","declined","released","spam"];
+let PW="",filter="received";
+try{PW=sessionStorage.getItem("reg-admin")||""}catch{}
+async function api(method,body,qs=""){
+  const r=await fetch("api/admin"+qs,{method,headers:{Authorization:"Bearer "+PW,"Content-Type":"application/json"},body:body?JSON.stringify(body):undefined});
+  const j=await r.json().catch(()=>({}));
+  if(!r.ok)throw Object.assign(new Error(j.error||"Request failed"),{status:r.status});
+  return j;
+}
+async function load(){
+  const j=await api("GET",null,filter?`?status=${filter}`:"");
+  const counts=Object.fromEntries(j.counts.map(c=>[c.status,c.n]));
+  $("filters").innerHTML=[...STATUSES,""].map(s=>`<button class="btn" data-f="${s}" aria-pressed="${s===filter}">${s?s[0].toUpperCase()+s.slice(1):"All"} ${s?`(${counts[s]||0})`:""}</button>`).join("");
+  $("list").innerHTML=j.corrections.length?j.corrections.map(c=>`<li class="item" data-id="${c.id}">
+    <h3>${esc(c.molecule_label)} — ${esc(c.field)}</h3>
+    <div class="meta">${c.id.slice(0,8).toUpperCase()} · received ${new Date(c.created_at).toLocaleString("en-GB")}${c.is_developer?" · says they work for the developer":""}</div>
+    <dl>
+      ${c.current_value?`<dt>Says now</dt><dd>${esc(c.current_value)}</dd>`:""}
+      <dt>Should say</dt><dd>${esc(c.proposed_value)}</dd>
+      <dt>Source</dt><dd><a href="${esc(c.source_url)}" target="_blank" rel="noopener">${esc(c.source_url)}</a></dd>
+      ${c.notes?`<dt>Notes</dt><dd>${esc(c.notes)}</dd>`:""}
+      <dt>From</dt><dd>${esc(c.submitter_name||"(no name)")}${c.submitter_email?` · <a href="mailto:${esc(c.submitter_email)}">${esc(c.submitter_email)}</a>`:""}${c.affiliation?` · ${esc(c.affiliation)}`:""}</dd>
+    </dl>
+    <div class="edit">
+      <label>Status</label><select name="status">${STATUSES.map(s=>`<option ${s===c.status?"selected":""}>${s}</option>`).join("")}</select>
+      <label>Assessment (private)</label><textarea name="assessment" rows="3">${esc(c.assessment)}</textarea>
+      <label>Reason (shown publicly once decided)</label><textarea name="decision_reason" rows="2">${esc(c.decision_reason)}</textarea>
+      <label>Released in</label><input name="released_in" value="${esc(c.released_in)}" placeholder="e.g. v1.0.2">
+    </div>
+    <div class="factions"><button class="btn primary" data-save>Save</button><span class="saved"></span></div>
+  </li>`).join(""):`<li class="item">Nothing ${filter?`with status “${filter}”`:"yet"}.</li>`;
+}
+$("login").addEventListener("submit",async e=>{e.preventDefault();PW=$("pw").value;try{await load();try{sessionStorage.setItem("reg-admin",PW)}catch{}$("login").hidden=true;$("q").hidden=false}catch(err){$("login-err").textContent=err.status===401?"That password isn't right.":err.message}});
+document.addEventListener("click",async e=>{
+  const f=e.target.closest("[data-f]");if(f){filter=f.dataset.f;load();return}
+  const s=e.target.closest("[data-save]");if(!s)return;
+  const li=s.closest(".item"),v=n=>li.querySelector(`[name=${n}]`).value.trim()||null;
+  try{await api("PATCH",{id:li.dataset.id,status:v("status"),assessment:v("assessment"),decision_reason:v("decision_reason"),released_in:v("released_in")});li.querySelector(".saved").textContent="Saved"}
+  catch(err){li.querySelector(".saved").textContent=err.message}
+});
+if(PW){load().then(()=>{$("login").hidden=true;$("q").hidden=false}).catch(()=>{PW=""})}
+</script>
+</body>
+</html>

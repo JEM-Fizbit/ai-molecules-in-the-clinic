@@ -6,3 +6,4 @@ __pycache__/
 .env.local
 .env*.local
 *.pem
+node_modules/
