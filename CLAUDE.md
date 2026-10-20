@@ -44,6 +44,12 @@ Quick: JSON rebuilt; site loads with no console errors; headline numbers match R
 ## Key files
 `README.md` · `METHODOLOGY.md` (definition and rules, public) · `CHANGELOG.md` · `CONTRIBUTING.md` · `docs/INCLUSION-FRAMEWORK.md` (v2.0 proposal, not adopted) · `docs/DECISIONS.md` · `BACKLOG.md`
 
+## Operations
+- **Secrets:** Vercel env (production): `DATABASE_URL` (Neon `registry_web`), `ADMIN_PASSWORD`, `IP_HASH_SALT`, `RESEND_API_KEY`, plus `CORRECTIONS_NOTIFY_TO`, `CORRECTIONS_FROM`, `SITE_URL`. Mac Keychain: `aixbio-registry/admin` (review-page password), `aixbio-registry/resend` (send-only key). Read them with `security find-generic-password -s <item> -w` piped straight into the command that needs them; never print them.
+- **Email:** Resend domain aixbio-registry.org (eu-west-1, verified 20 Oct). `corrections@aixbio-registry.org` is send-only: no mailbox, no forward. New-domain mail currently lands in Hotmail Junk.
+- **Testing behind the login:** Vercel automation-bypass token, note `claude-smoke-test` (send header `x-vercel-protection-bypass`; fetch it with `vercel api /v1/projects/prj_SuSdvTyt99GURp3sYD4zbGufXcT3?teamId=team_Nf5Dg2f8gcbSDTwqfU41McXG`). Revoke at launch. Mark test submissions `status = 'spam'` so they never reach the public log.
+- **Neon:** the Neon MCP connector is set up on claude.ai; if it isn't available in a Claude Code session, query through the review API instead.
+
 ## Gotchas
 - A brand-new Vercel project's first CLI deploy goes straight to production. Protection is `ssoProtection: all` until launch; check a logged-out request returns 302 after any settings change.
 - The Vercel MCP token cannot create projects, change settings or buy domains; use the `vercel` CLI on the Mac.
