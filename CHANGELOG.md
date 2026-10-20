@@ -1,5 +1,26 @@
 # Changelog
 
+## v1.1.16 — 2026-10-20
+Second audit pass, completing the v1.1.13 evidence trail. **No change to any count, inclusion tier, attribution tier or target precedence.** 98 new lines in `data/audit-log.csv`, each with a fetched source and a verbatim quote.
+- **Excluded rows:** 18 of the 23 unverified rows are now checked and dated. Reason texts are updated with current facts, for example:
+  - BGE-102 came from DNA-encoded library screening (BioAge 10-K).
+  - Structure's design is physics-based.
+  - HXN-1001 and HXN-1011 are dosed, with company-level AI language only.
+  - MTS105's AI claim covers its LNP delivery system, not the encoded molecule.
+  - FP008 is now dosed, with no AI claim.
+  - DNDI-6510 failed in early testing.
+  - Sanofi's Recursion-partnered candidate expects Phase 1 in 2027.
+  - Gritstone's 10-K confirms the HIV vaccine is in Phase 1, with antigens developed by Gilead.
+- **ISM3312 is held for maintainer review.** Insilico's own paper (Nat Commun 2025) credits Chemistry42 de novo design and reports the healthy-volunteer Phase I in China as complete (CTR20230768). It stays excluded until decided.
+- **Still unverified:** five excluded rows keep a blank `last_verified`.
+  - x-bd200 is held for the GB-5267 cell-therapy decision; evidence has been logged.
+  - x-isomorphic-labs, x-pharma-collaborations, x-abcellera-bamlanivimab and x-nuritas-peptides each have named sub-items not yet re-checked.
+- **Open fields settled:**
+  - **HLX-1502:** Healx says it "was discovered using Healx's proprietary AI platform". The target is now "undisclosed (mitochondrial function modulator)". It was dosed in healthy volunteers before 2025; the year is undisclosed.
+  - **OC514:** the developer's own AI attribution is confirmed, and first dosing was 23 Feb 2022. Its components are still unnamed; Oncocross patents point to dimenhydrinate plus calcium pantothenate, but that is an inference, so the row is unchanged.
+  - **INDV-2000:** the design was NMR-based (Conformetrix). C4X acquired its MolPlex AI tools after the orexin lead was chosen, and no source makes an AI claim for this molecule. The `ai_role` text is corrected.
+  - **Registry IDs added:** PAN-NeoVax ChiCTR2600123936, TG4050 EU CT 2023-508561-33-00 and CLY-124 PACTR202505486265852. No registry record was found for ENV-6946.
+
 ## v1.1.15 — 2026-10-20
 Maintainer decisions on the v1.1.13 audit. **Strict 55 → 53**; borderline 60 → 63; candidates 1 → 0. Decided by John Milad; evidence is in `data/audit-log.csv`.
 - **AO-252 → borderline.** A2A's own pages make only a platform-level claim ("Fragment-based computational approach, enhanced with multiple Artificial Intelligence tools"). The only molecule-level attribution is a broker research note, a secondary source, so it is now tier C.

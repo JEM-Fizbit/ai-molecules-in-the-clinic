@@ -37,7 +37,7 @@
       <a class="btn primary" href="#registry">Browse the registry</a>
       <a class="btn" href="data/molecules.csv" download>Download the data (CSV)</a>
     </div>
-    <p class="asof" id="asof">Data as of 20 October 2026. Trial records retrieved 20 October 2026. Version 1.1.15.</p>
+    <p class="asof" id="asof">Data as of 20 October 2026. Trial records retrieved 20 October 2026. Version 1.1.16.</p>
   </div>
 
   <figure class="census" id="census" aria-labelledby="census-cap">
@@ -122,7 +122,7 @@
     <li><b>The list was assembled with AI-assisted searches</b> and then challenged by two verification passes, one trying to disprove entries and one looking for missing ones (<a href="methodology.html#4-how-the-list-was-built">Methodology § 4</a>). Every row carries its sources, and every change since is logged in the <a href="https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic/blob/main/CHANGELOG.md">changelog</a>.</li>
     <li><b>Inclusion is not an efficacy rating.</b> Being listed says nothing about whether a molecule works.</li>
   </ul>
-  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.15, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
+  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.16, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
 </section>
 
 <section class="block" id="corrections" aria-labelledby="h-cor">
@@ -416,7 +416,7 @@ others();
 Promise.all([fetch("data/molecules.json",{cache:"no-cache"}).then(r=>r.json()),fetch("data/trials.json",{cache:"no-cache"}).then(r=>r.json())]).then(([m,t])=>{
   TRIALS=t.trials;const R=t.retrieved||"2026-10-15";MOLS=m.molecules.map(x=>{const n=nextDue(x.id,R);return {...x,phase_rank:phaseRank(x.highest_phase),modality_class:modalityClass(x.modality),next:n,next_due:n?(n.past?"0"+n.d:n.d):"9999"}});
   [...new Set(MOLS.map(x=>x.modality_class).filter(Boolean))].sort().forEach(v=>$("f-mod").insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`));
-  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.15.`;
+  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.16.`;
   census();rows();corrForm();
 }).catch(()=>{$("tb").innerHTML='<tr><td colspan="8">The registry data did not load. Reload the page, or use the CSV downloads at the foot of the page.</td></tr>'});
 </script>
