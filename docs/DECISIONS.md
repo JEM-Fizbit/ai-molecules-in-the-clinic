@@ -4,6 +4,14 @@
 
 ---
 
+## 2026-10-20 — Emailed corrections go into the same queue
+
+**Decision:** `corrections@aixbio-registry.org` will receive mail through Resend Receiving, with an inbound webhook that files each email into Neon `corrections` alongside form submissions.
+
+**Why:** Some people prefer email, and acknowledgements invite replies; one queue keeps one review page, one reference scheme and one public log, with no inbox to watch.
+
+**Alternatives rejected:** forwarding to John's inbox (two places to look, manual re-keying, another forwarding service since Vercel has none); send-only address (replies lost).
+
 ## 2026-10-19 — Corrections via a webform into Neon, not GitHub issues
 
 **Decision:** Corrections come in through a form on the site, stored in a private Neon Postgres table (`corrections`, aws-eu-west-2). Resend emails John on each submission and acknowledges the submitter. Decided items appear in a public "Corrections log" via the `corrections_public` view (no personal data). GitHub issues stay open as an optional route.
