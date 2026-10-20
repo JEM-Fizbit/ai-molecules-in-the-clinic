@@ -1,5 +1,59 @@
 # Changelog
 
+## v1.1.13 — 2026-10-20
+Field-by-field audit of every row against primary sources, with a per-row verification date and a public evidence log. Data now as of 20 October 2026.
+
+**Count change: one strict molecule is approved.** The FDA approved lirafugratinib (RLY-4008, Lyrfigtu; Relay, licensed to Elevar) on 23 September 2026 for previously treated FGFR2 fusion or rearrangement cholangiocarcinoma, on the single-arm REFOCUS trial (NCT04526106) ([FDA](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-lirafugratinib-previously-treated-unresectable-locally-advanced-or-metastatic)). Its furthest phase is now "Approved (FDA 2026)". Approved strict molecules go from 0 to 1. The site headline, previously the fixed text "None is approved", is now computed from the data and reads "One is approved". The strict count (55), status split (40 ongoing, 15 stopped), precedence counts and Phase 2+ count (12) are unchanged. No inclusion tier, attribution tier or precedence category was changed.
+
+- **Audit trail** (see `docs/DECISIONS.md`, METHODOLOGY § 8):
+  - New `data/audit-log.csv` holds 1,672 lines, one per row and field: 1,235 confirmed, 351 changed, 86 flagged. Each line gives the source URL and a verbatim quote of 25 words or fewer.
+  - Every cited page was fetched again and its quote matched: by script where the site allows it, otherwise by reading the page.
+  - New `last_verified` column on `molecules.csv`, `candidates.csv` and `excluded.csv`, shown in each entry's expanded view as "Last verified" with a link to the log.
+  - `excluded.csv` gains an `id` column.
+- **Method:**
+  - A ClinicalTrials.gov pre-pass searched every alias, by intervention and full text, plus each developer as sponsor, and compared the hits with `registry_ids`.
+  - Research agents then checked each row against registries (ClinicalTrials.gov, ANZCTR, jRCT, China CTR/ChiCTR, EU CTIS, ISRCTN), the developer's and current owner's disclosures, filings and papers.
+  - An independent verifier tried to refute every proposed change: 380 upheld, 43 amended, 4 refuted.
+- **Identity and aliases** (23 rows): new INNs zilemaltib (SGR-1505), surbinsertib (SGR-3515), rexaceract (GT-02287), rocavorexant (INDV-2000), nuvustotug (HFB301001), emunkitug (HFB200301), muzastotug (ADG126) and zirdafulven (LP-184). New partner codes:
+  - RO7517834 (migoprotafib)
+  - DDY391 (MRT-6160, Novartis)
+  - JNJ-31001074 (bavisant)
+  - AMG 986 (azelaprag)
+  - OSU-HDAC42 (REC-2282)
+  - CHM-0033029 (CHM-029)
+  - EVAX-01-CAF09b (EVX-01)
+  - SYN-001 (fasoracetam)
+  - S241656 (BDTX-4933, excluded)
+
+  CEL383 = ABBV-8736 now rests on AbbVie's EU CTIS record (2024-513009-30-00), not on drug databases.
+- **Developer and partner** (17 changes):
+  - AO-252 licensed to Coiled Therapeutics (2026).
+  - HMBD-002 licensed to Percheron Therapeutics (2025).
+  - Genentech ended the migoprotafib licence (Jan 2025).
+  - Exscientia bought GT Apeiron's share of GTAEXS-617 (Jul 2024).
+  - NL-201 is now with Neurogene; SNX-281 with Stingthera.
+  - Bavisant's originator is Johnson & Johnson, not Takeda.
+- **Registry IDs** (49 rows): added missing ClinicalTrials.gov, EU CT, jRCT, China CTR and ISRCTN numbers. VRG50635's first-in-human study is ISRCTN14792372, and GT-02287's is ACTRN12623000860662. EU CT and ISRCTN numbers now link on the site.
+- **First-in-human** (20 rows, detail and dates):
+  - BEN-2293 (strict) moves from 2020 to 2021. BenevolentAI announced first dosing on 11 Feb 2021; the registry start date of Oct 2020 is kept in the detail.
+  - Legacy borderline compounds now use the year of first dosing by any sponsor, as REC-4881 already did: BEN-2001 1942 → 2007, REC-994 2022 → 2004, REC-2282 2022 → 2010, azelaprag 2016.
+  - OC514 now has a year: 2022.
+- **Status detail** (41 rows) now gives the reason and date for each stop where a source states one. Borderline status changes, none of which moves a strict count:
+  - NDI-101150 and GB-7624 ongoing → stopped: deprioritized, dropped from the developer's pipeline.
+  - HST-1011 ongoing → unknown: no update since Nov 2024.
+  - Omilancor unknown → ongoing; NIM-1324 stopped → ongoing. NImmune presented new data in 2026.
+  - HMBD-002 stopped → ongoing (licensee plans a Phase 2), SLATE stopped → ongoing (NCI trial active), baricitinib stopped → ongoing (approved and marketed, coded like BXCL-501).
+  - Borderline furthest phase: HMBD-001 Phase 1/2 → Phase 2; NECVAX-NEO1 Phase 1 → Phase 1/2.
+- **Other fields:**
+  - AI-role wording (25 rows), corrected to what the developer actually says.
+  - Indication (40 rows): more precise, and US spelling.
+  - Targets: SIGX1094 FAK/SRC, PHI-101 FLT3; CHK2, SOM3355 multimodal.
+  - Six precedence bases: anachronistic or inaccurate wording fixed; no category changed.
+  - Sources (87 rows): dead or non-supporting links replaced, primary sources added.
+- **Notes:** internal process notes were removed from `notes`, `precedence_basis`, `inclusion_note` and the excluded reasons (backlog item).
+- **Excluded rows:** 14 of 37 re-verified; their reasons still hold, with factual refreshes for REC-7735, inhaled rentosertib, ISM3312, SYH2070 and the Nuritas/Gubra row. The other 23 rows keep their reasons, but their `last_verified` is blank until a second search pass, because the audit hit its per-session web-search limit.
+- `scripts/fetch_trials.py` now splits aliases on closing brackets too. Trials re-pulled: still 83 records for 47 strict molecules; none changed.
+
 ## v1.1.12 — 2026-10-20
 Site only. No change to any count, inclusion or coding call.
 - Source links in the registry's expanded view are named instead of numbered. Registries show their ID, for example "ClinicalTrials.gov NCT06548542". Other sources show the publisher, for example "Sumitomo Pharma", "SEC filing" or "Business Wire press release". Hovering a link shows the full URL.

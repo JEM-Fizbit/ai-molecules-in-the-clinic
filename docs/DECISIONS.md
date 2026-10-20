@@ -4,6 +4,16 @@
 
 ---
 
+## 2026-10-20 — Per-row verification date and a field-level audit log
+
+**Decision:** Every row in `molecules.csv`, `candidates.csv` and `excluded.csv` carries a `last_verified` ISO date: the day each of its fields was last checked against primary sources. `data/audit-log.csv` records the evidence, one line per row and field: `id, field, verdict (confirmed/changed/flagged), old_value, new_value, source_url, quote, checked_date`. Quotes are verbatim and 25 words or fewer. The log is append-only; a later check adds lines rather than editing old ones. `excluded.csv` gains a stable `id` column (prefix `x-`) so its rows can be referenced in the log. The site shows "Last verified" in each entry's expanded view and links the log.
+
+**Why:** CEL383 was renamed ABBV-8736 after AbbVie bought Celsius, and the row stayed stale until 20 Oct. `as_of` says when the data was cut, not when a row was last checked, and per-source spot checks left no trail. A dated, quoted log per field lets a reader or second coder see exactly what each value rests on, and shows which rows are due for a recheck.
+
+**Alternatives rejected:** a per-field date column for each field (doubles the CSV width); evidence in `notes` (mixes reader text with process); a log in the private Neon database (the evidence should be as open as the data).
+
+---
+
 ## 2026-10-20 — Public ahead of the essay
 
 **Decision:** The registry went public on 20 Oct 2026 at 09:15, before the essay. The GitHub repo is public. Vercel `ssoProtection` is back to `all_except_custom_domains`. The `claude-smoke-test` bypass token is revoked.

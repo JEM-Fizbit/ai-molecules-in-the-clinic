@@ -33,7 +33,7 @@ def flat(s):
 mols = [m for m in csv.DictReader(open("data/molecules.csv")) if m["inclusion"] == "strict"]
 found = {}
 for m in mols:
-    aliases = [a.strip() for a in re.split(r"/|\(", m["molecule"]) if len(norm(a)) >= 4]
+    aliases = [a.strip() for a in re.split(r"[/()]", m["molecule"]) if len(norm(a)) >= 4]
     ids = {i for i in m["registry_ids"].split(";") if i.startswith("NCT")}
     for a in aliases:
         for s in get({"query.intr": a, "pageSize": 50}).get("studies", []):

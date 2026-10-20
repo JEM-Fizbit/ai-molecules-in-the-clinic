@@ -1,6 +1,6 @@
 # Methodology
 
-Version 1.1.12 · data as of 13 October 2026
+Version 1.1.13 · data as of 20 October 2026
 
 ## 1. Definition
 
@@ -66,3 +66,5 @@ Lower is not more correct. Each count answers a different question; this one ask
 ## 8. Updates
 
 Quarterly refresh of status and new entries, plus corrections as they arrive. Each release is tagged and logged in `CHANGELOG.md`.
+
+Every row carries a `last_verified` date: the day each of its fields was last checked against primary sources. The evidence is in `data/audit-log.csv`. It has one line per row and field, with the verdict (confirmed, changed or flagged), the old and new value, the source URL and a short verbatim quote. The log is append-only, so a later check adds lines and keeps the earlier ones. The first full field-by-field audit covered every row on 20 October 2026.
