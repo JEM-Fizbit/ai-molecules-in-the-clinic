@@ -158,7 +158,7 @@ function render(mols){
 const tip=$("tip");
 document.addEventListener("pointerover",e=>{const t=e.target.closest("[data-tip]");if(t){tip.textContent=t.dataset.tip;tip.classList.add("on")}else tip.classList.remove("on")});
 document.addEventListener("pointermove",e=>{if(!tip.classList.contains("on"))return;const x=Math.min(e.clientX+14,innerWidth-tip.offsetWidth-8);tip.style.left=x+"px";tip.style.top=(e.clientY+16)+"px"});
-fetch("data/molecules.json").then(r=>r.json()).then(d=>render(d.molecules)).catch(()=>{});
+fetch("data/molecules.json",{cache:"no-cache"}).then(r=>r.json()).then(d=>render(d.molecules)).catch(()=>{});
 </script>
 </body>
 </html>

@@ -37,7 +37,7 @@
       <a class="btn primary" href="#registry">Browse the registry</a>
       <a class="btn" href="data/molecules.csv" download>Download the data (CSV)</a>
     </div>
-    <p class="asof" id="asof">Data as of 13 October 2026. Trial records retrieved 15 October 2026. Version 1.1.10.</p>
+    <p class="asof" id="asof">Data as of 13 October 2026. Trial records retrieved 20 October 2026. Version 1.1.11.</p>
   </div>
 
   <figure class="census" id="census" aria-labelledby="census-cap">
@@ -122,7 +122,7 @@
     <li><b>The list was assembled with AI-assisted searches</b> and then challenged by two verification passes, one trying to disprove entries and one looking for missing ones. Every row carries its sources.</li>
     <li><b>Inclusion is not an efficacy rating.</b> Being listed says nothing about whether a molecule works.</li>
   </ul>
-  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.10, data as of 13 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
+  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.11, data as of 13 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
 </section>
 
 <section class="block" id="corrections" aria-labelledby="h-cor">
@@ -229,11 +229,13 @@ function modalityClass(m){
 }
 const ACTIVE=new Set(["RECRUITING","NOT_YET_RECRUITING","ACTIVE_NOT_RECRUITING","ENROLLING_BY_INVITATION"]);
 function nextDue(id,retrieved){
-  const ds=TRIALS.filter(t=>t.molecule_ids.split(";").includes(id)&&ACTIVE.has(t.status)&&t.primary_completion_date).map(t=>t.primary_completion_date).sort();
-  if(!ds.length)return null;
-  const future=ds.filter(d=>d>=retrieved.slice(0,d.length));
-  return future.length?{d:future[0],past:false}:{d:ds[ds.length-1],past:true};
+  const ts=TRIALS.filter(t=>t.molecule_ids.split(";").includes(id)&&ACTIVE.has(t.status)&&t.primary_completion_date).sort((a,b)=>a.primary_completion_date.localeCompare(b.primary_completion_date));
+  if(!ts.length)return null;
+  const future=ts.filter(t=>t.primary_completion_date>=retrieved.slice(0,t.primary_completion_date.length));
+  const t=future.length?future[0]:ts[ts.length-1];
+  return {d:t.primary_completion_date,past:!future.length,trial:t};
 }
+const x0=a=>a[0];
 function fmtMonth(d){const [y,m]=d.split("-");return m?new Date(+y,+m-1,1).toLocaleDateString("en-GB",{month:"short",year:"numeric"}):y}
 function phaseRank(p){
   p=String(p||"");
@@ -332,15 +334,29 @@ function rows(){
       <td class="nw ti">${esc(m.highest_phase)}${m.first_in_human_year?`<small>first dosed ${m.first_in_human_year}</small>`:""}</td><td><span class="st st-${esc(m.status)}">${STATUS_LABEL[m.status]||esc(m.status)}</span></td>
       <td class="hide-sm"><span class="tag" title="${esc({precedented:"An approved or Phase 2+ drug already acted on this target",novel:"Earlier drugs at this target never got past Phase 1","first-in-class":"No drug had been dosed in people at this target",unclear:"Target not disclosed"}[m.target_precedence]||"")}"><i ${swatch(m.target_precedence)}></i>${PREC_LABEL[m.target_precedence]||esc(m.target_precedence)}</span></td>
       <td class="hide-sm nw">${esc(m.modality_class)}</td>
-      <td class="hide-sm due">${m.next?fmtMonth(m.next.d)+(m.next.past?"<small>passed</small>":""):(m.status==="stopped"?"":"<small>no active trial listed</small>")}</td></tr>`;
+      <td class="hide-sm due">${m.next?fmtMonth(m.next.d)+(m.next.past?"<small>passed</small>":""):(m.status==="stopped"?"":"<small>no active trial on ClinicalTrials.gov</small>")}</td></tr>`;
     if(!isOpen)return tr;
     const t=TRIALS.filter(x=>x.molecule_ids.split(";").includes(m.id));
     const src=(m.sources||"").split(";").map(s=>s.trim()).filter(Boolean).map((u,i)=>/^https?:/.test(u)?`<a href="${esc(u)}" target="_blank" rel="noopener">Source ${i+1}</a>`:esc(u)).join(", ");
     const regs=(m.registry_ids||"").split(";").filter(Boolean).map(regLink).join(", ");
-    const tl=t.length?t.map(x=>`${regLink(x.nct_id)}: ${esc(x.phase.replace(/Phase/g,"Phase ").replace(/\s+/g," ").replace(/\/ ?Phase /g,"/"))}, ${esc(x.status.replace(/_/g," ").toLowerCase())}${x.why_stopped?". Reason given: "+esc(x.why_stopped):""}`).join("<br>"):"No ClinicalTrials.gov record";
+    const ph=x=>x.replace(/Phase/g,"Phase ").replace(/\s+/g," ").replace(/\/ ?Phase /g,"/").trim()||"n/a";
+    const tl=t.length?`<div class="ctg"><table><thead><tr><th>Trial</th><th>Phase</th><th>Status</th><th>Start</th><th>Primary completion</th><th class="hide-sm">Sponsor</th></tr></thead><tbody>${[...t].sort((a,b)=>(b.start_date||"").localeCompare(a.start_date||"")).map(x=>`<tr><td>${regLink(x.nct_id)}<small>${esc(x.title)}</small></td><td class="nw">${esc(ph(x.phase))}</td><td>${esc(x.status.replace(/_/g," ").toLowerCase())}${x.why_stopped?`<small>Reason given: ${esc(x.why_stopped)}</small>`:""}</td><td class="nw">${esc(x.start_date?fmtMonth(x.start_date):"")}</td><td class="nw">${esc(x.primary_completion_date?fmtMonth(x.primary_completion_date):"")}${x.primary_completion_date?`<small>${x.primary_completion_type==="ACTUAL"?"actual":"estimated"}</small>`:""}</td><td class="hide-sm">${esc(x.lead_sponsor)}</td></tr>`).join("")}</tbody></table><small class="ctg-note">From ClinicalTrials.gov, retrieved ${esc(fmtDate(x0(t).retrieved))}.</small></div>`:"No ClinicalTrials.gov record";
     const tier={A:"A: peer-reviewed or regulatory documentation",B:"B: developer's own disclosure",C:"C: secondary sources only"}[m.attribution_tier]||m.attribution_tier;
-    const d=[["Target",m.target],["Indication",m.indication],["AI role",m.ai_role],["Evidence of AI role",tier],["Partner",m.partner],["Modality",m.modality],["Status",m.status_detail],["Why this target type",m.precedence_basis],["First in human",m.first_in_human_detail],m.inclusion!=="strict"?["Why borderline",m.inclusion_note]:null,["Notes",m.notes],["Registry IDs",regs],["Trials",tl],["Sources",src],["Coder confidence",m.confidence]].filter(x=>x&&x[1]);
-    return tr+`<tr class="detail" id="d-${esc(m.id)}"><td colspan="8"><dl class="dgrid">${d.map(([k,v])=>`<dt>${k}</dt><dd>${["Registry IDs","Trials","Sources"].includes(k)?v:esc(v)}</dd>`).join("")}</dl><p class="suggest"><a href="#corrections" data-suggest="${esc(m.id)}">Suggest a correction to this entry</a></p></td></tr>`;
+    const n=m.next, nt=n&&n.trial;
+    const due=n?`${esc(fmtMonth(n.d))}: ${n.trial.primary_completion_type==="ACTUAL"?"primary completion":"estimated primary completion"} of ${regLink(nt.nct_id)} (${esc(nt.phase.replace(/PHASE/g,"Phase ").replace(/\s+/g," "))}, ${esc(nt.status.replace(/_/g," ").toLowerCase())}).${n.past?" That date has passed with no update posted on ClinicalTrials.gov.":""}`
+      :m.status==="stopped"?"None: the program has stopped."
+      :t.length?"None: no ClinicalTrials.gov trial for this molecule is still active. Its status rests on the developer's disclosures or another registry (see Registry IDs and Sources)."
+      :"None: this molecule has no ClinicalTrials.gov record. Its status rests on the developer's disclosures or another registry (see Registry IDs and Sources).";
+    const H=v=>({__html:v});
+    const d=[["Developer",m.developer],["Partner",m.partner],["Target",m.target],["Indication",m.indication],
+      ["Furthest phase",`${m.highest_phase}${m.first_in_human_detail?`. First dosed: ${m.first_in_human_detail}`:""}`],
+      ["Status",(()=>{const L=STATUS_LABEL[m.status]||m.status,x=(m.status_detail||"").replace(/^(ongoing|stopped|unknown)\b\s*:?\s*/i,"").replace(/^\((.*)\)$/,"$1").trim();return !x||x.toLowerCase()===m.status?L:`${L}: ${x}`})()],
+      ["Target type",`${PREC_LABEL[m.target_precedence]||m.target_precedence}${m.precedence_basis?`: ${m.precedence_basis}`:""}`],
+      ["Modality",(()=>{const c=m.modality_class||"",x=m.modality||"";if(!x||x.toLowerCase()===c.toLowerCase())return c||x;if(c&&x.toLowerCase().startsWith(c.toLowerCase()))return x.charAt(0).toUpperCase()+x.slice(1);return c?`${c} (${x})`:x})()],
+      ["Next data due",H(due)],
+      ["AI role",m.ai_role],["Evidence of AI role",tier],m.inclusion!=="strict"?["Why borderline",m.inclusion_note]:null,["Notes",m.notes],
+      ["Registry IDs",H(regs)],["ClinicalTrials.gov",H(tl)],["Sources",H(src)],["Coder confidence",m.confidence]].filter(x=>x&&x[1]);
+    return tr+`<tr class="detail" id="d-${esc(m.id)}"><td colspan="8"><dl class="dgrid">${d.map(([k,v])=>`<dt>${k}</dt><dd>${typeof v==="object"?v.__html:esc(v)}</dd>`).join("")}</dl><p class="suggest"><a href="#corrections" data-suggest="${esc(m.id)}">Suggest a correction to this entry</a></p></td></tr>`;
   }).join("");
 }
 function setSort(k){
@@ -369,10 +385,10 @@ addEventListener("scroll",()=>tip.classList.remove("on"),{passive:true});
 $("b-strict").onclick=()=>setMode("strict");$("b-all").onclick=()=>setMode("all");
 
 others();
-Promise.all([fetch("data/molecules.json").then(r=>r.json()),fetch("data/trials.json").then(r=>r.json())]).then(([m,t])=>{
+Promise.all([fetch("data/molecules.json",{cache:"no-cache"}).then(r=>r.json()),fetch("data/trials.json",{cache:"no-cache"}).then(r=>r.json())]).then(([m,t])=>{
   TRIALS=t.trials;const R=t.retrieved||"2026-10-15";MOLS=m.molecules.map(x=>{const n=nextDue(x.id,R);return {...x,phase_rank:phaseRank(x.highest_phase),modality_class:modalityClass(x.modality),next:n,next_due:n?(n.past?"0"+n.d:n.d):"9999"}});
   [...new Set(MOLS.map(x=>x.modality_class).filter(Boolean))].sort().forEach(v=>$("f-mod").insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`));
-  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.10.`;
+  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.11.`;
   census();rows();corrForm();
 }).catch(()=>{$("tb").innerHTML='<tr><td colspan="8">The registry data did not load. Reload the page, or use the CSV downloads at the foot of the page.</td></tr>'});
 </script>

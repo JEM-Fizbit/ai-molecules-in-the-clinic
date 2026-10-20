@@ -1,5 +1,5 @@
 {
- "retrieved": "2026-10-15",
+ "retrieved": "2026-10-20",
  "trials": [
   {
    "nct_id": "NCT07317544",
@@ -13,7 +13,7 @@
    "lead_sponsor": "Absci Pty Ltd.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05241613",
@@ -27,7 +27,7 @@
    "lead_sponsor": "Accutar Biotechnology Inc",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "Subject benefit-risk ratio changes, sponsor decides to voluntarily terminate study",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05673109",
@@ -41,7 +41,7 @@
    "lead_sponsor": "Accutar Biotechnology Inc",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "Subject benefit-risk ratio changes, sponsor decides to voluntarily terminate study",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05080842",
@@ -55,7 +55,7 @@
    "lead_sponsor": "Accutar Biotechnology Inc",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "Voluntarily terminate the study since the sponsor's development strategy was adjusted.",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05489679",
@@ -69,7 +69,7 @@
    "lead_sponsor": "Accutar Biotechnology Inc",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "Voluntarily terminate the study since the sponsor's development strategy was adjusted.",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06136884",
@@ -83,7 +83,7 @@
    "lead_sponsor": "A2A Pharmaceuticals Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05807971",
@@ -97,7 +97,7 @@
    "lead_sponsor": "Athos Therapeutics Inc",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07513181",
@@ -111,7 +111,7 @@
    "lead_sponsor": "Athos Therapeutics Inc",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06343402",
@@ -125,7 +125,7 @@
    "lead_sponsor": "TheRas, Inc., d/b/a BBOT (BridgeBio Oncology Therapeutics)",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT04737304",
@@ -139,7 +139,7 @@
    "lead_sponsor": "BenevolentAI Bio",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06118385",
@@ -153,7 +153,7 @@
    "lead_sponsor": "BenevolentAI Bio",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07529808",
@@ -167,7 +167,7 @@
    "lead_sponsor": "BigHat Biosciences, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05901883",
@@ -181,7 +181,49 @@
    "lead_sponsor": "Celsius Therapeutics, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
+  },
+  {
+   "nct_id": "NCT06548542",
+   "molecule_ids": "cel383",
+   "title": "Study of Targeted Therapies for the Treatment of Adult Participants With Moderate to Severe Crohn's Disease",
+   "phase": "Phase 2",
+   "status": "RECRUITING",
+   "start_date": "2024-09-04",
+   "primary_completion_date": "2030-01",
+   "primary_completion_type": "ESTIMATED",
+   "lead_sponsor": "AbbVie",
+   "sponsor_class": "INDUSTRY",
+   "why_stopped": "",
+   "retrieved": "2026-10-20"
+  },
+  {
+   "nct_id": "NCT07141199",
+   "molecule_ids": "cel383",
+   "title": "A Study to Evaluate Adverse Events, How the Drug is Tolerated, and How the Drug Moves Through the Body of Intravenous Infusions of ABBV-8736 in Adult Healthy Volunteers",
+   "phase": "Phase 1",
+   "status": "COMPLETED",
+   "start_date": "2025-09-02",
+   "primary_completion_date": "2026-03-23",
+   "primary_completion_type": "ACTUAL",
+   "lead_sponsor": "AbbVie",
+   "sponsor_class": "INDUSTRY",
+   "why_stopped": "",
+   "retrieved": "2026-10-20"
+  },
+  {
+   "nct_id": "NCT07413133",
+   "molecule_ids": "cel383",
+   "title": "A Study to Assess How the Body Absorbs ABBV-8736 Subcutaneous Injections Relative to Intravenous Injections in Adult Healthy Volunteers",
+   "phase": "Phase 1",
+   "status": "COMPLETED",
+   "start_date": "2026-02-11",
+   "primary_completion_date": "2026-06-19",
+   "primary_completion_type": "ACTUAL",
+   "lead_sponsor": "AbbVie",
+   "sponsor_class": "INDUSTRY",
+   "why_stopped": "",
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07751991",
@@ -195,7 +237,7 @@
    "lead_sponsor": "Charm Therapeutics",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07850102",
@@ -209,7 +251,7 @@
    "lead_sponsor": "Johns Hopkins University",
    "sponsor_class": "OTHER",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07336940",
@@ -223,7 +265,7 @@
    "lead_sponsor": "Enveda Therapeutics",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07298395",
@@ -237,7 +279,7 @@
    "lead_sponsor": "Enveda Therapeutics",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07301255",
@@ -251,7 +293,7 @@
    "lead_sponsor": "Enveda Therapeutics",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07643766",
@@ -265,7 +307,7 @@
    "lead_sponsor": "Enveda Therapeutics",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT04727138",
@@ -279,7 +321,7 @@
    "lead_sponsor": "Exscientia AI Limited",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05920408",
@@ -293,7 +335,7 @@
    "lead_sponsor": "Exscientia AI Limited",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "Emerging data demonstrates challenge for EXS21546 to reach suitable therapeutic index.",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06980116",
@@ -307,7 +349,7 @@
    "lead_sponsor": "Exscientia AI Ltd., a wholly owned subsidiary of Recursion Pharmaceuticals, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07517198",
@@ -321,7 +363,7 @@
    "lead_sponsor": "Exscientia AI Ltd., a wholly owned subsidiary of Recursion Pharmaceuticals, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06012578",
@@ -335,7 +377,7 @@
    "lead_sponsor": "InSilico Medicine Hong Kong Limited",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07265570",
@@ -349,7 +391,7 @@
    "lead_sponsor": "InSilico Medicine Hong Kong Limited",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07050511",
@@ -363,7 +405,7 @@
    "lead_sponsor": "Generate Biomedicines",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07116889",
@@ -377,7 +419,7 @@
    "lead_sponsor": "Generate Biomedicines",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07276724",
@@ -391,7 +433,7 @@
    "lead_sponsor": "Generate Biomedicines",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07359846",
@@ -405,7 +447,7 @@
    "lead_sponsor": "Generate Biomedicines",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05985655",
@@ -419,7 +461,7 @@
    "lead_sponsor": "Exscientia AI Ltd., a wholly owned subsidiary of Recursion Pharmaceuticals, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07633756",
@@ -433,7 +475,7 @@
    "lead_sponsor": "M.D. Anderson Cancer Center",
    "sponsor_class": "OTHER",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05669430",
@@ -447,7 +489,7 @@
    "lead_sponsor": "GV20 Therapeutics",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07070518",
@@ -461,7 +503,7 @@
    "lead_sponsor": "GV20 Therapeutics",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07106827",
@@ -475,7 +517,7 @@
    "lead_sponsor": "West China Hospital",
    "sponsor_class": "OTHER",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07307053",
@@ -489,7 +531,7 @@
    "lead_sponsor": "Cancer Institute and Hospital, Chinese Academy of Medical Sciences",
    "sponsor_class": "OTHER",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07457281",
@@ -503,7 +545,7 @@
    "lead_sponsor": "West China Hospital",
    "sponsor_class": "OTHER",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07623642",
@@ -517,7 +559,7 @@
    "lead_sponsor": "GV20 Therapeutics",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06253871",
@@ -531,7 +573,7 @@
    "lead_sponsor": "Iambic Therapeutics, Inc",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05267626",
@@ -545,7 +587,7 @@
    "lead_sponsor": "Aulos Bioscience, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05932862",
@@ -559,7 +601,7 @@
    "lead_sponsor": "Exelixis",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06414460",
@@ -573,7 +615,7 @@
    "lead_sponsor": "InSilico Medicine Hong Kong Limited",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07415304",
@@ -587,7 +629,7 @@
    "lead_sponsor": "TaiGen Biotechnology Co., Ltd.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06566079",
@@ -601,7 +643,7 @@
    "lead_sponsor": "InSilico Medicine Hong Kong Limited",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06445517",
@@ -615,7 +657,7 @@
    "lead_sponsor": "InSilico Medicine Hong Kong Limited",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05639933",
@@ -629,7 +671,7 @@
    "lead_sponsor": "Hoth Therapeutics, Inc.",
    "sponsor_class": "OTHER",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07581431",
@@ -643,7 +685,7 @@
    "lead_sponsor": "InSilico Medicine Hong Kong Limited",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT04526106",
@@ -657,7 +699,7 @@
    "lead_sponsor": "Elevar Therapeutics",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07359820",
@@ -671,7 +713,7 @@
    "lead_sponsor": "Elevar Therapeutics",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06778850",
@@ -685,7 +727,7 @@
    "lead_sponsor": "MindRank AI Ltd",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06606483",
@@ -699,7 +741,7 @@
    "lead_sponsor": "MindRank AI Ltd",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07110766",
@@ -713,7 +755,7 @@
    "lead_sponsor": "MindRank AI Ltd",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07274137",
@@ -727,7 +769,7 @@
    "lead_sponsor": "MindRank AI Ltd",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07550621",
@@ -741,7 +783,7 @@
    "lead_sponsor": "MindRank AI Ltd",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07550634",
@@ -755,7 +797,7 @@
    "lead_sponsor": "MindRank AI Ltd",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06638307",
@@ -769,7 +811,7 @@
    "lead_sponsor": "Stemline Therapeutics, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07873827",
@@ -783,7 +825,7 @@
    "lead_sponsor": "Stemline Therapeutics, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07226427",
@@ -797,7 +839,7 @@
    "lead_sponsor": "Stemline Therapeutics, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT04252339",
@@ -811,7 +853,7 @@
    "lead_sponsor": "Hoffmann-La Roche",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT04449874",
@@ -825,7 +867,7 @@
    "lead_sponsor": "Genentech, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05487235",
@@ -839,7 +881,7 @@
    "lead_sponsor": "Genentech, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05954871",
@@ -853,7 +895,7 @@
    "lead_sponsor": "Genentech, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06973863",
@@ -867,7 +909,7 @@
    "lead_sponsor": "PharmaEngine",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07190469",
@@ -881,7 +923,7 @@
    "lead_sponsor": "ProteinQure Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06678659",
@@ -895,7 +937,7 @@
    "lead_sponsor": "Recursion Pharmaceuticals Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06536465",
@@ -909,7 +951,7 @@
    "lead_sponsor": "Recursion Pharmaceuticals Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "Study was terminated due to sponsor decision. This decision was not related to safety concerns.",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05154240",
@@ -923,7 +965,7 @@
    "lead_sponsor": "InSilico Medicine Hong Kong Limited",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05938920",
@@ -937,7 +979,7 @@
    "lead_sponsor": "InSilico Medicine Hong Kong Limited",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05975983",
@@ -951,7 +993,7 @@
    "lead_sponsor": "InSilico Medicine Hong Kong Limited",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT07687459",
@@ -965,7 +1007,7 @@
    "lead_sponsor": "InSilico Medicine Hong Kong Limited",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05759949",
@@ -979,7 +1021,7 @@
    "lead_sponsor": "Relay Therapeutics, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05544019",
@@ -993,7 +1035,7 @@
    "lead_sponsor": "Schrödinger, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05961839",
@@ -1007,7 +1049,7 @@
    "lead_sponsor": "Schrödinger, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "Company decision",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06463340",
@@ -1021,7 +1063,7 @@
    "lead_sponsor": "Schrödinger, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06739291",
@@ -1035,7 +1077,7 @@
    "lead_sponsor": "Signet Therapeutics",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05683418",
@@ -1049,7 +1091,7 @@
    "lead_sponsor": "Totus Medicines",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06215755",
@@ -1063,7 +1105,7 @@
    "lead_sponsor": "Verge Genomics",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "Study terminated by Sponsor due to lack of risk-benefit data.",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06286475",
@@ -1077,7 +1119,7 @@
    "lead_sponsor": "Verge Genomics",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT05216432",
@@ -1091,7 +1133,7 @@
    "lead_sponsor": "Relay Therapeutics, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06789913",
@@ -1105,7 +1147,7 @@
    "lead_sponsor": "Relay Therapeutics, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   },
   {
    "nct_id": "NCT06982521",
@@ -1119,7 +1161,7 @@
    "lead_sponsor": "Relay Therapeutics, Inc.",
    "sponsor_class": "INDUSTRY",
    "why_stopped": "",
-   "retrieved": "2026-10-15"
+   "retrieved": "2026-10-20"
   }
  ]
 }

@@ -1,6 +1,6 @@
 # Methodology
 
-Version 1.1.10 · data as of 13 October 2026
+Version 1.1.11 · data as of 13 October 2026
 
 ## 1. Definition
 
@@ -35,7 +35,7 @@ A molecule is in the **strict cohort** if all three hold:
 
 Six parallel searches: published seed lists (BCG/Jayatunga 2024 and successors); AI-native small-molecule developers in the US, Europe and Israel; Asia-Pacific developers and registries; biologics; pharma-internal assets; and an asset-agnostic registry and literature sweep. Results were merged and coded, then challenged by two independent passes: one trying to disprove entries (about 50 registry records re-checked) and one looking for missing assets. Searches were AI-assisted; every row carries its sources.
 
-Trials (`trials.csv`) are every ClinicalTrials.gov record matched to a strict-cohort molecule by NCT number or verified intervention name (API v2, retrieved 15 October 2026). Eight strict molecules have no ClinicalTrials.gov record.
+Trials (`trials.csv`) are every ClinicalTrials.gov record matched to a strict-cohort molecule by NCT number or verified intervention name (API v2, retrieved 20 October 2026). Eight strict molecules have no ClinicalTrials.gov record.
 
 ## 5. Uncertainty
 

@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.1.11 — 2026-10-20
+Trials re-pulled from ClinicalTrials.gov (API v2) on 20 October 2026; registry expanded view reworked. No change to any count, inclusion or coding call.
+- `trials.csv`: 83 records for 47 strict molecules, up from 80. The three new records are the ABBV-8736 trials linked to CEL383 in v1.1.4: NCT06548542 (Phase 2, recruiting), NCT07141199 and NCT07413133 (Phase 1, completed). CEL383's next data due is now January 2030, where it previously read "no active trial". No existing trial changed status.
+- Expanded view in the registry:
+  - It repeats every headline column with more detail: furthest phase with first dosing, status, target type with its basis, and modality.
+  - Next data due names the trial and whether its date is estimated or actual. When there is no date, it says why.
+  - A ClinicalTrials.gov table lists each trial with a link, title, phase, status, start, primary completion and sponsor.
+- The "next data due" cell wraps instead of truncating, and now reads "no active trial on ClinicalTrials.gov" when empty.
+- The site revalidates its data files on every load, so readers always get the current release.
+
 ## v1.1.10 — 2026-10-20
 Site only. No change to any count, inclusion or coding call.
 - "Why other counts are bigger": each published count now links to its source by DOI, with numbered references under the chart. The references are Jayatunga et al. 2024 (75), Greenblatt & Geoui 2026 on Zenodo (83) and Haque et al., ASCO 2026 (117). Each figure was checked against its source on 20 October 2026. "This registry" links to the definition.
