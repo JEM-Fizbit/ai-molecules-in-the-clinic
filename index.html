@@ -37,7 +37,7 @@
       <a class="btn primary" href="#registry">Browse the registry</a>
       <a class="btn" href="data/molecules.csv" download>Download the data (CSV)</a>
     </div>
-    <p class="asof" id="asof">Data as of 13 October 2026. Trial records retrieved 15 October 2026. Version 1.1.9.</p>
+    <p class="asof" id="asof">Data as of 13 October 2026. Trial records retrieved 15 October 2026. Version 1.1.10.</p>
   </div>
 
   <figure class="census" id="census" aria-labelledby="census-cap">
@@ -78,6 +78,11 @@
   <p class="intro">Published counts of AI-discovered drugs in the clinic range from about 50 to more than 100. They differ mainly in what they ask.</p>
   <div class="counts" id="counts"></div>
   <p class="counts-note">A lower number is not more correct. Each count answers a different question, and this one asks the narrowest. The uncertainty band on <span class="n-strict">55</span> is about −7 to +8, depending on registry coverage and on whether physics-based design counts. <a href="methodology.html#5-uncertainty">How the band is built</a>.</p>
+  <ol class="refs" aria-label="Sources for the comparison">
+    <li id="cref-1">Jayatunga MKP et al. How successful are AI-discovered drugs in clinical trials? A first analysis and emerging lessons. <i>Drug Discovery Today</i> 29(6):104009, 2024. <a href="https://doi.org/10.1016/j.drudis.2024.104009">doi:10.1016/j.drudis.2024.104009</a>. 75 molecules entered the clinic since 2015.</li>
+    <li id="cref-2">Greenblatt E, Geoui T. Dataset and analysis code for "28 Months Later: AI-Discovered, but Not AI-Developed". Zenodo, 2026. <a href="https://doi.org/10.5281/zenodo.22814924">doi:10.5281/zenodo.22814924</a>. 83 assets, each with per-field citations.</li>
+    <li id="cref-3">Haque W et al. Clinical-stage AI-enabled therapeutic assets: an industry-wide analysis of scale, clinical progression, and company characteristics. <i>Journal of Clinical Oncology</i> 44(16_suppl):11072, 2026 (ASCO abstract). <a href="https://doi.org/10.1200/JCO.2026.44.16_suppl.11072">doi:10.1200/JCO.2026.44.16_suppl.11072</a>. 117 assets across 63 companies; the list is not published.</li>
+  </ol>
 </section>
 
 <section class="block" id="registry" aria-labelledby="h-reg">
@@ -117,7 +122,7 @@
     <li><b>The list was assembled with AI-assisted searches</b> and then challenged by two verification passes, one trying to disprove entries and one looking for missing ones. Every row carries its sources.</li>
     <li><b>Inclusion is not an efficacy rating.</b> Being listed says nothing about whether a molecule works.</li>
   </ul>
-  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.9, data as of 13 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
+  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.10, data as of 13 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
 </section>
 
 <section class="block" id="corrections" aria-labelledby="h-cor">
@@ -203,10 +208,10 @@ $("lnk-changes").href=REPO+"/blob/main/CHANGELOG.md";
 $("lnk-correct").href=REPO+"/issues/new?template=correction.md";
 
 const OTHER=[
-  {name:"This registry",note:"Molecule-level attribution, dosed in humans",n:55,ours:true},
-  {name:"Jayatunga et al. 2024 (BCG)",note:"Clinical assets of AI-native companies",n:75},
-  {name:"Greenblatt & Geoui 2026",note:"The BCG list plus additions",n:83},
-  {name:"Haque et al., ASCO 2026",note:"Any AI-enabled asset; list not published",n:117}
+  {name:"This registry",note:"Molecule-level attribution, dosed in humans",n:55,ours:true,href:"methodology.html#1-definition"},
+  {name:"Jayatunga et al. 2024 (BCG)",note:"Clinical assets of AI-native companies",n:75,href:"https://doi.org/10.1016/j.drudis.2024.104009",ref:1},
+  {name:"Greenblatt & Geoui 2026",note:"The BCG list plus additions",n:83,href:"https://doi.org/10.5281/zenodo.22814924",ref:2},
+  {name:"Haque et al., ASCO 2026",note:"Any AI-enabled asset; list not published",n:117,href:"https://doi.org/10.1200/JCO.2026.44.16_suppl.11072",ref:3}
 ];
 const PREC_LABEL={precedented:"Known",novel:"Novel","first-in-class":"First-in-class",unclear:"Undisclosed"};
 const PREC_VAR={precedented:"--prec",novel:"--novel","first-in-class":"--fic",unclear:"--unclear"};
@@ -310,7 +315,7 @@ function census(){
 }
 function others(){
   const max=Math.max(...OTHER.map(o=>o.n));
-  $("counts").innerHTML=OTHER.map(o=>`<div class="count-row"><div class="count-name">${esc(o.name)}<small>${esc(o.note)}</small></div><div class="bar${o.ours?" ours":""}"><span style="width:calc((100% - 3rem) * ${o.n/max})"></span><b>${o.n}</b></div></div>`).join("");
+  $("counts").innerHTML=OTHER.map(o=>`<div class="count-row"><div class="count-name"><a href="${esc(o.href)}">${esc(o.name)}</a>${o.ref?`<sup><a href="#cref-${o.ref}" aria-label="Reference ${o.ref}">${o.ref}</a></sup>`:""}<small>${esc(o.note)}</small></div><div class="bar${o.ours?" ours":""}"><span style="width:calc((100% - 3rem) * ${o.n/max})"></span><b>${o.n}</b></div></div>`).join("");
 }
 function rows(){
   const q=$("q").value.trim().toLowerCase(),fs=$("f-status").value,fp=$("f-prec").value,fm=$("f-mod").value;
@@ -367,7 +372,7 @@ others();
 Promise.all([fetch("data/molecules.json").then(r=>r.json()),fetch("data/trials.json").then(r=>r.json())]).then(([m,t])=>{
   TRIALS=t.trials;const R=t.retrieved||"2026-10-15";MOLS=m.molecules.map(x=>{const n=nextDue(x.id,R);return {...x,phase_rank:phaseRank(x.highest_phase),modality_class:modalityClass(x.modality),next:n,next_due:n?(n.past?"0"+n.d:n.d):"9999"}});
   [...new Set(MOLS.map(x=>x.modality_class).filter(Boolean))].sort().forEach(v=>$("f-mod").insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`));
-  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.9.`;
+  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.10.`;
   census();rows();corrForm();
 }).catch(()=>{$("tb").innerHTML='<tr><td colspan="8">The registry data did not load. Reload the page, or use the CSV downloads at the foot of the page.</td></tr>'});
 </script>

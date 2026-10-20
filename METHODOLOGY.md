@@ -1,6 +1,6 @@
 # Methodology
 
-Version 1.1.9 · data as of 13 October 2026
+Version 1.1.10 · data as of 13 October 2026
 
 ## 1. Definition
 
@@ -48,9 +48,9 @@ The strict count is about **55, −7/+8**:
 
 | Count | Number | Definition |
 |---|---|---|
-| Jayatunga et al. 2024 (BCG), *Drug Discovery Today* | 75 | Clinical assets of AI-native companies since 2015 |
-| Greenblatt & Geoui 2026 (Zenodo) | 83 | BCG list plus additions |
-| Haque et al., ASCO 2026 | 117 | "AI-enabled"; list not published |
+| [Jayatunga et al. 2024 (BCG)](https://doi.org/10.1016/j.drudis.2024.104009), *Drug Discovery Today* | 75 | Clinical assets of AI-native companies since 2015 |
+| [Greenblatt & Geoui 2026](https://doi.org/10.5281/zenodo.22814924) (Zenodo) | 83 | BCG list plus additions |
+| [Haque et al., ASCO 2026](https://doi.org/10.1200/JCO.2026.44.16_suppl.11072) | 117 | "AI-enabled"; list not published |
 | This registry | 55 | Molecule-level attribution, dosed in humans, written rules |
 
 Lower is not more correct. Each count answers a different question; this one asks the narrowest.

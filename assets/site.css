@@ -283,3 +283,10 @@ small.sub{display:block;color:var(--faint);font-size:.8rem}
 .prose .tr-legend .k-studies{font:600 .82rem var(--sans)}
 .legend i.shp,.tag i.shp{border-radius:0;box-shadow:none;width:10px;height:10px}
 .tr-studies .shp{opacity:.6}
+.count-name a{color:inherit;text-decoration-color:var(--rule)}
+.count-name a:hover{color:var(--hema);text-decoration-color:currentColor}
+.count-name sup{font-size:.7em;margin-left:2px}
+.count-name sup a{color:var(--hema);text-decoration:none}
+.refs{max-width:46rem;margin:18px 0 0;padding-left:1.3rem;font-size:.82rem;line-height:1.55;color:var(--faint)}
+.refs li{margin:0 0 6px}
+.refs li:target{color:var(--ink)}

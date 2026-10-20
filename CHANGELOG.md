@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.10 — 2026-10-20
+Site only. No change to any count, inclusion or coding call.
+- "Why other counts are bigger": each published count now links to its source by DOI, with numbered references under the chart. The references are Jayatunga et al. 2024 (75), Greenblatt & Geoui 2026 on Zenodo (83) and Haque et al., ASCO 2026 (117). Each figure was checked against its source on 20 October 2026. "This registry" links to the definition.
+- METHODOLOGY § 6 links the same three sources.
+
 ## v1.1.9 — 2026-10-20
 Site only. No change to any count, inclusion or coding call.
 - Links to other sites (sources, registries, papers, GitHub) now open in a new tab on every page, so readers stay on the registry. Links within the site are unchanged.
