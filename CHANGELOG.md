@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.8 — 2026-10-20
+Site only. No change to any count, inclusion or coding call.
+- "The question" chart: each published benchmark study has its own colour and marker shape, with a legend ordered by data period. Shapes keep the studies apart for colour-blind readers and in print. The markers are drawn faintly, so the AI estimate and the industry median lead.
+- AI estimates are labelled in the journal convention, for example "48% (95% CI 30–67%)".
+
 ## v1.1.7 — 2026-10-20
 Site only. No change to any count, inclusion or coding call.
 - The top navigation now stays at the top of the screen on every page, and on phones it fits on one line. Section links land below it.
