@@ -21,7 +21,6 @@ def rank(p):
 disclosed = [m for m in S if m["target_precedence"] != "unclear"]
 known = [m for m in disclosed if m["target_precedence"] == "precedented"]
 with_trials = {i for t in T for i in t["molecule_ids"].split(";")}
-physics_dominant = [m for m in S if re.search(r"Schr|Relay", m["developer"])]
 
 n = {
     "strict": len(S),
@@ -39,7 +38,10 @@ n = {
     "trials": len(T),
     "trial_mols": len({i for t in T for i in t["molecule_ids"].split(";")}),
     "no_ctgov": sum(m["id"] not in with_trials for m in S),
-    "minus_physics": len(S) - len(physics_dominant),
+    "plus_physics": len(S) + sum(m["borderline_reason"] == "physics_only" for m in B),
+    "n_physics": sum(m["borderline_reason"] == "physics_only" for m in B),
+    "plus_platform": len(S) + sum(m["borderline_reason"] == "platform_only" for m in B),
+    "n_platform": sum(m["borderline_reason"] == "platform_only" for m in B),
 }
 WORDS = "zero one two three four five six seven eight nine ten eleven twelve".split()
 
@@ -55,9 +57,9 @@ checks = [  # (file, regex with one group per expected value, expected values)
     ("README.md", r"\((\d+) trials, (\d+) molecules\)", [n["trials"], n["trial_mols"]]),
     ("README.md", r"(\d+) of the (\d+) strict entries rest on", [n["not_a"], n["strict"]]),
     ("METHODOLOGY.md", r"(\w+) strict molecules have no ClinicalTrials\.gov record", [WORDS[n["no_ctgov"]].capitalize()]),
-    ("METHODOLOGY.md", r"The strict count is about \*\*(\d+), −(\d+)/", [n["strict"], n["strict"] - n["minus_physics"]]),
-    ("index.html", r"is about −(\d+) to \+8", [n["strict"] - n["minus_physics"]]),
-    ("METHODOLOGY.md", r"excluding the remaining physics-dominant platform entries gives \*\*(\d+)\*\*", [n["minus_physics"]]),
+    ("METHODOLOGY.md", r"The strict count is about \*\*(\d+), −2/\+8\*\*", [n["strict"]]),
+    ("METHODOLOGY.md", r"counting physics-based design gives \*\*(\d+)\*\*: adding the (\d+) borderline", [n["plus_physics"], n["n_physics"]]),
+    ("METHODOLOGY.md", r"counting platform-level attribution gives \*\*(\d+)\*\*: adding the (\d+) borderline", [n["plus_platform"], n["n_platform"]]),
     ("METHODOLOGY.md", r"\| This registry \| (\d+) \|", [n["strict"]]),
     ("METHODOLOGY.md", r"(\d+) of (\d+) strict entries rest on", [n["not_a"], n["strict"]]),
 ]

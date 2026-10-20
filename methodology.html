@@ -20,14 +20,15 @@
 </header>
 <main class="prose">
 <h1 id="methodology">Methodology</h1>
-<p>Version 1.1.20 · data as of 20 October 2026</p>
+<p>Version 1.2.0 (proposed, pending sign-off) · data as of 20 October 2026</p>
 <h2 id="1-definition">1. Definition</h2>
 <p>A molecule is in the <strong>strict cohort</strong> if all three hold:</p>
 <ol>
 <li><strong>Material AI/ML role</strong> in choosing the target or designing the molecule. Machine learning or generative methods did real work in target identification or molecule design, not only in screening logistics or general analytics.</li>
-<li><strong>Attribution.</strong> The developer or a first-tier source states that role for <em>this</em> molecule, not just for the company's platform in general.</li>
-<li><strong>Dosed in humans</strong> by the as-of date, in any registry (ClinicalTrials.gov, ANZCTR, jRCT, China CTR or equivalent) or per a dated developer announcement.</li>
+<li><strong>Attribution.</strong> The developer or a partner states, in its own words, that AI or ML did that work for <em>this</em> molecule, and says what it did: chose the target, or designed the molecule. Platform-level language ("developed using our AI platform", "discovered with our AI-enabled engine") is not enough. Third-party statements are not enough.</li>
+<li><strong>Dosed in humans</strong> by the as-of date, by any sponsor, in any registry (ClinicalTrials.gov, ANZCTR, jRCT, China CTR or equivalent) or per a dated developer statement.</li>
 </ol>
+<p>The tests are applied by the written evidence protocol in <a href="docs/REVIEW-PROTOCOL.md"><code>docs/REVIEW-PROTOCOL.md</code></a>: two blind coders per row, a red team arguing for exclusion on every strict pass, and the maintainer's sign-off on every strict entry. The acid test: if the developer does not claim the molecule as AI-derived in its own words, neither does the registry.</p>
 <h2 id="2-inclusion-tiers">2. Inclusion tiers</h2>
 <div class="tw"><table>
 <thead>
@@ -45,7 +46,7 @@
 </tr>
 <tr>
 <td><code>borderline</code></td>
-<td>Fails one test in a way reasonable people dispute: physics-based design with no ML claim; platform-level attribution only; secondary-source attribution only; AI-selected vaccine antigens; computational repurposing of an existing drug</td>
+<td>Dosed, with an AI connection, but not strict. One code in <code>borderline_reason</code>: <code>physics_only</code> (computational design with no ML claim for this molecule), <code>platform_only</code> (the developer ties the molecule to an AI platform but never says what the AI did), <code>third_party_only</code>, <code>repurposing</code> (AI picked a new use for an existing drug), <code>vaccine_antigen</code> (AI-selected antigens) or <code>other</code></td>
 <td>No, but published with the reason in <code>inclusion_note</code></td>
 </tr>
 <tr>
@@ -55,7 +56,7 @@
 </tr>
 <tr>
 <td>excluded</td>
-<td>Considered and rejected (never dosed, in-licensed with no AI role, AI role disclaimed)</td>
+<td>Considered and rejected; one code in <code>exclusion_code</code>: <code>not_dosed</code>, <code>ai_disclaimed</code>, <code>in_licensed</code>, <code>legacy_retrofit</code>, <code>out_of_scope</code> or <code>no_ai_link</code></td>
 <td>No; listed in <code>excluded.csv</code></td>
 </tr>
 </tbody>
@@ -76,17 +77,17 @@
 </ul>
 <h2 id="4-how-the-list-was-built">4. How the list was built</h2>
 <p>Six parallel searches: published seed lists (BCG/Jayatunga 2024 and successors); AI-native small-molecule developers in the US, Europe and Israel; Asia-Pacific developers and registries; biologics; pharma-internal assets; and an asset-agnostic registry and literature sweep. Results were merged and coded, then challenged by two independent passes: one trying to disprove entries (about 50 registry records re-checked) and one looking for missing assets. Searches were AI-assisted; every row carries its sources. In October 2026 every stopped, unknown and Phase 2+ status was re-checked against its registry and every source link was verified (v1.1.2 and v1.1.3 in <code>CHANGELOG.md</code>).</p>
-<p>Trials (<code>trials.csv</code>) are every ClinicalTrials.gov record matched to a strict-cohort molecule by NCT number or verified intervention name (API v2, retrieved 20 October 2026). Eight strict molecules have no ClinicalTrials.gov record. Posted protocols and statistical analysis plans are linked where the sponsor has uploaded them.</p>
+<p><strong>Evidence-first re-review (October 2026).</strong> Every row, strict, borderline and excluded, was re-coded under the protocol in <code>docs/REVIEW-PROTOCOL.md</code> by two coders who could not see the current tiers or each other's work. The protocol was piloted first on 24 rows with known answers (<code>docs/REVIEW-PILOT.md</code>; coder agreement κ = 0.93). On all 158 rows the coders agreed on the tier for 145 (91.8%, κ = 0.87). A red team then argued for exclusion on all 38 rows that either coder passed as strict, and defeated 6. Every quoted claim was re-fetched and found on its page. The registry was also cross-checked against four published lists (<code>data/crosswalk.csv</code>).</p>
+<p>Trials (<code>trials.csv</code>) are every ClinicalTrials.gov record matched to a strict-cohort molecule by NCT number or verified intervention name (API v2, retrieved 20 October 2026). Five strict molecules have no ClinicalTrials.gov record. Posted protocols and statistical analysis plans are linked where the sponsor has uploaded them.</p>
 <p>Approvals (<code>approvals</code> in <code>molecules.csv</code>) record each regulatory approval as agency, date, application or approval reference, indication and a link to the regulator's own record (Drugs@FDA for US approvals). A molecule can be approved and still <code>ongoing</code> when trials in other indications continue.</p>
 <h2 id="5-uncertainty">5. Uncertainty</h2>
-<p>The strict count is about <strong>49, −2/+8</strong>:
-- dosing and attribution errors found by the verification pass: about ±2;
+<p>The strict count is about <strong>32, −2/+8</strong>:
+- dosing and attribution errors: about ±2. Four strict entries (DSP-1181, DSP-2342, EXS-4318, ISM3312) rest on developer statements of dosing with no registry record read, and the maintainer's sign-off may still move contested entries (<code>docs/REVIEW-SIGNOFF.md</code>);
 - assets probably missing, mainly from China CTR and recent US first-in-human starts: +0 to +6;
-- definition sensitivity, each computed from <code>molecules.csv</code>:
-  - excluding the remaining physics-dominant platform entries gives <strong>47</strong>: the strict cohort without the 2 Schrödinger entries (<code>sgr-1505</code>, <code>sgr-3515</code>);
-  - counting all physics-based designs gives about <strong>61</strong>: adding the 12 borderline physics entries (<code>ndi-101150</code>, <code>ndi-219216</code>, <code>zasocitinib</code>, <code>firsocostat</code>, <code>snx-281</code>, <code>nl-201</code>, <code>gt-02287</code>, <code>sgr-2921</code>, <code>lirafugratinib</code>, <code>migoprotafib</code>, <code>rly-5836</code>, <code>zovegalisib</code>);
-  - counting platform-level attribution gives about <strong>63</strong>: adding the 14 borderline platform-only entries (<code>gb-7624</code>, <code>gb-4362</code>, <code>ac699</code>, <code>ac0676</code>, <code>rly-8161</code>, <code>dptx3186</code>, <code>swa1211</code>, <code>df-003</code>, <code>mrt-2359</code>, <code>mrt-6160</code>, <code>mrt-8102</code>, <code>juv-161</code>, <code>env-6946</code>, <code>ao-252</code>).</p>
-<p>The ±2 and +0 to +6 components come from the verification and completeness passes of the 13 October 2026 build; their working log is not yet published.</p>
+- definition sensitivity, each computed from <code>borderline_reason</code> in <code>molecules.csv</code>:
+  - counting physics-based design gives <strong>50</strong>: adding the 18 borderline <code>physics_only</code> entries;
+  - counting platform-level attribution gives <strong>71</strong>: adding the 39 borderline <code>platform_only</code> entries.</p>
+<p>The ±2 and +0 to +6 components are judgement, not computed; the +0 to +6 comes from the completeness pass of the 13 October 2026 build.</p>
 <h2 id="6-other-counts-and-why-they-differ">6. Other counts, and why they differ</h2>
 <div class="tw"><table>
 <thead>
@@ -108,23 +109,28 @@
 <td>BCG list plus additions</td>
 </tr>
 <tr>
+<td><a href="https://www.mckinsey.com/industries/life-sciences/our-insights/ai-drug-discovery-focusing-on-what-matters-most">McKinsey 2026</a>, Exhibit 2</td>
+<td>9</td>
+<td>Examples of "AI-enabled assets" with disclosed cycle times; non-exhaustive</td>
+</tr>
+<tr>
 <td><a href="https://doi.org/10.1200/JCO.2026.44.16_suppl.11072">Haque et al., ASCO 2026</a></td>
 <td>117</td>
 <td>"AI-enabled"; list not published</td>
 </tr>
 <tr>
 <td>This registry</td>
-<td>49</td>
+<td>32</td>
 <td>Molecule-level attribution, dosed in humans, written rules</td>
 </tr>
 </tbody>
 </table></div>
-<p>Lower is not more correct. Each count answers a different question; this one asks the narrowest.</p>
+<p>Lower is not more correct. Each count answers a different question; this one asks the narrowest. <code>data/crosswalk.csv</code> maps every entry of the Jayatunga, Greenblatt &amp; Geoui, Wellcome 2023 and McKinsey 2026 lists to this registry's row and tier, and gives the reason for every difference.</p>
 <h2 id="7-limits">7. Limits</h2>
 <ul>
-<li><strong>Under re-review (October 2026).</strong> Applying § 1.2 literally moved six strict entries to borderline in v1.1.15 and v1.1.19. All were counted on platform-level AI claims. One of them, lirafugratinib, had briefly been counted as an approved AI-derived drug. Every entry, strict, borderline and excluded, is being re-reviewed against a written evidence protocol, piloted first and cross-checked against other published lists, with the maintainer signing off each strict entry. Counts may change when it completes.</li>
-<li><strong>Attribution is mostly self-reported.</strong> 48 of 49 strict entries rest on the developer's statement. How much the AI did cannot be verified from outside the company.</li>
-<li><strong>Not second-coded.</strong> Precedence calls are judgement under a written rule, made by one coder. Independent second coding is planned for v2.</li>
+<li><strong>Re-review pending sign-off.</strong> v1.2.0 applies the evidence-first re-review's proposals: 19 entries leave the strict cohort and 2 join it (49 → 32). They wait on the maintainer's sign-off and a 24-hour gate before the site shows them (<code>docs/REVIEW-SIGNOFF.md</code>).</li>
+<li><strong>Attribution is mostly self-reported.</strong> 31 of 32 strict entries rest on the developer's or partner's own words. The protocol checks that the developer claims the AI did a named step, not that it did. How much the AI did cannot be verified from outside the company.</li>
+<li><strong>Second coding covers inclusion, not precedence.</strong> Inclusion tiers were coded by two blind coders and a red team. Target precedence calls are still one coder's judgement under a written rule.</li>
 <li><strong>Registry coverage is uneven.</strong> China CTR and jRCT are harder to search than ClinicalTrials.gov; recent first-in-human starts may be missing.</li>
 <li><strong>Survivorship.</strong> Developers announce entries more readily than exits. Status is checked against registries where possible, but a quiet discontinuation can look like <code>unknown</code>.</li>
 <li><strong>Not an efficacy ranking.</strong> Inclusion says nothing about whether a molecule works.</li>

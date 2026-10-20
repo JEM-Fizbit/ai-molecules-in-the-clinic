@@ -4,18 +4,18 @@ An open registry of drug candidates whose **target or molecule was materially sh
 
 **Site:** https://aixbio-registry.org (public from launch day)
 
-**Snapshot:** as of 20 October 2026 · trials retrieved 20 October 2026 · v1.1.20
+**Snapshot:** as of 20 October 2026 · trials retrieved 20 October 2026 · v1.2.0 (proposed, pending sign-off)
 
 | | |
 |---|---|
-| Strict cohort | **49** molecules |
-| Known (precedented) targets, of 47 disclosed | 33 (70.2%) |
-| First-in-class targets | 6 |
-| Reached Phase 2 or later / now in Phase 3 | 10 / 3 |
+| Strict cohort | **32** molecules |
+| Known (precedented) targets, of 32 disclosed | 20 (62.5%) |
+| First-in-class targets | 4 |
+| Reached Phase 2 or later / now in Phase 3 | 6 / 3 |
 | Approved | 0 |
-| Stopped (discontinued, terminated, deprioritised) | 12 |
-| AI role documented beyond the developer's own word | 1 of 49 |
-| Borderline entries (published, not counted) | 67 |
+| Stopped (discontinued, terminated, deprioritised) | 6 |
+| AI role documented beyond the developer's own word | 1 of 32 |
+| Borderline entries (published, not counted) | 85 |
 
 ## Why this exists
 
@@ -26,7 +26,7 @@ Counts of "AI-discovered drugs" in the clinic range from about 50 to more than 1
 | File | Contents |
 |---|---|
 | [`data/molecules.csv`](data/molecules.csv) / `.json` | Strict and borderline entries, one row per molecule, with sources |
-| [`data/trials.csv`](data/trials.csv) / `.json` | ClinicalTrials.gov records for the strict cohort (81 trials, 45 molecules) |
+| [`data/trials.csv`](data/trials.csv) / `.json` | ClinicalTrials.gov records for the strict cohort (50 trials, 27 molecules) |
 | [`data/candidates.csv`](data/candidates.csv) | Possible entries still being checked |
 | [`data/excluded.csv`](data/excluded.csv) | Assets considered and excluded, with the reason |
 | [`data/audit-log.csv`](data/audit-log.csv) | Evidence for every field of every row: verdict, source URL and a short verbatim quote, dated |
@@ -40,13 +40,13 @@ If a row is wrong, missing, or should be reclassified, [open a correction](../..
 
 ## Citing
 
-Milad, J. *AI Molecules in the Clinic* (v1.1.20, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic
+Milad, J. *AI Molecules in the Clinic* (v1.2.0 (proposed, pending sign-off), data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic
 
 Data: CC BY 4.0 ([`LICENSE-DATA`](LICENSE-DATA)). Code: MIT ([`LICENSE`](LICENSE)).
 
 ## Status and limits, up front
 
-This is independent analysis, not peer-reviewed, and not yet second-coded by an independent human reviewer. Entries were assembled with AI-assisted searches and checked by an adversarial verification pass. 48 of the 49 strict entries rest on the developer's own statement that AI was used. Read [`METHODOLOGY.md`](METHODOLOGY.md) § Limits before citing.
+This is independent analysis, not peer-reviewed. Entries were assembled with AI-assisted searches, then re-reviewed against a written evidence protocol by two blind AI coders and a red team, with the maintainer signing off each strict entry. 31 of the 32 strict entries rest on the developer's own statement that AI was used. Read [`METHODOLOGY.md`](METHODOLOGY.md) § Limits before citing.
 
 ## Working on the registry
 

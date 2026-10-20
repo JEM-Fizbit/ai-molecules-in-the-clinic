@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.2.0 — 2026-10-20 (proposed; pending John Milad's sign-off; not deployed)
+The evidence-first re-review's proposed tier changes. **Strict 49 → 32.** Each move is listed with its evidence in `docs/REVIEW-SIGNOFF.md`. Under the headline gate (`docs/DECISIONS.md`) this waits for sign-off and 24 hours before deploy.
+- **Method:** every row was re-coded under `docs/REVIEW-PROTOCOL.md` v1.0 by two blind coders (tier agreement on 158 rows: 91.8%, κ = 0.87), after a 24-row pilot (κ = 0.93, `docs/REVIEW-PILOT.md`). A red team argued for exclusion on all 38 strict passes and defeated 6. Every quoted claim was re-fetched and found on its page; every strict entry's dosing was checked against its registry or a dated developer statement.
+- **19 entries leave the strict cohort** (to borderline):
+  - `platform_only` (the developer ties the molecule to its AI platform but never says what the AI did): AC0682, AC0176, BEN-2293, BRY10, DSP-0038, ENV-294, ENV-308, IAM1363, ISM4808, PEP08, REC-3964, RTX-117, SIGX1094, TOS-358.
+  - `physics_only` (the design described is computational but not ML): ATH-063, BBO-8520, SGR-1505, SGR-3515.
+  - `other`: VRG50635 (PIKfyve in ALS was found by a non-ML phenotypic screen published in 2018; the AI at most re-prioritised it).
+- **2 entries join it:** ISM3312 (from excluded; Insilico's own paper credits Chemistry42 with its de novo design and reports a completed Phase 1 in China) and SWA1211 (from borderline; StoneWise says it was "designed using the company's proprietary AI models"; attribution tier C → B).
+- **Resulting strict figures:** 26 ongoing, 6 stopped; 6 reached Phase 2 or later, 3 in Phase 3, none approved; known targets 20 of 32 disclosed (62.5%), 4 first-in-class; borderline 85.
+- **Definition sensitivity is now computed from `borderline_reason`:** counting physics-based design gives 50, counting platform-level attribution gives 71 (`scripts/check_counts.py` checks both).
+- Trials re-pulled for the new strict cohort: 50 records for 27 molecules.
+- **Not yet applied, listed in the sign-off for decision:** 9 borderline entries the coders would exclude (AC699, COM902, fasoracetam, LP-184, NDI-219216, NEU-411, NEU-723, PAN-NeoVax, RLY-8161; their notes say so), molecules in 5 excluded rows plus 2 new molecules that the coders would publish as borderline, and the McKinsey and crosswalk follow-ups.
+
 ## v1.1.20 — 2026-10-20
 Evidence fields from the evidence-first re-review. **No change to any count or inclusion tier**; the proposed tier changes are a separate release awaiting sign-off.
 - `molecules.csv` gains `ai_claim_quote`, `ai_claim_url`, `ai_claim_by`, `ai_claim_date`, `ai_step` and `borderline_reason` for all 116 rows. `excluded.csv` gains `exclusion_code`. Definitions are in METHODOLOGY § 3 and `docs/REVIEW-PROTOCOL.md`.
