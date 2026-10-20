@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.7 — 2026-10-20
+Site only. No change to any count, inclusion or coding call.
+- The top navigation now stays at the top of the screen on every page, and on phones it fits on one line. Section links land below it.
+
 ## v1.1.6 — 2026-10-20
 Site only. No change to any count, inclusion or coding call.
 - "The question" chart is now a forest plot.
