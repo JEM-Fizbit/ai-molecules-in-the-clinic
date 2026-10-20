@@ -17,6 +17,7 @@ Open registry of AI-derived drug candidates dosed in humans: CC BY 4.0 data, a s
 |---|---|
 | Rebuild JSON after any CSV edit | `python3 scripts/csv_to_json.py` |
 | Check README/METHODOLOGY counts against the data | `python3 scripts/check_counts.py` |
+| Look for FDA approvals not yet recorded (Phase 2+ rows) | `python3 scripts/check_approvals.py` |
 | Refresh trials from ClinicalTrials.gov | `python3 scripts/fetch_trials.py` then `csv_to_json.py` |
 | Rebuild methodology page after editing METHODOLOGY.md | `python3 scripts/build_site.py` |
 | Preview locally | `python3 -m http.server 8765` |
@@ -34,7 +35,7 @@ Open registry of AI-derived drug candidates dosed in humans: CC BY 4.0 data, a s
 - Git: commit as `220941196+JEM-Fizbit@users.noreply.github.com` (GitHub blocks the private email); remote uses the `github-personal` SSH alias.
 
 ## QA before deploy
-Quick: JSON rebuilt; `check_counts.py` passes; site loads with no console errors; headline numbers match README; screenshot desktop + 390px phone, light and dark. Full (data changes): spot-check changed rows against sources; recount strict/borderline totals.
+Quick: JSON rebuilt; `check_counts.py` and `check_approvals.py` pass; site loads with no console errors; headline numbers match README; screenshot desktop + 390px phone, light and dark. Full (data changes): spot-check changed rows against sources; recount strict/borderline totals.
 
 ## Protocol Triggers
 - **ClinicalTrials.gov API (trial refresh, status checks)** → `docs/protocols/CLINICALTRIALS_GOV_API.md`
