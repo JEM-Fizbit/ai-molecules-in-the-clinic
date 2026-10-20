@@ -57,7 +57,7 @@ checks = [  # (file, regex with one group per expected value, expected values)
     ("METHODOLOGY.md", r"(\w+) strict molecules have no ClinicalTrials\.gov record", [WORDS[n["no_ctgov"]].capitalize()]),
     ("METHODOLOGY.md", r"The strict count is about \*\*(\d+), −(\d+)/", [n["strict"], n["strict"] - n["minus_physics"]]),
     ("index.html", r"is about −(\d+) to \+8", [n["strict"] - n["minus_physics"]]),
-    ("METHODOLOGY.md", r"excluding physics-dominant platforms gives \*\*(\d+)\*\*", [n["minus_physics"]]),
+    ("METHODOLOGY.md", r"excluding the remaining physics-dominant platform entries gives \*\*(\d+)\*\*", [n["minus_physics"]]),
     ("METHODOLOGY.md", r"\| This registry \| (\d+) \|", [n["strict"]]),
     ("METHODOLOGY.md", r"(\d+) of (\d+) strict entries rest on", [n["not_a"], n["strict"]]),
 ]

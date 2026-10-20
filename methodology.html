@@ -20,7 +20,7 @@
 </header>
 <main class="prose">
 <h1 id="methodology">Methodology</h1>
-<p>Version 1.1.17 · data as of 20 October 2026</p>
+<p>Version 1.1.18 · data as of 20 October 2026</p>
 <h2 id="1-definition">1. Definition</h2>
 <p>A molecule is in the <strong>strict cohort</strong> if all three hold:</p>
 <ol>
@@ -77,13 +77,13 @@
 <p>Trials (<code>trials.csv</code>) are every ClinicalTrials.gov record matched to a strict-cohort molecule by NCT number or verified intervention name (API v2, retrieved 20 October 2026). Eight strict molecules have no ClinicalTrials.gov record. Posted protocols and statistical analysis plans are linked where the sponsor has uploaded them.</p>
 <p>Approvals (<code>approvals</code> in <code>molecules.csv</code>) record each regulatory approval as agency, date, application or approval reference, indication and a link to the regulator's own record (Drugs@FDA for US approvals). A molecule can be approved and still <code>ongoing</code> when trials in other indications continue.</p>
 <h2 id="5-uncertainty">5. Uncertainty</h2>
-<p>The strict count is about <strong>53, −6/+8</strong>:
+<p>The strict count is about <strong>49, −2/+8</strong>:
 - dosing and attribution errors found by the verification pass: about ±2;
 - assets probably missing, mainly from China CTR and recent US first-in-human starts: +0 to +6;
 - definition sensitivity, each computed from <code>molecules.csv</code>:
-  - excluding physics-dominant platforms gives <strong>47</strong>: the strict cohort without the 6 Schrödinger and Relay entries (<code>sgr-1505</code>, <code>sgr-3515</code>, <code>lirafugratinib</code>, <code>migoprotafib</code>, <code>rly-5836</code>, <code>zovegalisib</code>);
-  - counting all physics-based designs gives about <strong>61</strong>: adding the 8 borderline physics entries (<code>ndi-101150</code>, <code>ndi-219216</code>, <code>zasocitinib</code>, <code>firsocostat</code>, <code>snx-281</code>, <code>nl-201</code>, <code>gt-02287</code>, <code>sgr-2921</code>);
-  - counting platform-level attribution gives about <strong>67</strong>: adding the 14 borderline platform-only entries (<code>gb-7624</code>, <code>gb-4362</code>, <code>ac699</code>, <code>ac0676</code>, <code>rly-8161</code>, <code>dptx3186</code>, <code>swa1211</code>, <code>df-003</code>, <code>mrt-2359</code>, <code>mrt-6160</code>, <code>mrt-8102</code>, <code>juv-161</code>, <code>env-6946</code>, <code>ao-252</code>).</p>
+  - excluding the remaining physics-dominant platform entries gives <strong>47</strong>: the strict cohort without the 2 Schrödinger entries (<code>sgr-1505</code>, <code>sgr-3515</code>);
+  - counting all physics-based designs gives about <strong>61</strong>: adding the 12 borderline physics entries (<code>ndi-101150</code>, <code>ndi-219216</code>, <code>zasocitinib</code>, <code>firsocostat</code>, <code>snx-281</code>, <code>nl-201</code>, <code>gt-02287</code>, <code>sgr-2921</code>, <code>lirafugratinib</code>, <code>migoprotafib</code>, <code>rly-5836</code>, <code>zovegalisib</code>);
+  - counting platform-level attribution gives about <strong>63</strong>: adding the 14 borderline platform-only entries (<code>gb-7624</code>, <code>gb-4362</code>, <code>ac699</code>, <code>ac0676</code>, <code>rly-8161</code>, <code>dptx3186</code>, <code>swa1211</code>, <code>df-003</code>, <code>mrt-2359</code>, <code>mrt-6160</code>, <code>mrt-8102</code>, <code>juv-161</code>, <code>env-6946</code>, <code>ao-252</code>).</p>
 <p>The ±2 and +0 to +6 components come from the verification and completeness passes of the 13 October 2026 build; their working log is not yet published.</p>
 <h2 id="6-other-counts-and-why-they-differ">6. Other counts, and why they differ</h2>
 <div class="tw"><table>
@@ -112,7 +112,7 @@
 </tr>
 <tr>
 <td>This registry</td>
-<td>53</td>
+<td>49</td>
 <td>Molecule-level attribution, dosed in humans, written rules</td>
 </tr>
 </tbody>
@@ -120,7 +120,7 @@
 <p>Lower is not more correct. Each count answers a different question; this one asks the narrowest.</p>
 <h2 id="7-limits">7. Limits</h2>
 <ul>
-<li><strong>Attribution is mostly self-reported.</strong> 52 of 53 strict entries rest on the developer's statement. How much the AI did cannot be verified from outside the company.</li>
+<li><strong>Attribution is mostly self-reported.</strong> 48 of 49 strict entries rest on the developer's statement. How much the AI did cannot be verified from outside the company.</li>
 <li><strong>Not second-coded.</strong> Precedence calls are judgement under a written rule, made by one coder. Independent second coding is planned for v2.</li>
 <li><strong>Registry coverage is uneven.</strong> China CTR and jRCT are harder to search than ClinicalTrials.gov; recent first-in-human starts may be missing.</li>
 <li><strong>Survivorship.</strong> Developers announce entries more readily than exits. Status is checked against registries where possible, but a quiet discontinuation can look like <code>unknown</code>.</li>

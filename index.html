@@ -6,7 +6,7 @@
 <title>AI Molecules in the Clinic</title>
 <meta name="description" content="An open registry of drug candidates whose target or molecule was materially shaped by AI, and which have been dosed in humans. Counted to a written definition, sourced row by row, open to correction.">
 <meta property="og:title" content="AI Molecules in the Clinic">
-<meta property="og:description" content="53 AI-derived molecules have been dosed in people. One is approved. An open registry, counted to a written definition and open to correction.">
+<meta property="og:description" content="49 AI-derived molecules have been dosed in people. None is approved. An open registry, counted to a written definition and open to correction.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%225%22 cy=%2211%22 r=%223%22 fill=%22%233A4BA8%22/%3E%3Ccircle cx=%2211%22 cy=%225%22 r=%223%22 fill=%22%23C8860B%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,14 +30,14 @@
 <main>
 <section class="hero" aria-labelledby="h1">
   <div>
-    <h1 id="h1"><span id="h-n">53</span> AI-derived molecules have been dosed in people. <span id="h-appr">One is approved.</span></h1>
+    <h1 id="h1"><span id="h-n">49</span> AI-derived molecules have been dosed in people. <span id="h-appr">None is approved.</span></h1>
     <p>This is an open registry of drug candidates whose target or molecule was materially shaped by AI or machine learning. Each one is counted to a written definition, sourced row by row, and open to correction.</p>
-    <p>Most have gone after biology the industry already knew how to hit: <a href="#target-types"><span id="h-known">36</span> of the <span id="h-disc">51</span> with a disclosed target</a>. For all but <span id="h-a-n">one</span> (<a href="#h-lim" id="h-a-names">rentosertib</a>), the only evidence that AI did the work is the developer's own statement.</p>
+    <p>Most have gone after biology the industry already knew how to hit: <a href="#target-types"><span id="h-known">33</span> of the <span id="h-disc">47</span> with a disclosed target</a>. For all but <span id="h-a-n">one</span> (<a href="#h-lim" id="h-a-names">rentosertib</a>), the only evidence that AI did the work is the developer's own statement.</p>
     <div class="actions">
       <a class="btn primary" href="#registry">Browse the registry</a>
       <a class="btn" href="data/molecules.csv" download>Download the data (CSV)</a>
     </div>
-    <p class="asof" id="asof">Data as of 20 October 2026. Trial records retrieved 20 October 2026. Version 1.1.17.</p>
+    <p class="asof" id="asof">Data as of 20 October 2026. Trial records retrieved 20 October 2026. Version 1.1.18.</p>
   </div>
 
   <figure class="census" id="census" aria-labelledby="census-cap">
@@ -77,7 +77,7 @@
   <h2 id="h-others">Why other counts are bigger</h2>
   <p class="intro">Published counts of AI-discovered drugs in the clinic range from about 50 to more than 100. They differ mainly in what they ask.</p>
   <div class="counts" id="counts"></div>
-  <p class="counts-note">A lower number is not more correct. Each count answers a different question, and this one asks the narrowest. The uncertainty band on <span class="n-strict">53</span> is about −6 to +8, depending on registry coverage and on whether physics-based design counts. <a href="methodology.html#5-uncertainty">How the band is built</a>.</p>
+  <p class="counts-note">A lower number is not more correct. Each count answers a different question, and this one asks the narrowest. The uncertainty band on <span class="n-strict">49</span> is about −2 to +8, depending on registry coverage and on whether physics-based design counts. <a href="methodology.html#5-uncertainty">How the band is built</a>.</p>
   <ol class="refs" aria-label="Sources for the comparison">
     <li id="cref-1">Jayatunga MKP et al. How successful are AI-discovered drugs in clinical trials? A first analysis and emerging lessons. <i>Drug Discovery Today</i> 29(6):104009, 2024. <a href="https://doi.org/10.1016/j.drudis.2024.104009">doi:10.1016/j.drudis.2024.104009</a>. 75 molecules entered the clinic since 2015.</li>
     <li id="cref-2">Greenblatt E, Geoui T. Dataset and analysis code for "28 Months Later: AI-Discovered, but Not AI-Developed". Zenodo, 2026. <a href="https://doi.org/10.5281/zenodo.22814924">doi:10.5281/zenodo.22814924</a>. 83 assets, each with per-field citations.</li>
@@ -117,12 +117,12 @@
 <section class="block" aria-labelledby="h-lim">
   <h2 id="h-lim">Read this before citing</h2>
   <ul class="limits">
-    <li><b>Attribution is mostly self-reported.</b> <span id="n-self">52</span> of the <span class="n-strict">53</span> strict entries rest on the developer's own statement that AI was used. Only <span id="lim-a">rentosertib has</span> the AI role documented in peer-reviewed or regulatory sources (<a href="methodology.html#3-coding-rules">attribution tier A</a>).</li>
+    <li><b>Attribution is mostly self-reported.</b> <span id="n-self">48</span> of the <span class="n-strict">49</span> strict entries rest on the developer's own statement that AI was used. Only <span id="lim-a">rentosertib has</span> the AI role documented in peer-reviewed or regulatory sources (<a href="methodology.html#3-coding-rules">attribution tier A</a>).</li>
     <li><b>Not yet independently second-coded.</b> Target-type calls follow a written rule but were made by one coder. Independent second coding is planned for the next major version.</li>
     <li><b>The list was assembled with AI-assisted searches</b> and then challenged by two verification passes, one trying to disprove entries and one looking for missing ones (<a href="methodology.html#4-how-the-list-was-built">Methodology § 4</a>). Every row carries its sources, and every change since is logged in the <a href="https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic/blob/main/CHANGELOG.md">changelog</a>.</li>
     <li><b>Inclusion is not an efficacy rating.</b> Being listed says nothing about whether a molecule works.</li>
   </ul>
-  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.17, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
+  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.18, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
 </section>
 
 <section class="block" id="corrections" aria-labelledby="h-cor">
@@ -208,7 +208,7 @@ $("lnk-changes").href=REPO+"/blob/main/CHANGELOG.md";
 $("lnk-correct").href=REPO+"/issues/new?template=correction.md";
 
 const OTHER=[
-  {name:"This registry",note:"Molecule-level attribution, dosed in humans",n:53,ours:true,href:"methodology.html#1-definition"},
+  {name:"This registry",note:"Molecule-level attribution, dosed in humans",n:49,ours:true,href:"methodology.html#1-definition"},
   {name:"Jayatunga et al. 2024 (BCG)",note:"Clinical assets of AI-native companies",n:75,href:"https://doi.org/10.1016/j.drudis.2024.104009",ref:1},
   {name:"Greenblatt & Geoui 2026",note:"The BCG list plus additions",n:83,href:"https://doi.org/10.5281/zenodo.22814924",ref:2},
   {name:"Haque et al., ASCO 2026",note:"Any AI-enabled asset; list not published",n:117,href:"https://doi.org/10.1200/JCO.2026.44.16_suppl.11072",ref:3}
@@ -417,7 +417,7 @@ others();
 Promise.all([fetch("data/molecules.json",{cache:"no-cache"}).then(r=>r.json()),fetch("data/trials.json",{cache:"no-cache"}).then(r=>r.json())]).then(([m,t])=>{
   TRIALS=t.trials;const R=t.retrieved||"2026-10-15";MOLS=m.molecules.map(x=>{const n=nextDue(x.id,R);return {...x,phase_rank:phaseRank(x.highest_phase),modality_class:modalityClass(x.modality),next:n,next_due:n?(n.past?"0"+n.d:n.d):"9999"}});
   [...new Set(MOLS.map(x=>x.modality_class).filter(Boolean))].sort().forEach(v=>$("f-mod").insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`));
-  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.17.`;
+  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.18.`;
   census();rows();corrForm();
 }).catch(()=>{$("tb").innerHTML='<tr><td colspan="8">The registry data did not load. Reload the page, or use the CSV downloads at the foot of the page.</td></tr>'});
 </script>

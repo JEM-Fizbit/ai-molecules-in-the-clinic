@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.1.18 — 2026-10-20
+Correction. **Strict 53 → 49; approved 1 → 0.** Decided by John Milad.
+- **The four Relay Therapeutics molecules move to borderline:** zovegalisib, lirafugratinib, migoprotafib and RLY-5836. Their design is physics-based molecular dynamics. Relay says its Dynamo platform "combines advanced machine learning models and molecular dynamics simulations", but neither Relay nor any other source says machine learning designed these molecules. Under Methodology § 1.2 they are borderline (platform-level attribution), the same rule applied to SGR-2921 in v1.1.15.
+- **"One is approved" was wrong.** From v1.1.14 the site said one AI-derived molecule was approved, counting lirafugratinib, which the FDA approved on 23 September 2026. That approval is real and stays recorded, now as a borderline entry. But nothing supported calling lirafugratinib AI-designed. Neither the FDA, the developer, the licensee nor independent reviews describe it that way, and an October 2026 industry review states that no AI-designed drug has yet been approved. The headline again reads "None is approved".
+- **Resulting strict figures:**
+  - Status: 37 ongoing, 12 stopped.
+  - Phase: 10 reached Phase 2 or later, 3 in Phase 3, none approved.
+  - Target types: known targets are 33 of 47 disclosed (70.2%), and 6 are first-in-class.
+  - Borderline entries: 67.
+  - Uncertainty band: about 49, −2/+8. Definition sensitivity is 47 / about 61 / about 63 (METHODOLOGY § 5).
+
 ## v1.1.17 — 2026-10-20
 Approvals traced to the regulator; trials re-pulled. No change to any count, inclusion or coding call.
 - New `approvals` field: agency, date, reference and indication, linked to the regulator's own record. It is shown in the registry's expanded view as "Regulatory approval".

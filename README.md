@@ -4,18 +4,18 @@ An open registry of drug candidates whose **target or molecule was materially sh
 
 **Site:** https://aixbio-registry.org (public from launch day)
 
-**Snapshot:** as of 20 October 2026 · trials retrieved 20 October 2026 · v1.1.17
+**Snapshot:** as of 20 October 2026 · trials retrieved 20 October 2026 · v1.1.18
 
 | | |
 |---|---|
-| Strict cohort | **53** molecules |
-| Known (precedented) targets, of 51 disclosed | 36 (70.6%) |
+| Strict cohort | **49** molecules |
+| Known (precedented) targets, of 47 disclosed | 33 (70.2%) |
 | First-in-class targets | 6 |
-| Reached Phase 2 or later / now in Phase 3 | 12 / 4 |
-| Approved | 1 (lirafugratinib, FDA, 23 September 2026) |
-| Stopped (discontinued, terminated, deprioritised) | 14 |
-| AI role documented beyond the developer's own word | 1 of 53 |
-| Borderline entries (published, not counted) | 63 |
+| Reached Phase 2 or later / now in Phase 3 | 10 / 3 |
+| Approved | 0 |
+| Stopped (discontinued, terminated, deprioritised) | 12 |
+| AI role documented beyond the developer's own word | 1 of 49 |
+| Borderline entries (published, not counted) | 67 |
 
 ## Why this exists
 
@@ -40,13 +40,13 @@ If a row is wrong, missing, or should be reclassified, [open a correction](../..
 
 ## Citing
 
-Milad, J. *AI Molecules in the Clinic* (v1.1.17, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic
+Milad, J. *AI Molecules in the Clinic* (v1.1.18, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic
 
 Data: CC BY 4.0 ([`LICENSE-DATA`](LICENSE-DATA)). Code: MIT ([`LICENSE`](LICENSE)).
 
 ## Status and limits, up front
 
-This is independent analysis, not peer-reviewed, and not yet second-coded by an independent human reviewer. Entries were assembled with AI-assisted searches and checked by an adversarial verification pass. 52 of the 53 strict entries rest on the developer's own statement that AI was used. Read [`METHODOLOGY.md`](METHODOLOGY.md) § Limits before citing.
+This is independent analysis, not peer-reviewed, and not yet second-coded by an independent human reviewer. Entries were assembled with AI-assisted searches and checked by an adversarial verification pass. 48 of the 49 strict entries rest on the developer's own statement that AI was used. Read [`METHODOLOGY.md`](METHODOLOGY.md) § Limits before citing.
 
 ## Working on the registry
 
