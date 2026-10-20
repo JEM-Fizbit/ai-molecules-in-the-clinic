@@ -1,6 +1,6 @@
 # Methodology
 
-Version 1.1.19 · data as of 20 October 2026
+Version 1.1.20 · data as of 20 October 2026
 
 ## 1. Definition
 
@@ -30,6 +30,8 @@ A molecule is in the **strict cohort** if all three hold:
 - **Attribution tier** (`attribution_tier`): `A` = peer-reviewed or regulatory documentation of the AI role; `B` = developer disclosure; `C` = secondary sources only (C-only entries go to borderline).
 - **Status** (`status`): `ongoing`; `stopped` (discontinued, terminated, completed with no further development, or deprioritised); `unknown` (no update for over 18 months and no discontinuation notice). Detail in `status_detail`.
 - **Confidence** (`confidence`): the coder's confidence in the row as a whole.
+- **AI-claim evidence** (`ai_claim_quote`, `ai_claim_url`, `ai_claim_by`, `ai_claim_date`, `ai_step`): the single best verbatim claim (40 words or fewer) that AI or ML did work for this molecule, where it was published, who made it (`developer`, `partner`, `developer_paper` or `third_party`), when, and the step it names (`target`, `design` or `both`; blank if it names none). Rules for choosing and testing it are in `docs/REVIEW-PROTOCOL.md`.
+- **Borderline reason** (`borderline_reason`): one code per borderline row: `physics_only`, `platform_only`, `third_party_only`, `repurposing`, `vaccine_antigen` or `other`. Excluded rows carry an `exclusion_code` in `excluded.csv`.
 
 ## 4. How the list was built
 

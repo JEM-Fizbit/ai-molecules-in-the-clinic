@@ -20,7 +20,7 @@
 </header>
 <main class="prose">
 <h1 id="methodology">Methodology</h1>
-<p>Version 1.1.19 · data as of 20 October 2026</p>
+<p>Version 1.1.20 · data as of 20 October 2026</p>
 <h2 id="1-definition">1. Definition</h2>
 <p>A molecule is in the <strong>strict cohort</strong> if all three hold:</p>
 <ol>
@@ -71,6 +71,8 @@
 <li><strong>Attribution tier</strong> (<code>attribution_tier</code>): <code>A</code> = peer-reviewed or regulatory documentation of the AI role; <code>B</code> = developer disclosure; <code>C</code> = secondary sources only (C-only entries go to borderline).</li>
 <li><strong>Status</strong> (<code>status</code>): <code>ongoing</code>; <code>stopped</code> (discontinued, terminated, completed with no further development, or deprioritised); <code>unknown</code> (no update for over 18 months and no discontinuation notice). Detail in <code>status_detail</code>.</li>
 <li><strong>Confidence</strong> (<code>confidence</code>): the coder's confidence in the row as a whole.</li>
+<li><strong>AI-claim evidence</strong> (<code>ai_claim_quote</code>, <code>ai_claim_url</code>, <code>ai_claim_by</code>, <code>ai_claim_date</code>, <code>ai_step</code>): the single best verbatim claim (40 words or fewer) that AI or ML did work for this molecule, where it was published, who made it (<code>developer</code>, <code>partner</code>, <code>developer_paper</code> or <code>third_party</code>), when, and the step it names (<code>target</code>, <code>design</code> or <code>both</code>; blank if it names none). Rules for choosing and testing it are in <code>docs/REVIEW-PROTOCOL.md</code>.</li>
+<li><strong>Borderline reason</strong> (<code>borderline_reason</code>): one code per borderline row: <code>physics_only</code>, <code>platform_only</code>, <code>third_party_only</code>, <code>repurposing</code>, <code>vaccine_antigen</code> or <code>other</code>. Excluded rows carry an <code>exclusion_code</code> in <code>excluded.csv</code>.</li>
 </ul>
 <h2 id="4-how-the-list-was-built">4. How the list was built</h2>
 <p>Six parallel searches: published seed lists (BCG/Jayatunga 2024 and successors); AI-native small-molecule developers in the US, Europe and Israel; Asia-Pacific developers and registries; biologics; pharma-internal assets; and an asset-agnostic registry and literature sweep. Results were merged and coded, then challenged by two independent passes: one trying to disprove entries (about 50 registry records re-checked) and one looking for missing assets. Searches were AI-assisted; every row carries its sources. In October 2026 every stopped, unknown and Phase 2+ status was re-checked against its registry and every source link was verified (v1.1.2 and v1.1.3 in <code>CHANGELOG.md</code>).</p>

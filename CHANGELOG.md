@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.20 — 2026-10-20
+Evidence fields from the evidence-first re-review. **No change to any count or inclusion tier**; the proposed tier changes are a separate release awaiting sign-off.
+- `molecules.csv` gains `ai_claim_quote`, `ai_claim_url`, `ai_claim_by`, `ai_claim_date`, `ai_step` and `borderline_reason` for all 116 rows. `excluded.csv` gains `exclusion_code`. Definitions are in METHODOLOGY § 3 and `docs/REVIEW-PROTOCOL.md`.
+- Each claim was found by two blind coders working to a written, piloted protocol and was re-fetched and checked on its page by the maintainer session. 221 new lines in `data/audit-log.csv`.
+- **Correction:** OPL-0301's exclusion reason said it was never dosed. Sanofi dosed it in Phase 1 as SAR247799 before Valo in-licensed it ("OPL-0301 was previously known as SAR247799", Valo's SEC correspondence). It stays excluded, now as `in_licensed`.
+
 ## v1.1.19 — 2026-10-20
 Site and method notes only; no data change.
 - A notice on the site and in METHODOLOGY § 7 says every entry is under re-review against a stricter, written evidence test, and that counts may change.
