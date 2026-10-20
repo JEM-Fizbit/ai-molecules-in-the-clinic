@@ -1,6 +1,6 @@
 # Evidence-first re-review: protocol
 
-_Status: **v1.0, frozen 20 Oct 2026** after the pilot (`docs/REVIEW-PILOT.md`). v0.9 was written before any row was re-coded; the changes from v0.9 are listed in § 9 with the reason. Any later change needs a new version and a re-code of the rows it affects._
+_Status: **v1.1, 20 Oct 2026.** v0.9 was written before any row was re-coded; v1.0 was frozen after the pilot (`docs/REVIEW-PILOT.md`); v1.1 changes the strict line by John Milad's decision after the full review (§ 10, a recorded deviation). Changes are listed in §§ 9–10 with the reason. Any later change needs a new version and a re-code of the rows it affects._
 
 This protocol applies METHODOLOGY § 1 under the stricter reading approved by John Milad on 20 Oct 2026 (`docs/DECISIONS.md`, "Evidence-first re-review…"). Where it is stricter than METHODOLOGY, it wins for the re-review; METHODOLOGY is updated to match once the re-review is signed off.
 
@@ -23,13 +23,14 @@ Recorded for every strict and borderline row in `molecules.csv`. The best single
 | `ai_claim_by` | `developer` (the company that discovered the molecule, or its successor or acquirer), `partner` (a co-developer, licensee or the AI-platform partner named in the deal), `developer_paper` (a paper or patent authored by the developer or partner), or `third_party` (press, analysts, trackers, reviews, conferences not by the developer). A verbatim quote of a named developer executive inside a news article counts as `developer`; a paraphrase does not. |
 | `ai_claim_date` | Publication date of the quoted source, ISO format. |
 | `ai_step` | `target`, `design` or `both`: the step the quote says the AI did. Blank when the quote names no step. |
+| `ai_step_stated` | Strict rows only: `yes` if the claim passes the materiality test (§ 3, step test), `no` if it passes only the acid test. A quality flag, not an inclusion test (v1.1). |
 | `borderline_reason` | Borderline rows only, exactly one code from § 4. |
 
 `excluded.csv` gains `exclusion_code` (§ 5). Every check is also logged in `data/audit-log.csv` (append-only; fields `ai_claim_*`, `inclusion`, `borderline_reason`, `exclusion_code`), with the source URL and a verbatim quote of 25 words or fewer.
 
 ## 3. Decision rules
 
-A row is **strict** only if rules 1 to 3 pass and the row survives rule 4.
+A row is **strict** only if rules 1 and 3 pass and the row survives rule 4 (v1.1). The step test (formerly rule 2) no longer decides inclusion; it sets the `ai_step_stated` flag on every strict row.
 
 **Rule 1: attribution (acid test).** The developer or a partner, in its own words, ties AI or machine learning to **this molecule**:
 - the source names the molecule, or is unambiguously about it (for example, a release announcing that molecule's first dosing);
@@ -38,7 +39,9 @@ A row is **strict** only if rules 1 to 3 pass and the row survives rule 4.
 
 Fails rule 1: the claim is only about the company or platform and never connects to the molecule; or only third parties make it.
 
-**Rule 2: materiality.** The claim says **what the AI did** for this molecule, in one of two steps:
+**What counts as crediting AI (v1.1).** In the statement about this molecule, the thing credited must be AI itself: AI, ML or generative models named in that statement; a platform that the statement itself calls AI ("our AI-powered platform", "our AI-enabled platform", "AI + robotics platform"); a named tool the developer describes as an AI or ML model (Chemistry42, PRISM, MALEXA); or the molecule called "AI-designed", "AI-discovered" or "AI-generated". Any verb of origin will do ("discovered using", "developed from", "derived from", "program from"). It is `platform_only` (borderline) when the statement credits a named platform or engine without calling it AI there, and the developer describes that platform elsewhere as combining AI with other methods (Monte Rosa's QuEEN, Black Diamond's MAP, the Benevolent Platform); or when AI appears only in company boilerplate next to the molecule.
+
+**Step test (rule 2 in v1.0; the `ai_step_stated` flag from v1.1).** The claim says **what the AI did** for this molecule, in one of two steps:
 - **target:** AI or ML identified, nominated, predicted or prioritised the target, or the target–disease link, that this molecule acts on;
 - **design:** AI or ML generated, designed, optimised or engineered the molecule's structure or sequence, or selected the clinical compound or its chemical starting point from a set it scored (for example ML virtual screening that produced the series).
 
@@ -48,7 +51,7 @@ Wording rules:
 - **The AI must be the instrument of the step in the quote.** The quote itself calls it AI or ML ("our generative AI platform", "machine learning", "AI model"), or names a tool the developer describes as an AI or ML model (for example Chemistry42, PRISM). A multi-method platform that the developer describes as combining AI with other methods (physics, structural biology, libraries, experiments) passes only if the quote says the AI part did the step. "Designed using our [multi-method] engine" or "rationally designed using [platform]" is `platform_only`.
 - ML used only for screening logistics, ADMET or property filtering among many gates, formulation, delivery vehicles, patient selection, biomarkers or trial operations fails.
 
-Fails rule 2 → borderline `platform_only` (if rule 1 passes) or the code that fits better (§ 4).
+In v1.0, failing this test made the row borderline `platform_only`. From v1.1, a strict row that fails it is flagged `ai_step_stated = no`.
 
 **Rule 3: dosed in humans by 20 Oct 2026,** by any sponsor, including dosing by an originator before the current developer acquired the molecule. Any one of:
 - a trial registry record (ClinicalTrials.gov, China CTR, ChiCTR, CTIS/EU CTR, ANZCTR, jRCT, CRIS, PACTR) with actual enrolment above zero, or an actual (not estimated) start date together with a recruiting, active or completed status;
@@ -72,7 +75,7 @@ The row survives if the red team finds **no evidence** for these. An argument wi
 | Code | Use when |
 |---|---|
 | `physics_only` | The design the developer describes for this molecule is computational but not ML (physics-based, structure-based, FEP, molecular dynamics), even if the platform also uses ML. |
-| `platform_only` | The developer or partner connects this molecule to an AI or ML platform, but never says what the AI did for it (fails rule 2), or the platform is described as AI only in general. |
+| `platform_only` | The developer or partner connects this molecule to a platform, but the statement does not credit AI itself (rule 1, "What counts as crediting AI"): the platform is named without being called AI there and is described elsewhere as multi-method, or AI appears only in company boilerplate. (In v1.0 this code also covered rows that credit AI but fail the step test; from v1.1 those are strict with `ai_step_stated = no`.) |
 | `third_party_only` | Only third parties make a molecule-level AI claim; the developer is silent. |
 | `repurposing` | AI or ML picked a new indication or combination for an existing drug. Borderline even if the claim passes rules 1 and 2. |
 | `vaccine_antigen` | AI or ML selected vaccine antigens or neoantigens (including personalised vaccines). Borderline even if the claim passes rules 1 and 2. |
@@ -131,3 +134,11 @@ The pilot (24 rows, two blind coders) met its pre-set criteria: tier agreement 2
 | Rule 3: dosing by any sponsor counts; a registry check is required when dosing rests on a paper. | OPL-0301 was dosed by Sanofi (as SAR247799) before Valo in-licensed it, so "never dosed" was wrong; ISM3312's paper says both "completed" and "being evaluated". |
 
 v1.0 was used unchanged for the full re-review (158 rows, 20 Oct 2026).
+
+## 10. Deviation: v1.0 → v1.1 (John Milad's decision, 20 Oct 2026)
+
+**Change.** The strict line is the acid test (rule 1) plus dosing (rule 3) and the red team (rule 4). The step test no longer decides inclusion; it becomes the `ai_step_stated` flag. Physics-only, third-party-only, repurposing and vaccine-antigen rules are unchanged. Published counts are placed on a cumulative ladder (METHODOLOGY § 5).
+
+**Why.** Under v1.0 the step test cut strict from 49 to 32. It mostly measured how detailed a developer's press release is, not whether the developer credits AI for the molecule. The lirafugratinib error that started this review was an acid-test failure (no one claimed it), which rule 1 still catches.
+
+**Status as a deviation.** This is a definition change made after the pilot and the full review, by the maintainer, with the review results in view; it is not pre-registered. The pilot's inter-coder agreement (κ = 0.93) and the full review's (κ = 0.87) still cover the tests that remain: attribution, dosing, and the borderline codes. Rows that v1.0 coded `platform_only` were re-coded under v1.1 by two fresh blind coders, with a red team on every new strict pass (`docs/REVIEW-SIGNOFF.md` § E).
