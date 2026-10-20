@@ -2,7 +2,7 @@
 
 Open registry of AI-derived drug candidates dosed in humans: CC BY 4.0 data, a static public site, and a corrections form with a private review queue. Personal project (JEM-Fizbit). Launches with John's *Backed By Reality* AI × Bio essay.
 
-**Status:** v1.1.13, data as of 20 Oct 2026. **Public since 20 Oct 2026, 09:15**: GitHub repo public, site open at https://aixbio-registry.org. The essay launches later (see BACKLOG.md § Essay launch day). Read `docs/DECISIONS.md` before changing hosting, data model or the corrections route.
+**Status:** v1.1.14, data as of 20 Oct 2026. **Public since 20 Oct 2026, 09:15**: GitHub repo public, site open at https://aixbio-registry.org. The essay launches later (see BACKLOG.md § Essay launch day). Read `docs/DECISIONS.md` before changing hosting, data model or the corrections route.
 
 ## Stack
 - Static site: `index.html` + `methodology.html` + `assets/site.css`; reads `data/*.json` in the browser. No build step, no framework.
@@ -16,6 +16,7 @@ Open registry of AI-derived drug candidates dosed in humans: CC BY 4.0 data, a s
 | Task | Command |
 |---|---|
 | Rebuild JSON after any CSV edit | `python3 scripts/csv_to_json.py` |
+| Check README/METHODOLOGY counts against the data | `python3 scripts/check_counts.py` |
 | Refresh trials from ClinicalTrials.gov | `python3 scripts/fetch_trials.py` then `csv_to_json.py` |
 | Rebuild methodology page after editing METHODOLOGY.md | `python3 scripts/build_site.py` |
 | Preview locally | `python3 -m http.server 8765` |
@@ -33,7 +34,7 @@ Open registry of AI-derived drug candidates dosed in humans: CC BY 4.0 data, a s
 - Git: commit as `220941196+JEM-Fizbit@users.noreply.github.com` (GitHub blocks the private email); remote uses the `github-personal` SSH alias.
 
 ## QA before deploy
-Quick: JSON rebuilt; site loads with no console errors; headline numbers match README; screenshot desktop + 390px phone, light and dark. Full (data changes): spot-check changed rows against sources; recount strict/borderline totals.
+Quick: JSON rebuilt; `check_counts.py` passes; site loads with no console errors; headline numbers match README; screenshot desktop + 390px phone, light and dark. Full (data changes): spot-check changed rows against sources; recount strict/borderline totals.
 
 ## Protocol Triggers
 - **ClinicalTrials.gov API (trial refresh, status checks)** → `docs/protocols/CLINICALTRIALS_GOV_API.md`

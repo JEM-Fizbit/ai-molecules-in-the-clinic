@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.1.14 — 2026-10-20
+Traceability pass on the site. No change to any count, inclusion or coding call. One derived figure is corrected.
+- Every number on the site now comes from the data or from a cited source:
+  - The opening text computes its claims, with links to the evidence: "37 of the 51 with a disclosed target", the named exception to self-reported attribution, and the approved count.
+  - Each section links to the rule it applies (Methodology §§ 1, 3, 4 and 7) and to the changelog.
+- METHODOLOGY § 5 lists the rows behind each definition-sensitivity figure. The physics-based figure is corrected from "about 61" to "about 62", since 55 strict plus 7 physics-based borderline entries makes 62. The 61 had not been updated when ENV-308 joined the strict cohort.
+- The question page:
+  - A molecule approved without a registered Phase 3 trial, such as lirafugratinib (approved on Phase 1/2 data), now counts as moving on from Phase 2 but no longer as passing Phase 3.
+  - An unsourced remark that the cohort is "mostly small biotechs" is removed.
+- New `scripts/check_counts.py` checks every hard-coded count in README and METHODOLOGY against the CSVs, and is now part of the QA gate (all 15 match).
+
 ## v1.1.13 — 2026-10-20
 Field-by-field audit of every row against primary sources, with a per-row verification date and a public evidence log. Data now as of 20 October 2026.
 

@@ -13,7 +13,6 @@ The registry has been public since 20 Oct 2026, 09:15 (see `docs/DECISIONS.md`).
 
 <!-- backlog items below; newest first -->
 - Audit second pass (v1.1.13 hit the per-session web-search cap): re-verify the 23 excluded rows with blank `last_verified`. Priority: GB-5267 (dosed 1 Oct 2026, CAR-T), MTS105/MTS109 (METiS, dosed), BGE-102, HX15001/HXN6005, ACCG-2671, GUB-UCN2, then the rest. Also check the fields the audit flagged as unverified: HLX-1502 identity and AI role, OC514 components, INDV-2000 AI role source, ChiCTR or EU CTR twins for PAN-NeoVax, TG4050 and ENV-6946, and CLY-124's registry.
-- question.html: a molecule approved without a Phase 3 (lirafugratinib, accelerated approval on a single-arm Phase 2) counts as passing both "Phase 2 to Phase 3" and "Phase 3 to filing". Decide whether an approval from Phase 2 should count only for the Phase 2 step.
 - Canonical address: 308 redirects from www.aixbio-registry.org and ai-molecules-in-the-clinic.vercel.app to https://aixbio-registry.org (Vercel domain settings). Add `<link rel="canonical">` and `og:url` to index.html and methodology.html. Point the cite line, README, CITATION and the GitHub repo homepage (`gh repo edit --homepage`) at the domain. Add robots.txt and sitemap.xml now that the site is indexable.
 - Email channel for corrections (decided 20 Oct; see `docs/DECISIONS.md`). Check Resend's receiving limits on the current plan first.
   - Turn on Resend Receiving for aixbio-registry.org (MX record).

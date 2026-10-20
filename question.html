@@ -55,7 +55,7 @@
 <li><strong>Small numbers.</strong> The intervals are wide because few molecules have an outcome yet. At Phase 2, the rate rests on a handful of molecules; at Phase 3, on none.</li>
 <li><strong>Most are recent.</strong> <span id="recent">Most</span> of the strict cohort first entered humans in 2022 or later. Phase 2 and Phase 3 trials take years, so most outcomes are still to come.</li>
 <li><strong>Early outcomes may not be typical.</strong> The first molecules to resolve are the earliest entrants and the fastest decisions. They may not represent the cohort that follows.</li>
-<li><strong>Stopping is not always failure.</strong> A program can stop for money, strategy or a merger. The industry figures count those suspensions the same way,<sup><a href="#src-bio">1</a></sup> so the comparison is like for like on that point. But this cohort is mostly small biotechs, whose stops more often reflect funding.</li>
+<li><strong>Stopping is not always failure.</strong> A program can stop for money, strategy or a merger. The industry figures count those suspensions the same way,<sup><a href="#src-bio">1</a></sup> so the comparison is like for like on that point. Developers rarely say why a program stopped, so the registry records that it stopped, not why.</li>
 <li><strong>Published benchmarks disagree.</strong> Five widely cited studies put Phase 2 success between 29% and 58%. Four of them, which count each drug's phase transitions, cluster around 30%. The fifth tracks every trial path and reports higher rates.<sup><a href="#src-wong">6</a></sup> The chart shows the full range rather than one number.</li>
 <li><strong>Other counts reach other answers.</strong> An analysis of AI-native company pipelines to the end of 2023 found Phase 1 success of 80–90% and Phase 2 success of about 40%.<sup><a href="#src-jay">2</a></sup> It counted a different set of molecules under different rules; see <a href="methodology.html#6-other-counts-and-why-they-differ">Methodology § 6</a>.</li>
 </ul>
@@ -66,7 +66,7 @@
 <h2 id="how">How this is computed</h2>
 <ul>
 <li>Only the strict cohort is counted. Borderline entries are not.</li>
-<li>A molecule <em>reached</em> a phase if its furthest phase is that phase or later. It <em>moved on</em> if its furthest phase is later. Combined Phase 1/2 trials count as Phase 1 until the developer reports the Phase 2 part.</li>
+<li>A molecule <em>reached</em> a phase if its furthest phase is that phase or later. It <em>moved on</em> if its furthest phase is later. A molecule approved without a registered Phase 3 trial counts as moving on from Phase 2 but not as reaching Phase 3. Combined Phase 1/2 trials count as Phase 1 until the developer reports the Phase 2 part.</li>
 <li>A molecule that reached a phase but went no further is <em>stopped</em> if its status is stopped, and <em>still running</em> otherwise (including status unknown).</li>
 <li>The rate is moved on ÷ (moved on + stopped). The interval is the Wilson score interval. Until at least 10 molecules have an outcome at a step, the rate is shown in grey and not compared.</li>
 <li>Industry figures are all-indication phase-transition success rates from five studies covering 1995–2020.<sup><a href="#src-bio">1</a>,<a href="#src-hay">3</a>–<a href="#src-wong">6</a></sup> The line is their median; the band is their range. The Phase 3 figures measure progress to filing, except Wong et al., which measures progress to approval.</li>
@@ -120,11 +120,13 @@ const STEPS=[
 const pct=x=>Math.round(x*100)+"%";
 const MIN=10; // a rate is compared only once this many molecules have an outcome at that step
 const at=(x,txt,cls="")=>{const c=x<.1?"l":x>.9?"r":"";return `<span class="${cls} ${c}" style="left:${x*100}%">${txt}</span>`};
-function render(mols){
-  const s=mols.filter(m=>m.inclusion==="strict").map(m=>({...m,r:rank(m.highest_phase)}));
+function render(mols,trials){
+  // An approved molecule skipped Phase 3 if no Phase 3 trial is registered for it (e.g. accelerated approval from Phase 1/2).
+  const p3=new Set(trials.filter(t=>/Phase 3/.test(t.phase)).flatMap(t=>t.molecule_ids.split(";")));
+  const s=mols.filter(m=>m.inclusion==="strict").map(m=>{const r=rank(m.highest_phase);return {...m,r,skip3:r===5&&!p3.has(m.id)}});
   document.querySelectorAll('[data-n="strict"]').forEach(e=>e.textContent=s.length);
   const rows=STEPS.map(st=>{
-    const reached=s.filter(m=>m.r>=st.from), on=reached.filter(m=>m.r>=st.to), here=reached.filter(m=>m.r<st.to);
+    const reached=s.filter(m=>m.r>=st.from&&!(st.from===4&&m.skip3)), on=reached.filter(m=>m.r>=st.to), here=reached.filter(m=>m.r<st.to);
     const stop=here.filter(m=>m.status==="stopped").length, run=here.length-stop, k=on.length+stop;
     return {...st,n:reached.length,on:on.length,stop,run,k,w:wilson(on.length,k),few:k>0&&k<MIN};
   });
@@ -149,7 +151,7 @@ function render(mols){
   $("tr-studies").innerHTML=`<li class="k-studies">Published industry estimates, by data period</li>`+BENCH.map(b=>`<li>${shp(b.k)}<a href="#${b.id}">${esc(b.src)}</a>&nbsp;<span class="tr-yrs">data ${b.yrs}</span></li>`).join("");
   $("tr-bench").innerHTML=BENCH.map(b=>`<tr><td>${shp(b.k)} <a href="#${b.id}">${esc(b.src)}</a></td><td>${b.yrs}</td>${b.v.map(x=>`<td>${(x*100).toFixed(1)}%</td>`).join("")}</tr>`).join("");
   $("tr-read").textContent=rows.map(r=>!r.k?`No molecule in this cohort has an outcome from ${r.ph} yet.`
-    :r.few?`At ${r.ph}, only ${r.k} molecules have an outcome (${r.on} moved on), too few to compare.`
+    :r.few?`At ${r.ph}, only ${r.k} ${r.k===1?"molecule has":"molecules have"} an outcome (${r.on} moved on), too few to compare.`
     :`So far, ${r.on} of the ${r.k} molecules with a ${r.ph} outcome moved on (${pct(r.w.p)}, 95% CI ${Math.round(r.w.lo*100)}–${pct(r.w.hi)}). Published industry estimates range from ${pct(r.lo)} to ${pct(r.hi)}, median ${pct(r.med)}. ${r.run} are still in ${r.ph}.`).join(" ");
   const yrs=s.map(m=>m.first_in_human_year).filter(Boolean);
   $("recent").textContent=`${yrs.filter(y=>y>=2022).length} of ${yrs.length}`;
@@ -158,7 +160,7 @@ function render(mols){
 const tip=$("tip");
 document.addEventListener("pointerover",e=>{const t=e.target.closest("[data-tip]");if(t){tip.textContent=t.dataset.tip;tip.classList.add("on")}else tip.classList.remove("on")});
 document.addEventListener("pointermove",e=>{if(!tip.classList.contains("on"))return;const x=Math.min(e.clientX+14,innerWidth-tip.offsetWidth-8);tip.style.left=x+"px";tip.style.top=(e.clientY+16)+"px"});
-fetch("data/molecules.json",{cache:"no-cache"}).then(r=>r.json()).then(d=>render(d.molecules)).catch(()=>{});
+Promise.all([fetch("data/molecules.json",{cache:"no-cache"}).then(r=>r.json()),fetch("data/trials.json",{cache:"no-cache"}).then(r=>r.json())]).then(([d,t])=>render(d.molecules,t.trials)).catch(()=>{});
 </script>
 </body>
 </html>
