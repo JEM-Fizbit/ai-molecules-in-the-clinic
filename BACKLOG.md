@@ -18,6 +18,6 @@
 - Email deliverability: corrections@ mail lands in Hotmail Junk while the domain is new; recheck in a few weeks; consider DMARC `p=quarantine` once sending is stable.
 - Corrections form follow-ups: Turnstile if spam appears; a daily scheduled check of the queue by Claude.
 - Connect the Vercel project to GitHub so pushes deploy (needs the Vercel GitHub app; current remote uses an SSH alias the CLI cannot parse).
-- v1 hardening (no definition change): close the six open checks from the 13 Oct rebuild; resolve the 7 candidates; re-check every stopped/unknown/Phase 2+ status against its registry; verify every source link; strip remaining internal process notes from `notes`.
+- v1 hardening, remaining after v1.1.1–v1.1.3 (20 Oct): John to rule on inclusion calls (ENV-308, iscartrelvir, the other 6 candidates) and on CEL383 → ABBV-8736 Phase 2 (count-affecting; ID mapping rests on drug databases); check RTX-117 ChiCTR2600118758 "suspended" label in a browser; ask Haque/Veronesi (U Chicago) for the ASCO 117 list; strip remaining internal process notes from `notes`; re-pull trials.csv at launch to pick up new NCTs (ENV-294 Phase 2a).
 - Add `modality_class` and `next_due` to the CSV/JSON so downloads carry what the site computes.
 - v2.0 inclusion framework (contribution classes, decision log, shadow table, second coder): decide after launch.
