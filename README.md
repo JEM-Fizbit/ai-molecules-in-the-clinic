@@ -4,18 +4,18 @@ An open registry of drug candidates whose **target or molecule was materially sh
 
 **Site:** https://aixbio-registry.org (public from launch day)
 
-**Snapshot:** as of 13 October 2026 · trials retrieved 15 October 2026 · v1.1.3
+**Snapshot:** as of 13 October 2026 · trials retrieved 15 October 2026 · v1.1.4
 
 | | |
 |---|---|
-| Strict cohort | **54** molecules |
+| Strict cohort | **55** molecules |
 | Targets already precedented (of 51 disclosed) | 37 (72.5%) |
 | First-in-class targets | 5 |
-| Reached Phase 2 or later / now in Phase 3 | 11 / 4 |
+| Reached Phase 2 or later / now in Phase 3 | 12 / 4 |
 | Approved | 0 |
 | Stopped (discontinued, terminated, deprioritised) | 15 |
-| AI role documented beyond the developer's own word | 1 of 54 |
-| Borderline entries (published, not counted) | 55 |
+| AI role documented beyond the developer's own word | 1 of 55 |
+| Borderline entries (published, not counted) | 60 |
 
 ## Why this exists
 
@@ -39,13 +39,13 @@ If a row is wrong, missing, or should be reclassified, [open a correction](../..
 
 ## Citing
 
-Milad, J. *AI Molecules in the Clinic* (v1.1.3, data as of 13 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic
+Milad, J. *AI Molecules in the Clinic* (v1.1.4, data as of 13 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic
 
 Data: CC BY 4.0 ([`LICENSE-DATA`](LICENSE-DATA)). Code: MIT ([`LICENSE`](LICENSE)).
 
 ## Status and limits, up front
 
-This is independent analysis, not peer-reviewed, and not yet second-coded by an independent human reviewer. Entries were assembled with AI-assisted searches and checked by an adversarial verification pass. 53 of the 54 strict entries rest on the developer's own statement that AI was used. Read [`METHODOLOGY.md`](METHODOLOGY.md) § Limits before citing.
+This is independent analysis, not peer-reviewed, and not yet second-coded by an independent human reviewer. Entries were assembled with AI-assisted searches and checked by an adversarial verification pass. 54 of the 55 strict entries rest on the developer's own statement that AI was used. Read [`METHODOLOGY.md`](METHODOLOGY.md) § Limits before citing.
 
 ## Working on the registry
 

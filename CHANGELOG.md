@@ -1,5 +1,20 @@
 # Changelog
 
+## v1.1.4 — 2026-10-20
+Inclusion calls on the 13 October candidates, decided by the maintainer under the current definition. **Strict 54 → 55**; borderline 55 → 60; candidates 7 → 1.
+- **ENV-308 → strict.** Enveda states that "ENV-308 was discovered using PRISM, Enveda's proprietary AI model" (18 August 2026). This is a molecule-specific claim of the kind that put ENV-294 in the strict cohort. First participant dosed in December 2025 (Enveda, 17 December 2025). Target undisclosed (`unclear`). Note: the parent metabolite, Lac-Phe, was characterized at Stanford without AI.
+- **To borderline, platform-level attribution only:** MRT-2359, MRT-6160 and MRT-8102 (Monte Rosa's QuEEN engine) and JUV-161 (Juvena). All are dosed; none has a molecule-specific AI statement. Same rule as GB-7624.
+- **To borderline, computational repurposing:** PXT3003 (Pharnext). Same rule as OC514.
+- **ENV-6946 stays a candidate.** Phase 1 was "initiated" (December 2025), but no first-dosing statement has been found.
+- **CEL383 → Phase 2, `ongoing`**, as AbbVie's ABBV-8736, which is in AbbVie's Phase 2 Crohn's platform trial NCT06548542. Strict Phase 2 or later goes 11 → 12. AbbVie does not name CEL383; the identity rests on drug databases and on AbbVie having a single anti-TREM1 asset. Confidence stays low.
+- **iscartrelvir stays borderline.** Attribution moves from tier C to B: Westlake Laboratory itself says an ML model narrowed about 100 library hits to 9, including the approved molecule. The peer-reviewed design work is physics-based (docking, FEP), and the reason now says so.
+- Strict status is now 40 ongoing, 15 stopped, 0 unknown. Precedented targets stay 37 of 51 disclosed.
+- METHODOLOGY figures updated to match:
+  - The uncertainty band is now about 55, −7/+8.
+  - Definition sensitivity: 48 excluding physics-dominant platforms, about 61 counting all physics-based platforms, about 67 counting platform-level attribution (ENV-308 plus the four new platform-only entries).
+  - Eight strict molecules have no ClinicalTrials.gov record.
+- Site: the strict count in the comparison chart, the uncertainty note and the limits list is now computed from the data.
+
 ## v1.1.3 — 2026-10-20
 Source links checked. No change to any count, inclusion or coding call.
 - All 151 source links in `molecules.csv` and `candidates.csv` were checked on 20 October 2026. Every one resolves. ClinicalTrials.gov links were confirmed through the API; pages that block automated requests were confirmed by fetching their content.

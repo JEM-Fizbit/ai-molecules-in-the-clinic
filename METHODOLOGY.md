@@ -1,6 +1,6 @@
 # Methodology
 
-Version 1.1.3 · data as of 13 October 2026
+Version 1.1.4 · data as of 13 October 2026
 
 ## 1. Definition
 
@@ -35,14 +35,14 @@ A molecule is in the **strict cohort** if all three hold:
 
 Six parallel searches: published seed lists (BCG/Jayatunga 2024 and successors); AI-native small-molecule developers in the US, Europe and Israel; Asia-Pacific developers and registries; biologics; pharma-internal assets; and an asset-agnostic registry and literature sweep. Results were merged and coded, then challenged by two independent passes: one trying to disprove entries (about 50 registry records re-checked) and one looking for missing assets. Searches were AI-assisted; every row carries its sources.
 
-Trials (`trials.csv`) are every ClinicalTrials.gov record matched to a strict-cohort molecule by NCT number or verified intervention name (API v2, retrieved 15 October 2026). Seven strict molecules have no ClinicalTrials.gov record.
+Trials (`trials.csv`) are every ClinicalTrials.gov record matched to a strict-cohort molecule by NCT number or verified intervention name (API v2, retrieved 15 October 2026). Eight strict molecules have no ClinicalTrials.gov record.
 
 ## 5. Uncertainty
 
-The strict count is about **54, −7/+8**:
+The strict count is about **55, −7/+8**:
 - dosing and attribution errors found by the verification pass: about ±2;
 - assets probably missing, mainly from China CTR and recent US first-in-human starts: +0 to +6;
-- definition sensitivity: excluding physics-dominant platforms gives 47; counting all physics-based platforms about 60; counting platform-level attribution about 62.
+- definition sensitivity: excluding physics-dominant platforms gives 48; counting all physics-based platforms about 61; counting platform-level attribution about 67.
 
 ## 6. Other counts, and why they differ
 
@@ -51,13 +51,13 @@ The strict count is about **54, −7/+8**:
 | Jayatunga et al. 2024 (BCG), *Drug Discovery Today* | 75 | Clinical assets of AI-native companies since 2015 |
 | Greenblatt & Geoui 2026 (Zenodo) | 83 | BCG list plus additions |
 | Haque et al., ASCO 2026 | 117 | "AI-enabled"; list not published |
-| This registry | 54 | Molecule-level attribution, dosed in humans, written rules |
+| This registry | 55 | Molecule-level attribution, dosed in humans, written rules |
 
 Lower is not more correct. Each count answers a different question; this one asks the narrowest.
 
 ## 7. Limits
 
-- **Attribution is mostly self-reported.** 53 of 54 strict entries rest on the developer's statement. How much the AI did cannot be verified from outside the company.
+- **Attribution is mostly self-reported.** 54 of 55 strict entries rest on the developer's statement. How much the AI did cannot be verified from outside the company.
 - **Not second-coded.** Precedence calls are judgement under a written rule, made by one coder. Independent second coding is planned for v2.
 - **Registry coverage is uneven.** China CTR and jRCT are harder to search than ClinicalTrials.gov; recent first-in-human starts may be missing.
 - **Survivorship.** Developers announce entries more readily than exits. Status is checked against registries where possible, but a quiet discontinuation can look like `unknown`.
