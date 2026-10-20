@@ -22,6 +22,7 @@ html = f"""<!doctype html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,650&family=Public+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/site.css">
+<script src="assets/links.js" defer></script>
 </head>
 <body>
 <div class="wrap">

@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.9 — 2026-10-20
+Site only. No change to any count, inclusion or coding call.
+- Links to other sites (sources, registries, papers, GitHub) now open in a new tab on every page, so readers stay on the registry. Links within the site are unchanged.
+
 ## v1.1.8 — 2026-10-20
 Site only. No change to any count, inclusion or coding call.
 - "The question" chart: each published benchmark study has its own colour and marker shape, with a legend ordered by data period. Shapes keep the studies apart for colour-blind readers and in print. The markers are drawn faintly, so the AI estimate and the industry median lead.
