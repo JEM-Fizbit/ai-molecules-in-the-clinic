@@ -35,6 +35,46 @@ Coders see the rows in shuffled order as cases P01–P24, with names, developer,
 
 **Success criteria, set in advance:** tier agreement between coders of at least 85% with Cohen's kappa of at least 0.7; at least 18 of the 19 keyed rows reproduced by each coder. Below that, the protocol is revised and the failing rows re-coded before the freeze.
 
-## Results
+## Results (20 Oct 2026, protocol v0.9)
 
-_(Added after coding.)_
+Two coders, each run as two blind agents (cases P01–P12 and P13–P24), with no access to the registry, its labels or each other. They used 16 web searches in all; the rest was direct fetching. The maintainer session then re-fetched every quoted page: all 95 quotes were found on their pages (90 by script, including Wayback copies of pages that block scripts; 5 read by hand through Firecrawl or a two-column PDF).
+
+| Measure | Result | Pre-set criterion |
+|---|---|---|
+| Tier agreement, coder A vs B (24 rows) | 23 of 24 (95.8%), Cohen's κ 0.93 | ≥ 85%, κ ≥ 0.7 ✔ |
+| Tier and code agreement | 21 of 24 (87.5%), κ 0.84 | none set |
+| Keyed rows reproduced, coder A | 18 of 19 | ≥ 18 ✔ |
+| Keyed rows reproduced, coder B | 19 of 19 | ≥ 18 ✔ |
+
+| Row | Expected | Coder A | Coder B |
+|---|---|---|---|
+| rentosertib, dsp-1181, abs-101, cly-124, imneskibart, men2501 | strict | strict (all 6) | strict (all 6) |
+| zovegalisib, lirafugratinib, migoprotafib, rly-5836 | borderline | borderline `physics_only` (all 4) | borderline `physics_only` (all 4) |
+| sgr-2921, ndi-101150 | borderline `physics_only` | borderline `physics_only` | borderline `physics_only` |
+| ao-252 | borderline | borderline `third_party_only` | borderline `platform_only` |
+| mrt-2359 | borderline `platform_only` | **strict** (low confidence) | borderline `platform_only` |
+| rec-994 | borderline `repurposing` | same | same |
+| evx-01 | borderline `vaccine_antigen` | same | same |
+| x-opl-0401 | excluded | excluded `ai_disclaimed` | excluded `in_licensed` |
+| x-opl-0301 | excluded `not_dosed` | excluded `in_licensed` | excluded `in_licensed` |
+| x-bmf-219 | excluded `no_ai_link` | same | same |
+| ac0682 (ambiguous) | — | borderline `platform_only` | borderline `platform_only` |
+| env-308 (ambiguous) | — | borderline `platform_only` | borderline `platform_only` |
+| bry10 (ambiguous) | — | borderline `platform_only` | borderline `platform_only` |
+| sgr-1505 (ambiguous) | — | strict (medium) | strict (medium) |
+| x-ism3312 (ambiguous) | — | strict (medium) | strict (medium) |
+
+**What the pilot found:**
+- **The rules separate the known cases.** All six clear passes stayed strict and all six known fails were caught, each by both coders, without either coder seeing a label.
+- **Three current strict rows fail the stricter test,** with both coders agreeing: AC0682 ("program from our AI-enabled drug discovery platform"), ENV-308 ("discovered using PRISM") and BRY10 ("created using MALEXA"). Rows worded like them will fail in the full review too. These are proposals for John, not changes.
+- **Two rows pass that the registry does not count as strict today:** ISM3312 (excluded) and SGR-1505 (strict, but questioned as physics-based). Both go to the red team and John.
+- **One factual error in the current data:** OPL-0301's exclusion reason says it was never dosed, but Sanofi dosed it in Phase 1 as SAR247799 before Valo in-licensed it. It stays excluded, for a different reason.
+- **One rule gap:** "designed using" a multi-method platform (MRT-2359's QuEEN) split the coders. v1.0 closes it (protocol § 9).
+
+**Protocol frozen as v1.0** with the four changes in `REVIEW-PROTOCOL.md` § 9. Under v1.0, MRT-2359 is `platform_only` and AO-252 `platform_only`, matching the key.
+
+## John's blind labels
+
+A 10-row evidence pack, with no labels or verdicts, is in [`REVIEW-PILOT-PACK.md`](REVIEW-PILOT-PACK.md). John's labels will be compared with the coders' here. If they differ in a pattern the protocol does not explain, the protocol goes to v1.1 and the affected rows are re-coded.
+
+_Pending: John's labels._
