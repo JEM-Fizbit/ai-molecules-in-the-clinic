@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Question · AI Molecules in the Clinic</title>
 <meta name="description" content="Does AI change the odds that a drug makes it through clinical trials? What the registry can say so far, phase by phase, against industry benchmarks.">
-<meta name="robots" content="noindex">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%225%22 cy=%2211%22 r=%223%22 fill=%22%233A4BA8%22/%3E%3Ccircle cx=%2211%22 cy=%225%22 r=%223%22 fill=%22%23C8860B%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +18,6 @@
   <nav aria-label="Site"><a href="./#registry">Registry</a><a href="question.html" aria-current="page">The question</a><a href="methodology.html">Methodology</a><a href="./#corrections">Corrections</a></nav>
 </header>
 <main class="prose q">
-<p class="draft-flag">Draft for review. Not linked from the live site.</p>
 <h1>Does AI change the odds?</h1>
 <p>The question this registry exists to answer, and what the data can say so far.</p>
 
@@ -63,7 +61,7 @@
 <li>Only the strict cohort is counted. Borderline entries are not.</li>
 <li>A molecule <em>reached</em> a phase if its furthest phase is that phase or later. It <em>moved on</em> if its furthest phase is later. Combined Phase 1/2 trials count as Phase 1 until the developer reports the Phase 2 part.</li>
 <li>A molecule that reached a phase but went no further is <em>stopped</em> if its status is stopped, and <em>still running</em> otherwise (including status unknown).</li>
-<li>The rate is moved on ÷ (moved on + stopped). The interval is the Wilson score interval.</li>
+<li>The rate is moved on ÷ (moved on + stopped). The interval is the Wilson score interval. Until at least 10 molecules have an outcome at a step, the rate is shown in grey and not compared.</li>
 <li>Industry rates are phase-transition success rates for 2011–2020: Phase 1 to 2, 52.0%; Phase 2 to 3, 28.9%; Phase 3 to filing, 57.8%.<sup><a href="#src-bio">1</a></sup></li>
 </ul>
 
@@ -100,6 +98,7 @@ const STEPS=[
   {from:4,to:5,label:"Phase 3 to filing",bench:.578}
 ];
 const pct=x=>Math.round(x*100)+"%";
+const MIN=10; // a rate is compared only once this many molecules have an outcome at that step
 function render(mols){
   const s=mols.filter(m=>m.inclusion==="strict").map(m=>({...m,r:rank(m.highest_phase)}));
   document.querySelectorAll('[data-n="strict"]').forEach(e=>e.textContent=s.length);
@@ -109,26 +108,30 @@ function render(mols){
     const here=reached.filter(m=>m.r<st.to);
     const stop=here.filter(m=>m.status==="stopped");
     const run=here.filter(m=>m.status!=="stopped");
-    return {...st,n:reached.length,on:on.length,stop:stop.length,run:run.length,w:wilson(on.length,on.length+stop.length)};
+    return {...st,n:reached.length,on:on.length,stop:stop.length,run:run.length,w:wilson(on.length,on.length+stop.length),k:on.length+stop.length,few:on.length+stop.length>0&&on.length+stop.length<MIN};
   });
   const max=Math.max(...rows.map(r=>r.n));
   $("tr-rows").innerHTML=rows.map(r=>{
     const seg=(k,v,cls,lab)=>v?`<span class="tr-seg ${cls}" style="flex:${v}" data-tip="${esc(`${r.label}: ${v} ${lab}`)}">${v}</span>`:"";
-    const rate=r.w
+    const rate=r.few
+      ?`<span class="tr-ci few" style="left:${r.w.lo*100}%;width:${(r.w.hi-r.w.lo)*100}%"></span><span class="tr-pt few" style="left:${r.w.p*100}%" data-tip="${esc(`${r.on} of ${r.k} moved on. Too few outcomes to compare; a rate is compared from ${MIN}.`)}"></span>`
+      :r.w
       ?`<span class="tr-ci" style="left:${r.w.lo*100}%;width:${(r.w.hi-r.w.lo)*100}%"></span><span class="tr-pt" style="left:${r.w.p*100}%" data-tip="${esc(`${pct(r.w.p)} moved on (95% CI ${pct(r.w.lo)}–${pct(r.w.hi)}), n=${r.on+r.stop} with an outcome`)}"></span>`
       :`<span class="tr-none">No outcomes yet</span>`;
     return `<div class="tr-row">
       <div class="tr-name">${esc(r.label)}<small>${r.n} reached</small></div>
       <div class="tr-stack" style="width:calc(${r.n/max} * 100%)" role="img" aria-label="${esc(`${r.label}: ${r.on} moved on, ${r.stop} stopped, ${r.run} still running`)}">${seg("on",r.on,"on","moved on")}${seg("stop",r.stop,"stop","stopped")}${seg("run",r.run,"run","still running")}</div>
-      <div class="tr-rate" role="img" aria-label="${esc(r.w?`${pct(r.w.p)} moved on, 95% CI ${pct(r.w.lo)} to ${pct(r.w.hi)}; industry ${pct(r.bench)}`:`No outcomes yet; industry ${pct(r.bench)}`)}">
+      <div class="tr-rate${r.few?" few":""}" role="img" aria-label="${esc(r.few?`${r.on} of ${r.k} moved on; too few outcomes to compare; industry ${pct(r.bench)}`:r.w?`${pct(r.w.p)} moved on, 95% CI ${pct(r.w.lo)} to ${pct(r.w.hi)}; industry ${pct(r.bench)}`:`No outcomes yet; industry ${pct(r.bench)}`)}">
         <div class="tr-track">${rate}<span class="tr-bench" style="left:${r.bench*100}%" data-tip="${esc(`Industry ${r.benchNote||""} 2011–2020: ${(r.bench*100).toFixed(1)}%`.replace("  "," "))}"></span></div>
-        <div class="tr-val">${r.w?`<b>${pct(r.w.p)}</b> <span>95% CI ${pct(r.w.lo)}–${pct(r.w.hi)}</span>`:"<span>—</span>"}<span class="tr-bv">Industry ${pct(r.bench)}</span></div>
+        <div class="tr-val">${r.few?`<span class="tr-few">Too few to compare (${r.on} of ${r.k})</span>`:r.w?`<b>${pct(r.w.p)}</b> <span>95% CI ${pct(r.w.lo)}–${pct(r.w.hi)}</span>`:"<span>—</span>"}<span class="tr-bv">Industry ${pct(r.bench)}</span></div>
       </div>
     </div>`;
   }).join("")+`<div class="tr-axis" aria-hidden="true"><span></span><span></span><div class="tr-ticks"><span style="left:0">0%</span><span style="left:50%">50%</span><span style="left:100%">100%</span></div></div>`;
-  $("tr-tb").innerHTML=rows.map(r=>`<tr><td>${esc(r.label)}</td><td>${r.n}</td><td>${r.on}</td><td>${r.stop}</td><td>${r.run}</td><td>${r.w?`${pct(r.w.p)} (${pct(r.w.lo)}–${pct(r.w.hi)}), n=${r.on+r.stop}`:"no outcomes yet"}</td><td>${(r.bench*100).toFixed(1)}%${r.benchNote?" ("+r.benchNote+")":""}</td></tr>`).join("");
-  const p1=rows[0],p2=rows[1];
-  $("tr-read").textContent=`So far, ${p1.on} of the ${p1.on+p1.stop} molecules with a Phase 1 outcome moved on (${pct(p1.w.p)}, 95% CI ${pct(p1.w.lo)}–${pct(p1.w.hi)}), against ${pct(p1.bench)} across the industry. ${p1.run} are still in Phase 1. At Phase 2, ${p2.on+p2.stop} molecules have an outcome, too few to compare. No AI-derived molecule in this cohort has finished Phase 3.`;
+  $("tr-tb").innerHTML=rows.map(r=>`<tr><td>${esc(r.label)}</td><td>${r.n}</td><td>${r.on}</td><td>${r.stop}</td><td>${r.run}</td><td>${r.w?`${pct(r.w.p)} (${pct(r.w.lo)}–${pct(r.w.hi)}), n=${r.k}${r.few?"; too few to compare":""}`:"no outcomes yet"}</td><td>${(r.bench*100).toFixed(1)}%${r.benchNote?" ("+r.benchNote+")":""}</td></tr>`).join("");
+  const ph=["Phase 1","Phase 2","Phase 3"];
+  $("tr-read").textContent=rows.map((r,i)=>!r.k?`No molecule in this cohort has an outcome from ${ph[i]} yet.`
+    :r.few?`At ${ph[i]}, only ${r.k} molecules have an outcome (${r.on} moved on), too few to compare.`
+    :`So far, ${r.on} of the ${r.k} molecules with a ${ph[i]} outcome moved on (${pct(r.w.p)}, 95% CI ${pct(r.w.lo)}–${pct(r.w.hi)}), against ${pct(r.bench)} across the industry; ${r.run} are still in ${ph[i]}.`).join(" ");
   const yrs=s.map(m=>m.first_in_human_year).filter(Boolean);
   $("recent").textContent=`${yrs.filter(y=>y>=2022).length} of ${yrs.length}`;
   $("settle-n").textContent=`${s.filter(m=>m.r>=3&&m.status==="ongoing").length}`;

@@ -206,8 +206,7 @@ th,td{padding:10px 12px}
 small.sub{display:block;color:var(--faint);font-size:.8rem}
 .suggest{margin:14px 0 0;font-size:.88rem}
 
-/* Question page (draft) */
-.draft-flag{display:inline-block;font:600 .78rem var(--sans);letter-spacing:.02em;color:var(--fic);border:1px solid var(--fic);border-radius:3px;padding:2px 8px;margin:0 0 14px}
+/* Question page */
 .q{max-width:52rem}
 .tr{margin:20px 0 8px;font-family:var(--sans)}
 .tr-cap{font:600 1rem/1.4 var(--serif);margin:0 0 4px}
@@ -247,3 +246,6 @@ small.sub{display:block;color:var(--faint);font-size:.8rem}
 .prose .tr-legend{padding-left:0}
 .prose .tr-legend li{font:inherit;margin:0}
 .tr-none{background:var(--surface);padding:0 6px;line-height:22px;top:0}
+.tr-ci.few{background:transparent;box-shadow:inset 0 0 0 1px var(--unclear-ring)}
+.tr-pt.few{background:var(--unclear);box-shadow:inset 0 0 0 2px var(--unclear-ring),0 0 0 2px var(--surface)}
+.tr-few{color:var(--faint)}

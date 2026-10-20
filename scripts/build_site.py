@@ -27,7 +27,7 @@ html = f"""<!doctype html>
 <div class="wrap">
 <header class="top">
   <a class="brand" href="./">AI Molecules in the Clinic</a>
-  <nav aria-label="Site"><a href="./#registry">Registry</a><a href="methodology.html" aria-current="page">Methodology</a><a href="./#corrections">Corrections</a></nav>
+  <nav aria-label="Site"><a href="./#registry">Registry</a><a href="question.html">The question</a><a href="methodology.html" aria-current="page">Methodology</a><a href="./#corrections">Corrections</a></nav>
 </header>
 <main class="prose">
 {body}

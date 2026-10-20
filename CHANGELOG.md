@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.5 — 2026-10-20
+Site only. No change to any count, inclusion or coding call.
+- New page, "The question" (`question.html`, in the site navigation). It sets out why the registry exists: does AI change the odds that a drug makes it through clinical trials?
+- The page shows each phase transition for the strict cohort: molecules that moved on, stopped or are still running. It sets the share that moved on (95% Wilson interval) against industry rates for 2011–2020 (BIO, Informa and QLS, 2021).
+- A rate is shown in grey and not compared until at least 10 molecules have an outcome at that step; today that greys out Phase 2.
+- Every figure on the page is computed from the data, so it updates with each release.
+
 ## v1.1.4 — 2026-10-20
 Inclusion calls on the 13 October candidates, decided by the maintainer under the current definition. **Strict 54 → 55**; borderline 55 → 60; candidates 7 → 1.
 - **ENV-308 → strict.** Enveda states that "ENV-308 was discovered using PRISM, Enveda's proprietary AI model" (18 August 2026). This is a molecule-specific claim of the kind that put ENV-294 in the strict cohort. First participant dosed in December 2025 (Enveda, 17 December 2025). Target undisclosed (`unclear`). Note: the parent metabolite, Lac-Phe, was characterized at Stanford without AI.
