@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.1.6 — 2026-10-20
+Site only. No change to any count, inclusion or coding call.
+- "The question" chart is now a forest plot.
+  - Industry benchmarks are shown as the range of five published all-indication estimates, with each study marked and their median labelled at its line: DiMasi et al. 2016, Hay et al. 2014, BIO 2016, Wong et al. 2019 and BIO 2021. The page previously showed BIO 2021 alone.
+  - The AI cohort's share that moved on is shown with a 95% CI whisker and labelled at its dot.
+  - The scale is labelled 0–100%, with gridlines.
+- The median Phase 1 to Phase 2 benchmark is now 63% (range 52–66%), up from the single BIO 2021 figure of 52%.
+- The table view adds the per-study benchmark figures, and the notes explain why Wong et al. report a higher Phase 2 rate.
+
 ## v1.1.5 — 2026-10-20
 Site only. No change to any count, inclusion or coding call.
 - New page, "The question" (`question.html`, in the site navigation). It sets out why the registry exists: does AI change the odds that a drug makes it through clinical trials?
