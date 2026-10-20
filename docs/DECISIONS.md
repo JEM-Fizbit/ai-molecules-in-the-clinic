@@ -4,6 +4,20 @@
 
 ---
 
+## 2026-10-20 — Evidence-first re-review of every entry; stricter attribution test; headline gate
+
+**Decision:**
+- **Scope:** re-review every entry, strict, borderline and excluded, under a protocol written before the review starts. It is piloted on a calibration set with known answers and cross-validated against other published lists (Jayatunga 2024, Greenblatt & Geoui 2026, Wellcome 2023). John signs off each strict entry.
+- **Stricter test:** a strict entry needs a verbatim claim, by the developer or a partner, that AI or ML chose the target or designed *this* molecule, and the claim must say what the AI did. Platform-level language alone, or "developed using our AI platform", is borderline.
+- **Headline gate:** a change to a headline number (strict count, approvals, first-in-class) needs the acid test plus sources, and waits 24 hours before deploy.
+- **The essay:** its figures are held until the re-review is signed off.
+
+**Why:** lirafugratinib was counted as the first approved AI drug (v1.1.14–v1.1.17) on a platform-level claim, while its own developer, licensee and the field made no such claim. Strict fell from 55 to 49 in a day as § 1.2 was applied literally. Earlier checks verified that sources existed and that quotes matched them, not that the evidence met the rule, and AI agents built and audited the registry with no human sign-off.
+
+**Supersedes:** the lenient reading of § 1.2 used in the 13 October 2026 build.
+
+---
+
 ## 2026-10-20 — Approvals recorded against the regulator's record; IND clearances not tracked
 
 **Decision:** Add an `approvals` column to `molecules.csv`. Each entry gives the agency, date, reference, indication and a link to the regulator's own record, such as a Drugs@FDA application page. `scripts/check_counts.py` fails if an approved row has no entry. Trials also record protocol and analysis-plan PDFs posted on ClinicalTrials.gov. IND clearances are not tracked as a field.

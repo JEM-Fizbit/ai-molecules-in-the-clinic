@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.19 — 2026-10-20
+Site and method notes only; no data change.
+- A notice on the site and in METHODOLOGY § 7 says every entry is under re-review against a stricter, written evidence test, and that counts may change.
+- New entry in `docs/DECISIONS.md` covering the evidence-first re-review, the stricter attribution test and a 24-hour gate on headline numbers.
+
 ## v1.1.18 — 2026-10-20
 Correction. **Strict 53 → 49; approved 1 → 0.** Decided by John Milad.
 - **The four Relay Therapeutics molecules move to borderline:** zovegalisib, lirafugratinib, migoprotafib and RLY-5836. Their design is physics-based molecular dynamics. Relay says its Dynamo platform "combines advanced machine learning models and molecular dynamics simulations", but neither Relay nor any other source says machine learning designed these molecules. Under Methodology § 1.2 they are borderline (platform-level attribution), the same rule applied to SGR-2921 in v1.1.15.
