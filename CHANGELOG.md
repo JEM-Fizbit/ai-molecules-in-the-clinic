@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.3 — 2026-10-20
+Source links checked. No change to any count, inclusion or coding call.
+- All 151 source links in `molecules.csv` and `candidates.csv` were checked on 20 October 2026. Every one resolves. ClinicalTrials.gov links were confirmed through the API; pages that block automated requests were confirmed by fetching their content.
+- Two citations did not support their row. AC0682 cited a release about AC0176; that link is removed, and the row keeps its ClinicalTrials.gov record. LP-184 cited a review supplement that does not mention it; this was fixed in v1.1.2.
+- Two links in `candidates.csv` now use their canonical host (www).
+- Every source added in v1.1.1 and v1.1.2 was checked the same way.
+
 ## v1.1.2 — 2026-10-20
 Status re-check: every stopped, unknown and Phase 2+ entry checked against its registry (ClinicalTrials.gov API, ANZCTR, jRCT, China CTR) and the developer's latest disclosure, as of 20 October 2026. No change to any inclusion call or strict-cohort count.
 - Strict, detail and sources only:
