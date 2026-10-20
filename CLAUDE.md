@@ -2,7 +2,7 @@
 
 Open registry of AI-derived drug candidates dosed in humans: CC BY 4.0 data, a static public site, and a corrections form with a private review queue. Personal project (JEM-Fizbit). Launches with John's *Backed By Reality* AI × Bio essay.
 
-**Status:** v1.1.0, data as of 13 Oct 2026. Repo **private** and site **behind Vercel login** until launch day (see BACKLOG.md § Launch). Read `docs/DECISIONS.md` before changing hosting, data model or the corrections route.
+**Status:** v1.1.3, data as of 13 Oct 2026. **Public since 20 Oct 2026, 09:15**: GitHub repo public, site open at https://aixbio-registry.org. The essay launches later (see BACKLOG.md § Essay launch day). Read `docs/DECISIONS.md` before changing hosting, data model or the corrections route.
 
 ## Stack
 - Static site: `index.html` + `methodology.html` + `assets/site.css`; reads `data/*.json` in the browser. No build step, no framework.
@@ -47,9 +47,9 @@ Quick: JSON rebuilt; site loads with no console errors; headline numbers match R
 ## Operations
 - **Secrets:** Vercel env (production): `DATABASE_URL` (Neon `registry_web`), `ADMIN_PASSWORD`, `IP_HASH_SALT`, `RESEND_API_KEY`, plus `CORRECTIONS_NOTIFY_TO`, `CORRECTIONS_FROM`, `SITE_URL`. Mac Keychain: `aixbio-registry/admin` (review-page password), `aixbio-registry/resend` (send-only key). Read them with `security find-generic-password -s <item> -w` piped straight into the command that needs them; never print them.
 - **Email:** Resend domain aixbio-registry.org (eu-west-1, verified 20 Oct). `corrections@aixbio-registry.org` is send-only: no mailbox, no forward. New-domain mail currently lands in Hotmail Junk.
-- **Testing behind the login:** Vercel automation-bypass token, note `claude-smoke-test` (send header `x-vercel-protection-bypass`; fetch it with `vercel api /v1/projects/prj_SuSdvTyt99GURp3sYD4zbGufXcT3?teamId=team_Nf5Dg2f8gcbSDTwqfU41McXG`). Revoke at launch. Mark test submissions `status = 'spam'` so they never reach the public log.
+- **Testing:** the site is public, so test against https://aixbio-registry.org directly (the `claude-smoke-test` bypass token was revoked on 20 Oct). Every test submission is real and public-facing once decided: mark it `status = 'spam'` so it never reaches the public log.
 - **Neon:** the Neon MCP connector is set up on claude.ai; if it isn't available in a Claude Code session, query through the review API instead.
 
 ## Gotchas
-- A brand-new Vercel project's first CLI deploy goes straight to production. Protection is `ssoProtection: all` until launch; check a logged-out request returns 302 after any settings change.
+- Every `vercel deploy --prod` goes straight to the public site; run the QA gate first. Protection is `ssoProtection: all_except_custom_domains` (preview deployments need a login; the custom domain is open); after any protection change, check https://aixbio-registry.org returns 200 logged out.
 - The Vercel MCP token cannot create projects, change settings or buy domains; use the `vercel` CLI on the Mac.

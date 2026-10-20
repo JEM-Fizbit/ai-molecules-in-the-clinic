@@ -4,6 +4,16 @@
 
 ---
 
+## 2026-10-20 — Public ahead of the essay
+
+**Decision:** The registry went public on 20 Oct 2026 at 09:15, before the essay. The GitHub repo is public. Vercel `ssoProtection` is back to `all_except_custom_domains`. The `claude-smoke-test` bypass token is revoked.
+
+**Why:** John's call. The data, corrections route and site were ready, so there was no reason to hold them for the essay date.
+
+**Supersedes:** the "behind login until launch day" part of the 19 Oct entry "Launch on v1 with the essay". The essay launch still triggers a trial re-pull and a release note (BACKLOG.md § Essay launch day).
+
+---
+
 ## 2026-10-20 — Emailed corrections go into the same queue
 
 **Decision:** `corrections@aixbio-registry.org` will receive mail through Resend Receiving, with an inbound webhook that files each email into Neon `corrections` alongside form submissions.
