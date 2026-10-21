@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.22 — 2026-10-21
+Site, checks and method notes. No change to any count, inclusion or coding call.
+- The home page's wording now follows the data as well as its numbers. "Most" known targets becomes "Half" or "Fewer than half" if the split changes, and "too few to compare" becomes "enough to compare" at 10 Phase 2 outcomes.
+- `check_counts.py` now also checks the text the site shows before its script runs and in link previews. It found the question page still showing 55 (pre-v1.1.15) until its script ran; fixed to 49. It also runs a readout watch: any Phase 2+ trial on a novel target past its primary completion date must be logged in `readouts.csv`. Rentosertib's US Phase 2a (NCT05975983) is logged as still recruiting with no results published, checked 21 October 2026.
+- New `docs/COMMENTARY.md` lists every statement about the numbers, computed, checked or manual, including the essay and talk figures. It is reviewed at each release.
+- Commentary reviewed: no site wording changed beyond the above. Essay and talk figures that need updating are listed in `docs/COMMENTARY.md` § 4 (54 → 49; three in four → seven in ten; drop or attribute the ~40% Phase II figure).
+
 ## v1.1.21 — 2026-10-21
 Site, method notes and one new data file. No change to any count, inclusion or coding call.
 - The home page now says how many strict molecules are on novel targets: 14 of the 47 with a disclosed target (30%), 8 where earlier drugs had been tried in the clinic and 6 new to the clinic. Of those 14, one (rentosertib) has a randomized, placebo-controlled readout with efficacy data. It also says how many molecules have a Phase 2 outcome (5), too few to compare with industry success rates. Every figure is computed from the data.

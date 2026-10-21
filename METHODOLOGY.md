@@ -1,6 +1,6 @@
 # Methodology
 
-Version 1.1.21 · data as of 20 October 2026
+Version 1.1.22 · data as of 20 October 2026
 
 ## 1. Definition
 
@@ -39,7 +39,7 @@ Trials (`trials.csv`) are every ClinicalTrials.gov record matched to a strict-co
 
 Approvals (`approvals` in `molecules.csv`) record each regulatory approval as agency, date, application or approval reference, indication and a link to the regulator's own record (Drugs@FDA for US approvals). A molecule can be approved and still `ongoing` when trials in other indications continue.
 
-Randomized readouts (`readouts.csv`) record each randomized, placebo-controlled trial with published efficacy data for a strict molecule: trial, design, efficacy measure, result, date and source. Coverage is complete for strict molecules on novel targets (checked 21 October 2026); molecules on known targets are not yet recorded. A readout is a published result, not a trial in progress, and efficacy may be a secondary endpoint.
+Randomized readouts (`readouts.csv`) record each randomized, placebo-controlled trial with published efficacy data for a strict molecule: trial, design, efficacy measure, result, date and source. A Phase 2+ trial on a novel target that has passed its primary completion date with nothing published is also logged, as `randomized_efficacy = no` with the date checked, and is re-checked after 180 days. Coverage is complete for strict molecules on novel targets (checked 21 October 2026); molecules on known targets are not yet recorded. A readout is a published result, not a trial in progress, and efficacy may be a secondary endpoint.
 
 ## 5. Uncertainty
 

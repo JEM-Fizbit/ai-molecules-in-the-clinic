@@ -2,7 +2,7 @@
 
 Open registry of AI-derived drug candidates dosed in humans: CC BY 4.0 data, a static public site, and a corrections form with a private review queue. Personal project (JEM-Fizbit). Launches with John's *Backed By Reality* AI × Bio essay.
 
-**Status:** v1.1.21, data as of 20 Oct 2026. **Public since 20 Oct 2026, 09:15**: GitHub repo public, site open at https://aixbio-registry.org. The essay launches later (see BACKLOG.md § Essay launch day). Read `docs/DECISIONS.md` before changing hosting, data model or the corrections route.
+**Status:** v1.1.22, data as of 20 Oct 2026. **Public since 20 Oct 2026, 09:15**: GitHub repo public, site open at https://aixbio-registry.org. The essay launches later (see BACKLOG.md § Essay launch day). Read `docs/DECISIONS.md` before changing hosting, data model or the corrections route.
 
 ## Stack
 - Static site: `index.html` + `methodology.html` + `assets/site.css`; reads `data/*.json` in the browser. No build step, no framework.
@@ -28,6 +28,7 @@ Open registry of AI-derived drug candidates dosed in humans: CC BY 4.0 data, a s
 ## Rules
 - **CSV is the master.** Never hand-edit JSON or the HTML's numbers; every count on the site is computed from data.
 - **Every data change is a logged release:** edit CSV → rebuild JSON → CHANGELOG line (date, evidence) → version bump in README, METHODOLOGY, index.html.
+- **Commentary follows the data.** Every release: `check_counts.py` passes (text numbers, site fallbacks, readout watch), then review the manual list in `docs/COMMENTARY.md`. The CHANGELOG entry ends with "Commentary reviewed:" naming what changed, essay and talk figures included.
 - **No count, inclusion or coding change without a source** and a check against METHODOLOGY.md. Corrections follow the same rule.
 - **Personal data stays private.** Submitter names/emails live only in Neon `corrections`; nothing personal goes into the repo, the public view or the site.
 - **Secrets** (Neon `DATABASE_URL`, Resend key, admin password) live in Vercel env only; `.env` locally, never committed. See `.env.example`.
@@ -35,7 +36,7 @@ Open registry of AI-derived drug candidates dosed in humans: CC BY 4.0 data, a s
 - Git: commit as `220941196+JEM-Fizbit@users.noreply.github.com` (GitHub blocks the private email); remote uses the `github-personal` SSH alias.
 
 ## QA before deploy
-Quick: JSON rebuilt; `check_counts.py` and `check_approvals.py` pass; site loads with no console errors; headline numbers match README; screenshot desktop + 390px phone, light and dark. Full (data changes): spot-check changed rows against sources; recount strict/borderline totals.
+Quick: JSON rebuilt; `check_counts.py` and `check_approvals.py` pass; `docs/COMMENTARY.md` reviewed; site loads with no console errors; headline numbers match README; screenshot desktop + 390px phone, light and dark. Full (data changes): spot-check changed rows against sources; recount strict/borderline totals.
 
 ## Protocol Triggers
 - **ClinicalTrials.gov API (trial refresh, status checks)** → `docs/protocols/CLINICALTRIALS_GOV_API.md`

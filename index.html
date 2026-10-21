@@ -32,13 +32,13 @@
   <div>
     <h1 id="h1"><span id="h-n">49</span> AI-derived molecules have been dosed in people. <span id="h-appr">None is approved.</span></h1>
     <p>This is an open registry of drug candidates whose target or molecule was materially shaped by AI or machine learning. Each one is counted to a written definition, sourced row by row, and open to correction.</p>
-    <p>Most have gone after biology the industry already knew how to hit: <a href="#target-types"><span id="h-known">33</span> of the <span id="h-disc">47</span> with a disclosed target</a>. The other <span id="h-nov">14</span> (<span id="h-nov-pct">30%</span>) are on novel targets: <span id="h-nov-tried">8</span> where earlier drugs had been tried in the clinic, <span id="h-nov-new">6</span> new to the clinic. <span id="h-rct">Of those 14, one (<a href="https://doi.org/10.1038/s41591-025-03743-2">rentosertib</a>) has a randomized, placebo-controlled readout with efficacy data.</span></p>
-    <p>For all but <span id="h-a-n">one</span> (<a href="#h-lim" id="h-a-names">rentosertib</a>), the only evidence that AI did the work is the developer's own statement. <span id="h-p2">Only 5 have a Phase 2 outcome so far</span>, <a href="question.html">too few to compare their success rate with the industry's</a>.</p>
+    <p><span id="h-most">Most</span> have gone after biology the industry already knew how to hit: <a href="#target-types"><span id="h-known">33</span> of the <span id="h-disc">47</span> with a disclosed target</a>. The other <span id="h-nov">14</span> (<span id="h-nov-pct">30%</span>) are on novel targets: <span id="h-nov-tried">8</span> where earlier drugs had been tried in the clinic, <span id="h-nov-new">6</span> new to the clinic. <span id="h-rct">Of those 14, one (<a href="https://doi.org/10.1038/s41591-025-03743-2">rentosertib</a>) has a randomized, placebo-controlled readout with efficacy data.</span></p>
+    <p>For all but <span id="h-a-n">one</span> (<a href="#h-lim" id="h-a-names">rentosertib</a>), the only evidence that AI did the work is the developer's own statement. <span id="h-p2">Only 5 have a Phase 2 outcome so far</span>, <a href="question.html" id="h-p2-cmp">too few to compare their success rate with the industry's</a>.</p>
     <div class="actions">
       <a class="btn primary" href="#registry">Browse the registry</a>
       <a class="btn" href="data/molecules.csv" download>Download the data (CSV)</a>
     </div>
-    <p class="asof" id="asof">Data as of 20 October 2026. Trial records retrieved 20 October 2026. Version 1.1.21.</p>
+    <p class="asof" id="asof">Data as of 20 October 2026. Trial records retrieved 20 October 2026. Version 1.1.22.</p>
   </div>
 
   <figure class="census" id="census" aria-labelledby="census-cap">
@@ -124,7 +124,7 @@
     <li><b>The list was assembled with AI-assisted searches</b> and then challenged by two verification passes, one trying to disprove entries and one looking for missing ones (<a href="methodology.html#4-how-the-list-was-built">Methodology § 4</a>). Every row carries its sources, and every change since is logged in the <a href="https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic/blob/main/CHANGELOG.md">changelog</a>.</li>
     <li><b>Inclusion is not an efficacy rating.</b> Being listed says nothing about whether a molecule works.</li>
   </ul>
-  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.21, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
+  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.22, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
 </section>
 
 <section class="block" id="corrections" aria-labelledby="h-cor">
@@ -338,14 +338,16 @@ function census(){
   document.querySelectorAll(".n-strict").forEach(e=>e.textContent=s.length);
   const disc=s.filter(m=>m.target_precedence!=="unclear"),known=disc.filter(m=>m.target_precedence==="precedented");
   $("h-known").textContent=known.length;$("h-disc").textContent=disc.length;
+  $("h-most").textContent=known.length*2>disc.length?"Most":known.length*2===disc.length?"Half":"Fewer than half";
   {const nov=disc.filter(m=>m.target_precedence!=="precedented"),tried=nov.filter(m=>m.target_precedence==="novel").length,ids=new Set(nov.map(m=>m.id));
    $("h-nov").textContent=nov.length;$("h-nov-pct").textContent=Math.round(100*nov.length/disc.length)+"%";$("h-nov-tried").textContent=tried;$("h-nov-new").textContent=nov.length-tried;
-   const rct=[...new Set(READOUTS.filter(r=>ids.has(r.molecule_id)).map(r=>r.molecule_id))].map(id=>s.find(m=>m.id===id)),src=id=>READOUTS.find(r=>r.molecule_id===id).source;
+   const rct=[...new Set(READOUTS.filter(r=>r.randomized_efficacy==="yes"&&ids.has(r.molecule_id)).map(r=>r.molecule_id))].map(id=>s.find(m=>m.id===id)),src=id=>READOUTS.find(r=>r.randomized_efficacy==="yes"&&r.molecule_id===id).source;
    const nm=m=>`<a href="${esc(src(m.id))}">${esc(m.molecule.split(" / ")[0])}</a>`,w=["none","one","two","three","four","five"][rct.length]||rct.length;
    $("h-rct").innerHTML=rct.length===0?`None of them has a randomized, placebo-controlled readout with efficacy data.`:`Of those ${nov.length}, ${w} (${rct.map(nm).join(", ")}) ${rct.length===1?"has":"have"} a randomized, placebo-controlled readout with efficacy data.`}
   {// Phase 2 outcome = moved on to Phase 3+, or stopped at Phase 2 (same rule as question.html)
    const k=s.filter(m=>m.phase_rank>=4||(m.phase_rank===3&&m.status==="stopped")).length;
-   $("h-p2").textContent=k===0?"None has a Phase 2 outcome yet":`Only ${k} ${k===1?"has":"have"} a Phase 2 outcome so far`}
+   $("h-p2").textContent=k===0?"None has a Phase 2 outcome yet":`Only ${k} ${k===1?"has":"have"} a Phase 2 outcome so far`;
+   if(k>=10){$("h-p2").textContent=`${k} have a Phase 2 outcome so far`;$("h-p2-cmp").textContent="enough to compare their success rate with the industry's"}}
   const tierA=s.filter(m=>m.attribution_tier==="A"),words=["none","one","two","three","four","five"];
   $("h-a-n").textContent=words[tierA.length]||tierA.length;$("h-a-names").textContent=tierA.map(m=>m.molecule.split(" / ")[0]).join(", ");
   $("lim-a").textContent=tierA.length===1?`${tierA[0].molecule.split(" / ")[0]} has`:`${tierA.length} entries have`;
@@ -429,7 +431,7 @@ others();
 Promise.all([fetch("data/molecules.json",{cache:"no-cache"}).then(r=>r.json()),fetch("data/trials.json",{cache:"no-cache"}).then(r=>r.json())]).then(([m,t])=>{
   TRIALS=t.trials;READOUTS=m.readouts||[];const R=t.retrieved||"2026-10-15";MOLS=m.molecules.map(x=>{const n=nextDue(x.id,R);return {...x,phase_rank:phaseRank(x.highest_phase),modality_class:modalityClass(x.modality),next:n,next_due:n?(n.past?"0"+n.d:n.d):"9999"}});
   [...new Set(MOLS.map(x=>x.modality_class).filter(Boolean))].sort().forEach(v=>$("f-mod").insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`));
-  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.21.`;
+  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.22.`;
   census();rows();corrForm();$("reg-tw")?.dispatchEvent(new Event("scroll"));
 }).catch(()=>{$("tb").innerHTML='<tr><td colspan="8">The registry data did not load. Reload the page, or use the CSV downloads at the foot of the page.</td></tr>'});
 </script>
