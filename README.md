@@ -4,13 +4,14 @@ An open registry of drug candidates whose **target or molecule was materially sh
 
 **Site:** https://aixbio-registry.org (public from launch day)
 
-**Snapshot:** as of 20 October 2026 · trials retrieved 20 October 2026 · v1.1.20
+**Snapshot:** as of 20 October 2026 · trials retrieved 20 October 2026 · v1.1.21
 
 | | |
 |---|---|
 | Strict cohort | **49** molecules |
 | Known (precedented) targets, of 47 disclosed | 33 (70.2%) |
-| First-in-class targets | 6 |
+| Novel targets: tried in the clinic before / new to the clinic | 8 / 6 |
+| Novel-target molecules with a randomized, placebo-controlled efficacy readout | 1 |
 | Reached Phase 2 or later / now in Phase 3 | 10 / 3 |
 | Approved | 0 |
 | Stopped (discontinued, terminated, deprioritised) | 12 |
@@ -40,7 +41,7 @@ If a row is wrong, missing, or should be reclassified, [open a correction](../..
 
 ## Citing
 
-Milad, J. *AI Molecules in the Clinic* (v1.1.20, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic
+Milad, J. *AI Molecules in the Clinic* (v1.1.21, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic
 
 Data: CC BY 4.0 ([`LICENSE-DATA`](LICENSE-DATA)). Code: MIT ([`LICENSE`](LICENSE)).
 

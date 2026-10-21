@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.21 — 2026-10-21
+Site, method notes and one new data file. No change to any count, inclusion or coding call.
+- The home page now says how many strict molecules are on novel targets: 14 of the 47 with a disclosed target (30%), 8 where earlier drugs had been tried in the clinic and 6 new to the clinic. Of those 14, one (rentosertib) has a randomized, placebo-controlled readout with efficacy data. It also says how many molecules have a Phase 2 outcome (5), too few to compare with industry success rates. Every figure is computed from the data.
+- New `data/readouts.csv`: randomized, placebo-controlled trials with published efficacy data. One row so far, rentosertib's Phase 2a (NCT05938920; Xu et al., *Nature Medicine* 2025, doi:10.1038/s41591-025-03743-2), where FVC was a secondary endpoint. Checked for every strict molecule on a novel target on 21 October 2026: the others are in Phase 1, single-arm or open-label trials, or randomized trials not yet read out (ATH-063 Phase 2; ENV-294 Phase 2a and 2b, whose Phase 1b was open-label, nine patients, per Enveda's 31 March 2026 release). Known-target molecules are not yet covered (METHODOLOGY § 4).
+- Labels: "Novel" is now "Novel: tried in the clinic before" and "First-in-class" is now "Novel: new to the clinic". In industry and FDA usage "first-in-class" describes a drug's mechanism, not a target. The data codes are unchanged (METHODOLOGY § 3).
+- `check_approvals.py` reads all Drugs@FDA matches, not the first ten. Once a row records an approval, it ignores other sponsors' products of the same ingredient: a dexmedetomidine injection had been flagged against BXCL-501.
+
 ## v1.1.20 — 2026-10-21
 Site only. No change to any count, inclusion or coding call.
 - The registry table no longer hides its right-hand columns. A long "Furthest phase" entry, such as "Phase 3 (NDA Priority Review accepted Sep 2026)", was kept on one line and pushed "Next data due" off-screen behind an unmarked sideways scroll. The stage now stays on one line and the detail wraps beneath it.

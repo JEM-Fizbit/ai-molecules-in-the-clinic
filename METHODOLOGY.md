@@ -1,6 +1,6 @@
 # Methodology
 
-Version 1.1.20 · data as of 20 October 2026
+Version 1.1.21 · data as of 20 October 2026
 
 ## 1. Definition
 
@@ -23,10 +23,10 @@ A molecule is in the **strict cohort** if all three hold:
 
 - **Target precedence** (`target_precedence`), judged at the molecule's first-in-human date:
   - `precedented` (shown on the site as "Known target"): an approved drug or a Phase 2+ agent already existed at the target.
-  - `novel`: clinical agents existed at the target, but none at Phase 2+.
-  - `first-in-class`: no prior clinical agent at the target.
+  - `novel` (shown as "Novel: tried in the clinic before"): clinical agents existed at the target, but none at Phase 2+.
+  - `first-in-class` (shown as "Novel: new to the clinic"): no prior clinical agent at the target.
   - `unclear`: target undisclosed or not determinable.
-  The basis for each call is in `precedence_basis`.
+  The basis for each call is in `precedence_basis`. `novel` and `first-in-class` together are the registry's "novel targets": targets with no drug validated in patients. The code `first-in-class` describes the target here; in industry and FDA usage the term describes a drug with a new mechanism of action, which is why the site uses the plain labels instead.
 - **Attribution tier** (`attribution_tier`): `A` = peer-reviewed or regulatory documentation of the AI role; `B` = developer disclosure; `C` = secondary sources only (C-only entries go to borderline).
 - **Status** (`status`): `ongoing`; `stopped` (discontinued, terminated, completed with no further development, or deprioritised); `unknown` (no update for over 18 months and no discontinuation notice). Detail in `status_detail`.
 - **Confidence** (`confidence`): the coder's confidence in the row as a whole.
@@ -38,6 +38,8 @@ Six parallel searches: published seed lists (BCG/Jayatunga 2024 and successors);
 Trials (`trials.csv`) are every ClinicalTrials.gov record matched to a strict-cohort molecule by NCT number or verified intervention name (API v2, retrieved 20 October 2026). Eight strict molecules have no ClinicalTrials.gov record. Posted protocols and statistical analysis plans are linked where the sponsor has uploaded them.
 
 Approvals (`approvals` in `molecules.csv`) record each regulatory approval as agency, date, application or approval reference, indication and a link to the regulator's own record (Drugs@FDA for US approvals). A molecule can be approved and still `ongoing` when trials in other indications continue.
+
+Randomized readouts (`readouts.csv`) record each randomized, placebo-controlled trial with published efficacy data for a strict molecule: trial, design, efficacy measure, result, date and source. Coverage is complete for strict molecules on novel targets (checked 21 October 2026); molecules on known targets are not yet recorded. A readout is a published result, not a trial in progress, and efficacy may be a secondary endpoint.
 
 ## 5. Uncertainty
 

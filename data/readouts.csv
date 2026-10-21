@@ -1,0 +1,2 @@
+molecule_id,trial_id,phase,design,efficacy_measure,result,readout_date,source
+rentosertib,NCT05938920,Phase 2a,"Randomized, double-blind, placebo-controlled; 71 patients in China with idiopathic pulmonary fibrosis; 12 weeks","Forced vital capacity (secondary endpoint; primary endpoint was safety and tolerability)","Adverse events similar across arms (72-83% on rentosertib, 71% on placebo); FVC +98.4 mL at 60 mg once daily versus -20.3 mL on placebo",2025-06,https://doi.org/10.1038/s41591-025-03743-2

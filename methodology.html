@@ -20,7 +20,7 @@
 </header>
 <main class="prose">
 <h1 id="methodology">Methodology</h1>
-<p>Version 1.1.20 · data as of 20 October 2026</p>
+<p>Version 1.1.21 · data as of 20 October 2026</p>
 <h2 id="1-definition">1. Definition</h2>
 <p>A molecule is in the <strong>strict cohort</strong> if all three hold:</p>
 <ol>
@@ -64,10 +64,10 @@
 <ul>
 <li><strong>Target precedence</strong> (<code>target_precedence</code>), judged at the molecule's first-in-human date:</li>
 <li><code>precedented</code> (shown on the site as "Known target"): an approved drug or a Phase 2+ agent already existed at the target.</li>
-<li><code>novel</code>: clinical agents existed at the target, but none at Phase 2+.</li>
-<li><code>first-in-class</code>: no prior clinical agent at the target.</li>
+<li><code>novel</code> (shown as "Novel: tried in the clinic before"): clinical agents existed at the target, but none at Phase 2+.</li>
+<li><code>first-in-class</code> (shown as "Novel: new to the clinic"): no prior clinical agent at the target.</li>
 <li><code>unclear</code>: target undisclosed or not determinable.
-  The basis for each call is in <code>precedence_basis</code>.</li>
+  The basis for each call is in <code>precedence_basis</code>. <code>novel</code> and <code>first-in-class</code> together are the registry's "novel targets": targets with no drug validated in patients. The code <code>first-in-class</code> describes the target here; in industry and FDA usage the term describes a drug with a new mechanism of action, which is why the site uses the plain labels instead.</li>
 <li><strong>Attribution tier</strong> (<code>attribution_tier</code>): <code>A</code> = peer-reviewed or regulatory documentation of the AI role; <code>B</code> = developer disclosure; <code>C</code> = secondary sources only (C-only entries go to borderline).</li>
 <li><strong>Status</strong> (<code>status</code>): <code>ongoing</code>; <code>stopped</code> (discontinued, terminated, completed with no further development, or deprioritised); <code>unknown</code> (no update for over 18 months and no discontinuation notice). Detail in <code>status_detail</code>.</li>
 <li><strong>Confidence</strong> (<code>confidence</code>): the coder's confidence in the row as a whole.</li>
@@ -76,6 +76,7 @@
 <p>Six parallel searches: published seed lists (BCG/Jayatunga 2024 and successors); AI-native small-molecule developers in the US, Europe and Israel; Asia-Pacific developers and registries; biologics; pharma-internal assets; and an asset-agnostic registry and literature sweep. Results were merged and coded, then challenged by two independent passes: one trying to disprove entries (about 50 registry records re-checked) and one looking for missing assets. Searches were AI-assisted; every row carries its sources. In October 2026 every stopped, unknown and Phase 2+ status was re-checked against its registry and every source link was verified (v1.1.2 and v1.1.3 in <code>CHANGELOG.md</code>).</p>
 <p>Trials (<code>trials.csv</code>) are every ClinicalTrials.gov record matched to a strict-cohort molecule by NCT number or verified intervention name (API v2, retrieved 20 October 2026). Eight strict molecules have no ClinicalTrials.gov record. Posted protocols and statistical analysis plans are linked where the sponsor has uploaded them.</p>
 <p>Approvals (<code>approvals</code> in <code>molecules.csv</code>) record each regulatory approval as agency, date, application or approval reference, indication and a link to the regulator's own record (Drugs@FDA for US approvals). A molecule can be approved and still <code>ongoing</code> when trials in other indications continue.</p>
+<p>Randomized readouts (<code>readouts.csv</code>) record each randomized, placebo-controlled trial with published efficacy data for a strict molecule: trial, design, efficacy measure, result, date and source. Coverage is complete for strict molecules on novel targets (checked 21 October 2026); molecules on known targets are not yet recorded. A readout is a published result, not a trial in progress, and efficacy may be a secondary endpoint.</p>
 <h2 id="5-uncertainty">5. Uncertainty</h2>
 <p>The strict count is about <strong>49, −2/+8</strong>:
 - dosing and attribution errors found by the verification pass: about ±2;

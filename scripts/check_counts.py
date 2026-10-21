@@ -30,6 +30,8 @@ n = {
     "disclosed": len(disclosed),
     "known_pct": f"{100 * len(known) / len(disclosed):.1f}%",
     "fic": sum(m["target_precedence"] == "first-in-class" for m in S),
+    "novel": sum(m["target_precedence"] == "novel" for m in S),
+    "rct_novel": len({r["molecule_id"] for r in csv.DictReader(open("data/readouts.csv"))} & {m["id"] for m in S if m["target_precedence"] in ("novel", "first-in-class")}),
     "ph2plus": sum(rank(m["highest_phase"]) >= 3 for m in S),
     "ph3": sum(rank(m["highest_phase"]) == 4 for m in S),
     "approved": sum(rank(m["highest_phase"]) == 5 for m in S),
@@ -46,7 +48,8 @@ WORDS = "zero one two three four five six seven eight nine ten eleven twelve".sp
 checks = [  # (file, regex with one group per expected value, expected values)
     ("README.md", r"\| Strict cohort \| \*\*(\d+)\*\* molecules \|", [n["strict"]]),
     ("README.md", r"\| Known \(precedented\) targets, of (\d+) disclosed \| (\d+) \(([\d.]+%)\) \|", [n["disclosed"], n["known"], n["known_pct"]]),
-    ("README.md", r"\| First-in-class targets \| (\d+) \|", [n["fic"]]),
+    ("README.md", r"\| Novel targets: tried in the clinic before / new to the clinic \| (\d+) / (\d+) \|", [n["novel"], n["fic"]]),
+    ("README.md", r"\| Novel-target molecules with a randomized, placebo-controlled efficacy readout \| (\d+) \|", [n["rct_novel"]]),
     ("README.md", r"\| Reached Phase 2 or later / now in Phase 3 \| (\d+) / (\d+) \|", [n["ph2plus"], n["ph3"]]),
     ("README.md", r"\| Approved \| (\d+)\b", [n["approved"]]),
     ("README.md", r"\| Stopped \(discontinued, terminated, deprioritised\) \| (\d+) \|", [n["stopped"]]),
