@@ -37,7 +37,7 @@
       <a class="btn primary" href="#registry">Browse the registry</a>
       <a class="btn" href="data/molecules.csv" download>Download the data (CSV)</a>
     </div>
-    <p class="asof" id="asof">Data as of 20 October 2026. Trial records retrieved 20 October 2026. Version 1.1.19.</p>
+    <p class="asof" id="asof">Data as of 20 October 2026. Trial records retrieved 20 October 2026. Version 1.1.20.</p>
   </div>
 
   <figure class="census" id="census" aria-labelledby="census-cap">
@@ -98,7 +98,7 @@
     <select id="f-mod" aria-label="Filter by modality"><option value="">Any modality</option></select>
   </div>
   <p class="shown" id="shown" aria-live="polite"></p>
-  <div class="tw"><table>
+  <div class="tw-wide"><div class="tw" id="reg-tw"><table>
     <thead><tr>
       <th data-k="molecule" aria-sort="ascending"><button>Molecule</button></th>
       <th data-k="developer"><button>Developer</button></th>
@@ -110,7 +110,7 @@
       <th data-k="next_due" class="hide-sm"><button>Next data due</button></th>
     </tr></thead>
     <tbody id="tb"><tr><td colspan="8"><noscript><p class="noscript">The interactive table needs JavaScript. The full data is in the CSV download above.</p></noscript>Loading the registry…</td></tr></tbody>
-  </table></div>
+  </table></div></div>
   <p class="table-note"><b>Next data due</b> is the estimated primary completion date of the soonest active trial on ClinicalTrials.gov: when the main data should be collected, not when results will be announced. Sponsors set these dates and often move them. A date marked "passed" has gone by without the trial closing.</p>
 </section>
 
@@ -123,7 +123,7 @@
     <li><b>The list was assembled with AI-assisted searches</b> and then challenged by two verification passes, one trying to disprove entries and one looking for missing ones (<a href="methodology.html#4-how-the-list-was-built">Methodology § 4</a>). Every row carries its sources, and every change since is logged in the <a href="https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic/blob/main/CHANGELOG.md">changelog</a>.</li>
     <li><b>Inclusion is not an efficacy rating.</b> Being listed says nothing about whether a molecule works.</li>
   </ul>
-  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.19, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
+  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.20, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
 </section>
 
 <section class="block" id="corrections" aria-labelledby="h-cor">
@@ -318,6 +318,8 @@ async function loadLog(){
   }catch{box.innerHTML='<p class="shown">The log is unavailable right now.</p>'}
 }
 document.addEventListener("click",e=>{const a=e.target.closest("[data-suggest]");if(!a)return;e.preventDefault();$("c-mol").value=a.dataset.suggest;$("c-newmol").hidden=true;document.getElementById("corrections").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});setTimeout(()=>$("c-field").focus({preventScroll:true}),400)});
+// Fade the right edge of the registry table while more columns sit off-screen.
+(()=>{const tw=$("reg-tw");if(!tw)return;const f=()=>tw.parentElement.classList.toggle("more",tw.scrollLeft+tw.clientWidth<tw.scrollWidth-2);tw.addEventListener("scroll",f,{passive:true});addEventListener("resize",f);new ResizeObserver(f).observe(tw.querySelector("table"));f();})();
 const tip=$("tip");
 let MOLS=[],TRIALS=[],mode="strict",sortK="molecule",sortDir=1,openId=null;
 
@@ -358,7 +360,7 @@ function rows(){
     const tr=`<tr class="row" id="r-${esc(m.id)}" data-id="${esc(m.id)}" aria-expanded="${isOpen}">
       <td class="mol"><button aria-expanded="${isOpen}" aria-controls="d-${esc(m.id)}">${esc(m.molecule)}</button>${m.inclusion!=="strict"?'<span class="bl">Borderline</span>':""}</td>
       <td>${esc(m.developer)}</td><td class="hide-sm ti">${esc(m.target)}<small>${esc(m.indication)}</small></td>
-      <td class="nw ti">${esc(m.highest_phase)}${m.first_in_human_year?`<small>first dosed ${m.first_in_human_year}</small>`:""}</td><td><span class="st st-${esc(m.status)}">${STATUS_LABEL[m.status]||esc(m.status)}</span></td>
+      <td class="ti ph">${(()=>{const p=String(m.highest_phase||""),i=p.indexOf(" (");const stage=i>0?p.slice(0,i):p,q=i>0?p.slice(i+2).replace(/\)$/,""):"";return `<span class="nw">${esc(stage)}</span>${q?`<small>${esc(q)}</small>`:""}${m.first_in_human_year?`<small>first dosed ${m.first_in_human_year}</small>`:""}`})()}</td><td><span class="st st-${esc(m.status)}">${STATUS_LABEL[m.status]||esc(m.status)}</span></td>
       <td class="hide-sm"><span class="tag" title="${esc({precedented:"An approved or Phase 2+ drug already acted on this target",novel:"Earlier drugs at this target never got past Phase 1","first-in-class":"No drug had been dosed in people at this target",unclear:"Target not disclosed"}[m.target_precedence]||"")}"><i ${swatch(m.target_precedence)}></i>${PREC_LABEL[m.target_precedence]||esc(m.target_precedence)}</span></td>
       <td class="hide-sm nw">${esc(m.modality_class)}</td>
       <td class="hide-sm due">${m.next?fmtMonth(m.next.d)+(m.next.past?"<small>passed</small>":""):(m.status==="stopped"?"":"<small>no active trial on ClinicalTrials.gov</small>")}</td></tr>`;
@@ -418,8 +420,8 @@ others();
 Promise.all([fetch("data/molecules.json",{cache:"no-cache"}).then(r=>r.json()),fetch("data/trials.json",{cache:"no-cache"}).then(r=>r.json())]).then(([m,t])=>{
   TRIALS=t.trials;const R=t.retrieved||"2026-10-15";MOLS=m.molecules.map(x=>{const n=nextDue(x.id,R);return {...x,phase_rank:phaseRank(x.highest_phase),modality_class:modalityClass(x.modality),next:n,next_due:n?(n.past?"0"+n.d:n.d):"9999"}});
   [...new Set(MOLS.map(x=>x.modality_class).filter(Boolean))].sort().forEach(v=>$("f-mod").insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`));
-  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.19.`;
-  census();rows();corrForm();
+  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.20.`;
+  census();rows();corrForm();$("reg-tw")?.dispatchEvent(new Event("scroll"));
 }).catch(()=>{$("tb").innerHTML='<tr><td colspan="8">The registry data did not load. Reload the page, or use the CSV downloads at the foot of the page.</td></tr>'});
 </script>
 </body>

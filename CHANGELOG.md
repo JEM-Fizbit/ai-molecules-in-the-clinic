@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.20 — 2026-10-21
+Site only. No change to any count, inclusion or coding call.
+- The registry table no longer hides its right-hand columns. A long "Furthest phase" entry, such as "Phase 3 (NDA Priority Review accepted Sep 2026)", was kept on one line and pushed "Next data due" off-screen behind an unmarked sideways scroll. The stage now stays on one line and the detail wraps beneath it.
+- On wide screens the table is allowed to run wider than the text column, up to 1,320px, while the reading text keeps its comfortable width. Where the table still scrolls sideways (tablets, phones), a fade on the right edge shows there is more.
+
 ## v1.1.19 — 2026-10-20
 Site and method notes only; no data change.
 - A notice on the site and in METHODOLOGY § 7 says every entry is under re-review against a stricter, written evidence test, and that counts may change.

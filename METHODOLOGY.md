@@ -1,6 +1,6 @@
 # Methodology
 
-Version 1.1.19 · data as of 20 October 2026
+Version 1.1.20 · data as of 20 October 2026
 
 ## 1. Definition
 
@@ -64,7 +64,7 @@ Lower is not more correct. Each count answers a different question; this one ask
 
 ## 7. Limits
 
-- **Under re-review (October 2026).** Applying § 1.2 literally moved six strict entries to borderline in v1.1.15 and v1.1.19. All were counted on platform-level AI claims. One of them, lirafugratinib, had briefly been counted as an approved AI-derived drug. Every entry, strict, borderline and excluded, is being re-reviewed against a written evidence protocol, piloted first and cross-checked against other published lists, with the maintainer signing off each strict entry. Counts may change when it completes.
+- **Under re-review (October 2026).** Applying § 1.2 literally moved six strict entries to borderline in v1.1.15 and v1.1.20. All were counted on platform-level AI claims. One of them, lirafugratinib, had briefly been counted as an approved AI-derived drug. Every entry, strict, borderline and excluded, is being re-reviewed against a written evidence protocol, piloted first and cross-checked against other published lists, with the maintainer signing off each strict entry. Counts may change when it completes.
 - **Attribution is mostly self-reported.** 48 of 49 strict entries rest on the developer's statement. How much the AI did cannot be verified from outside the company.
 - **Not second-coded.** Precedence calls are judgement under a written rule, made by one coder. Independent second coding is planned for v2.
 - **Registry coverage is uneven.** China CTR and jRCT are harder to search than ClinicalTrials.gov; recent first-in-human starts may be missing.
