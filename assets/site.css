@@ -43,6 +43,8 @@ a:hover{text-decoration-thickness:2px}
 @media (min-width:960px){.hero{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:56px}}
 .hero h1{font:500 clamp(2.1rem,4.4vw,3.35rem)/1.12 var(--serif);letter-spacing:-.015em;margin:0 0 22px;max-width:17ch;text-wrap:balance}
 .hero p{font:400 1.13rem/1.65 var(--serif);color:var(--muted);margin:0 0 16px;max-width:36rem}
+.hero .prerelease{font:400 .92rem/1.5 var(--sans);color:var(--ink);background:var(--unk-soft);border-left:3px solid var(--unk);border-radius:4px;padding:10px 14px;margin:0 0 28px;max-width:36rem}
+.hero .prerelease b{font-weight:600}
 .hero .asof{font:400 .86rem/1.5 var(--sans);color:var(--faint);margin:20px 0 0}
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
 .btn{display:inline-block;font:500 .92rem/1 var(--sans);padding:11px 16px;border-radius:4px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);text-decoration:none}

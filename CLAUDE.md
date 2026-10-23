@@ -2,7 +2,7 @@
 
 Open registry of AI-derived drug candidates dosed in humans: CC BY 4.0 data, a static public site, and a corrections form with a private review queue. Personal project (JEM-Fizbit). Launches with John's *Backed By Reality* AI × Bio essay.
 
-**Status:** v1.1.22, data as of 20 Oct 2026. **Public since 20 Oct 2026, 09:15**: GitHub repo public, site open at https://aixbio-registry.org. The essay launches later (see BACKLOG.md § Essay launch day). Read `docs/DECISIONS.md` before changing hosting, data model or the corrections route.
+**Status:** v1.1.23 (pre-release draft; formal v1 release pending the re-review), data as of 20 Oct 2026. **Public since 20 Oct 2026, 09:15**: GitHub repo public, site open at https://aixbio-registry.org. The essay launches later (see BACKLOG.md § Essay launch day). Read `docs/DECISIONS.md` before changing hosting, data model or the corrections route.
 
 ## Stack
 - Static site: `index.html` + `methodology.html` + `assets/site.css`; reads `data/*.json` in the browser. No build step, no framework.

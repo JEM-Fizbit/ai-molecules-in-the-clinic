@@ -28,13 +28,14 @@ The site computes these in the browser from `data/*.json` on every page load. No
 | The re-review notice | `index.html` limits; METHODOLOGY § 7 | The re-review completes (remove or rewrite it) |
 | Uncertainty band prose and row lists | METHODOLOGY § 5 | Any inclusion change touching physics or platform entries (the band figure itself is checked) |
 | Readout coverage: "complete for novel targets; known targets not yet recorded" | METHODOLOGY § 4 | Coverage is extended, or a novel-target molecule is added |
+| Pre-release notice ("not yet formally released as v1 … don't cite the figures yet") | `index.html` hero and `og:description`; README | The formal v1 release: remove it then |
 | "Why this exists" | README.md | The registry's purpose or scope changes |
 
 ## 4. Outside the repo: the essay and the talk
 
 These figures were published or spoken before the registry's October 2026 corrections. When a release moves any of them, say so in the CHANGELOG entry and tell the essay workspace.
 
-| Claim as made | Current registry (v1.1.22) | Status |
+| Claim as made | Current registry (v1.1.23) | Status |
 |---|---|---|
 | Fifty-four AI-derived molecules dosed in people | 49 | Update |
 | Three in four on known targets | 33 of 47 disclosed (70%), about seven in ten | Update |

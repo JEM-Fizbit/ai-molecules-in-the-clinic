@@ -6,7 +6,7 @@
 <title>AI Molecules in the Clinic</title>
 <meta name="description" content="An open registry of drug candidates whose target or molecule was materially shaped by AI, and which have been dosed in humans. Counted to a written definition, sourced row by row, open to correction.">
 <meta property="og:title" content="AI Molecules in the Clinic">
-<meta property="og:description" content="49 AI-derived molecules have been dosed in people. None is approved. An open registry, counted to a written definition and open to correction.">
+<meta property="og:description" content="49 AI-derived molecules have been dosed in people. None is approved. Pre-release draft, under review: figures may change.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%225%22 cy=%2211%22 r=%223%22 fill=%22%233A4BA8%22/%3E%3Ccircle cx=%2211%22 cy=%225%22 r=%223%22 fill=%22%23C8860B%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +30,7 @@
 <main>
 <section class="hero" aria-labelledby="h1">
   <div>
+    <p class="prerelease" role="note"><b>Pre-release draft.</b> This registry has not yet been formally released as v1. Entries and counts are still being reviewed and validated, and may change. Please don't cite the figures yet.</p>
     <h1 id="h1"><span id="h-n">49</span> AI-derived molecules have been dosed in people. <span id="h-appr">None is approved.</span></h1>
     <p>This is an open registry of drug candidates whose target or molecule was materially shaped by AI or machine learning. Each one is counted to a written definition, sourced row by row, and open to correction.</p>
     <p><span id="h-most">Most</span> have gone after biology the industry already knew how to hit: <a href="#target-types"><span id="h-known">33</span> of the <span id="h-disc">47</span> with a disclosed target</a>. The other <span id="h-nov">14</span> (<span id="h-nov-pct">30%</span>) are on novel targets: <span id="h-nov-tried">8</span> where earlier drugs had been tried in the clinic, <span id="h-nov-new">6</span> new to the clinic. <span id="h-rct">Of those 14, one (<a href="https://doi.org/10.1038/s41591-025-03743-2">rentosertib</a>) has a randomized, placebo-controlled readout with efficacy data.</span></p>
@@ -38,7 +39,7 @@
       <a class="btn primary" href="#registry">Browse the registry</a>
       <a class="btn" href="data/molecules.csv" download>Download the data (CSV)</a>
     </div>
-    <p class="asof" id="asof">Data as of 20 October 2026. Trial records retrieved 20 October 2026. Version 1.1.22.</p>
+    <p class="asof" id="asof">Data as of 20 October 2026. Trial records retrieved 20 October 2026. Version 1.1.23.</p>
   </div>
 
   <figure class="census" id="census" aria-labelledby="census-cap">
@@ -124,7 +125,7 @@
     <li><b>The list was assembled with AI-assisted searches</b> and then challenged by two verification passes, one trying to disprove entries and one looking for missing ones (<a href="methodology.html#4-how-the-list-was-built">Methodology § 4</a>). Every row carries its sources, and every change since is logged in the <a href="https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic/blob/main/CHANGELOG.md">changelog</a>.</li>
     <li><b>Inclusion is not an efficacy rating.</b> Being listed says nothing about whether a molecule works.</li>
   </ul>
-  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.22, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
+  <p class="cite" id="cite">Milad, J. <i>AI Molecules in the Clinic</i> (v1.1.23, data as of 20 October 2026). https://github.com/JEM-Fizbit/ai-molecules-in-the-clinic</p>
 </section>
 
 <section class="block" id="corrections" aria-labelledby="h-cor">
@@ -431,7 +432,7 @@ others();
 Promise.all([fetch("data/molecules.json",{cache:"no-cache"}).then(r=>r.json()),fetch("data/trials.json",{cache:"no-cache"}).then(r=>r.json())]).then(([m,t])=>{
   TRIALS=t.trials;READOUTS=m.readouts||[];const R=t.retrieved||"2026-10-15";MOLS=m.molecules.map(x=>{const n=nextDue(x.id,R);return {...x,phase_rank:phaseRank(x.highest_phase),modality_class:modalityClass(x.modality),next:n,next_due:n?(n.past?"0"+n.d:n.d):"9999"}});
   [...new Set(MOLS.map(x=>x.modality_class).filter(Boolean))].sort().forEach(v=>$("f-mod").insertAdjacentHTML("beforeend",`<option>${esc(v)}</option>`));
-  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.22.`;
+  if(m.as_of)$("asof").textContent=`Data as of ${fmtDate(m.as_of)}. Trial records retrieved ${fmtDate(t.retrieved||"2026-10-15")}. Version 1.1.23.`;
   census();rows();corrForm();$("reg-tw")?.dispatchEvent(new Event("scroll"));
 }).catch(()=>{$("tb").innerHTML='<tr><td colspan="8">The registry data did not load. Reload the page, or use the CSV downloads at the foot of the page.</td></tr>'});
 </script>

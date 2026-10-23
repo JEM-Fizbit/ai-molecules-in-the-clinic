@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.23 — 2026-10-23
+Site only. No change to any count, inclusion or coding call.
+- A notice at the top of the home page, and in link previews, says the registry is a pre-release draft: public for review by collaborators, not yet formally released as v1, with entries and counts under review. It asks readers not to cite the figures yet. README says the same.
+- Commentary reviewed: the pre-release notice is added to `docs/COMMENTARY.md`, to be removed at the formal v1 release. No other wording changed.
+
 ## v1.1.22 — 2026-10-21
 Site, checks and method notes. No change to any count, inclusion or coding call.
 - The home page's wording now follows the data as well as its numbers. "Most" known targets becomes "Half" or "Fewer than half" if the split changes, and "too few to compare" becomes "enough to compare" at 10 Phase 2 outcomes.
